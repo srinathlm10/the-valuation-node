@@ -2,14 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Finance Education Platform Design System
-   Color Palette: Navy blue, white, subtle gold accents (trust & professionalism)
+/* FinBot India - Knowledge & Regulatory Intelligence Platform
+   Color Palette: Slate/Navy institutional palette (#0f172a)
+   Professional, high-legibility typography for dense financial text
    All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 210 40% 98%;
     --foreground: 222 47% 11%;
 
     --card: 0 0% 100%;
@@ -18,88 +19,110 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
 
-    /* Navy blue primary */
-    --primary: 222 47% 20%;
-    --primary-foreground: 0 0% 100%;
+    /* Deep Slate primary - #0f172a */
+    --primary: 222 47% 11%;
+    --primary-foreground: 210 40% 98%;
 
-    /* Light gray secondary */
-    --secondary: 220 14% 96%;
-    --secondary-foreground: 222 47% 11%;
+    /* Light slate secondary */
+    --secondary: 215 28% 17%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 220 14% 96%;
-    --muted-foreground: 220 9% 46%;
+    --muted: 214 32% 91%;
+    --muted-foreground: 215 16% 47%;
 
-    /* Gold accent */
-    --accent: 43 74% 49%;
-    --accent-foreground: 222 47% 11%;
+    /* Emerald accent for success/positive */
+    --accent: 160 84% 39%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 222 47% 20%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 222 47% 11%;
 
     --radius: 0.5rem;
 
-    /* Custom finance tokens */
-    --navy: 222 47% 20%;
-    --navy-light: 222 47% 30%;
-    --navy-dark: 222 47% 11%;
-    --gold: 43 74% 49%;
-    --gold-light: 43 74% 65%;
-    --gold-dark: 43 74% 40%;
-    --cream: 40 33% 97%;
-    --success: 142 71% 45%;
-    --warning: 38 92% 50%;
+    /* Custom FinBot tokens */
+    --slate-950: 222 47% 11%;
+    --slate-900: 215 28% 17%;
+    --slate-800: 217 33% 23%;
+    --slate-700: 215 25% 34%;
+    --slate-600: 215 20% 45%;
+    --slate-500: 215 16% 57%;
+    --slate-400: 214 20% 69%;
+    --slate-300: 213 27% 84%;
+    --slate-200: 214 32% 91%;
+    --slate-100: 210 40% 96%;
+    --slate-50: 210 40% 98%;
+
+    /* Emerald for positive indicators */
+    --emerald: 160 84% 39%;
+    --emerald-light: 158 64% 52%;
+    --emerald-dark: 162 94% 30%;
+
+    /* Amber for warnings/neutral */
+    --amber: 45 93% 47%;
+    --amber-light: 45 93% 58%;
+
+    /* Rose for negative/alerts */
+    --rose: 347 77% 50%;
+    --rose-light: 347 77% 60%;
+
+    /* Chart colors */
+    --chart-1: 160 84% 39%;
+    --chart-2: 199 89% 48%;
+    --chart-3: 45 93% 47%;
+    --chart-4: 262 83% 58%;
+    --chart-5: 347 77% 50%;
 
     --sidebar-background: 222 47% 11%;
-    --sidebar-foreground: 0 0% 100%;
-    --sidebar-primary: 43 74% 49%;
+    --sidebar-foreground: 210 40% 96%;
+    --sidebar-primary: 160 84% 39%;
     --sidebar-primary-foreground: 222 47% 11%;
-    --sidebar-accent: 222 47% 20%;
-    --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 222 47% 25%;
-    --sidebar-ring: 43 74% 49%;
+    --sidebar-accent: 215 28% 17%;
+    --sidebar-accent-foreground: 210 40% 96%;
+    --sidebar-border: 217 33% 23%;
+    --sidebar-ring: 160 84% 39%;
   }
 
   .dark {
     --background: 222 47% 6%;
-    --foreground: 220 14% 96%;
+    --foreground: 210 40% 96%;
 
     --card: 222 47% 9%;
-    --card-foreground: 220 14% 96%;
+    --card-foreground: 210 40% 96%;
 
     --popover: 222 47% 9%;
-    --popover-foreground: 220 14% 96%;
+    --popover-foreground: 210 40% 96%;
 
-    --primary: 43 74% 55%;
+    --primary: 160 84% 45%;
     --primary-foreground: 222 47% 11%;
 
-    --secondary: 222 47% 15%;
-    --secondary-foreground: 220 14% 96%;
+    --secondary: 217 33% 23%;
+    --secondary-foreground: 210 40% 96%;
 
-    --muted: 222 47% 15%;
-    --muted-foreground: 220 9% 65%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 43 74% 49%;
+    --accent: 160 84% 39%;
     --accent-foreground: 222 47% 11%;
 
     --destructive: 0 62% 30%;
-    --destructive-foreground: 220 14% 96%;
+    --destructive-foreground: 210 40% 96%;
 
-    --border: 222 47% 20%;
-    --input: 222 47% 20%;
-    --ring: 43 74% 49%;
+    --border: 217 33% 23%;
+    --input: 217 33% 23%;
+    --ring: 160 84% 45%;
 
     --sidebar-background: 222 47% 6%;
-    --sidebar-foreground: 220 14% 96%;
-    --sidebar-primary: 43 74% 55%;
+    --sidebar-foreground: 210 40% 96%;
+    --sidebar-primary: 160 84% 45%;
     --sidebar-primary-foreground: 222 47% 11%;
-    --sidebar-accent: 222 47% 15%;
-    --sidebar-accent-foreground: 220 14% 96%;
-    --sidebar-border: 222 47% 20%;
-    --sidebar-ring: 43 74% 55%;
+    --sidebar-accent: 217 33% 17%;
+    --sidebar-accent-foreground: 210 40% 96%;
+    --sidebar-border: 217 33% 23%;
+    --sidebar-ring: 160 84% 45%;
   }
 }
 
@@ -119,16 +142,16 @@
 }
 
 @layer components {
-  .gradient-navy {
-    background: linear-gradient(135deg, hsl(var(--navy)) 0%, hsl(var(--navy-dark)) 100%);
+  .gradient-slate {
+    background: linear-gradient(135deg, hsl(var(--slate-950)) 0%, hsl(var(--slate-800)) 100%);
   }
 
-  .gradient-gold {
-    background: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--gold-dark)) 100%);
+  .gradient-emerald {
+    background: linear-gradient(135deg, hsl(var(--emerald)) 0%, hsl(var(--emerald-dark)) 100%);
   }
 
-  .text-gradient {
-    background: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--gold-light)) 100%);
+  .text-gradient-emerald {
+    background: linear-gradient(135deg, hsl(var(--emerald)) 0%, hsl(var(--emerald-light)) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -138,8 +161,36 @@
     @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
   }
 
+  .card-interactive {
+    @apply transition-all duration-200 hover:shadow-md hover:border-primary/20 cursor-pointer;
+  }
+
   .link-underline {
-    @apply relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full;
+    @apply relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full;
+  }
+
+  .badge-source {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+
+  .badge-sebi {
+    @apply badge-source bg-blue-100 text-blue-800;
+  }
+
+  .badge-nse {
+    @apply badge-source bg-emerald-100 text-emerald-800;
+  }
+
+  .badge-bse {
+    @apply badge-source bg-amber-100 text-amber-800;
+  }
+
+  .data-table-header {
+    @apply bg-slate-50 font-semibold text-slate-700;
+  }
+
+  .prose-finance {
+    @apply prose prose-slate max-w-none prose-headings:font-semibold prose-a:text-primary prose-a:no-underline hover:prose-a:underline;
   }
 }
 
@@ -154,6 +205,10 @@
 
   .animate-slide-up {
     animation: slideUp 0.5s ease-out forwards;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.3s ease-out forwards;
   }
 
   @keyframes fadeIn {
@@ -173,6 +228,17 @@
     to {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
     }
   }
 }

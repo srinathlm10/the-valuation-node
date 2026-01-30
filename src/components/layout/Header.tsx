@@ -1,16 +1,18 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
-import { Menu, BookOpen, User, LogOut } from "lucide-react";
+import { Menu, Bot, User, LogOut } from "lucide-react";
 import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import { GlobalSearch } from "@/components/search/GlobalSearch";
 import type { User as SupabaseUser } from "@supabase/supabase-js";
 
 const navItems = [
-  { label: "Home", href: "/" },
-  { label: "Learn", href: "/learn" },
-  { label: "Categories", href: "/categories" },
+  { label: "Knowledge Hub", href: "/" },
+  { label: "Compliance", href: "/compliance" },
+  { label: "Stocks", href: "/stocks" },
+  { label: "Finance Lab", href: "/learn" },
 ];
 
 export function Header() {
@@ -50,26 +52,29 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between">
+    <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container flex h-16 items-center justify-between gap-4">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary">
-            <BookOpen className="h-5 w-5 text-primary-foreground" />
+        <Link to="/" className="flex items-center gap-2 shrink-0">
+          <div className="flex h-9 w-9 items-center justify-center rounded-lg gradient-slate">
+            <Bot className="h-5 w-5 text-primary-foreground" />
           </div>
-          <span className="text-xl font-bold text-foreground">FinanceWise</span>
+          <div className="hidden sm:block">
+            <span className="text-lg font-bold text-foreground">FinBot</span>
+            <span className="text-lg font-light text-muted-foreground ml-1">India</span>
+          </div>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden items-center gap-6 md:flex">
+        <nav className="hidden items-center gap-1 lg:flex">
           {navItems.map((item) => (
             <Link
               key={item.href}
               to={item.href}
-              className={`text-sm font-medium transition-colors link-underline ${
+              className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
                 location.pathname === item.href
-                  ? "text-foreground"
-                  : "text-muted-foreground hover:text-foreground"
+                  ? "bg-muted text-foreground"
+                  : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
               }`}
             >
               {item.label}
@@ -77,8 +82,13 @@ export function Header() {
           ))}
         </nav>
 
+        {/* Global Search */}
+        <div className="hidden md:block flex-1 max-w-md">
+          <GlobalSearch />
+        </div>
+
         {/* Desktop Auth Buttons */}
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-2 lg:flex shrink-0">
           {user ? (
             <>
               <Button variant="ghost" size="sm" asChild>
@@ -106,7 +116,7 @@ export function Header() {
 
         {/* Mobile Menu */}
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
-          <SheetTrigger asChild className="md:hidden">
+          <SheetTrigger asChild className="lg:hidden">
             <Button variant="ghost" size="icon">
               <Menu className="h-5 w-5" />
               <span className="sr-only">Toggle menu</span>

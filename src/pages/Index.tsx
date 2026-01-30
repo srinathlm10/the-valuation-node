@@ -1,211 +1,121 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Layout } from "@/components/layout/Layout";
+import { GlobalSearch } from "@/components/search/GlobalSearch";
+import { CircularCard } from "@/components/compliance/ComplianceFeed";
+import { FutureValueCalculator, SIPCalculator } from "@/components/calculators/FormulaCalculators";
+import { ChatSidebar } from "@/components/chat/ChatSidebar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Layout } from "@/components/layout/Layout";
-import { ArticleCard } from "@/components/articles/ArticleCard";
-import { CategoryCard } from "@/components/articles/CategoryCard";
-import { articles, categories, getArticlesByCategory } from "@/data/articles";
-import {
-  ArrowRight,
-  TrendingUp,
-  Shield,
-  Target,
-  BookOpen,
-  Users,
-  Award,
-} from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Bot, FileText, Calculator, Building2, BookOpen, ArrowRight, Sparkles } from "lucide-react";
+import circulars from "@/data/circulars.json";
 
-const benefits = [
-  {
-    icon: BookOpen,
-    title: "Learn at Your Pace",
-    description: "Comprehensive articles from beginner to advanced levels",
-  },
-  {
-    icon: Shield,
-    title: "Trustworthy Content",
-    description: "Expert-reviewed information you can rely on",
-  },
-  {
-    icon: Target,
-    title: "Practical Knowledge",
-    description: "Real-world strategies you can apply today",
-  },
-];
+export default function Index() {
+  const [chatOpen, setChatOpen] = useState(false);
+  const [chatContext, setChatContext] = useState<string | undefined>();
+  const [initialMessage, setInitialMessage] = useState<string | undefined>();
 
-const stats = [
-  { value: "50+", label: "Educational Articles" },
-  { value: "10k+", label: "Active Learners" },
-  { value: "5", label: "Topic Categories" },
-];
+  const handleBotSummary = (circular: any) => {
+    setChatContext(`Summarizing circular: ${circular.title}`);
+    setInitialMessage(`Please explain this regulatory circular in simple terms: "${circular.title}"`);
+    setChatOpen(true);
+  };
 
-const Index = () => {
-  const featuredArticles = articles.slice(0, 3);
+  const handleExplainFormula = (formula: string, result: any) => {
+    setChatContext(`Explaining ${formula} calculation`);
+    setInitialMessage(`Explain the ${formula} formula. Inputs: ${JSON.stringify(result.inputs)}, Result: ₹${Math.round(result.output).toLocaleString("en-IN")}`);
+    setChatOpen(true);
+  };
 
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="relative overflow-hidden bg-primary py-20 lg:py-28">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--navy-dark)/0.3)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--navy-dark)/0.3)_1px,transparent_1px)] bg-[size:4rem_4rem]" />
-        <div className="container relative">
-          <div className="mx-auto max-w-3xl text-center">
-            <h1 className="mb-6 text-4xl font-bold tracking-tight text-primary-foreground sm:text-5xl lg:text-6xl">
-              Master Your{" "}
-              <span className="text-gradient">Financial Future</span>
-            </h1>
-            <p className="mb-8 text-lg text-primary-foreground/80 sm:text-xl">
-              Build wealth, reduce debt, and achieve financial freedom with expert-crafted 
-              educational content. Start your journey to financial literacy today.
+      <section className="relative overflow-hidden gradient-slate text-primary-foreground">
+        <div className="container relative py-16 md:py-24">
+          <div className="max-w-3xl mx-auto text-center space-y-6">
+            <Badge variant="secondary" className="bg-primary-foreground/10 text-primary-foreground border-0">
+              <Sparkles className="h-3 w-3 mr-1" />
+              Phase 1: Knowledge & Regulatory Intelligence
+            </Badge>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">Decoding Indian Finance</h1>
+            <p className="text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto">
+              Navigate SEBI regulations, understand complex financial concepts, and analyze fundamentals with AI-powered insights.
             </p>
-            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Button size="lg" variant="secondary" asChild>
-                <Link to="/learn">
-                  Start Learning
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
-                asChild
-              >
-                <Link to="/signup">Create Free Account</Link>
-              </Button>
+            <div className="flex justify-center pt-4">
+              <div className="w-full max-w-md"><GlobalSearch /></div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="border-b bg-secondary/50 py-12">
-        <div className="container">
-          <div className="grid gap-8 md:grid-cols-3">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-3xl font-bold text-primary sm:text-4xl">
-                  {stat.value}
-                </div>
-                <div className="mt-1 text-sm text-muted-foreground">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits Section */}
-      <section className="py-16 lg:py-24">
-        <div className="container">
-          <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold sm:text-4xl">
-              Why Learn With Us?
-            </h2>
-            <p className="mx-auto max-w-2xl text-muted-foreground">
-              We make financial education accessible, engaging, and actionable for everyone.
-            </p>
-          </div>
-          <div className="grid gap-8 md:grid-cols-3">
-            {benefits.map((benefit, index) => (
-              <Card key={index} className="text-center">
-                <CardContent className="pt-6">
-                  <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                    <benefit.icon className="h-6 w-6 text-primary" />
+      <section className="container py-8 -mt-8 relative z-10">
+        <div className="grid gap-4 md:grid-cols-4">
+          {[
+            { href: "/compliance", icon: FileText, color: "bg-blue-100 text-blue-700", title: "Compliance Feed", desc: "Latest SEBI, NSE & BSE circulars" },
+            { href: "/stocks", icon: Building2, color: "bg-emerald-100 text-emerald-700", title: "Stock Archive", desc: "Nifty 50 fundamentals" },
+            { href: "/learn", icon: BookOpen, color: "bg-purple-100 text-purple-700", title: "Finance Lab", desc: "Interactive glossary & formulas" },
+            { href: "/calculators", icon: Calculator, color: "bg-amber-100 text-amber-700", title: "Calculators", desc: "SIP, FV, CAGR & more" },
+          ].map((item) => (
+            <Link key={item.href} to={item.href}>
+              <Card className="card-hover h-full border-2 hover:border-primary/20">
+                <CardContent className="pt-6 flex items-start gap-4">
+                  <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-lg ${item.color}`}>
+                    <item.icon className="h-6 w-6" />
                   </div>
-                  <h3 className="mb-2 text-lg font-semibold">{benefit.title}</h3>
-                  <p className="text-sm text-muted-foreground">{benefit.description}</p>
+                  <div>
+                    <h3 className="font-semibold">{item.title}</h3>
+                    <p className="text-sm text-muted-foreground mt-1">{item.desc}</p>
+                  </div>
                 </CardContent>
               </Card>
-            ))}
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="container py-12">
+        <div className="flex items-center justify-between mb-6">
+          <div>
+            <h2 className="text-2xl font-bold">Trending Circulars</h2>
+            <p className="text-muted-foreground mt-1">Latest regulatory updates with FinBot summaries</p>
+          </div>
+          <Button variant="outline" asChild><Link to="/compliance">View All<ArrowRight className="ml-2 h-4 w-4" /></Link></Button>
+        </div>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {circulars.slice(0, 3).map((circular: any) => (
+            <CircularCard key={circular.id} circular={circular} onBotSummary={handleBotSummary} onViewDetails={() => {}} />
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-muted/30 py-12">
+        <div className="container">
+          <h2 className="text-2xl font-bold mb-6">Featured Calculators</h2>
+          <div className="grid gap-6 md:grid-cols-2">
+            <SIPCalculator onExplain={handleExplainFormula} />
+            <FutureValueCalculator onExplain={handleExplainFormula} />
           </div>
         </div>
       </section>
 
-      {/* Categories Section */}
-      <section className="bg-secondary/30 py-16 lg:py-24">
-        <div className="container">
-          <div className="mb-12 flex items-center justify-between">
-            <div>
-              <h2 className="mb-2 text-3xl font-bold">Browse by Topic</h2>
-              <p className="text-muted-foreground">
-                Explore our comprehensive financial education categories
-              </p>
+      <section className="container py-12">
+        <Card className="gradient-slate text-primary-foreground">
+          <CardContent className="py-8 flex flex-col md:flex-row items-center gap-8">
+            <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-primary-foreground/10">
+              <Bot className="h-10 w-10" />
             </div>
-            <Button variant="outline" asChild className="hidden sm:flex">
-              <Link to="/categories">
-                View All Categories
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-          </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
-            {categories.map((category) => (
-              <CategoryCard
-                key={category.id}
-                category={category}
-                articleCount={getArticlesByCategory(category.id).length}
-              />
-            ))}
-          </div>
-          <div className="mt-8 text-center sm:hidden">
-            <Button variant="outline" asChild>
-              <Link to="/categories">View All Categories</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Articles Section */}
-      <section className="py-16 lg:py-24">
-        <div className="container">
-          <div className="mb-12 flex items-center justify-between">
-            <div>
-              <h2 className="mb-2 text-3xl font-bold">Featured Articles</h2>
-              <p className="text-muted-foreground">
-                Start with our most popular educational content
-              </p>
+            <div className="flex-1 text-center md:text-left">
+              <h2 className="text-2xl font-bold mb-2">Meet FinBot, Your AI Navigator</h2>
+              <p className="text-primary-foreground/80">Get instant, plain-English explanations of regulations and financial concepts.</p>
             </div>
-            <Button variant="outline" asChild className="hidden sm:flex">
-              <Link to="/learn">
-                View All Articles
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
+            <Button size="lg" variant="secondary" onClick={() => setChatOpen(true)}>
+              <Bot className="mr-2 h-5 w-5" />Try FinBot
             </Button>
-          </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {featuredArticles.map((article) => (
-              <ArticleCard key={article.id} article={article} />
-            ))}
-          </div>
-          <div className="mt-8 text-center sm:hidden">
-            <Button variant="outline" asChild>
-              <Link to="/learn">View All Articles</Link>
-            </Button>
-          </div>
-        </div>
+          </CardContent>
+        </Card>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-primary py-16 lg:py-24">
-        <div className="container">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="mb-4 text-3xl font-bold text-primary-foreground sm:text-4xl">
-              Ready to Take Control of Your Finances?
-            </h2>
-            <p className="mb-8 text-lg text-primary-foreground/80">
-              Join thousands of learners building their financial future. 
-              Create a free account to bookmark articles and track your progress.
-            </p>
-            <Button size="lg" variant="secondary" asChild>
-              <Link to="/signup">
-                Get Started Free
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </section>
+      <ChatSidebar isOpen={chatOpen} onToggle={() => setChatOpen(!chatOpen)} initialMessage={initialMessage} context={chatContext} />
     </Layout>
   );
-};
-
-export default Index;
+}

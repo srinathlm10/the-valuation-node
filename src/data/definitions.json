@@ -1,0 +1,222 @@
+[
+  {
+    "id": "pe-ratio",
+    "term": "P/E Ratio",
+    "fullName": "Price-to-Earnings Ratio",
+    "category": "Valuation",
+    "definition": "The ratio of a company's current stock price to its earnings per share (EPS). It indicates how much investors are willing to pay for each rupee of earnings.",
+    "formula": "P/E = Stock Price ÷ Earnings Per Share",
+    "whyItMatters": "A high P/E suggests investors expect high future growth, while a low P/E might indicate undervaluation or problems. Compare P/E within the same industry for meaningful analysis.",
+    "example": "If a stock trades at ₹100 and EPS is ₹5, P/E = 20. This means investors pay ₹20 for every ₹1 of annual earnings.",
+    "relatedTerms": ["EPS", "PEG Ratio", "Forward P/E"]
+  },
+  {
+    "id": "roe",
+    "term": "ROE",
+    "fullName": "Return on Equity",
+    "category": "Profitability",
+    "definition": "A measure of how efficiently a company uses shareholders' equity to generate profits. It shows the percentage return on the money shareholders have invested.",
+    "formula": "ROE = (Net Income ÷ Shareholders' Equity) × 100",
+    "whyItMatters": "Higher ROE indicates better use of investor capital. Consistently high ROE (>15%) often signals a competitive advantage. But watch out for high ROE from excessive debt.",
+    "example": "If a company earns ₹10 crore profit with ₹50 crore equity, ROE = 20%. Every ₹100 invested generates ₹20 in profit annually.",
+    "relatedTerms": ["ROA", "ROCE", "Net Profit Margin"]
+  },
+  {
+    "id": "cagr",
+    "term": "CAGR",
+    "fullName": "Compound Annual Growth Rate",
+    "category": "Growth",
+    "definition": "The mean annual growth rate of an investment over a specified period longer than one year, assuming profits are reinvested at the end of each year.",
+    "formula": "CAGR = [(Ending Value ÷ Beginning Value)^(1/n) - 1] × 100",
+    "whyItMatters": "CAGR smooths out volatility to show the 'true' annual return. It's the standard way to compare investments over different time periods.",
+    "example": "₹1 lakh growing to ₹2 lakh in 5 years = CAGR of 14.87%. This means 14.87% annual return if compounded.",
+    "relatedTerms": ["Absolute Returns", "XIRR", "Annualized Returns"]
+  },
+  {
+    "id": "eps",
+    "term": "EPS",
+    "fullName": "Earnings Per Share",
+    "category": "Profitability",
+    "definition": "The portion of a company's profit allocated to each outstanding share of common stock. It's a key indicator of a company's profitability on a per-share basis.",
+    "formula": "EPS = (Net Income - Preferred Dividends) ÷ Weighted Average Shares Outstanding",
+    "whyItMatters": "Rising EPS over time indicates growing profitability. It's used to calculate P/E ratio and compare companies of different sizes on equal footing.",
+    "example": "Company earns ₹100 crore with 10 crore shares = EPS of ₹10. Each share 'earns' ₹10 annually.",
+    "relatedTerms": ["P/E Ratio", "Diluted EPS", "Book Value"]
+  },
+  {
+    "id": "market-cap",
+    "term": "Market Cap",
+    "fullName": "Market Capitalization",
+    "category": "Size",
+    "definition": "The total market value of a company's outstanding shares. It represents what the market believes a company is worth.",
+    "formula": "Market Cap = Current Stock Price × Total Outstanding Shares",
+    "whyItMatters": "Determines company size classification (Large/Mid/Small cap). Larger market cap usually means more stability but slower growth potential.",
+    "example": "Stock at ₹500 with 2 crore shares = ₹1,000 crore market cap. This is a small-cap company.",
+    "relatedTerms": ["Enterprise Value", "Free Float", "Weightage"]
+  },
+  {
+    "id": "debt-to-equity",
+    "term": "Debt-to-Equity",
+    "fullName": "Debt-to-Equity Ratio",
+    "category": "Leverage",
+    "definition": "A measure of a company's financial leverage, showing the proportion of debt used to finance assets relative to shareholders' equity.",
+    "formula": "D/E = Total Debt ÷ Total Shareholders' Equity",
+    "whyItMatters": "High D/E (>1) means more debt than equity, increasing financial risk. Different industries have different acceptable levels — banks naturally have higher D/E.",
+    "example": "₹200 crore debt with ₹100 crore equity = D/E of 2. The company owes twice what shareholders have invested.",
+    "relatedTerms": ["Interest Coverage", "Leverage", "Solvency Ratio"]
+  },
+  {
+    "id": "dividend-yield",
+    "term": "Dividend Yield",
+    "fullName": "Dividend Yield",
+    "category": "Income",
+    "definition": "The annual dividend payment divided by the stock's current price, expressed as a percentage. It shows the income return on investment.",
+    "formula": "Dividend Yield = (Annual Dividend Per Share ÷ Stock Price) × 100",
+    "whyItMatters": "High yield can indicate good income but may also signal a falling stock price. Sustainable dividend yield with growth is ideal for income investors.",
+    "example": "₹10 annual dividend on ₹200 stock = 5% yield. You earn ₹5 in dividends for every ₹100 invested.",
+    "relatedTerms": ["Payout Ratio", "Dividend Growth", "Ex-Dividend Date"]
+  },
+  {
+    "id": "book-value",
+    "term": "Book Value",
+    "fullName": "Book Value Per Share",
+    "category": "Valuation",
+    "definition": "The net asset value of a company divided by outstanding shares. It represents the theoretical value if the company was liquidated.",
+    "formula": "Book Value = (Total Assets - Total Liabilities) ÷ Outstanding Shares",
+    "whyItMatters": "Comparing stock price to book value (P/B ratio) helps identify undervalued stocks. Banks and asset-heavy companies are often valued on book value.",
+    "example": "Assets ₹500 cr, Liabilities ₹300 cr, 10 cr shares = Book Value ₹20. If stock trades at ₹15, it's below book value.",
+    "relatedTerms": ["P/B Ratio", "Net Asset Value", "Tangible Book Value"]
+  },
+  {
+    "id": "nav",
+    "term": "NAV",
+    "fullName": "Net Asset Value",
+    "category": "Mutual Funds",
+    "definition": "The per-unit value of a mutual fund scheme, calculated by dividing the total value of all securities in the portfolio by the number of units.",
+    "formula": "NAV = (Total Assets - Total Liabilities) ÷ Number of Units",
+    "whyItMatters": "NAV changes daily based on market movements. Don't compare NAVs across funds — a higher NAV doesn't mean better performance. Focus on returns instead.",
+    "example": "Fund with ₹100 crore assets, ₹1 crore liabilities, 9.9 crore units = NAV of ₹10. Each unit is worth ₹10.",
+    "relatedTerms": ["AUM", "Expense Ratio", "Exit Load"]
+  },
+  {
+    "id": "sip",
+    "term": "SIP",
+    "fullName": "Systematic Investment Plan",
+    "category": "Investment Strategy",
+    "definition": "A method of investing a fixed sum regularly in mutual funds. It automates investing and leverages rupee cost averaging.",
+    "formula": "SIP Returns use XIRR for accurate calculation due to irregular cash flows",
+    "whyItMatters": "SIP reduces timing risk through rupee cost averaging — you buy more units when prices are low. Even small monthly amounts compound significantly over decades.",
+    "example": "₹10,000/month SIP for 20 years at 12% CAGR = ₹1 crore corpus. Total invested: ₹24 lakhs, wealth created: ₹76 lakhs.",
+    "relatedTerms": ["Rupee Cost Averaging", "Step-up SIP", "SWP"]
+  },
+  {
+    "id": "expense-ratio",
+    "term": "Expense Ratio",
+    "fullName": "Total Expense Ratio (TER)",
+    "category": "Mutual Funds",
+    "definition": "The annual fee charged by a mutual fund to manage your money, expressed as a percentage of assets. It covers fund management, marketing, and operational costs.",
+    "formula": "Expense Ratio = (Total Fund Expenses ÷ Average AUM) × 100",
+    "whyItMatters": "Lower expense ratios mean more returns in your pocket. A 0.5% difference compounded over 20 years can cost lakhs. Index funds typically have the lowest ratios.",
+    "example": "1% expense ratio on ₹10 lakh investment = ₹10,000/year fee. Over 20 years at 12% return, this 1% reduces final corpus by ₹15 lakhs.",
+    "relatedTerms": ["NAV", "Direct vs Regular", "Exit Load"]
+  },
+  {
+    "id": "beta",
+    "term": "Beta",
+    "fullName": "Beta Coefficient",
+    "category": "Risk",
+    "definition": "A measure of a stock's volatility compared to the overall market (Nifty 50). It indicates how much a stock moves relative to market movements.",
+    "formula": "Beta = Covariance(Stock, Market) ÷ Variance(Market)",
+    "whyItMatters": "Beta >1 means more volatile than market (high risk, high reward). Beta <1 means less volatile. Defensive stocks like FMCG typically have low beta.",
+    "example": "Beta of 1.5 means if Nifty rises 10%, the stock rises ~15%. If Nifty falls 10%, stock falls ~15%.",
+    "relatedTerms": ["Alpha", "Sharpe Ratio", "Standard Deviation"]
+  },
+  {
+    "id": "alpha",
+    "term": "Alpha",
+    "fullName": "Jensen's Alpha",
+    "category": "Performance",
+    "definition": "The excess return of an investment relative to its expected return based on risk (beta). It measures a fund manager's skill in generating returns.",
+    "formula": "Alpha = Actual Return - [Risk-Free Rate + Beta × (Market Return - Risk-Free Rate)]",
+    "whyItMatters": "Positive alpha indicates outperformance vs benchmark. Consistent alpha is rare and valuable. Most active funds fail to generate alpha after fees.",
+    "example": "Fund returned 18% when expected return (based on beta) was 15%. Alpha = 3% — manager added 3% extra returns.",
+    "relatedTerms": ["Beta", "Sharpe Ratio", "Benchmark"]
+  },
+  {
+    "id": "face-value",
+    "term": "Face Value",
+    "fullName": "Par Value / Face Value",
+    "category": "Basics",
+    "definition": "The nominal value of a share as stated in the company's charter. It's the original cost of the stock when first issued and used for accounting purposes.",
+    "formula": "Share Capital = Face Value × Number of Shares",
+    "whyItMatters": "Face value is used to calculate dividends (often expressed as % of face value) and for stock splits. It has no relation to market price.",
+    "example": "Stock with ₹10 face value trading at ₹1000. A 2:1 stock split makes face value ₹5, shares double, price halves to ₹500.",
+    "relatedTerms": ["Stock Split", "Bonus Shares", "Premium"]
+  },
+  {
+    "id": "rsi",
+    "term": "RSI",
+    "fullName": "Relative Strength Index",
+    "category": "Technical",
+    "definition": "A momentum oscillator that measures the speed and magnitude of recent price changes. It oscillates between 0 and 100.",
+    "formula": "RSI = 100 - [100 ÷ (1 + Average Gain ÷ Average Loss)]",
+    "whyItMatters": "RSI above 70 suggests overbought (potential selling opportunity). RSI below 30 suggests oversold (potential buying opportunity). Use with other indicators.",
+    "example": "Stock RSI at 85 after a rally — it's overbought. This doesn't mean sell immediately, but indicates momentum might slow.",
+    "relatedTerms": ["MACD", "Moving Average", "Overbought"]
+  },
+  {
+    "id": "pe-band",
+    "term": "P/E Band",
+    "fullName": "Price-to-Earnings Band",
+    "category": "Valuation",
+    "definition": "A chart showing a stock's historical P/E ratio range, helping identify whether current valuation is expensive or cheap relative to its own history.",
+    "formula": "Plot P/E over time with standard deviation bands",
+    "whyItMatters": "Trading near lower P/E band suggests potential value. Near upper band suggests expensive. More reliable than comparing P/E across different companies.",
+    "example": "Stock's 10-year P/E range: 15-35. Currently at P/E 18 — trading near historical lows, potentially undervalued.",
+    "relatedTerms": ["P/E Ratio", "Mean Reversion", "Valuation"]
+  },
+  {
+    "id": "ema",
+    "term": "EMA",
+    "fullName": "Exponential Moving Average",
+    "category": "Technical",
+    "definition": "A type of moving average that gives more weight to recent prices, making it more responsive to new information than simple moving average.",
+    "formula": "EMA = (Price × Multiplier) + (Previous EMA × (1 - Multiplier))",
+    "whyItMatters": "Traders use 20-day and 50-day EMAs for trend identification. Price above EMA suggests uptrend. EMA crossovers generate buy/sell signals.",
+    "example": "Stock crosses above 50-day EMA — bullish signal. If 20-day EMA crosses above 50-day EMA — stronger bullish confirmation.",
+    "relatedTerms": ["SMA", "Moving Average Crossover", "Golden Cross"]
+  },
+  {
+    "id": "free-float",
+    "term": "Free Float",
+    "fullName": "Free Float Market Capitalization",
+    "category": "Size",
+    "definition": "The portion of shares available for public trading, excluding promoter holdings, government holdings, and other locked-in shares.",
+    "formula": "Free Float = Total Shares - (Promoter Shares + Locked Shares)",
+    "whyItMatters": "Index weightages are based on free float. Low free float means less liquidity and higher price volatility. Important for institutional investors.",
+    "example": "Company has 10 crore shares, promoters hold 60%. Free float = 4 crore shares (40%). Only these trade actively.",
+    "relatedTerms": ["Market Cap", "Index Weightage", "Liquidity"]
+  },
+  {
+    "id": "roce",
+    "term": "ROCE",
+    "fullName": "Return on Capital Employed",
+    "category": "Profitability",
+    "definition": "A measure of how efficiently a company uses its total capital (equity + debt) to generate profits. Better for comparing capital-intensive businesses.",
+    "formula": "ROCE = (EBIT ÷ Capital Employed) × 100",
+    "whyItMatters": "ROCE above cost of capital creates value. Unlike ROE, it considers debt. Essential for evaluating infrastructure, manufacturing, and telecom companies.",
+    "example": "EBIT ₹50 crore on ₹200 crore capital = 25% ROCE. If cost of capital is 12%, company is creating significant value.",
+    "relatedTerms": ["ROE", "ROIC", "WACC"]
+  },
+  {
+    "id": "nifty50",
+    "term": "Nifty 50",
+    "fullName": "National Stock Exchange Fifty",
+    "category": "Index",
+    "definition": "India's benchmark stock index comprising 50 of the largest and most liquid companies listed on NSE, representing about 65% of free-float market cap.",
+    "formula": "Free Float Market Cap Weighted Index",
+    "whyItMatters": "The Nifty 50 is the primary benchmark for Indian equity performance. Most large-cap mutual funds are measured against it. Also used for F&O trading.",
+    "example": "Nifty at 22,000 with P/E of 24. Historical average P/E is 20. Current market is trading 20% above historical average valuation.",
+    "relatedTerms": ["Sensex", "Nifty Next 50", "Index Fund"]
+  }
+]
