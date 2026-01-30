@@ -1,0 +1,90 @@
+[
+  {
+    "id": "sebi-2026-001",
+    "title": "Framework for Regulated Entities under AI/ML-Based Investment Recommendations",
+    "source": "SEBI",
+    "category": "Trading",
+    "date": "2026-01-28",
+    "summary": "SEBI introduces a comprehensive framework requiring all investment advisors and research analysts using AI/ML tools to maintain explainability logs, conduct periodic audits, and ensure client disclosures about algorithm-based recommendations.",
+    "botSummary": "SEBI now requires anyone giving AI-powered stock tips to: 1) Keep records of how their AI made decisions, 2) Get regular audits, and 3) Tell clients when advice comes from an algorithm. This protects retail investors from 'black box' recommendations.",
+    "pdfUrl": "/docs/sebi-ai-framework-2026.pdf",
+    "tags": ["AI", "Investment Advisory", "Compliance"]
+  },
+  {
+    "id": "nse-2026-002",
+    "title": "Revision of Closing Auction Session Timings for Equity Segment",
+    "source": "NSE",
+    "category": "Trading",
+    "date": "2026-01-25",
+    "summary": "NSE revises the closing auction session timing from 3:40 PM to 4:00 PM to 3:45 PM to 4:00 PM, effective February 1, 2026. The pre-open session remains unchanged.",
+    "botSummary": "The 'closing auction' is how NSE determines the final price of stocks each day. It's now 5 minutes shorter (3:45-4:00 PM instead of 3:40-4:00 PM). This means less time for big institutions to place large orders that set the closing price.",
+    "pdfUrl": "/docs/nse-closing-auction-2026.pdf",
+    "tags": ["Trading Hours", "Auction", "Equity"]
+  },
+  {
+    "id": "sebi-2026-003",
+    "title": "Enhanced Disclosures for Mutual Funds with International Exposure",
+    "source": "SEBI",
+    "category": "Mutual Funds",
+    "date": "2026-01-22",
+    "summary": "Mutual funds with more than 20% international exposure must now provide quarterly reports on currency hedging costs, geopolitical risk assessments, and detailed country-wise allocation breakdowns.",
+    "botSummary": "If your mutual fund invests abroad, you'll now get clearer reports every 3 months showing: how much currency fluctuations cost you, which countries your money is in, and what global risks might affect your returns. Better transparency for global investors.",
+    "pdfUrl": "/docs/sebi-mf-international-2026.pdf",
+    "tags": ["Mutual Funds", "International", "Disclosure"]
+  },
+  {
+    "id": "bse-2026-004",
+    "title": "Introduction of T+0 Settlement Cycle for Select Securities",
+    "source": "BSE",
+    "category": "Settlement",
+    "date": "2026-01-20",
+    "summary": "BSE announces the introduction of T+0 (same-day) settlement for top 500 securities by market capitalization, effective March 2026. This reduces counterparty risk and improves capital efficiency.",
+    "botSummary": "Currently when you sell a stock, you get money in T+1 (next day). For top 500 stocks, BSE will offer T+0 — you get your money the SAME day you sell. This means faster access to funds and less risk of the buyer defaulting.",
+    "pdfUrl": "/docs/bse-t0-settlement-2026.pdf",
+    "tags": ["Settlement", "T+0", "Clearing"]
+  },
+  {
+    "id": "sebi-2026-005",
+    "title": "Guidelines on Investor Grievance Redressal Through ODR Platform",
+    "source": "SEBI",
+    "category": "Investor Protection",
+    "date": "2026-01-18",
+    "summary": "SEBI mandates all market intermediaries to integrate with the Online Dispute Resolution (ODR) platform. Disputes under ₹50 lakhs must be resolved within 60 days through this mechanism.",
+    "botSummary": "Got a complaint against your broker or mutual fund? SEBI now requires all financial companies to use an online dispute system. If your issue is under ₹50 lakhs, they MUST resolve it within 60 days — no more endless delays.",
+    "pdfUrl": "/docs/sebi-odr-guidelines-2026.pdf",
+    "tags": ["Investor Protection", "ODR", "Grievance"]
+  },
+  {
+    "id": "nse-2026-006",
+    "title": "Margin Requirements for Intraday Derivative Positions",
+    "source": "NSE",
+    "category": "Derivatives",
+    "date": "2026-01-15",
+    "summary": "NSE revises peak margin requirements for intraday derivative positions, introducing a tiered system based on volatility bands. High-volatility periods will require 125% of standard margins.",
+    "botSummary": "Trading F&O intraday? When markets get volatile, you'll now need 25% extra margin. NSE will track volatility in real-time and adjust margins accordingly. This prevents over-leveraging during wild market swings.",
+    "pdfUrl": "/docs/nse-margin-derivatives-2026.pdf",
+    "tags": ["Derivatives", "Margins", "Risk Management"]
+  },
+  {
+    "id": "sebi-2026-007",
+    "title": "Cybersecurity Framework for Stock Brokers and Depository Participants",
+    "source": "SEBI",
+    "category": "Technology",
+    "date": "2026-01-12",
+    "summary": "SEBI issues comprehensive cybersecurity guidelines requiring brokers to implement zero-trust architecture, conduct quarterly penetration testing, and maintain 24/7 Security Operations Centers.",
+    "botSummary": "Your broker must now have bank-level cybersecurity: assume no one is trusted by default (zero-trust), test their systems for hacks every 3 months, and monitor for attacks 24/7. Your trading account just got more secure.",
+    "pdfUrl": "/docs/sebi-cyber-framework-2026.pdf",
+    "tags": ["Cybersecurity", "Technology", "Brokers"]
+  },
+  {
+    "id": "bse-2026-008",
+    "title": "New Framework for Small and Medium REITs",
+    "source": "BSE",
+    "category": "Listing",
+    "date": "2026-01-10",
+    "summary": "BSE introduces a simplified listing framework for SM-REITs with asset values between ₹50 crore and ₹500 crore, enabling fractional ownership of commercial real estate for retail investors.",
+    "botSummary": "Want to own a piece of a commercial building without crores? BSE now allows smaller real estate investment trusts (₹50-500 crore) to list. You can invest small amounts and earn rent from offices, malls, or warehouses.",
+    "pdfUrl": "/docs/bse-sm-reits-2026.pdf",
+    "tags": ["REITs", "Real Estate", "Listing"]
+  }
+]

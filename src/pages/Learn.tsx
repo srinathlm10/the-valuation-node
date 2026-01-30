@@ -1,134 +1,92 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useMemo } from "react";
 import { Layout } from "@/components/layout/Layout";
-import { ArticleCard } from "@/components/articles/ArticleCard";
+import { DefinitionsGrid } from "@/components/learn/DefinitionsGrid";
+import { FutureValueCalculator, SIPCalculator } from "@/components/calculators/FormulaCalculators";
+import { ChatSidebar } from "@/components/chat/ChatSidebar";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { articles, categories, searchArticles, type Category, type DifficultyLevel } from "@/data/articles";
-import { Search, X } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Search, BookOpen, Calculator } from "lucide-react";
+import definitions from "@/data/definitions.json";
 
 export default function Learn() {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState<Category | "all">("all");
-  const [selectedDifficulty, setSelectedDifficulty] = useState<DifficultyLevel | "all">("all");
+  const [chatOpen, setChatOpen] = useState(false);
+  const [chatContext, setChatContext] = useState<string | undefined>();
+  const [initialMessage, setInitialMessage] = useState<string | undefined>();
+  const [search, setSearch] = useState("");
+  const [categoryFilter, setCategoryFilter] = useState<string>("all");
 
-  const filteredArticles = articles.filter((article) => {
-    const matchesSearch =
-      searchQuery === "" ||
-      article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      article.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
+  const categories = useMemo(() => [...new Set(definitions.map((d) => d.category))].sort(), []);
 
-    const matchesCategory =
-      selectedCategory === "all" || article.category === selectedCategory;
+  const filteredDefinitions = useMemo(() => {
+    return definitions.filter((def) => {
+      const matchesSearch = def.term.toLowerCase().includes(search.toLowerCase()) || def.fullName.toLowerCase().includes(search.toLowerCase());
+      const matchesCategory = categoryFilter === "all" || def.category === categoryFilter;
+      return matchesSearch && matchesCategory;
+    });
+  }, [search, categoryFilter]);
 
-    const matchesDifficulty =
-      selectedDifficulty === "all" || article.difficulty === selectedDifficulty;
-
-    return matchesSearch && matchesCategory && matchesDifficulty;
-  });
-
-  const clearFilters = () => {
-    setSearchQuery("");
-    setSelectedCategory("all");
-    setSelectedDifficulty("all");
+  const handleExplain = (definition: any) => {
+    setChatContext(`Explaining: ${definition.term}`);
+    setInitialMessage(`Explain "${definition.term}" in simple terms. Why does it matter for Indian investors?`);
+    setChatOpen(true);
   };
 
-  const hasActiveFilters =
-    searchQuery !== "" || selectedCategory !== "all" || selectedDifficulty !== "all";
+  const handleViewDetails = (definition: any) => {
+    setChatContext(`Learning: ${definition.term}`);
+    setInitialMessage(`Tell me more about ${definition.term} and how to use it in stock analysis.`);
+    setChatOpen(true);
+  };
+
+  const handleExplainFormula = (formula: string, result: any) => {
+    setChatContext(`Explaining ${formula}`);
+    setInitialMessage(`Explain the ${formula} calculation step by step. Inputs: ${JSON.stringify(result.inputs)}, Result: ₹${Math.round(result.output).toLocaleString("en-IN")}`);
+    setChatOpen(true);
+  };
 
   return (
     <Layout>
-      <div className="container py-12">
-        {/* Header */}
-        <div className="mb-8">
-          <h1 className="mb-2 text-3xl font-bold sm:text-4xl">Learn Finance</h1>
-          <p className="text-muted-foreground">
-            Browse our collection of financial education articles
-          </p>
+      <section className="border-b bg-muted/30">
+        <div className="container py-8">
+          <h1 className="text-3xl font-bold mb-2">Finance Lab</h1>
+          <p className="text-muted-foreground max-w-2xl">Master financial concepts through interactive learning with AI-powered explanations.</p>
         </div>
+      </section>
 
-        {/* Search and Filters */}
-        <div className="mb-8 space-y-4">
-          {/* Search */}
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-            <Input
-              placeholder="Search articles..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-10"
-            />
-          </div>
+      <div className="container py-8">
+        <Tabs defaultValue="glossary" className="space-y-6">
+          <TabsList className="grid w-full max-w-md grid-cols-2">
+            <TabsTrigger value="glossary" className="gap-2"><BookOpen className="h-4 w-4" />Financial Wiki</TabsTrigger>
+            <TabsTrigger value="calculators" className="gap-2"><Calculator className="h-4 w-4" />Calculators</TabsTrigger>
+          </TabsList>
 
-          {/* Category Filters */}
-          <div className="flex flex-wrap gap-2">
-            <Badge
-              variant={selectedCategory === "all" ? "default" : "outline"}
-              className="cursor-pointer"
-              onClick={() => setSelectedCategory("all")}
-            >
-              All Topics
-            </Badge>
-            {categories.map((category) => (
-              <Badge
-                key={category.id}
-                variant={selectedCategory === category.id ? "default" : "outline"}
-                className="cursor-pointer capitalize"
-                onClick={() => setSelectedCategory(category.id)}
-              >
-                {category.name}
-              </Badge>
-            ))}
-          </div>
-
-          {/* Difficulty Filters */}
-          <div className="flex flex-wrap gap-2">
-            <span className="mr-2 text-sm text-muted-foreground">Difficulty:</span>
-            {(["all", "beginner", "intermediate", "advanced"] as const).map((level) => (
-              <Badge
-                key={level}
-                variant={selectedDifficulty === level ? "secondary" : "outline"}
-                className="cursor-pointer capitalize"
-                onClick={() => setSelectedDifficulty(level)}
-              >
-                {level === "all" ? "All Levels" : level}
-              </Badge>
-            ))}
-          </div>
-
-          {/* Clear Filters */}
-          {hasActiveFilters && (
-            <Button variant="ghost" size="sm" onClick={clearFilters}>
-              <X className="mr-2 h-4 w-4" />
-              Clear Filters
-            </Button>
-          )}
-        </div>
-
-        {/* Results */}
-        {filteredArticles.length > 0 ? (
-          <>
-            <p className="mb-6 text-sm text-muted-foreground">
-              Showing {filteredArticles.length} {filteredArticles.length === 1 ? "article" : "articles"}
-            </p>
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {filteredArticles.map((article) => (
-                <ArticleCard key={article.id} article={article} />
-              ))}
+          <TabsContent value="glossary" className="space-y-6">
+            <div className="flex flex-col md:flex-row gap-4">
+              <div className="relative flex-1 max-w-md">
+                <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+                <Input placeholder="Search terms..." value={search} onChange={(e) => setSearch(e.target.value)} className="pl-10" />
+              </div>
+              <div className="flex flex-wrap gap-2">
+                <Button variant={categoryFilter === "all" ? "default" : "outline"} size="sm" onClick={() => setCategoryFilter("all")}>All</Button>
+                {categories.slice(0, 5).map((cat) => (
+                  <Button key={cat} variant={categoryFilter === cat ? "default" : "outline"} size="sm" onClick={() => setCategoryFilter(cat)}>{cat}</Button>
+                ))}
+              </div>
             </div>
-          </>
-        ) : (
-          <div className="py-12 text-center">
-            <p className="mb-4 text-lg text-muted-foreground">
-              No articles found matching your criteria
-            </p>
-            <Button variant="outline" onClick={clearFilters}>
-              Clear Filters
-            </Button>
-          </div>
-        )}
+            <p className="text-sm text-muted-foreground">Showing {filteredDefinitions.length} of {definitions.length} terms</p>
+            <DefinitionsGrid definitions={filteredDefinitions as any} onExplain={handleExplain} onViewDetails={handleViewDetails} />
+          </TabsContent>
+
+          <TabsContent value="calculators" className="space-y-6">
+            <div className="grid gap-6 md:grid-cols-2">
+              <SIPCalculator onExplain={handleExplainFormula} />
+              <FutureValueCalculator onExplain={handleExplainFormula} />
+            </div>
+          </TabsContent>
+        </Tabs>
       </div>
+
+      <ChatSidebar isOpen={chatOpen} onToggle={() => setChatOpen(!chatOpen)} initialMessage={initialMessage} context={chatContext} />
     </Layout>
   );
 }
