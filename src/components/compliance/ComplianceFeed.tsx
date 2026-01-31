@@ -49,7 +49,7 @@ export function CircularCard({ circular, onBotSummary, onViewDetails }: Circular
             })}
           </div>
         </div>
-        <CardTitle className="text-base font-semibold leading-tight line-clamp-2 group-hover:text-primary transition-colors">
+        <CardTitle className="text-base font-semibold leading-tight line-clamp-2 text-foreground group-hover:text-emerald transition-colors">
           {circular.title}
         </CardTitle>
       </CardHeader>

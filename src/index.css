@@ -24,11 +24,11 @@
     --primary-foreground: 210 40% 98%;
 
     /* Light slate secondary */
-    --secondary: 215 28% 17%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 214 32% 91%;
+    --secondary-foreground: 222 47% 11%;
 
     --muted: 214 32% 91%;
-    --muted-foreground: 215 16% 47%;
+    --muted-foreground: 215 20% 40%;
 
     /* Emerald accent for success/positive */
     --accent: 160 84% 39%;
@@ -37,7 +37,7 @@
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 32% 91%;
+    --border: 214 32% 85%;
     --input: 214 32% 91%;
     --ring: 222 47% 11%;
 
@@ -62,8 +62,9 @@
     --emerald-dark: 162 94% 30%;
 
     /* Amber for warnings/neutral */
-    --amber: 45 93% 47%;
-    --amber-light: 45 93% 58%;
+    --amber: 38 92% 50%;
+    --amber-light: 43 96% 56%;
+    --amber-dark: 32 95% 44%;
 
     /* Rose for negative/alerts */
     --rose: 347 77% 50%;
@@ -72,57 +73,65 @@
     /* Chart colors */
     --chart-1: 160 84% 39%;
     --chart-2: 199 89% 48%;
-    --chart-3: 45 93% 47%;
+    --chart-3: 38 92% 50%;
     --chart-4: 262 83% 58%;
     --chart-5: 347 77% 50%;
 
+    /* Hero/gradient text colors */
+    --hero-heading: 210 40% 98%;
+    --hero-subtext: 214 32% 85%;
+
     --sidebar-background: 222 47% 11%;
     --sidebar-foreground: 210 40% 96%;
-    --sidebar-primary: 160 84% 39%;
+    --sidebar-primary: 160 84% 45%;
     --sidebar-primary-foreground: 222 47% 11%;
     --sidebar-accent: 215 28% 17%;
     --sidebar-accent-foreground: 210 40% 96%;
-    --sidebar-border: 217 33% 23%;
-    --sidebar-ring: 160 84% 39%;
+    --sidebar-border: 217 33% 28%;
+    --sidebar-ring: 160 84% 45%;
   }
 
   .dark {
     --background: 222 47% 6%;
-    --foreground: 210 40% 96%;
+    --foreground: 214 32% 91%;
 
     --card: 222 47% 9%;
-    --card-foreground: 210 40% 96%;
+    --card-foreground: 214 32% 91%;
 
     --popover: 222 47% 9%;
-    --popover-foreground: 210 40% 96%;
+    --popover-foreground: 214 32% 91%;
 
     --primary: 160 84% 45%;
-    --primary-foreground: 222 47% 11%;
+    --primary-foreground: 222 47% 6%;
 
-    --secondary: 217 33% 23%;
-    --secondary-foreground: 210 40% 96%;
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 214 32% 91%;
 
-    --muted: 217 33% 17%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 217 33% 15%;
+    --muted-foreground: 215 20% 60%;
 
-    --accent: 160 84% 39%;
-    --accent-foreground: 222 47% 11%;
+    --accent: 160 84% 45%;
+    --accent-foreground: 222 47% 6%;
 
-    --destructive: 0 62% 30%;
-    --destructive-foreground: 210 40% 96%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217 33% 23%;
-    --input: 217 33% 23%;
+    --border: 217 33% 20%;
+    --input: 217 33% 20%;
     --ring: 160 84% 45%;
 
-    --sidebar-background: 222 47% 6%;
-    --sidebar-foreground: 210 40% 96%;
-    --sidebar-primary: 160 84% 45%;
-    --sidebar-primary-foreground: 222 47% 11%;
-    --sidebar-accent: 217 33% 17%;
-    --sidebar-accent-foreground: 210 40% 96%;
-    --sidebar-border: 217 33% 23%;
-    --sidebar-ring: 160 84% 45%;
+    /* Hero/gradient text colors */
+    --hero-heading: 210 40% 98%;
+    --hero-subtext: 214 32% 80%;
+
+    --sidebar-background: 222 47% 5%;
+    --sidebar-foreground: 214 32% 91%;
+    --sidebar-primary: 160 84% 50%;
+    --sidebar-primary-foreground: 222 47% 6%;
+    --sidebar-accent: 217 33% 15%;
+    --sidebar-accent-foreground: 214 32% 91%;
+    --sidebar-border: 217 33% 20%;
+    --sidebar-ring: 160 84% 50%;
   }
 }
 
@@ -174,19 +183,19 @@
   }
 
   .badge-sebi {
-    @apply badge-source bg-blue-100 text-blue-800;
+    @apply badge-source bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300;
   }
 
   .badge-nse {
-    @apply badge-source bg-emerald-100 text-emerald-800;
+    @apply badge-source bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300;
   }
 
   .badge-bse {
-    @apply badge-source bg-amber-100 text-amber-800;
+    @apply badge-source bg-amber-50 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300;
   }
 
   .data-table-header {
-    @apply bg-slate-50 font-semibold text-slate-700;
+    @apply bg-muted font-semibold text-foreground;
   }
 
   .prose-finance {
