@@ -7,8 +7,7 @@ import { FutureValueCalculator, SIPCalculator } from "@/components/calculators/F
 import { ChatSidebar } from "@/components/chat/ChatSidebar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Bot, FileText, Calculator, Building2, BookOpen, ArrowRight, Sparkles } from "lucide-react";
+import { Bot, FileText, Calculator, Building2, BookOpen, ArrowRight } from "lucide-react";
 import circulars from "@/data/circulars.json";
 
 export default function Index() {
@@ -33,10 +32,6 @@ export default function Index() {
       <section className="relative overflow-hidden gradient-slate">
         <div className="container relative py-16 md:py-24">
           <div className="max-w-3xl mx-auto text-center space-y-6">
-            <Badge variant="secondary" className="bg-white/10 text-hero-heading border-0 backdrop-blur-sm">
-              <Sparkles className="h-3 w-3 mr-1" />
-              Phase 1: Knowledge & Regulatory Intelligence
-            </Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-hero-heading">Decoding Indian Finance</h1>
             <p className="text-lg md:text-xl text-hero-subtext max-w-2xl mx-auto">
               Navigate SEBI regulations, understand complex financial concepts, and analyze fundamentals with AI-powered insights.
