@@ -79,10 +79,15 @@ export default {
         amber: {
           DEFAULT: "hsl(var(--amber))",
           light: "hsl(var(--amber-light))",
+          dark: "hsl(var(--amber-dark))",
         },
         rose: {
           DEFAULT: "hsl(var(--rose))",
           light: "hsl(var(--rose-light))",
+        },
+        hero: {
+          heading: "hsl(var(--hero-heading))",
+          subtext: "hsl(var(--hero-subtext))",
         },
         chart: {
           1: "hsl(var(--chart-1))",

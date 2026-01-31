@@ -30,15 +30,15 @@ export default function Index() {
 
   return (
     <Layout>
-      <section className="relative overflow-hidden gradient-slate text-primary-foreground">
+      <section className="relative overflow-hidden gradient-slate">
         <div className="container relative py-16 md:py-24">
           <div className="max-w-3xl mx-auto text-center space-y-6">
-            <Badge variant="secondary" className="bg-primary-foreground/10 text-primary-foreground border-0">
+            <Badge variant="secondary" className="bg-white/10 text-hero-heading border-0 backdrop-blur-sm">
               <Sparkles className="h-3 w-3 mr-1" />
               Phase 1: Knowledge & Regulatory Intelligence
             </Badge>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">Decoding Indian Finance</h1>
-            <p className="text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-hero-heading">Decoding Indian Finance</h1>
+            <p className="text-lg md:text-xl text-hero-subtext max-w-2xl mx-auto">
               Navigate SEBI regulations, understand complex financial concepts, and analyze fundamentals with AI-powered insights.
             </p>
             <div className="flex justify-center pt-4">
@@ -99,16 +99,16 @@ export default function Index() {
       </section>
 
       <section className="container py-12">
-        <Card className="gradient-slate text-primary-foreground">
+        <Card className="gradient-slate">
           <CardContent className="py-8 flex flex-col md:flex-row items-center gap-8">
-            <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-primary-foreground/10">
-              <Bot className="h-10 w-10" />
+            <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-white/10 backdrop-blur-sm">
+              <Bot className="h-10 w-10 text-hero-heading" />
             </div>
             <div className="flex-1 text-center md:text-left">
-              <h2 className="text-2xl font-bold mb-2">Meet FinBot, Your AI Navigator</h2>
-              <p className="text-primary-foreground/80">Get instant, plain-English explanations of regulations and financial concepts.</p>
+              <h2 className="text-2xl font-bold mb-2 text-hero-heading">Meet FinBot, Your AI Navigator</h2>
+              <p className="text-hero-subtext">Get instant, plain-English explanations of regulations and financial concepts.</p>
             </div>
-            <Button size="lg" variant="secondary" onClick={() => setChatOpen(true)}>
+            <Button size="lg" variant="secondary" onClick={() => setChatOpen(true)} className="bg-white/90 text-slate-900 hover:bg-white">
               <Bot className="mr-2 h-5 w-5" />Try FinBot
             </Button>
           </CardContent>
