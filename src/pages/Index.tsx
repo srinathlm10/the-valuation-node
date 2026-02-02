@@ -7,7 +7,7 @@ import { FutureValueCalculator, SIPCalculator } from "@/components/calculators/F
 import { ChatSidebar } from "@/components/chat/ChatSidebar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Bot, FileText, Calculator, Building2, BookOpen, ArrowRight } from "lucide-react";
+import { Bot, FileText, Calculator, Building2, BookOpen, ArrowRight, BarChart3 } from "lucide-react";
 import circulars from "@/data/circulars.json";
 
 export default function Index() {
@@ -65,6 +65,67 @@ export default function Index() {
               </Card>
             </Link>
           ))}
+        </div>
+      </section>
+
+      {/* Analysis Guides Section */}
+      <section className="container py-8">
+        <div className="flex items-center justify-between mb-6">
+          <div>
+            <h2 className="text-2xl font-bold">Master the Markets</h2>
+            <p className="text-muted-foreground mt-1">In-depth guides to analyze stocks like a pro</p>
+          </div>
+          <Button variant="outline" asChild>
+            <Link to="/learn">View All Guides<ArrowRight className="ml-2 h-4 w-4" /></Link>
+          </Button>
+        </div>
+        <div className="grid gap-6 md:grid-cols-2">
+          <Link to="/learn/fundamental-analysis">
+            <Card className="card-hover h-full border-2 hover:border-emerald-500/30 bg-gradient-to-br from-emerald-50/50 to-transparent dark:from-emerald-950/20">
+              <CardContent className="pt-6">
+                <div className="flex items-start gap-4">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-emerald-100 dark:bg-emerald-900/50">
+                    <Building2 className="h-7 w-7 text-emerald-700 dark:text-emerald-400" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-semibold mb-1">Fundamental Analysis</h3>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      Learn to evaluate a company's intrinsic value through financial statements, ratios, and qualitative factors.
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="text-xs px-2 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-400">P/E Ratio</span>
+                      <span className="text-xs px-2 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-400">ROE</span>
+                      <span className="text-xs px-2 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-400">DCF</span>
+                      <span className="text-xs px-2 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-400">Balance Sheet</span>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </Link>
+          <Link to="/learn/technical-analysis">
+            <Card className="card-hover h-full border-2 hover:border-blue-500/30 bg-gradient-to-br from-blue-50/50 to-transparent dark:from-blue-950/20">
+              <CardContent className="pt-6">
+                <div className="flex items-start gap-4">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-blue-100 dark:bg-blue-900/50">
+                    <BarChart3 className="h-7 w-7 text-blue-700 dark:text-blue-400" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-semibold mb-1">Technical Analysis</h3>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      Master chart patterns, indicators, and price action to forecast market movements.
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="text-xs px-2 py-1 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-400">RSI</span>
+                      <span className="text-xs px-2 py-1 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-400">MACD</span>
+                      <span className="text-xs px-2 py-1 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-400">Candlesticks</span>
+                      <span className="text-xs px-2 py-1 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-400">Bollinger Bands</span>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </Link>
         </div>
       </section>
 
