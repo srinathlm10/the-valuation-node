@@ -12,6 +12,7 @@ import Stocks from "./pages/Stocks";
 import Calculators from "./pages/Calculators";
 import Dashboard from "./pages/Dashboard";
 import FundamentalAnalysis from "./pages/FundamentalAnalysis";
+import TechnicalAnalysis from "./pages/TechnicalAnalysis";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -35,6 +36,7 @@ const App = () => (
           <Route path="/calculators" element={<Calculators />} />
           <Route path="/calculators/:calculatorId" element={<Calculators />} />
           <Route path="/learn/fundamental-analysis" element={<FundamentalAnalysis />} />
+          <Route path="/learn/technical-analysis" element={<TechnicalAnalysis />} />
           <Route path="/dashboard" element={<Dashboard />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
