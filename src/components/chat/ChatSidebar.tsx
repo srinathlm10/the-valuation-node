@@ -2,13 +2,14 @@ import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Bot, X, Send, Loader2, MessageSquare, Plus, Trash2, History, Mic, MicOff, Volume2, VolumeX } from "lucide-react";
+import { Bot, X, Send, Loader2, Plus, Trash2, History, Mic, MicOff, Volume2, VolumeX, Paperclip, FileText } from "lucide-react";
 import { cn } from "@/lib/utils";
 import ReactMarkdown from "react-markdown";
 import { supabase } from "@/integrations/supabase/client";
 import { chatService, ChatSession, ChatMessage } from "@/services/chatService";
 import { useAuth } from "@/hooks/useAuth";
 import { formatDistanceToNow } from "date-fns";
+import { useToast } from "@/hooks/use-toast";
 
 interface ChatSidebarProps {
   isOpen: boolean;
@@ -19,6 +20,7 @@ interface ChatSidebarProps {
 
 export function ChatSidebar({ isOpen, onToggle, initialMessage, context }: ChatSidebarProps) {
   const { user } = useAuth();
+  const { toast } = useToast();
   const [sessions, setSessions] = useState<ChatSession[]>([]);
   const [currentSessionId, setCurrentSessionId] = useState<string | null>(null);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
@@ -32,6 +34,11 @@ export function ChatSidebar({ isOpen, onToggle, initialMessage, context }: ChatS
   const [isSpeaking, setIsSpeaking] = useState(false);
   const recognitionRef = useRef<any>(null);
   const synthesisRef = useRef<SpeechSynthesis>(window.speechSynthesis);
+
+  // File Upload State
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [fileContent, setFileContent] = useState<string | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -144,6 +151,7 @@ export function ChatSidebar({ isOpen, onToggle, initialMessage, context }: ChatS
     }
   }
 
+  // Voice Functions
   const toggleListening = () => {
     if (isListening) {
       recognitionRef.current?.stop();
@@ -172,21 +180,63 @@ export function ChatSidebar({ isOpen, onToggle, initialMessage, context }: ChatS
     synthesisRef.current.speak(utterance);
   };
 
+  // File Upload Functions
+  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    // Validate type (Basic validation)
+    const validTypes = ['text/plain', 'text/csv', 'application/json', 'text/markdown'];
+    if (!validTypes.includes(file.type) && !file.name.endsWith('.txt') && !file.name.endsWith('.csv') && !file.name.endsWith('.json') && !file.name.endsWith('.md')) {
+      toast({
+        title: "Invalid File Type",
+        description: "Please upload a .txt, .csv, .json, or .md file. PDF support coming soon!",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    setSelectedFile(file);
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const text = e.target?.result as string;
+      setFileContent(text);
+      toast({
+        title: "File Ready",
+        description: `Analyzing ${file.name}... Ask a question about it!`,
+      });
+    };
+    reader.readAsText(file);
+  };
+
+  const clearFile = () => {
+    setSelectedFile(null);
+    setFileContent(null);
+    if (fileInputRef.current) fileInputRef.current.value = "";
+  };
+
   const handleSendMessage = async (messageContent?: string) => {
     const content = messageContent || input.trim();
-    if (!content || isLoading) return;
+    if ((!content && !fileContent) || isLoading) return;
+
+    // Prepare message (include file info if present)
+    let finalContent = content;
+    if (selectedFile && fileContent) {
+      finalContent = `${content}\n\n[Attached File: ${selectedFile.name}]\n\`\`\`\n${fileContent.slice(0, 5000)}\n\`\`\`\n(File content truncated if too long)`;
+    }
 
     // Optimistic UI Update
     const tempUserMsg: ChatMessage = {
       id: Date.now().toString(),
       session_id: currentSessionId || "temp",
       role: "user",
-      content,
+      content: finalContent,
       created_at: new Date().toISOString()
     };
 
     setMessages(prev => [...prev, tempUserMsg]);
     setInput("");
+    clearFile(); // Clear file after sending
     setIsLoading(true);
 
     try {
@@ -194,7 +244,7 @@ export function ChatSidebar({ isOpen, onToggle, initialMessage, context }: ChatS
 
       // 1. Create Session if needed
       if (!sessionId) {
-        const newSession = await chatService.createSession(content.slice(0, 30) + "...");
+        const newSession = await chatService.createSession(finalContent.slice(0, 30) + "...");
         sessionId = newSession.id;
         setCurrentSessionId(sessionId);
         // Refresh sessions list
@@ -202,18 +252,18 @@ export function ChatSidebar({ isOpen, onToggle, initialMessage, context }: ChatS
       }
 
       // 2. Save User Message
-      await chatService.saveMessage(sessionId!, "user", content);
+      await chatService.saveMessage(sessionId!, "user", finalContent);
 
       // 3. Prepare Context for AI
       const conversationHistory = messages
         .filter(m => m.id !== "welcome")
         .map(m => ({ role: m.role, content: m.content }));
 
-      conversationHistory.push({ role: "user", content });
+      conversationHistory.push({ role: "user", content: finalContent });
 
       const systemPrompt = context
         ? `You are FinBot, an expert financial assistant for the Indian market.Context for this conversation: \n${context} `
-        : `You are FinBot, an expert financial assistant for the Indian market.`;
+        : `You are FinBot, an expert financial assistant for the Indian market. If the user uploads a file/portfolio, analyze it and give insights.`;
 
       // 4. Call Cloud Function
       const response = await supabase.functions.invoke("chat", {
@@ -408,9 +458,39 @@ export function ChatSidebar({ isOpen, onToggle, initialMessage, context }: ChatS
             </div>
           </ScrollArea>
 
+          {/* File Upload Preview */}
+          {selectedFile && (
+            <div className="px-4 py-2 bg-muted/30 border-t flex items-center justify-between">
+              <div className="flex items-center gap-2 text-xs text-primary">
+                <FileText className="h-4 w-4" />
+                <span className="font-medium max-w-[200px] truncate">{selectedFile.name}</span>
+              </div>
+              <Button variant="ghost" size="icon" className="h-6 w-6" onClick={clearFile}>
+                <X className="h-3 w-3" />
+              </Button>
+            </div>
+          )}
+
           {/* Input */}
           <div className="p-4 border-t bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
             <div className="flex items-end gap-2">
+              <input
+                type="file"
+                ref={fileInputRef}
+                className="hidden"
+                onChange={handleFileSelect}
+                accept=".txt,.csv,.json,.md"
+              />
+              <Button
+                variant="outline"
+                size="icon"
+                className="h-11 w-11 rounded-full shrink-0"
+                onClick={() => fileInputRef.current?.click()}
+                title="Upload File"
+              >
+                <Paperclip className="h-5 w-5" />
+              </Button>
+
               <Button
                 variant="outline"
                 size="icon"
@@ -433,7 +513,7 @@ export function ChatSidebar({ isOpen, onToggle, initialMessage, context }: ChatS
               />
               <Button
                 onClick={() => handleSendMessage()}
-                disabled={!input.trim() || isLoading}
+                disabled={(!input.trim() && !fileContent) || isLoading}
                 size="icon"
                 className="h-11 w-11 rounded-full shrink-0"
               >
