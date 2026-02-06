@@ -10,7 +10,9 @@
 
 @layer base {
   :root {
+    /* Background: Cool Gray 50 (slightly off-white) */
     --background: 210 40% 98%;
+    /* Foreground: Slate 900 */
     --foreground: 222 47% 11%;
 
     --card: 0 0% 100%;
@@ -19,119 +21,116 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
 
-    /* Deep Slate primary - #0f172a */
-    --primary: 222 47% 11%;
+    /* Primary: Deep Royal Blue for branding */
+    --primary: 221 83% 53%;
+    /* Vivid Blue #3b82f6 type */
     --primary-foreground: 210 40% 98%;
 
-    /* Light slate secondary */
-    --secondary: 214 32% 91%;
-    --secondary-foreground: 222 47% 11%;
+    /* Secondary: Light Blue/Slate mix */
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222 47% 11.2%;
 
-    --muted: 214 32% 91%;
-    --muted-foreground: 215 20% 40%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
 
-    /* Emerald accent for success/positive */
-    --accent: 160 84% 39%;
-    --accent-foreground: 0 0% 100%;
+    /* Accent: Very light blue for hover states */
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222 47% 11.2%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 214 32% 85%;
-    --input: 214 32% 91%;
-    --ring: 222 47% 11%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221 83% 53%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+    /* Slightly more rounded for modern feel */
 
-    /* Custom FinBot tokens */
+    /* Custom FinBot tokens - Keeping Slate scale but tweaking slightly */
     --slate-950: 222 47% 11%;
     --slate-900: 215 28% 17%;
     --slate-800: 217 33% 23%;
-    --slate-700: 215 25% 34%;
-    --slate-600: 215 20% 45%;
     --slate-500: 215 16% 57%;
-    --slate-400: 214 20% 69%;
-    --slate-300: 213 27% 84%;
-    --slate-200: 214 32% 91%;
-    --slate-100: 210 40% 96%;
     --slate-50: 210 40% 98%;
 
-    /* Emerald for positive indicators */
-    --emerald: 160 84% 39%;
-    --emerald-light: 158 64% 52%;
-    --emerald-dark: 162 94% 30%;
+    /* Emerald specifically for financial positivity */
+    --emerald: 151 55% 42%;
+    /* More sophisticated green */
+    --emerald-light: 151 55% 50%;
+    --emerald-dark: 151 55% 35%;
 
-    /* Amber for warnings/neutral */
-    --amber: 38 92% 50%;
-    --amber-light: 43 96% 56%;
-    --amber-dark: 32 95% 44%;
+    /* Chart colors - More vibrant */
+    --chart-1: 221 83% 53%;
+    /* Primary Blue */
+    --chart-2: 173 58% 39%;
+    /* Teal */
+    --chart-3: 197 37% 24%;
+    /* Navy */
+    --chart-4: 43 96% 56%;
+    /* Amber */
+    --chart-5: 27 87% 67%;
+    /* Orange */
 
-    /* Rose for negative/alerts */
-    --rose: 347 77% 50%;
-    --rose-light: 347 77% 60%;
-
-    /* Chart colors */
-    --chart-1: 160 84% 39%;
-    --chart-2: 199 89% 48%;
-    --chart-3: 38 92% 50%;
-    --chart-4: 262 83% 58%;
-    --chart-5: 347 77% 50%;
-
-    /* Hero/gradient text colors */
-    --hero-heading: 210 40% 98%;
-    --hero-subtext: 214 32% 85%;
+    /* Hero Gradient */
+    --hero-heading: 222 47% 11%;
+    --hero-subtext: 215 16% 47%;
 
     --sidebar-background: 222 47% 11%;
-    --sidebar-foreground: 210 40% 96%;
-    --sidebar-primary: 160 84% 45%;
-    --sidebar-primary-foreground: 222 47% 11%;
-    --sidebar-accent: 215 28% 17%;
-    --sidebar-accent-foreground: 210 40% 96%;
-    --sidebar-border: 217 33% 28%;
-    --sidebar-ring: 160 84% 45%;
+    /* Navy */
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 221 83% 53%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 217 33% 23%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217 33% 23%;
+    --sidebar-ring: 217 91% 60%;
   }
 
   .dark {
-    --background: 222 47% 6%;
-    --foreground: 214 32% 91%;
+    /* Background: Deep Rich Navy/Black */
+    --background: 224 71% 4%;
+    --foreground: 210 40% 98%;
 
-    --card: 222 47% 9%;
-    --card-foreground: 214 32% 91%;
+    /* Cards: Slightly lighter navy */
+    --card: 222 47% 6%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 222 47% 9%;
-    --popover-foreground: 214 32% 91%;
+    --popover: 222 47% 6%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 160 84% 45%;
-    --primary-foreground: 222 47% 6%;
+    /* Primary: Bright Electric Blue for dark mode */
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 47% 11.2%;
 
-    --secondary: 217 33% 17%;
-    --secondary-foreground: 214 32% 91%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 217 33% 15%;
-    --muted-foreground: 215 20% 60%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 160 84% 45%;
-    --accent-foreground: 222 47% 6%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
 
-    --destructive: 0 72% 51%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 217 33% 20%;
-    --input: 217 33% 20%;
-    --ring: 160 84% 45%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
 
-    /* Hero/gradient text colors */
+    /* Hero Gradient Dark */
     --hero-heading: 210 40% 98%;
-    --hero-subtext: 214 32% 80%;
+    --hero-subtext: 215 20.2% 65.1%;
 
-    --sidebar-background: 222 47% 5%;
-    --sidebar-foreground: 214 32% 91%;
-    --sidebar-primary: 160 84% 50%;
-    --sidebar-primary-foreground: 222 47% 6%;
-    --sidebar-accent: 217 33% 15%;
-    --sidebar-accent-foreground: 214 32% 91%;
-    --sidebar-border: 217 33% 20%;
-    --sidebar-ring: 160 84% 50%;
+    --sidebar-background: 224 71% 4%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217 91% 60%;
   }
 }
 
@@ -145,14 +144,23 @@
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-semibold tracking-tight text-foreground;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display font-semibold tracking-tight text-foreground;
   }
 }
 
 @layer components {
   .gradient-slate {
-    background: linear-gradient(135deg, hsl(var(--slate-950)) 0%, hsl(var(--slate-800)) 100%);
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--slate-900)) 100%);
+  }
+
+  .gradient-navy {
+    background: linear-gradient(to bottom right, hsl(222, 47%, 11%), hsl(221, 83%, 53%));
   }
 
   .gradient-emerald {
@@ -164,6 +172,10 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+
+  .bg-grid-white {
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
   }
 
   .card-hover {
@@ -224,6 +236,7 @@
     from {
       opacity: 0;
     }
+
     to {
       opacity: 1;
     }
@@ -234,6 +247,7 @@
       opacity: 0;
       transform: translateY(20px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
@@ -245,6 +259,7 @@
       opacity: 0;
       transform: translateX(100%);
     }
+
     to {
       opacity: 1;
       transform: translateX(0);

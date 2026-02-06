@@ -29,37 +29,45 @@ export default function Index() {
 
   return (
     <Layout>
-      <section className="relative overflow-hidden gradient-slate">
-        <div className="container relative py-16 md:py-24">
-          <div className="max-w-3xl mx-auto text-center space-y-6">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-hero-heading">Decoding Indian Finance</h1>
-            <p className="text-lg md:text-xl text-hero-subtext max-w-2xl mx-auto">
-              Navigate SEBI regulations, understand complex financial concepts, and analyze fundamentals with AI-powered insights.
+      <section className="relative overflow-hidden gradient-slate min-h-[500px] flex items-center">
+        <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:30px_30px]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent" />
+        <div className="container relative py-16 md:py-24 z-10">
+          <div className="max-w-4xl mx-auto text-center space-y-6">
+            <div className="inline-flex items-center rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-sm font-medium text-primary-foreground backdrop-blur-sm mb-4">
+              <span className="flex h-2 w-2 rounded-full bg-emerald-500 mr-2 animate-pulse"></span>
+              AI-Powered Financial Intelligence
+            </div>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 drop-shadow-sm">
+              Decoding <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-white">Indian Finance</span>
+            </h1>
+            <p className="text-lg md:text-xl text-slate-200 max-w-2xl mx-auto leading-relaxed">
+              Navigate SEBI regulations, understand complex financial concepts, and analyze fundamentals with instant AI-powered insights.
             </p>
-            <div className="flex justify-center pt-4">
-              <div className="w-full max-w-md"><GlobalSearch /></div>
+            <div className="flex justify-center pt-8">
+              <div className="w-full max-w-lg shadow-xl"><GlobalSearch /></div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="container py-8 -mt-8 relative z-10">
-        <div className="grid gap-4 md:grid-cols-4">
+      <section className="container py-12 -mt-16 relative z-20">
+        <div className="grid gap-6 md:grid-cols-4">
           {[
-            { href: "/compliance", icon: FileText, color: "bg-blue-100 text-blue-700", title: "Compliance Feed", desc: "Latest SEBI, NSE & BSE circulars" },
-            { href: "/stocks", icon: Building2, color: "bg-emerald-100 text-emerald-700", title: "Stock Archive", desc: "Nifty 50 fundamentals" },
-            { href: "/learn", icon: BookOpen, color: "bg-purple-100 text-purple-700", title: "Finance Lab", desc: "Interactive glossary & formulas" },
-            { href: "/calculators", icon: Calculator, color: "bg-amber-100 text-amber-700", title: "Calculators", desc: "SIP, FV, CAGR & more" },
+            { href: "/compliance", icon: FileText, color: "text-blue-500", bg: "bg-blue-500/10", title: "Compliance Feed", desc: "Latest SEBI, NSE & BSE circulars" },
+            { href: "/stocks", icon: Building2, color: "text-emerald-500", bg: "bg-emerald-500/10", title: "Stock Archive", desc: "Nifty 50 fundamentals" },
+            { href: "/learn", icon: BookOpen, color: "text-purple-500", bg: "bg-purple-500/10", title: "Finance Lab", desc: "Interactive glossary & formulas" },
+            { href: "/calculators", icon: Calculator, color: "text-amber-500", bg: "bg-amber-500/10", title: "Calculators", desc: "SIP, FV, CAGR & more" },
           ].map((item) => (
             <Link key={item.href} to={item.href}>
-              <Card className="card-hover h-full border-2 hover:border-primary/20">
-                <CardContent className="pt-6 flex items-start gap-4">
-                  <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-lg ${item.color}`}>
-                    <item.icon className="h-6 w-6" />
+              <Card className="card-hover h-full border hover:border-primary/30 bg-card/95 backdrop-blur shadow-lg">
+                <CardContent className="pt-6 flex flex-col items-center text-center gap-4">
+                  <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${item.bg}`}>
+                    <item.icon className={`h-6 w-6 ${item.color}`} />
                   </div>
                   <div>
-                    <h3 className="font-semibold">{item.title}</h3>
-                    <p className="text-sm text-muted-foreground mt-1">{item.desc}</p>
+                    <h3 className="font-semibold text-lg">{item.title}</h3>
+                    <p className="text-sm text-muted-foreground mt-2 leading-snug">{item.desc}</p>
                   </div>
                 </CardContent>
               </Card>
@@ -139,7 +147,7 @@ export default function Index() {
         </div>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {circulars.slice(0, 3).map((circular: any) => (
-            <CircularCard key={circular.id} circular={circular} onBotSummary={handleBotSummary} onViewDetails={() => {}} />
+            <CircularCard key={circular.id} circular={circular} onBotSummary={handleBotSummary} onViewDetails={() => { }} />
           ))}
         </div>
       </section>

@@ -8,6 +8,7 @@ import { Layout } from "@/components/layout/Layout";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2 } from "lucide-react";
+import { AuthSocial } from "@/components/auth/AuthSocial";
 
 export default function Signup() {
   const [email, setEmail] = useState("");
@@ -37,9 +38,10 @@ export default function Signup() {
 
       toast({
         title: "Account created!",
-        description: "Welcome to FinanceWise. Start exploring our content!",
+        description: "Welcome to FinanceWise. Please check your email for verification.",
       });
-      navigate("/dashboard");
+      // Optional: Navigate to login or showing a "check email" message.
+      // Usually Supabase requires email verification by default.
     } catch (error) {
       console.error("Signup error:", error);
       toast({
@@ -55,9 +57,9 @@ export default function Signup() {
   return (
     <Layout>
       <div className="container flex min-h-[calc(100vh-16rem)] items-center justify-center py-12">
-        <Card className="w-full max-w-md">
+        <Card className="w-full max-w-md border-primary/10 shadow-lg">
           <CardHeader className="text-center">
-            <CardTitle className="text-2xl">Create Your Account</CardTitle>
+            <CardTitle className="text-2xl font-bold font-display text-primary">Create Your Account</CardTitle>
             <CardDescription>
               Start your journey to financial literacy today
             </CardDescription>
@@ -106,6 +108,11 @@ export default function Signup() {
                 Create Account
               </Button>
             </form>
+
+            <div className="mt-6">
+              <AuthSocial />
+            </div>
+
             <div className="mt-6 text-center text-sm">
               <span className="text-muted-foreground">Already have an account? </span>
               <Link to="/login" className="font-medium text-primary hover:underline">

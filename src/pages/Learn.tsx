@@ -1,23 +1,24 @@
 import { useState, useMemo } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { Layout } from "@/components/layout/Layout";
 import { DefinitionsGrid } from "@/components/learn/DefinitionsGrid";
-import { 
-  FutureValueCalculator, 
-  SIPCalculator, 
-  CAGRCalculator, 
-  EMICalculator, 
-  PresentValueCalculator, 
-  CompoundInterestCalculator, 
+import {
+  FutureValueCalculator,
+  SIPCalculator,
+  CAGRCalculator,
+  EMICalculator,
+  CompoundInterestCalculator,
   RuleOf72Calculator,
-  InflationAdjustedReturnCalculator 
+  InflationAdjustedReturnCalculator,
+  PresentValueCalculator
 } from "@/components/calculators/FormulaCalculators";
 import { ChatSidebar } from "@/components/chat/ChatSidebar";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
-import { Search, BookOpen, Calculator, TrendingUp, Shield, BarChart3, Percent, LineChart, FileText } from "lucide-react";
-import definitions from "@/data/definitions.json";
+import { Search, BookOpen, Calculator, TrendingUp, Shield, BarChart3, Percent, LineChart, FileText, Loader2 } from "lucide-react";
+import { contentService } from "@/services/contentService";
 
 const CATEGORY_ICONS: Record<string, React.ElementType> = {
   "Investment Planning": TrendingUp,
@@ -45,6 +46,18 @@ const CATEGORY_GROUPS = [
   { name: "Market Basics", categories: ["Fundamentals", "Mutual Funds", "Indices"] },
 ];
 
+interface Definition {
+  id: string;
+  term: string;
+  fullName: string;
+  category: string;
+  definition: string;
+  formula: string;
+  whyItMatters: string;
+  example: string;
+  relatedTerms: string[];
+}
+
 export default function Learn() {
   const [chatOpen, setChatOpen] = useState(false);
   const [chatContext, setChatContext] = useState<string | undefined>();
@@ -53,23 +66,28 @@ export default function Learn() {
   const [categoryFilter, setCategoryFilter] = useState<string>("all");
   const [activeGroup, setActiveGroup] = useState<string>("all");
 
-  const categories = useMemo(() => [...new Set(definitions.map((d) => d.category))].sort(), []);
+  // FEtch definitions from Supabase
+  const { data: definitions = [], isLoading } = useQuery({
+    queryKey: ['definitions'],
+    queryFn: contentService.getDefinitions,
+    staleTime: 60 * 60 * 1000, // 1 hour
+  });
 
   const filteredDefinitions = useMemo(() => {
     return definitions.filter((def) => {
-      const matchesSearch = def.term.toLowerCase().includes(search.toLowerCase()) || 
-                           def.fullName.toLowerCase().includes(search.toLowerCase()) ||
-                           def.definition.toLowerCase().includes(search.toLowerCase());
-      
+      const matchesSearch = def.term.toLowerCase().includes(search.toLowerCase()) ||
+        def.fullName.toLowerCase().includes(search.toLowerCase()) ||
+        def.definition.toLowerCase().includes(search.toLowerCase());
+
       if (activeGroup !== "all") {
         const group = CATEGORY_GROUPS.find(g => g.name === activeGroup);
         if (group && !group.categories.includes(def.category)) return false;
       }
-      
+
       const matchesCategory = categoryFilter === "all" || def.category === categoryFilter;
       return matchesSearch && matchesCategory;
     });
-  }, [search, categoryFilter, activeGroup]);
+  }, [search, categoryFilter, activeGroup, definitions]);
 
   const groupedDefinitions = useMemo(() => {
     const grouped: Record<string, typeof definitions> = {};
@@ -80,15 +98,9 @@ export default function Learn() {
     return grouped;
   }, [filteredDefinitions]);
 
-  const handleExplain = (definition: any) => {
-    setChatContext(`Explaining: ${definition.term}`);
-    setInitialMessage(`Explain "${definition.term}" (${definition.fullName}) in simple terms. Include the formula: ${definition.formula}. Why does it matter for Indian investors?`);
-    setChatOpen(true);
-  };
-
-  const handleViewDetails = (definition: any) => {
-    setChatContext(`Learning: ${definition.term}`);
-    setInitialMessage(`Tell me more about ${definition.term}. Give me a practical example with Indian market context and how to use it in analysis.`);
+  const handleExplain = (term: string) => {
+    setInitialMessage(`Can you explain "${term}" in simple terms?`);
+    setChatContext(`User is asking about the financial term: ${term}`);
     setChatOpen(true);
   };
 
@@ -98,115 +110,134 @@ export default function Learn() {
     setChatOpen(true);
   };
 
+  const handleViewDetails = (definition: any) => {
+    // For now, details expansion is handled in the grid or we could add a modal
+    console.log("View details", definition);
+  };
+
   return (
     <Layout>
       <section className="border-b bg-muted/30">
         <div className="container py-8">
-          <h1 className="text-3xl font-bold mb-2">Finance Lab</h1>
-          <p className="text-muted-foreground max-w-2xl">
-            Master financial concepts through interactive learning. Explore {definitions.length}+ definitions, formulas, and calculators with AI-powered explanations.
-          </p>
+          <div className="mb-8 max-w-2xl">
+            <h1 className="mb-4 text-4xl font-bold tracking-tight">
+              Financial Knowledge Base
+            </h1>
+            <p className="text-xl text-muted-foreground">
+              Master the terminology and tools of personal finance.
+            </p>
+          </div>
+
+          <div className="relative max-w-md">
+            <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+            <Input
+              placeholder="Search terms (e.g., 'Compound Interest', 'P/E Ratio')..."
+              className="pl-9"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </div>
         </div>
       </section>
 
       <div className="container py-8">
         <Tabs defaultValue="glossary" className="space-y-6">
           <TabsList className="grid w-full max-w-lg grid-cols-2">
-            <TabsTrigger value="glossary" className="gap-2"><BookOpen className="h-4 w-4" />Financial Wiki ({definitions.length})</TabsTrigger>
-            <TabsTrigger value="calculators" className="gap-2"><Calculator className="h-4 w-4" />Calculators</TabsTrigger>
+            <TabsTrigger value="glossary" className="gap-2">
+              <BookOpen className="h-4 w-4" />
+              Financial Wiki ({definitions.length})
+            </TabsTrigger>
+            <TabsTrigger value="calculators" className="gap-2">
+              <Calculator className="h-4 w-4" />
+              Calculators
+            </TabsTrigger>
           </TabsList>
 
           <TabsContent value="glossary" className="space-y-6">
-            {/* Search and Category Groups */}
-            <div className="space-y-4">
-              <div className="relative max-w-md">
-                <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-                <Input 
-                  placeholder="Search terms, formulas, definitions..." 
-                  value={search} 
-                  onChange={(e) => setSearch(e.target.value)} 
-                  className="pl-10" 
-                />
+            {isLoading ? (
+              <div className="flex min-h-[200px] items-center justify-center">
+                <Loader2 className="h-8 w-8 animate-spin text-primary" />
               </div>
-              
-              {/* Category Group Tabs */}
-              <div className="flex flex-wrap gap-2">
-                <Button 
-                  variant={activeGroup === "all" ? "default" : "outline"} 
-                  size="sm" 
-                  onClick={() => { setActiveGroup("all"); setCategoryFilter("all"); }}
-                >
-                  All Topics
-                </Button>
-                {CATEGORY_GROUPS.map((group) => (
-                  <Button 
-                    key={group.name} 
-                    variant={activeGroup === group.name ? "default" : "outline"} 
-                    size="sm" 
-                    onClick={() => { setActiveGroup(group.name); setCategoryFilter("all"); }}
+            ) : (
+              <>
+                <div className="flex flex-wrap gap-2">
+                  <Button
+                    variant={activeGroup === "all" ? "default" : "outline"}
+                    size="sm"
+                    onClick={() => { setActiveGroup("all"); setCategoryFilter("all"); }}
                   >
-                    {group.name}
+                    All Topics
                   </Button>
-                ))}
-              </div>
-
-              {/* Sub-category filters when group is selected */}
-              {activeGroup !== "all" && (
-                <div className="flex flex-wrap gap-2 pl-4 border-l-2 border-muted">
-                  <span className="text-sm text-muted-foreground self-center">Filter:</span>
-                  <Button 
-                    variant={categoryFilter === "all" ? "secondary" : "ghost"} 
-                    size="sm" 
-                    onClick={() => setCategoryFilter("all")}
-                  >
-                    All
-                  </Button>
-                  {CATEGORY_GROUPS.find(g => g.name === activeGroup)?.categories.map((cat) => (
-                    <Button 
-                      key={cat} 
-                      variant={categoryFilter === cat ? "secondary" : "ghost"} 
-                      size="sm" 
-                      onClick={() => setCategoryFilter(cat)}
+                  {CATEGORY_GROUPS.map((group) => (
+                    <Button
+                      key={group.name}
+                      variant={activeGroup === group.name ? "default" : "outline"}
+                      size="sm"
+                      onClick={() => { setActiveGroup(group.name); setCategoryFilter("all"); }}
                     >
-                      {cat}
+                      {group.name}
                     </Button>
                   ))}
                 </div>
-              )}
-            </div>
 
-            <p className="text-sm text-muted-foreground">
-              Showing {filteredDefinitions.length} of {definitions.length} terms
-              {activeGroup !== "all" && ` in ${activeGroup}`}
-            </p>
+                {/* Sub-category filters when group is selected */}
+                {activeGroup !== "all" && (
+                  <div className="flex flex-wrap gap-2 pl-4 border-l-2 border-muted">
+                    <span className="text-sm text-muted-foreground self-center">Filter:</span>
+                    <Button
+                      variant={categoryFilter === "all" ? "secondary" : "ghost"}
+                      size="sm"
+                      onClick={() => setCategoryFilter("all")}
+                    >
+                      All
+                    </Button>
+                    {CATEGORY_GROUPS.find(g => g.name === activeGroup)?.categories.map((cat) => (
+                      <Button
+                        key={cat}
+                        variant={categoryFilter === cat ? "secondary" : "ghost"}
+                        size="sm"
+                        onClick={() => setCategoryFilter(cat)}
+                      >
+                        {cat}
+                      </Button>
+                    ))}
+                  </div>
+                )}
 
-            {/* Grouped Display */}
-            {Object.keys(groupedDefinitions).length > 0 ? (
-              <div className="space-y-8">
-                {Object.entries(groupedDefinitions)
-                  .sort(([a], [b]) => a.localeCompare(b))
-                  .map(([category, defs]) => {
-                    const IconComponent = CATEGORY_ICONS[category] || BookOpen;
-                    return (
-                      <div key={category} className="space-y-4">
-                        <div className="flex items-center gap-2">
-                          <IconComponent className="h-5 w-5 text-muted-foreground" />
-                          <h2 className="text-lg font-semibold">{category}</h2>
-                          <Badge variant="secondary" className="text-xs">{defs.length}</Badge>
-                        </div>
-                        <DefinitionsGrid 
-                          definitions={defs as any} 
-                          onExplain={handleExplain} 
-                          onViewDetails={handleViewDetails} 
-                        />
-                      </div>
-                    );
-                  })}
-              </div>
-            ) : (
-              <div className="text-center py-12">
-                <p className="text-muted-foreground">No definitions found matching your search.</p>
-              </div>
+                <p className="text-sm text-muted-foreground">
+                  Showing {filteredDefinitions.length} of {definitions.length} terms
+                  {activeGroup !== "all" && ` in ${activeGroup}`}
+                </p>
+
+                {/* Grouped Display */}
+                {Object.keys(groupedDefinitions).length > 0 ? (
+                  <div className="space-y-8">
+                    {Object.entries(groupedDefinitions)
+                      .sort(([a], [b]) => a.localeCompare(b))
+                      .map(([category, defs]) => {
+                        const IconComponent = CATEGORY_ICONS[category] || BookOpen;
+                        return (
+                          <div key={category} className="space-y-4">
+                            <div className="flex items-center gap-2">
+                              <IconComponent className="h-5 w-5 text-muted-foreground" />
+                              <h2 className="text-lg font-semibold">{category}</h2>
+                              <Badge variant="secondary" className="text-xs">{defs.length}</Badge>
+                            </div>
+                            <DefinitionsGrid
+                              definitions={defs as any}
+                              onExplain={handleExplain}
+                              onViewDetails={handleViewDetails}
+                            />
+                          </div>
+                        );
+                      })}
+                  </div>
+                ) : (
+                  <div className="text-center py-12">
+                    <p className="text-muted-foreground">No definitions found matching your search.</p>
+                  </div>
+                )}
+              </>
             )}
           </TabsContent>
 

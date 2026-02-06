@@ -8,6 +8,7 @@ import { Layout } from "@/components/layout/Layout";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2 } from "lucide-react";
+import { AuthSocial } from "@/components/auth/AuthSocial";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -48,11 +49,11 @@ export default function Login() {
   return (
     <Layout>
       <div className="container flex min-h-[calc(100vh-16rem)] items-center justify-center py-12">
-        <Card className="w-full max-w-md">
+        <Card className="w-full max-w-md border-primary/10 shadow-lg">
           <CardHeader className="text-center">
-            <CardTitle className="text-2xl">Welcome Back</CardTitle>
+            <CardTitle className="text-2xl font-bold font-display text-primary">Welcome Back</CardTitle>
             <CardDescription>
-              Sign in to your account to continue learning
+              Sign in to continue your financial journey
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -81,9 +82,14 @@ export default function Login() {
               </div>
               <Button type="submit" className="w-full" disabled={loading}>
                 {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                Sign In
+                Sign In with Email
               </Button>
             </form>
+
+            <div className="mt-6">
+              <AuthSocial />
+            </div>
+
             <div className="mt-6 text-center text-sm">
               <span className="text-muted-foreground">Don't have an account? </span>
               <Link to="/signup" className="font-medium text-primary hover:underline">

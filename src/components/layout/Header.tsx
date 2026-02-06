@@ -1,18 +1,49 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
-import { Menu, Bot, User, LogOut } from "lucide-react";
+import { Menu, Bot, User, LogOut, ChevronDown, Settings } from "lucide-react";
 import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { GlobalSearch } from "@/components/search/GlobalSearch";
 import type { User as SupabaseUser } from "@supabase/supabase-js";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
-const navItems = [
-  { label: "Knowledge Hub", href: "/" },
-  { label: "Compliance", href: "/compliance" },
-  { label: "Stocks", href: "/stocks" },
-  { label: "Finance Lab", href: "/learn" },
+interface NavItem {
+  label: string;
+  href?: string;
+  items?: { label: string; href: string }[];
+}
+
+const navItems: NavItem[] = [
+  {
+    label: "Learn",
+    items: [
+      { label: "Financial Wiki", href: "/learn" },
+      { label: "Fundamental Analysis", href: "/learn/fundamental-analysis" },
+      { label: "Technical Analysis", href: "/learn/technical-analysis" },
+    ],
+  },
+  {
+    label: "Tools",
+    items: [
+      { label: "Calculators", href: "/calculators" },
+      { label: "Stock Market", href: "/stocks" },
+    ],
+  },
+  {
+    label: "Resources",
+    items: [
+      { label: "Community", href: "/community" },
+      { label: "Compliance & Regulations", href: "/compliance" },
+      { label: "Investment Migration", href: "/migration" }, // Added for easy access during dev
+    ],
+  },
 ];
 
 export function Header() {
@@ -51,6 +82,16 @@ export function Header() {
     }
   };
 
+  const isActive = (item: NavItem) => {
+    if (item.href) {
+      return location.pathname === item.href;
+    }
+    if (item.items) {
+      return item.items.some((subItem) => location.pathname === subItem.href);
+    }
+    return false;
+  };
+
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between gap-4">
@@ -68,17 +109,44 @@ export function Header() {
         {/* Desktop Navigation */}
         <nav className="hidden items-center gap-1 lg:flex">
           {navItems.map((item) => (
-            <Link
-              key={item.href}
-              to={item.href}
-              className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
-                location.pathname === item.href
-                  ? "bg-muted text-foreground"
-                  : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
-              }`}
-            >
-              {item.label}
-            </Link>
+            <div key={item.label}>
+              {item.items ? (
+                <DropdownMenu>
+                  <DropdownMenuTrigger
+                    className={`flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-md transition-colors outline-none ${isActive(item)
+                      ? "bg-muted text-foreground"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                      }`}
+                  >
+                    {item.label}
+                    <ChevronDown className="h-4 w-4" />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end">
+                    {item.items.map((subItem) => (
+                      <DropdownMenuItem key={subItem.href} asChild>
+                        <Link
+                          to={subItem.href}
+                          className={`w-full ${location.pathname === subItem.href ? "bg-accent" : ""
+                            }`}
+                        >
+                          {subItem.label}
+                        </Link>
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              ) : (
+                <Link
+                  to={item.href!}
+                  className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${location.pathname === item.href
+                    ? "bg-muted text-foreground"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                    }`}
+                >
+                  {item.label}
+                </Link>
+              )}
+            </div>
           ))}
         </nav>
 
@@ -95,6 +163,12 @@ export function Header() {
                 <Link to="/dashboard">
                   <User className="mr-2 h-4 w-4" />
                   Dashboard
+                </Link>
+              </Button>
+              <Button variant="ghost" size="sm" asChild>
+                <Link to="/settings">
+                  <Settings className="mr-2 h-4 w-4" />
+                  Settings
                 </Link>
               </Button>
               <Button variant="outline" size="sm" onClick={handleLogout}>
@@ -126,18 +200,41 @@ export function Header() {
             <SheetTitle className="text-left">Menu</SheetTitle>
             <nav className="mt-6 flex flex-col gap-4">
               {navItems.map((item) => (
-                <Link
-                  key={item.href}
-                  to={item.href}
-                  onClick={() => setIsOpen(false)}
-                  className={`text-lg font-medium transition-colors ${
-                    location.pathname === item.href
-                      ? "text-foreground"
-                      : "text-muted-foreground hover:text-foreground"
-                  }`}
-                >
-                  {item.label}
-                </Link>
+                <div key={item.label} className="flex flex-col gap-2">
+                  {item.items ? (
+                    <>
+                      <div className="text-lg font-medium text-foreground">
+                        {item.label}
+                      </div>
+                      <div className="flex flex-col gap-2 pl-4 border-l-2 ml-1">
+                        {item.items.map((subItem) => (
+                          <Link
+                            key={subItem.href}
+                            to={subItem.href}
+                            onClick={() => setIsOpen(false)}
+                            className={`text-base font-medium transition-colors ${location.pathname === subItem.href
+                              ? "text-foreground"
+                              : "text-muted-foreground hover:text-foreground"
+                              }`}
+                          >
+                            {subItem.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </>
+                  ) : (
+                    <Link
+                      to={item.href!}
+                      onClick={() => setIsOpen(false)}
+                      className={`text-lg font-medium transition-colors ${location.pathname === item.href
+                        ? "text-foreground"
+                        : "text-muted-foreground hover:text-foreground"
+                        }`}
+                    >
+                      {item.label}
+                    </Link>
+                  )}
+                </div>
               ))}
               <div className="my-4 h-px bg-border" />
               {user ? (

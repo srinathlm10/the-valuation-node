@@ -1,29 +1,38 @@
 import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { Layout } from "@/components/layout/Layout";
 import { StockScreener } from "@/components/stocks/StockScreener";
 import { ChatSidebar } from "@/components/chat/ChatSidebar";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { TrendingUp, TrendingDown, Activity } from "lucide-react";
-import stocks from "@/data/stocks.json";
+import { TrendingUp, Activity, Loader2 } from "lucide-react";
+import { contentService } from "@/services/contentService";
 
 export default function Stocks() {
   const [chatOpen, setChatOpen] = useState(false);
   const [chatContext, setChatContext] = useState<string | undefined>();
   const [initialMessage, setInitialMessage] = useState<string | undefined>();
 
+  const { data: stocks = [], isLoading } = useQuery({
+    queryKey: ['stocks'],
+    queryFn: contentService.getStocks,
+    staleTime: 5 * 60 * 1000, // 5 minutes
+  });
+
+
+
   const handleBotAnalysis = (stock: any) => {
     setChatContext(`Analyzing ${stock.name}`);
     setInitialMessage(
       `Analyze ${stock.name} (${stock.id}) based on these fundamentals:\n` +
-        `- Sector: ${stock.sector}\n` +
-        `- Market Cap: ₹${stock.marketCap.toLocaleString("en-IN")} Cr\n` +
-        `- P/E Ratio: ${stock.pe}\n` +
-        `- ROE: ${stock.roe}%\n` +
-        `- Debt-to-Equity: ${stock.debtToEquity}\n` +
-        `- 5Y Revenue Growth: ${stock.revenueGrowth5Y}%\n` +
-        `- 5Y Profit Growth: ${stock.profitGrowth5Y}%\n\n` +
-        `Explain what these numbers mean for a beginner investor. Is this stock fundamentally strong?`
+      `- Sector: ${stock.sector}\n` +
+      `- Market Cap: ₹${stock.marketCap.toLocaleString("en-IN")} Cr\n` +
+      `- P/E Ratio: ${stock.pe}\n` +
+      `- ROE: ${stock.roe}%\n` +
+      `- Debt-to-Equity: ${stock.debtToEquity}\n` +
+      `- 5Y Revenue Growth: ${stock.revenueGrowth5Y}%\n` +
+      `- 5Y Profit Growth: ${stock.profitGrowth5Y}%\n\n` +
+      `Explain what these numbers mean for a beginner investor. Is this stock fundamentally strong?`
     );
     setChatOpen(true);
   };
@@ -37,9 +46,19 @@ export default function Stocks() {
   };
 
   // Calculate some market stats
-  const avgPE = stocks.reduce((acc, s) => acc + s.pe, 0) / stocks.length;
-  const avgROE = stocks.reduce((acc, s) => acc + s.roe, 0) / stocks.length;
-  const totalMarketCap = stocks.reduce((acc, s) => acc + s.marketCap, 0);
+  const avgPE = stocks.length > 0 ? stocks.reduce((acc: number, s: any) => acc + (Number(s.pe) || 0), 0) / stocks.length : 0;
+  const avgROE = stocks.length > 0 ? stocks.reduce((acc: number, s: any) => acc + (Number(s.roe) || 0), 0) / stocks.length : 0;
+  const totalMarketCap = stocks.reduce((acc: number, s: any) => acc + (Number(s.marketCap) || 0), 0);
+
+  if (isLoading) {
+    return (
+      <Layout>
+        <div className="container flex min-h-[50vh] items-center justify-center">
+          <Loader2 className="h-8 w-8 animate-spin text-primary" />
+        </div>
+      </Layout>
+    );
+  }
 
   return (
     <Layout>
@@ -48,11 +67,11 @@ export default function Stocks() {
         <div className="container py-8">
           <h1 className="text-3xl font-bold mb-2">Stock Fundamental Archive</h1>
           <p className="text-muted-foreground max-w-2xl">
-            Pre-loaded 10-year fundamental data for Nifty 50 companies. 
+            Pre-loaded 10-year fundamental data for Nifty 50 companies.
             Analyze key metrics and get AI-powered explanations for beginners.
           </p>
           <Badge variant="secondary" className="mt-4">
-            Static Data • Not Real-Time • For Educational Purposes Only
+            Live Data • Powered by Supabase
           </Badge>
         </div>
       </section>
