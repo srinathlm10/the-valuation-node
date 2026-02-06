@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Bot, X, Send, Loader2, Plus, Trash2, History, Mic, MicOff, Volume2, VolumeX, Paperclip, FileText } from "lucide-react";
+import { Bot, X, Send, Loader2, Plus, Trash2, History, Mic, MicOff, Volume2, VolumeX, Paperclip, FileText, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 import ReactMarkdown from "react-markdown";
 import { supabase } from "@/integrations/supabase/client";
@@ -304,54 +304,62 @@ export function ChatSidebar({ isOpen, onToggle, initialMessage, context }: ChatS
 
   if (!isOpen) {
     return (
-      <Button
-        onClick={onToggle}
-        className="fixed bottom-6 right-6 h-14 w-14 rounded-full shadow-lg gradient-slate hover:opacity-90 z-50 transition-transform hover:scale-105"
-        size="icon"
-      >
-        <Bot className="h-6 w-6" />
-      </Button>
+      <div className="fixed bottom-6 right-6 z-50 group">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-full blur-xl opacity-50 group-hover:opacity-75 transition-opacity animate-pulse" />
+        <Button
+          onClick={onToggle}
+          className="relative h-16 w-16 rounded-full bg-gradient-to-br from-blue-600 to-purple-700 hover:from-blue-700 hover:to-purple-800 shadow-2xl transition-all duration-300 hover:scale-110 border-2 border-white/20"
+          size="icon"
+        >
+          <Bot className="h-7 w-7 text-white" />
+          <Sparkles className="absolute -top-1 -right-1 h-4 w-4 text-yellow-300 animate-pulse" />
+        </Button>
+      </div>
     );
   }
 
   return (
-    <div className="fixed right-0 top-0 h-full w-full md:w-[450px] bg-background border-l shadow-2xl z-50 flex flex-col animate-slide-in-right">
+    <div className="fixed right-0 top-0 h-full w-full md:w-[480px] bg-gradient-to-b from-background via-background to-muted/20 border-l border-border/50 shadow-2xl z-50 flex flex-col animate-slide-in-right backdrop-blur-xl">
       {/* Header */}
-      <div className="flex items-center justify-between px-4 py-3 border-b bg-primary text-primary-foreground shadow-sm">
-        <div className="flex items-center gap-2">
+      <div className="relative flex items-center justify-between px-5 py-4 border-b border-border/50 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white shadow-lg overflow-hidden">
+        <div className="absolute inset-0 bg-black/10 backdrop-blur-sm" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent" />
+        <div className="relative flex items-center gap-3 z-10">
           {showHistory ? (
-            <Button variant="ghost" size="icon" onClick={() => setShowHistory(false)} className="text-primary-foreground hover:bg-white/10 -ml-2">
+            <Button variant="ghost" size="icon" onClick={() => setShowHistory(false)} className="text-white hover:bg-white/20 -ml-2 transition-all">
               <X className="h-5 w-5" />
             </Button>
           ) : (
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/10">
-              <Bot className="h-5 w-5" />
+            <div className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm shadow-lg border border-white/30">
+              <Bot className="h-6 w-6 text-white" />
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-white/20 to-transparent" />
             </div>
           )}
 
           <div className="flex flex-col">
-            <h3 className="font-semibold text-sm leading-none mb-1">
+            <h3 className="font-bold text-base leading-none mb-1.5 flex items-center gap-2">
               {showHistory ? "Chat History" : "FinBot"}
+              {!showHistory && <Sparkles className="h-3.5 w-3.5 text-yellow-300 animate-pulse" />}
             </h3>
-            <span className="text-[10px] opacity-80 font-light">
+            <span className="text-[11px] opacity-90 font-medium">
               {showHistory ? `${sessions.length} saved sessions` : "AI Financial Assistant"}
             </span>
           </div>
         </div>
 
-        <div className="flex items-center gap-1">
+        <div className="relative flex items-center gap-1.5 z-10">
           <Button
             variant="ghost"
             size="icon"
-            className="h-8 w-8 text-primary-foreground hover:bg-white/10"
+            className="h-9 w-9 text-white hover:bg-white/20 rounded-lg transition-all hover:scale-105"
             onClick={() => setShowHistory(!showHistory)}
           >
-            <History className="h-4 w-4" />
+            <History className="h-4.5 w-4.5" />
           </Button>
           <Button
             variant="ghost"
             size="icon"
-            className="h-8 w-8 text-primary-foreground hover:bg-white/10"
+            className="h-9 w-9 text-white hover:bg-white/20 rounded-lg transition-all hover:scale-105"
             onClick={createNewSession}
           >
             <Plus className="h-5 w-5" />
@@ -359,7 +367,7 @@ export function ChatSidebar({ isOpen, onToggle, initialMessage, context }: ChatS
           <Button
             variant="ghost"
             size="icon"
-            className="h-8 w-8 text-primary-foreground hover:bg-white/10"
+            className="h-9 w-9 text-white hover:bg-white/20 rounded-lg transition-all hover:scale-105"
             onClick={onToggle}
           >
             <X className="h-5 w-5" />
@@ -368,34 +376,41 @@ export function ChatSidebar({ isOpen, onToggle, initialMessage, context }: ChatS
       </div>
 
       {showHistory ? (
-        <ScrollArea className="flex-1 bg-muted/10">
-          <div className="p-4 space-y-2">
+        <ScrollArea className="flex-1 bg-gradient-to-b from-muted/5 to-muted/20">
+          <div className="p-5 space-y-3">
             {sessions.length === 0 && (
-              <div className="text-center text-muted-foreground py-10">
-                <History className="h-10 w-10 mx-auto mb-3 opacity-20" />
-                <p>No chat history found.</p>
+              <div className="text-center text-muted-foreground py-16">
+                <div className="relative inline-block">
+                  <div className="absolute inset-0 bg-primary/20 blur-2xl rounded-full" />
+                  <History className="relative h-16 w-16 mx-auto mb-4 opacity-30" />
+                </div>
+                <p className="text-sm font-medium">No chat history found.</p>
+                <p className="text-xs mt-1 opacity-70">Start a conversation to see it here</p>
               </div>
             )}
             {sessions.map(session => (
               <div
                 key={session.id}
                 className={cn(
-                  "group flex items-center justify-between p-3 rounded-lg border bg-card hover:bg-accent/50 cursor-pointer transition-colors",
-                  currentSessionId === session.id && "border-primary bg-primary/5"
+                  "group relative flex items-center justify-between p-4 rounded-xl border border-border/50 bg-card/50 backdrop-blur-sm hover:bg-accent/30 cursor-pointer transition-all duration-300 hover:shadow-lg hover:scale-[1.02]",
+                  currentSessionId === session.id && "border-primary/50 bg-primary/10 shadow-md ring-2 ring-primary/20"
                 )}
                 onClick={() => {
                   setCurrentSessionId(session.id);
                   setShowHistory(false);
                 }}
               >
-                <div className="flex flex-col gap-1 overflow-hidden">
-                  <span className="text-sm font-medium truncate">{session.title}</span>
-                  <span className="text-[10px] text-muted-foreground">{formatDistanceToNow(new Date(session.updated_at))} ago</span>
+                {currentSessionId === session.id && (
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent rounded-xl" />
+                )}
+                <div className="relative flex flex-col gap-1.5 overflow-hidden flex-1">
+                  <span className="text-sm font-semibold truncate">{session.title}</span>
+                  <span className="text-[11px] text-muted-foreground font-medium">{formatDistanceToNow(new Date(session.updated_at))} ago</span>
                 </div>
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="h-8 w-8 opacity-0 group-hover:opacity-100 transition-opacity text-destructive hover:bg-destructive/10"
+                  className="relative h-8 w-8 opacity-0 group-hover:opacity-100 transition-all text-destructive hover:bg-destructive/20 rounded-lg"
                   onClick={(e) => handleDeleteSession(e, session.id)}
                 >
                   <Trash2 className="h-4 w-4" />
@@ -407,8 +422,8 @@ export function ChatSidebar({ isOpen, onToggle, initialMessage, context }: ChatS
       ) : (
         <>
           {/* Messages */}
-          <ScrollArea className="flex-1 p-4" ref={scrollRef}>
-            <div className="space-y-4 pb-4">
+          <ScrollArea className="flex-1 p-5" ref={scrollRef}>
+            <div className="space-y-5 pb-6">
               {messages.map((message) => (
                 <div
                   key={message.id}
@@ -417,13 +432,13 @@ export function ChatSidebar({ isOpen, onToggle, initialMessage, context }: ChatS
                     message.role === "user" ? "justify-end" : "justify-start"
                   )}
                 >
-                  <div className={cn("flex flex-col gap-1 max-w-[85%]", message.role === "user" ? "items-end" : "items-start")}>
+                  <div className={cn("group flex flex-col gap-2 max-w-[85%]", message.role === "user" ? "items-end" : "items-start")}>
                     <div
                       className={cn(
-                        "rounded-2xl px-4 py-3 text-sm shadow-sm",
+                        "rounded-2xl px-5 py-3.5 text-sm shadow-lg transition-all duration-300",
                         message.role === "user"
-                          ? "bg-primary text-primary-foreground rounded-br-none"
-                          : "bg-muted rounded-bl-none"
+                          ? "bg-gradient-to-br from-blue-600 to-purple-700 text-white rounded-br-none border border-blue-500/20"
+                          : "bg-card/80 backdrop-blur-sm rounded-bl-none border border-border/50 hover:shadow-xl"
                       )}
                     >
                       {message.role === "assistant" ? (
@@ -438,20 +453,20 @@ export function ChatSidebar({ isOpen, onToggle, initialMessage, context }: ChatS
                       <Button
                         variant="ghost"
                         size="icon"
-                        className="h-6 w-6 text-muted-foreground hover:text-primary transition-opacity opacity-0 group-hover:opacity-100 self-start"
+                        className="h-7 w-7 text-muted-foreground hover:text-primary transition-all opacity-0 group-hover:opacity-100 self-start rounded-lg hover:bg-primary/10"
                         onClick={() => speakText(message.content)}
                       >
-                        {isSpeaking ? <VolumeX className="h-3 w-3" /> : <Volume2 className="h-3 w-3" />}
+                        {isSpeaking ? <VolumeX className="h-3.5 w-3.5" /> : <Volume2 className="h-3.5 w-3.5" />}
                       </Button>
                     )}
                   </div>
                 </div>
               ))}
               {isLoading && (
-                <div className="flex justify-start">
-                  <div className="bg-muted rounded-2xl rounded-bl-none px-4 py-3 flex items-center gap-2">
-                    <Loader2 className="h-4 w-4 animate-spin text-muted-foreground" />
-                    <span className="text-sm text-muted-foreground">Analysing...</span>
+                <div className="flex justify-start animate-in fade-in slide-in-from-left-2 duration-300">
+                  <div className="bg-gradient-to-r from-primary/10 to-purple/10 rounded-2xl rounded-bl-none px-5 py-3.5 flex items-center gap-3 border border-primary/20 shadow-lg">
+                    <Loader2 className="h-5 w-5 animate-spin text-primary" />
+                    <span className="text-sm font-medium bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">Analysing...</span>
                   </div>
                 </div>
               )}
@@ -460,20 +475,22 @@ export function ChatSidebar({ isOpen, onToggle, initialMessage, context }: ChatS
 
           {/* File Upload Preview */}
           {selectedFile && (
-            <div className="px-4 py-2 bg-muted/30 border-t flex items-center justify-between">
-              <div className="flex items-center gap-2 text-xs text-primary">
-                <FileText className="h-4 w-4" />
-                <span className="font-medium max-w-[200px] truncate">{selectedFile.name}</span>
+            <div className="mx-4 mb-2 px-4 py-3 bg-gradient-to-r from-primary/10 to-purple/10 border border-primary/30 rounded-xl flex items-center justify-between shadow-md animate-in slide-in-from-bottom-2 duration-300">
+              <div className="flex items-center gap-3 text-sm text-primary">
+                <div className="p-2 bg-primary/20 rounded-lg">
+                  <FileText className="h-4 w-4" />
+                </div>
+                <span className="font-semibold max-w-[200px] truncate">{selectedFile.name}</span>
               </div>
-              <Button variant="ghost" size="icon" className="h-6 w-6" onClick={clearFile}>
-                <X className="h-3 w-3" />
+              <Button variant="ghost" size="icon" className="h-7 w-7 hover:bg-destructive/20 rounded-lg transition-all" onClick={clearFile}>
+                <X className="h-4 w-4 text-destructive" />
               </Button>
             </div>
           )}
 
           {/* Input */}
-          <div className="p-4 border-t bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-            <div className="flex items-end gap-2">
+          <div className="p-5 border-t border-border/50 bg-gradient-to-t from-background via-background/95 to-background/90 backdrop-blur-xl">
+            <div className="flex items-end gap-2.5">
               <input
                 type="file"
                 ref={fileInputRef}
@@ -484,7 +501,7 @@ export function ChatSidebar({ isOpen, onToggle, initialMessage, context }: ChatS
               <Button
                 variant="outline"
                 size="icon"
-                className="h-11 w-11 rounded-full shrink-0"
+                className="h-12 w-12 rounded-full shrink-0 border-2 hover:bg-primary/10 hover:border-primary/50 transition-all hover:scale-105"
                 onClick={() => fileInputRef.current?.click()}
                 title="Upload File"
               >
@@ -495,8 +512,10 @@ export function ChatSidebar({ isOpen, onToggle, initialMessage, context }: ChatS
                 variant="outline"
                 size="icon"
                 className={cn(
-                  "h-11 w-11 rounded-full shrink-0 transition-all",
-                  isListening && "bg-red-500 text-white border-red-500 animate-pulse hover:bg-red-600 hover:text-white"
+                  "h-12 w-12 rounded-full shrink-0 transition-all duration-300 border-2",
+                  isListening
+                    ? "bg-gradient-to-br from-red-500 to-red-600 text-white border-red-400 animate-pulse hover:from-red-600 hover:to-red-700 shadow-lg shadow-red-500/50"
+                    : "hover:bg-primary/10 hover:border-primary/50 hover:scale-105"
                 )}
                 onClick={toggleListening}
               >
@@ -507,17 +526,17 @@ export function ChatSidebar({ isOpen, onToggle, initialMessage, context }: ChatS
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && !e.shiftKey && handleSendMessage()}
-                placeholder={isListening ? "Listening..." : "Ask FinBot..."}
-                className="flex-1 min-h-[44px]"
+                placeholder={isListening ? "🎤 Listening..." : "Ask FinBot anything..."}
+                className="flex-1 min-h-[48px] text-base border-2 rounded-2xl px-5 focus-visible:ring-2 focus-visible:ring-primary/50 bg-background/50 backdrop-blur-sm"
                 disabled={isLoading}
               />
               <Button
                 onClick={() => handleSendMessage()}
                 disabled={(!input.trim() && !fileContent) || isLoading}
                 size="icon"
-                className="h-11 w-11 rounded-full shrink-0"
+                className="h-12 w-12 rounded-full shrink-0 bg-gradient-to-br from-blue-600 to-purple-700 hover:from-blue-700 hover:to-purple-800 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed border-2 border-white/20"
               >
-                <Send className="h-5 w-5" />
+                <Send className="h-5 w-5 text-white" />
               </Button>
             </div>
           </div>
