@@ -1,6 +1,6 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
-import { GoogleGenerativeAI } from "https://esm.sh/@google/generative-ai@0.12.0";
+import { GoogleGenerativeAI } from "https://esm.sh/@google/generative-ai";
 
 const corsHeaders = {
     "Access-Control-Allow-Origin": "*",
@@ -24,10 +24,25 @@ serve(async (req) => {
         const supabase = createClient(supabaseUrl, supabaseKey);
         const genAI = new GoogleGenerativeAI(geminiKey);
 
-        // Generate embedding using Gemini
-        const model = genAI.getGenerativeModel({ model: "embedding-001" });
-        const result = await model.embedContent(content);
-        const embedding = result.embedding.values;
+        // Generate embedding using Gemini REST API with reduced dimensions
+        const embeddingResponse = await fetch(
+            `https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-001:embedContent?key=${geminiKey}`,
+            {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    model: "models/gemini-embedding-001",
+                    content: { parts: [{ text: content }] },
+                    outputDimensionality: 768,
+                }),
+            }
+        );
+        if (!embeddingResponse.ok) {
+            const errBody = await embeddingResponse.text();
+            throw new Error(`Embedding API error: ${embeddingResponse.status} - ${errBody}`);
+        }
+        const embeddingData = await embeddingResponse.json();
+        const embedding = embeddingData.embedding.values;
 
         // Upsert into knowledge_embeddings table
         const { data, error } = await supabase

@@ -1,5 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
-import { GoogleGenerativeAI } from "https://esm.sh/@google/generative-ai@0.12.0";
+import { GoogleGenerativeAI } from "https://esm.sh/@google/generative-ai";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const corsHeaders = {
@@ -32,10 +32,22 @@ serve(async (req) => {
     // RAG: Generate embedding for user's question and search knowledge base
     let relevantContext = "";
     try {
-      // Generate embedding for the question
-      const embeddingModel = genAI.getGenerativeModel({ model: "embedding-001" });
-      const embeddingResult = await embeddingModel.embedContent(lastUserMessage);
-      const queryEmbedding = embeddingResult.embedding.values;
+      // Generate embedding for the question using Gemini REST API
+      const geminiKey = Deno.env.get("GEMINI_API_KEY")!;
+      const embeddingResponse = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-001:embedContent?key=${geminiKey}`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            model: "models/gemini-embedding-001",
+            content: { parts: [{ text: lastUserMessage }] },
+            outputDimensionality: 768,
+          }),
+        }
+      );
+      const embeddingData = await embeddingResponse.json();
+      const queryEmbedding = embeddingData.embedding.values;
 
       // Search knowledge base using semantic search
       const { data: searchResults, error: searchError } = await supabase
@@ -126,15 +138,29 @@ Remember: You are helping Indian investors make informed financial decisions. Be
 
     // Convert messages to Gemini format
     // Filter out system messages from history if we are using systemInstruction
-    const history = messages
+    let history = messages
       .filter((m: any) => m.role !== 'system')
       .map((m: any) => ({
         role: m.role === "assistant" ? "model" : "user",
         parts: [{ text: m.content }],
       }));
 
+    // Gemini requires the first message in history to be from "user"
+    // Remove any leading "model" messages to avoid the error
+    while (history.length > 0 && history[0].role === "model") {
+      history = history.slice(1);
+    }
+
+    // Ensure alternating user/model pattern (Gemini requirement)
+    const cleanHistory: typeof history = [];
+    for (let i = 0; i < history.length; i++) {
+      if (i === 0 && history[i].role !== "user") continue;
+      if (cleanHistory.length > 0 && cleanHistory[cleanHistory.length - 1].role === history[i].role) continue;
+      cleanHistory.push(history[i]);
+    }
+
     const chat = model.startChat({
-      history: history.slice(0, -1), // Previous context
+      history: cleanHistory.slice(0, -1), // Previous context (exclude last message)
       generationConfig: {
         maxOutputTokens: 1000,
       },
