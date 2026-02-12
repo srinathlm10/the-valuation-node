@@ -1,5 +1,6 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { GoogleGenerativeAI } from "https://esm.sh/@google/generative-ai@0.12.0";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -15,12 +16,50 @@ serve(async (req) => {
   try {
     const { messages, systemPrompt } = await req.json();
     const apiKey = Deno.env.get("GEMINI_API_KEY");
+    const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
+    const supabaseKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
 
     if (!apiKey) {
       throw new Error("GEMINI_API_KEY is not set");
     }
 
     const genAI = new GoogleGenerativeAI(apiKey);
+    const supabase = createClient(supabaseUrl, supabaseKey);
+
+    // Get the last user message for semantic search
+    const lastUserMessage = messages[messages.length - 1]?.content || "";
+
+    // RAG: Generate embedding for user's question and search knowledge base
+    let relevantContext = "";
+    try {
+      // Generate embedding for the question
+      const embeddingModel = genAI.getGenerativeModel({ model: "embedding-001" });
+      const embeddingResult = await embeddingModel.embedContent(lastUserMessage);
+      const queryEmbedding = embeddingResult.embedding.values;
+
+      // Search knowledge base using semantic search
+      const { data: searchResults, error: searchError } = await supabase
+        .rpc('search_knowledge', {
+          query_embedding: queryEmbedding,
+          match_threshold: 0.7,
+          match_count: 3
+        });
+
+      if (!searchError && searchResults && searchResults.length > 0) {
+        // Inject relevant articles as context
+        relevantContext = `\n\n**Relevant Knowledge Base Articles:**\n\n`;
+        searchResults.forEach((result: any, index: number) => {
+          const contentPreview = result.content.length > 800
+            ? result.content.substring(0, 800) + "..."
+            : result.content;
+          relevantContext += `${index + 1}. **${result.title}** (${result.content_type}, similarity: ${(result.similarity * 100).toFixed(1)}%)\n${contentPreview}\n\n`;
+        });
+        relevantContext += `Use the above articles from the knowledge base to provide accurate, content-based answers.\n`;
+      }
+    } catch (ragError) {
+      console.error("RAG search error (non-fatal):", ragError);
+      // Continue without RAG if it fails
+    }
 
     // Enhanced default system prompt with Indian market expertise
     const defaultSystemPrompt = `You are FinBot, an expert financial assistant specializing in the Indian financial market.
@@ -78,7 +117,7 @@ serve(async (req) => {
 - Bold important terms and figures
 - Include relevant emojis sparingly for engagement (📊, 💰, 📈, ⚠️)
 
-Remember: You are helping Indian investors make informed financial decisions. Be accurate, helpful, and educational.`;
+Remember: You are helping Indian investors make informed financial decisions. Be accurate, helpful, and educational.${relevantContext}`;
 
     const model = genAI.getGenerativeModel({
       model: "gemini-1.5-flash",
