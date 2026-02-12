@@ -10,6 +10,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2, Camera, User } from "lucide-react";
+import { EmbeddingAdmin } from "@/components/admin/EmbeddingAdmin";
 
 export default function Settings() {
     const { user } = useAuth();
@@ -233,6 +234,9 @@ export default function Settings() {
                             </form>
                         </CardContent>
                     </Card>
+
+                    {/* RAG System Admin - Populate Embeddings */}
+                    <EmbeddingAdmin />
                 </div>
             </div>
         </Layout>
