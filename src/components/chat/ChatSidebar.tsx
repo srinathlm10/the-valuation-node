@@ -272,9 +272,15 @@ export function ChatSidebar({ isOpen, onToggle, initialMessage, context }: ChatS
         body: { messages: conversationHistory, systemPrompt },
       });
 
+      console.log("Edge Function Response:", response);
       if (response.error) throw new Error(response.error.message || "Failed to get response from AI");
 
-      const assistantMessageContent = response.data?.message || "Sorry, I couldn't process that.";
+      let assistantMessageContent = response.data?.message;
+      if (typeof assistantMessageContent === 'object') {
+        console.warn("Received object response from AI:", assistantMessageContent);
+        assistantMessageContent = JSON.stringify(assistantMessageContent);
+      }
+      if (!assistantMessageContent) assistantMessageContent = "Sorry, I couldn't process that.";
 
       // 5. Save AI Message (only if authenticated)
       if (user && sessionId) {
