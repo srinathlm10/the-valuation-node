@@ -242,17 +242,19 @@ export function ChatSidebar({ isOpen, onToggle, initialMessage, context }: ChatS
     try {
       let sessionId = currentSessionId;
 
-      // 1. Create Session if needed
-      if (!sessionId) {
-        const newSession = await chatService.createSession(finalContent.slice(0, 30) + "...");
-        sessionId = newSession.id;
-        setCurrentSessionId(sessionId);
-        // Refresh sessions list
-        loadSessions();
-      }
+      // Only save to database if user is authenticated
+      if (user) {
+        // 1. Create Session if needed
+        if (!sessionId) {
+          const newSession = await chatService.createSession(finalContent.slice(0, 30) + "...");
+          sessionId = newSession.id;
+          setCurrentSessionId(sessionId);
+          loadSessions();
+        }
 
-      // 2. Save User Message
-      await chatService.saveMessage(sessionId!, "user", finalContent);
+        // 2. Save User Message
+        await chatService.saveMessage(sessionId!, "user", finalContent);
+      }
 
       // 3. Prepare Context for AI
       const conversationHistory = messages
@@ -270,25 +272,33 @@ export function ChatSidebar({ isOpen, onToggle, initialMessage, context }: ChatS
         body: { messages: conversationHistory, systemPrompt },
       });
 
-      if (response.error) throw response.error;
+      if (response.error) throw new Error(response.error.message || "Failed to get response from AI");
 
       const assistantMessageContent = response.data?.message || "Sorry, I couldn't process that.";
 
-      // 5. Save AI Message
-      const savedAiMsg = await chatService.saveMessage(sessionId!, "assistant", assistantMessageContent);
-
-      setMessages(prev => [...prev, savedAiMsg]);
-
-      // 6. Speak the response (optional auto-speak could be added here, but maybe user preferred manual click)
-      // speakText(assistantMessageContent); 
+      // 5. Save AI Message (only if authenticated)
+      if (user && sessionId) {
+        const savedAiMsg = await chatService.saveMessage(sessionId!, "assistant", assistantMessageContent);
+        setMessages(prev => [...prev, savedAiMsg]);
+      } else {
+        // Just add to local state without saving
+        setMessages(prev => [...prev, {
+          id: Date.now().toString(),
+          session_id: "temp",
+          role: "assistant",
+          content: assistantMessageContent,
+          created_at: new Date().toISOString()
+        } as ChatMessage]);
+      }
 
     } catch (error) {
       console.error("Chat error:", error);
+      const errorMessage = error instanceof Error ? error.message : String(error);
       setMessages(prev => [...prev, {
         id: Date.now().toString(),
         session_id: currentSessionId || "temp",
         role: "assistant",
-        content: "I'm having trouble connecting. Please try again.",
+        content: `I'm having trouble connecting right now. Please try again in a moment.`,
         created_at: new Date().toISOString()
       } as ChatMessage]);
     } finally {
