@@ -6,14 +6,26 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { 
-  Bot, TrendingUp, TrendingDown, BarChart3, CandlestickChart, 
+import {
+  Bot, TrendingUp, TrendingDown, BarChart3, CandlestickChart,
   Activity, Target, ShieldCheck, ArrowUpDown, Gauge, LineChart
 } from "lucide-react";
 
 export default function TechnicalAnalysis() {
   const [chatOpen, setChatOpen] = useState(false);
-  const [chatContext, setChatContext] = useState<string | undefined>();
+  const [chatContext, setChatContext] = useState<string | undefined>(
+    `You are helping users learn technical analysis for Indian stock markets.
+Page: Technical Analysis Guide
+Topics: Chart patterns, Technical indicators, Candlestick patterns, Support/Resistance
+Key Indicators: Moving Averages (SMA, EMA), RSI, MACD, Bollinger Bands, Volume analysis
+Chart Patterns: Head & Shoulders, Double Top/Bottom, Triangles, Flags, Wedges
+Candlestick: Doji, Hammer, Engulfing, Morning/Evening Star
+Trading Context:
+- NSE/BSE trading hours: 9:15 AM - 3:30 PM IST
+- Circuit breakers: 10%, 20% limits
+- Delivery vs Intraday trading
+Focus: Explain patterns visually, provide entry/exit strategies, risk management for Indian traders`
+  );
   const [initialMessage, setInitialMessage] = useState<string | undefined>();
 
   const handleAskAI = (topic: string, question: string) => {
@@ -33,7 +45,7 @@ export default function TechnicalAnalysis() {
               Master Technical Analysis
             </h1>
             <p className="text-lg text-hero-subtext">
-              Study historical market data—price and volume—to forecast future movements. 
+              Study historical market data—price and volume—to forecast future movements.
               Technical analysis assumes all known information is already reflected in the price.
             </p>
           </div>
@@ -98,7 +110,7 @@ export default function TechnicalAnalysis() {
                   </CardHeader>
                   <CardContent className="space-y-3">
                     <p className="text-sm text-muted-foreground">
-                      A peak (head) between two lower peaks (shoulders). A break below the "neckline" 
+                      A peak (head) between two lower peaks (shoulders). A break below the "neckline"
                       signals a reversal from bullish to bearish.
                     </p>
                     <div className="p-3 bg-muted rounded-lg">
@@ -117,7 +129,7 @@ export default function TechnicalAnalysis() {
                   </CardHeader>
                   <CardContent className="space-y-3">
                     <p className="text-sm text-muted-foreground">
-                      Price tests a resistance/support level twice and fails to break, 
+                      Price tests a resistance/support level twice and fails to break,
                       signaling a trend change.
                     </p>
                     <div className="p-3 bg-muted rounded-lg">
@@ -178,7 +190,7 @@ export default function TechnicalAnalysis() {
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground mb-3">
-                Short body with a long lower wick in a downtrend. Signifies that buyers 
+                Short body with a long lower wick in a downtrend. Signifies that buyers
                 regained control after a sharp drop.
               </p>
               <div className="flex items-center gap-2 text-xs">
@@ -195,7 +207,7 @@ export default function TechnicalAnalysis() {
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground mb-3">
-                Short body with a long upper wick in an uptrend. Signifies that sellers 
+                Short body with a long upper wick in an uptrend. Signifies that sellers
                 pushed prices back down after an initial surge.
               </p>
               <div className="flex items-center gap-2 text-xs">
@@ -212,7 +224,7 @@ export default function TechnicalAnalysis() {
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground mb-3">
-                A large green candle that completely "covers" the previous day's red candle, 
+                A large green candle that completely "covers" the previous day's red candle,
                 marking a decisive shift in sentiment.
               </p>
               <div className="flex items-center gap-2 text-xs">
@@ -378,7 +390,7 @@ export default function TechnicalAnalysis() {
                   </CardHeader>
                   <CardContent className="space-y-3">
                     <p className="text-sm text-muted-foreground">
-                      Measures the flow of volume to confirm trend strength. A rising OBV 
+                      Measures the flow of volume to confirm trend strength. A rising OBV
                       alongside rising price confirms strong buyer support.
                     </p>
                     <div className="p-3 bg-muted rounded-lg text-xs space-y-1">
@@ -438,7 +450,7 @@ export default function TechnicalAnalysis() {
                   <AccordionTrigger>Entry/Exit Plan</AccordionTrigger>
                   <AccordionContent>
                     <p className="text-sm text-muted-foreground">
-                      Never enter a trade without knowing your target price. Define your profit target 
+                      Never enter a trade without knowing your target price. Define your profit target
                       and stop-loss before executing any trade.
                     </p>
                   </AccordionContent>
@@ -447,7 +459,7 @@ export default function TechnicalAnalysis() {
                   <AccordionTrigger>Stop-Loss Placement</AccordionTrigger>
                   <AccordionContent>
                     <p className="text-sm text-muted-foreground">
-                      Use volatility indicators like ATR to set stop-losses. Example: Place a stop 
+                      Use volatility indicators like ATR to set stop-losses. Example: Place a stop
                       1 ATR away from entry to account for normal price fluctuations.
                     </p>
                   </AccordionContent>
@@ -456,7 +468,7 @@ export default function TechnicalAnalysis() {
                   <AccordionTrigger>Risk/Reward Ratio</AccordionTrigger>
                   <AccordionContent>
                     <p className="text-sm text-muted-foreground">
-                      Aim for at least a <strong>1:2 or 1:3 ratio</strong> to ensure profits outweigh 
+                      Aim for at least a <strong>1:2 or 1:3 ratio</strong> to ensure profits outweigh
                       losses over time. If risking ₹100, target at least ₹200-300.
                     </p>
                   </AccordionContent>
@@ -465,7 +477,7 @@ export default function TechnicalAnalysis() {
                   <AccordionTrigger>Position Sizing</AccordionTrigger>
                   <AccordionContent>
                     <p className="text-sm text-muted-foreground">
-                      Calculate shares to buy so you only risk a small percentage (1-2%) of total 
+                      Calculate shares to buy so you only risk a small percentage (1-2%) of total
                       capital on a single trade. Never bet everything on one position.
                     </p>
                   </AccordionContent>
@@ -509,11 +521,11 @@ export default function TechnicalAnalysis() {
         </div>
       </section>
 
-      <ChatSidebar 
-        isOpen={chatOpen} 
-        onToggle={() => setChatOpen(!chatOpen)} 
-        initialMessage={initialMessage} 
-        context={chatContext} 
+      <ChatSidebar
+        isOpen={chatOpen}
+        onToggle={() => setChatOpen(!chatOpen)}
+        initialMessage={initialMessage}
+        context={chatContext}
       />
     </Layout>
   );

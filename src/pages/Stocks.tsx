@@ -10,7 +10,15 @@ import { contentService } from "@/services/contentService";
 
 export default function Stocks() {
   const [chatOpen, setChatOpen] = useState(false);
-  const [chatContext, setChatContext] = useState<string | undefined>();
+  const [chatContext, setChatContext] = useState<string | undefined>(
+    `You are helping users analyze Indian stocks listed on NSE/BSE.
+Page: Stock Screener & Analysis
+Focus: Fundamental analysis, company financials, sector analysis
+Key Metrics: P/E ratio, ROE, Debt-to-Equity, Revenue/Profit Growth
+Always consider: SEBI regulations, Indian accounting standards (Ind AS), quarterly results
+Trading Hours: NSE/BSE 9:15 AM - 3:30 PM IST
+Tax: LTCG (>1 year) 10% above ₹1L, STCG 15%`
+  );
   const [initialMessage, setInitialMessage] = useState<string | undefined>();
 
   const { data: stocks = [], isLoading } = useQuery({

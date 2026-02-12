@@ -6,9 +6,9 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { 
-  TrendingUp, TrendingDown, BarChart3, Shield, AlertTriangle, 
-  Building2, FileText, Calculator, Bot, ChevronRight, 
+import {
+  TrendingUp, TrendingDown, BarChart3, Shield, AlertTriangle,
+  Building2, FileText, Calculator, Bot, ChevronRight,
   Layers, Users, DollarSign, PieChart, Activity, Target,
   ArrowUpDown, Banknote, Factory, Laptop, Scale
 } from "lucide-react";
@@ -250,7 +250,17 @@ const VALUATION_MODELS = [
 
 export default function FundamentalAnalysis() {
   const [chatOpen, setChatOpen] = useState(false);
-  const [chatContext, setChatContext] = useState<string | undefined>();
+  const [chatContext, setChatContext] = useState<string | undefined>(
+    `You are helping users learn fundamental analysis for Indian stocks.
+Page: Fundamental Analysis Guide
+Topics: Financial statements (P&L, Balance Sheet, Cash Flow), Ratio analysis, Valuation models
+Key Concepts:
+- Qualitative: Business model, competitive moat, management quality, governance
+- Quantitative: ROE, ROA, ROCE, P/E, P/B, Debt-to-Equity, Current Ratio
+- Valuation: DCF, DDM, Relative valuation (multiples)
+- Red Flags: Aggressive revenue recognition, negative cash flow, related party transactions
+Focus: Explain concepts in simple terms, use Indian company examples (TCS, Reliance, HDFC Bank, etc.)`
+  );
   const [initialMessage, setInitialMessage] = useState<string | undefined>();
 
   const handleAskAI = (topic: string, question: string) => {
@@ -270,9 +280,9 @@ export default function FundamentalAnalysis() {
           </Badge>
           <h1 className="text-3xl md:text-4xl font-bold mb-3">Fundamental Analysis</h1>
           <p className="text-lg text-muted-foreground max-w-3xl">
-            A methodical process to determine the <strong>intrinsic value</strong> of a security by examining 
-            economic, financial, and qualitative factors. The goal: identify if a stock is 
-            <span className="text-emerald-600 font-medium"> undervalued (buy)</span> or 
+            A methodical process to determine the <strong>intrinsic value</strong> of a security by examining
+            economic, financial, and qualitative factors. The goal: identify if a stock is
+            <span className="text-emerald-600 font-medium"> undervalued (buy)</span> or
             <span className="text-rose-600 font-medium"> overvalued (sell)</span>.
           </p>
         </div>
@@ -283,7 +293,7 @@ export default function FundamentalAnalysis() {
         <section>
           <h2 className="text-2xl font-bold mb-2">1. Analysis Approaches</h2>
           <p className="text-muted-foreground mb-6">The order in which you conduct research defines your investment strategy.</p>
-          
+
           <div className="grid md:grid-cols-2 gap-6">
             {ANALYSIS_APPROACHES.map((approach) => {
               const IconComponent = approach.icon;
@@ -330,7 +340,7 @@ export default function FundamentalAnalysis() {
         <section>
           <h2 className="text-2xl font-bold mb-2">2. Qualitative Analysis</h2>
           <p className="text-muted-foreground mb-6">Before diving into numbers, assess the quality of the business itself.</p>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {QUALITATIVE_FACTORS.map((factor) => {
               const IconComponent = factor.icon;
@@ -358,7 +368,7 @@ export default function FundamentalAnalysis() {
         <section>
           <h2 className="text-2xl font-bold mb-2">3. Financial Statement Deep Dive</h2>
           <p className="text-muted-foreground mb-6">Methodical review of the "Big Three" reports.</p>
-          
+
           <Tabs defaultValue="income" className="space-y-4">
             <TabsList className="grid w-full max-w-lg grid-cols-3">
               {FINANCIAL_STATEMENTS.map((stmt) => (
@@ -367,7 +377,7 @@ export default function FundamentalAnalysis() {
                 </TabsTrigger>
               ))}
             </TabsList>
-            
+
             {FINANCIAL_STATEMENTS.map((stmt) => {
               const IconComponent = stmt.icon;
               return (
@@ -393,9 +403,9 @@ export default function FundamentalAnalysis() {
                           </div>
                         ))}
                       </div>
-                      <Button 
-                        variant="outline" 
-                        size="sm" 
+                      <Button
+                        variant="outline"
+                        size="sm"
                         className="mt-4 gap-2"
                         onClick={() => handleAskAI(stmt.title, `Explain the ${stmt.title} in simple terms. What should I look for when analyzing a company's ${stmt.title.toLowerCase()}? Give examples from Indian companies.`)}
                       >
@@ -414,7 +424,7 @@ export default function FundamentalAnalysis() {
         <section>
           <h2 className="text-2xl font-bold mb-2">4. Quantitative Metric Checklist</h2>
           <p className="text-muted-foreground mb-6">Ratios allow for "apples-to-apples" comparisons between companies of different sizes.</p>
-          
+
           <Accordion type="multiple" className="space-y-4">
             {RATIO_CATEGORIES.map((category) => {
               const IconComponent = category.icon;
@@ -445,9 +455,9 @@ export default function FundamentalAnalysis() {
                           <p className="text-sm text-muted-foreground">{ratio.interpretation}</p>
                         </div>
                       ))}
-                      <Button 
-                        variant="ghost" 
-                        size="sm" 
+                      <Button
+                        variant="ghost"
+                        size="sm"
                         className="gap-2"
                         onClick={() => handleAskAI(category.title, `Explain ${category.title} ratios in fundamental analysis. Which ratios are most important for Indian investors and why? Give practical examples.`)}
                       >
@@ -466,7 +476,7 @@ export default function FundamentalAnalysis() {
         <section>
           <h2 className="text-2xl font-bold mb-2">5. Sector-Specific Checks</h2>
           <p className="text-muted-foreground mb-6">A "good" ratio depends entirely on the industry. Here are specialized metrics by sector.</p>
-          
+
           <div className="grid md:grid-cols-3 gap-6">
             {SECTOR_CHECKS.map((sector) => {
               const IconComponent = sector.icon;
@@ -499,7 +509,7 @@ export default function FundamentalAnalysis() {
             6. Forensic Checklist: Red Flags
           </h2>
           <p className="text-muted-foreground mb-6">Always check the footnotes of financial disclosures for "earnings quality".</p>
-          
+
           <div className="grid md:grid-cols-2 gap-4">
             {RED_FLAGS.map((item, idx) => (
               <Card key={idx} className="border-l-4 border-l-amber-500">
@@ -524,16 +534,16 @@ export default function FundamentalAnalysis() {
         <section>
           <h2 className="text-2xl font-bold mb-2">7. Valuation Modeling</h2>
           <p className="text-muted-foreground mb-6">The final step: calculating a specific number for intrinsic value.</p>
-          
+
           <div className="space-y-4">
             {VALUATION_MODELS.map((model, idx) => (
               <Card key={idx}>
                 <CardHeader>
                   <div className="flex items-center justify-between">
                     <CardTitle className="text-lg">{model.model}</CardTitle>
-                    <Button 
-                      variant="ghost" 
-                      size="sm" 
+                    <Button
+                      variant="ghost"
+                      size="sm"
                       className="gap-1"
                       onClick={() => handleAskAI(model.model, `Explain the ${model.model} valuation method step by step. Show me a practical example for an Indian company. What are the key assumptions I need to make?`)}
                     >
@@ -584,11 +594,11 @@ export default function FundamentalAnalysis() {
         </section>
       </div>
 
-      <ChatSidebar 
-        isOpen={chatOpen} 
-        onToggle={() => setChatOpen(!chatOpen)} 
-        initialMessage={initialMessage} 
-        context={chatContext} 
+      <ChatSidebar
+        isOpen={chatOpen}
+        onToggle={() => setChatOpen(!chatOpen)}
+        initialMessage={initialMessage}
+        context={chatContext}
       />
     </Layout>
   );

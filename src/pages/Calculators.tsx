@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { Layout } from "@/components/layout/Layout";
-import { 
-  FutureValueCalculator, 
-  SIPCalculator, 
-  CAGRCalculator, 
-  EMICalculator, 
-  PresentValueCalculator, 
-  CompoundInterestCalculator, 
+import {
+  FutureValueCalculator,
+  SIPCalculator,
+  CAGRCalculator,
+  EMICalculator,
+  PresentValueCalculator,
+  CompoundInterestCalculator,
   RuleOf72Calculator,
-  InflationAdjustedReturnCalculator 
+  InflationAdjustedReturnCalculator
 } from "@/components/calculators/FormulaCalculators";
 import { ChatSidebar } from "@/components/chat/ChatSidebar";
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -16,7 +16,17 @@ import { Calculator, TrendingUp, Wallet, PiggyBank, Building, BarChart3 } from "
 
 export default function Calculators() {
   const [chatOpen, setChatOpen] = useState(false);
-  const [chatContext, setChatContext] = useState<string | undefined>();
+  const [chatContext, setChatContext] = useState<string | undefined>(
+    `You are helping users with financial calculations for the Indian market.
+Page: Financial Calculators
+Available: SIP, CAGR, EMI, Future Value, Present Value, Compound Interest, Rule of 72, Inflation-Adjusted Returns
+Tax Considerations:
+- LTCG (>1 year): 10% above ₹1 lakh for equity
+- STCG (<1 year): 15% for equity
+- Section 80C: ₹1.5L deduction (ELSS, PPF, EPF)
+- Section 80D: Health insurance deductions
+Focus: Help users understand formulas, plan investments, and optimize tax savings`
+  );
   const [initialMessage, setInitialMessage] = useState<string | undefined>();
 
   const handleExplainFormula = (formula: string, result: any) => {
@@ -45,7 +55,7 @@ export default function Calculators() {
             <h1 className="text-3xl font-bold">Financial Calculators</h1>
           </div>
           <p className="text-muted-foreground max-w-2xl">
-            Interactive tools to plan your investments. Each calculator includes an "Explain the Math" 
+            Interactive tools to plan your investments. Each calculator includes an "Explain the Math"
             button that uses FinBot to break down the formula step by step.
           </p>
         </div>

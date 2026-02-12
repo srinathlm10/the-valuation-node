@@ -17,7 +17,19 @@ import circulars from "@/data/circulars.json";
 
 export default function Compliance() {
   const [chatOpen, setChatOpen] = useState(false);
-  const [chatContext, setChatContext] = useState<string | undefined>();
+  const [chatContext, setChatContext] = useState<string | undefined>(
+    `You are helping users understand SEBI regulations and compliance requirements.
+Page: Compliance & Regulatory Feed
+Sources: SEBI circulars, NSE notices, BSE announcements
+Focus Areas:
+- KYC requirements and investor verification
+- Trading rules and market regulations
+- Disclosure norms and corporate governance
+- Investor protection measures
+- Insider trading regulations
+- Mutual fund and portfolio management rules
+Always: Cite specific SEBI circular numbers when relevant, explain in simple terms for retail investors`
+  );
   const [initialMessage, setInitialMessage] = useState<string | undefined>();
   const [search, setSearch] = useState("");
   const [sourceFilter, setSourceFilter] = useState<string>("all");
@@ -58,7 +70,7 @@ export default function Compliance() {
         <div className="container py-8">
           <h1 className="text-3xl font-bold mb-2">Compliance & Regulatory Feed</h1>
           <p className="text-muted-foreground max-w-2xl">
-            Stay updated with the latest circulars from SEBI, NSE, and BSE. 
+            Stay updated with the latest circulars from SEBI, NSE, and BSE.
             Use FinBot to get plain-English summaries of complex regulatory documents.
           </p>
         </div>
