@@ -13,7 +13,11 @@ const Stocks = lazy(() => import("./pages/Stocks"));
 const Calculators = lazy(() => import("./pages/Calculators"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 const Community = lazy(() => import("./pages/Community"));
-const PostDetail = lazy(() => import("./pages/PostDetail"));
+import PostDetail from "./pages/PostDetail";
+import { AdminRoute } from "./components/auth/AdminRoute";
+import AdminLayout from "./components/admin/AdminLayout";
+import ContentManager from "./components/admin/ContentManager";
+import EmbeddingManager from "./components/admin/EmbeddingManager";
 const Settings = lazy(() => import("./pages/Settings"));
 const Migration = lazy(() => import("./pages/Migration"));
 const ArticleView = lazy(() => import("./pages/ArticleView"));
@@ -39,24 +43,30 @@ const App = () => (
         <Suspense fallback={<PageLoader />}>
           <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
             <Route path="/learn" element={<Learn />} />
-            <Route path="/learn/:termId" element={<Learn />} />
-            <Route path="/article/:id" element={<ArticleView />} />
+            <Route path="/learn/:slug" element={<ArticleView />} />
             <Route path="/compliance" element={<Compliance />} />
-            <Route path="/compliance/:circularId" element={<Compliance />} />
             <Route path="/stocks" element={<Stocks />} />
-            <Route path="/stocks/:stockId" element={<Stocks />} />
             <Route path="/calculators" element={<Calculators />} />
-            <Route path="/calculators/:calculatorId" element={<Calculators />} />
-            <Route path="/learn/fundamental-analysis" element={<FundamentalAnalysis />} />
-            <Route path="/learn/technical-analysis" element={<TechnicalAnalysis />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/community" element={<Community />} />
-            <Route path="/community/:postId" element={<PostDetail />} />
             <Route path="/settings" element={<Settings />} />
-            <Route path="/migration" element={<Migration />} />
+            <Route path="/community" element={<Community />} />
+            <Route path="/community/post/:id" element={<PostDetail />} />
+
+            {/* Admin Routes */}
+            <Route path="/admin" element={
+              <AdminRoute>
+                <AdminLayout />
+              </AdminRoute>
+            }>
+              <Route index element={<Navigate to="/admin/content" replace />} />
+              <Route path="content" element={<ContentManager />} />
+              <Route path="embeddings" element={<EmbeddingManager />} />
+              <Route path="users" element={<div className="text-slate-400 p-8">User Management Coming Soon</div>} />
+              <Route path="settings" element={<div className="text-slate-400 p-8">Admin Settings Coming Soon</div>} />
+            </Route>
+
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

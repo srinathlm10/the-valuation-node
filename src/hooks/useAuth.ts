@@ -15,15 +15,54 @@ export function useAuth() {
       setLoading(false);
     });
 
-    // THEN get initial session
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-      setUser(session?.user ?? null);
-      setLoading(false);
-    });
+    setLoading(false);
+  });
 
-    return () => subscription.unsubscribe();
-  }, []);
+  // THEN get initial session
+  const getSession = async () => {
+    const { data: { session } } = await supabase.auth.getSession();
+    setSession(session);
+    setUser(session?.user ?? null);
+    if (session?.user) {
+      await checkAdminStatus(session.user.id);
+    }
+    setLoading(false);
+  };
 
-  return { user, session, loading };
+  getSession();
+
+  return () => subscription.unsubscribe();
+}, []);
+
+const [isAdmin, setIsAdmin] = useState(false);
+
+const checkAdminStatus = async (userId: string) => {
+  try {
+    const { data, error } = await supabase
+      .from('profiles')
+      .select('role')
+      .eq('id', userId)
+      .single();
+
+    if (data && data.role === 'admin') {
+      setIsAdmin(true);
+    } else {
+      setIsAdmin(false);
+    }
+  } catch (e) {
+    console.error("Error checking admin status:", e);
+    setIsAdmin(false);
+  }
+};
+
+// Re-check admin status when user changes
+useEffect(() => {
+  if (user) {
+    checkAdminStatus(user.id);
+  } else {
+    setIsAdmin(false);
+  }
+}, [user]);
+
+return { user, session, loading, isAdmin };
 }
