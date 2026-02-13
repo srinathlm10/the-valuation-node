@@ -11,7 +11,7 @@ import { Loader2 } from "lucide-react";
 import { AuthSocial } from "@/components/auth/AuthSocial";
 
 export default function Login() {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState("srinathguna12@gmail.com");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
