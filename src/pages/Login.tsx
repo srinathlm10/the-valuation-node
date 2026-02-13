@@ -22,7 +22,7 @@ export default function Login() {
     setLoading(true);
 
     try {
-      const { error } = await supabase.auth.signInWithPassword({
+      const { data, error } = await supabase.auth.signInWithPassword({
         email,
         password,
       });
@@ -33,6 +33,21 @@ export default function Login() {
         title: "Welcome back!",
         description: "You have successfully logged in.",
       });
+
+      // Check if user is admin
+      if (data.session?.user) {
+        const { data: profile } = await supabase
+          .from('profiles')
+          .select('role')
+          .eq('id', data.session.user.id)
+          .single();
+
+        if (profile?.role === 'admin') {
+          navigate("/admin");
+          return;
+        }
+      }
+
       navigate("/dashboard");
     } catch (error) {
       console.error("Login error:", error);
@@ -51,7 +66,9 @@ export default function Login() {
       <div className="container flex min-h-[calc(100vh-16rem)] items-center justify-center py-12">
         <Card className="w-full max-w-md border-primary/10 shadow-lg">
           <CardHeader className="text-center">
-            <CardTitle className="text-2xl font-bold font-display text-primary">Welcome Back</CardTitle>
+            <CardTitle className="text-2xl font-bold font-display text-primary">
+              {email === "srinathguna12@gmail.com" ? "Admin Login" : "Welcome Back"}
+            </CardTitle>
             <CardDescription>
               Sign in to continue your financial journey
             </CardDescription>
@@ -90,11 +107,22 @@ export default function Login() {
               <AuthSocial />
             </div>
 
-            <div className="mt-6 text-center text-sm">
-              <span className="text-muted-foreground">Don't have an account? </span>
-              <Link to="/signup" className="font-medium text-primary hover:underline">
-                Sign up
-              </Link>
+            <div className="mt-6 text-center text-sm space-y-2">
+              <div>
+                <span className="text-muted-foreground">Don't have an account? </span>
+                <Link to="/signup" className="font-medium text-primary hover:underline">
+                  Sign up
+                </Link>
+              </div>
+
+              {/* Admin Shortcut */}
+              <button
+                type="button"
+                onClick={() => setEmail("srinathguna12@gmail.com")}
+                className="text-xs text-muted-foreground hover:text-emerald-500 transition-colors"
+              >
+                Admin Access
+              </button>
             </div>
           </CardContent>
         </Card>
