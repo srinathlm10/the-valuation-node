@@ -2,51 +2,17 @@ import { useState, useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Layout } from "@/components/layout/Layout";
 import { DefinitionsGrid } from "@/components/learn/DefinitionsGrid";
-import {
-  FutureValueCalculator,
-  SIPCalculator,
-  CAGRCalculator,
-  EMICalculator,
-  CompoundInterestCalculator,
-  RuleOf72Calculator,
-  InflationAdjustedReturnCalculator,
-  PresentValueCalculator
-} from "@/components/calculators/FormulaCalculators";
 import { ChatSidebar } from "@/components/chat/ChatSidebar";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Badge } from "@/components/ui/badge";
-import { Search, BookOpen, Calculator, TrendingUp, Shield, BarChart3, Percent, LineChart, FileText, Loader2 } from "lucide-react";
+import { Search, BookOpen, TrendingUp, BarChart3, LineChart, Loader2, ArrowRight } from "lucide-react";
 import { contentService } from "@/services/contentService";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { useNavigate } from "react-router-dom";
 
-const CATEGORY_ICONS: Record<string, React.ElementType> = {
-  "Investment Planning": TrendingUp,
-  "Profitability Ratios": BarChart3,
-  "Valuation Ratios": Percent,
-  "Liquidity Ratios": Shield,
-  "Solvency Ratios": Shield,
-  "Efficiency Ratios": BarChart3,
-  "Technical Analysis": LineChart,
-  "Regulatory Compliance": FileText,
-  "Risk & Portfolio": TrendingUp,
-  "Taxation": Percent,
-  "Fundamentals": BarChart3,
-  "Mutual Funds": TrendingUp,
-  "Indices": LineChart,
-  "Basics of Stock Market": BookOpen,
-};
-
-const CATEGORY_GROUPS = [
-  { name: "Investment Planning", categories: ["Investment Planning"] },
-  { name: "Fundamental Analysis", categories: ["Profitability Ratios", "Valuation Ratios", "Liquidity Ratios", "Solvency Ratios", "Efficiency Ratios"] },
-  { name: "Technical Analysis", categories: ["Technical Analysis"] },
-  { name: "Regulatory & Compliance", categories: ["Regulatory Compliance"] },
-  { name: "Risk & Portfolio", categories: ["Risk & Portfolio"] },
-  { name: "Taxation", categories: ["Taxation"] },
-  { name: "Market Basics", categories: ["Fundamentals", "Mutual Funds", "Indices", "Basics of Stock Market"] },
-];
-
+// Definition Interface
 interface Definition {
   id: string;
   term: string;
@@ -64,40 +30,56 @@ export default function Learn() {
   const [chatContext, setChatContext] = useState<string | undefined>();
   const [initialMessage, setInitialMessage] = useState<string | undefined>();
   const [search, setSearch] = useState("");
-  const [categoryFilter, setCategoryFilter] = useState<string>("all");
-  const [activeGroup, setActiveGroup] = useState<string>("all");
+  const navigate = useNavigate();
 
-  // FEtch definitions from Supabase
-  const { data: definitions = [], isLoading } = useQuery({
+  // Fetch definitions
+  const { data: definitions = [], isLoading: loadingDefs } = useQuery({
     queryKey: ['definitions'],
     queryFn: contentService.getDefinitions,
-    staleTime: 60 * 60 * 1000, // 1 hour
+    staleTime: 60 * 60 * 1000,
   });
 
-  const filteredDefinitions = useMemo(() => {
-    return definitions.filter((def) => {
-      const matchesSearch = def.term.toLowerCase().includes(search.toLowerCase()) ||
-        def.fullName.toLowerCase().includes(search.toLowerCase()) ||
-        def.definition.toLowerCase().includes(search.toLowerCase());
+  // Fetch articles
+  const { data: articles = [], isLoading: loadingArticles } = useQuery({
+    queryKey: ['articles'],
+    queryFn: contentService.getArticles,
+    staleTime: 60 * 60 * 1000,
+  });
 
-      if (activeGroup !== "all") {
-        const group = CATEGORY_GROUPS.find(g => g.name === activeGroup);
-        if (group && !group.categories.includes(def.category)) return false;
+  // Filter Definitions
+  const filteredDefinitions = useMemo(() => {
+    return definitions.filter((def) =>
+      def.term.toLowerCase().includes(search.toLowerCase()) ||
+      def.fullName.toLowerCase().includes(search.toLowerCase()) ||
+      def.definition.toLowerCase().includes(search.toLowerCase())
+    );
+  }, [search, definitions]);
+
+  // Filter Articles
+  const getArticlesByCategory = (category: string) => {
+    // Note: This filtering logic might need adjustment depending on exact category strings in DB
+    // Basic mapping for now:
+    // "Basics of Stock Market" -> "basics" or similar if stored that way.
+    // For now, let's filter loosely by title or category if the category string matches.
+    // Actually, let's look at the Category type in articles.ts if possible, or just string match.
+    return articles.filter(article => {
+      const matchesSearch = article.title.toLowerCase().includes(search.toLowerCase()) ||
+        article.excerpt.toLowerCase().includes(search.toLowerCase());
+
+      const cat = article.category.toLowerCase();
+      let matchesCategory = false;
+
+      if (category === "basics") {
+        matchesCategory = cat.includes("basics") || cat.includes("investing"); // fallback
+      } else if (category === "fundamental") {
+        matchesCategory = cat.includes("fundamental");
+      } else if (category === "technical") {
+        matchesCategory = cat.includes("technical");
       }
 
-      const matchesCategory = categoryFilter === "all" || def.category === categoryFilter;
       return matchesSearch && matchesCategory;
     });
-  }, [search, categoryFilter, activeGroup, definitions]);
-
-  const groupedDefinitions = useMemo(() => {
-    const grouped: Record<string, typeof definitions> = {};
-    filteredDefinitions.forEach(def => {
-      if (!grouped[def.category]) grouped[def.category] = [];
-      grouped[def.category].push(def);
-    });
-    return grouped;
-  }, [filteredDefinitions]);
+  };
 
   const handleExplain = (item: Definition) => {
     setInitialMessage(`Can you explain "${item.term}" in simple terms?`);
@@ -105,16 +87,29 @@ export default function Learn() {
     setChatOpen(true);
   };
 
-  const handleExplainFormula = (formula: string, result: any) => {
-    setChatContext(`Explaining ${formula}`);
-    setInitialMessage(`Explain the ${formula} calculation step by step. Inputs: ${JSON.stringify(result.inputs)}, Result: ₹${Math.round(result.output).toLocaleString("en-IN")}`);
-    setChatOpen(true);
-  };
-
-  const handleViewDetails = (definition: any) => {
-    // For now, details expansion is handled in the grid or we could add a modal
-    console.log("View details", definition);
-  };
+  const ArticleCard = ({ article }: { article: any }) => (
+    <Card className="h-full flex flex-col hover:shadow-lg transition-all cursor-pointer" onClick={() => navigate(`/learn/${article.id}`)}>
+      {article.imageUrl && (
+        <div className="h-40 w-full overflow-hidden rounded-t-lg">
+          <img src={article.imageUrl} alt={article.title} className="object-cover w-full h-full hover:scale-105 transition-transform duration-500" />
+        </div>
+      )}
+      <CardHeader>
+        <div className="flex justify-between items-start">
+          <Badge variant="outline">{article.category}</Badge>
+          <span className="text-xs text-muted-foreground">{article.readingTime} min read</span>
+        </div>
+        <CardTitle className="line-clamp-2">{article.title}</CardTitle>
+        <CardDescription className="line-clamp-2">{article.excerpt}</CardDescription>
+      </CardHeader>
+      <CardFooter className="mt-auto">
+        <Button variant="ghost" className="w-full justify-between group">
+          Read Article
+          <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+        </Button>
+      </CardFooter>
+    </Card>
+  );
 
   return (
     <Layout>
@@ -122,17 +117,17 @@ export default function Learn() {
         <div className="container py-8">
           <div className="mb-8 max-w-2xl">
             <h1 className="mb-4 text-4xl font-bold tracking-tight">
-              Financial Knowledge Base
+              Financial Knowledge Hub
             </h1>
             <p className="text-xl text-muted-foreground">
-              Master the terminology and tools of personal finance.
+              Deep dives into Stock Markets, Analysis, and Terminology.
             </p>
           </div>
 
           <div className="relative max-w-md">
             <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
             <Input
-              placeholder="Search terms (e.g., 'Compound Interest', 'P/E Ratio')..."
+              placeholder="Search concepts, terms, or articles..."
               className="pl-9"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
@@ -142,125 +137,125 @@ export default function Learn() {
       </section>
 
       <div className="container py-8">
-        <Tabs defaultValue="glossary" className="space-y-6">
-          <TabsList className="grid w-full max-w-lg grid-cols-2">
-            <TabsTrigger value="glossary" className="gap-2">
-              <BookOpen className="h-4 w-4" />
-              Financial Wiki ({definitions.length})
+        <Tabs defaultValue="wiki" className="space-y-8">
+          <TabsList className="grid w-full h-auto grid-cols-1 md:grid-cols-4 gap-2 bg-transparent p-0">
+            <TabsTrigger
+              value="wiki"
+              className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground border bg-card h-24 flex flex-col items-center justify-center gap-2 rounded-lg shadow-sm"
+            >
+              <BookOpen className="h-6 w-6" />
+              <div className="flex flex-col items-center">
+                <span className="font-semibold">Financial Wiki</span>
+                <span className="text-xs opacity-70 font-normal">Definitions & Formulas</span>
+              </div>
             </TabsTrigger>
-            <TabsTrigger value="calculators" className="gap-2">
-              <Calculator className="h-4 w-4" />
-              Calculators
+            <TabsTrigger
+              value="basics"
+              className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground border bg-card h-24 flex flex-col items-center justify-center gap-2 rounded-lg shadow-sm"
+            >
+              <TrendingUp className="h-6 w-6" />
+              <div className="flex flex-col items-center">
+                <span className="font-semibold">Basics of Stock Market</span>
+                <span className="text-xs opacity-70 font-normal">Start Here</span>
+              </div>
+            </TabsTrigger>
+            <TabsTrigger
+              value="fundamental"
+              className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground border bg-card h-24 flex flex-col items-center justify-center gap-2 rounded-lg shadow-sm"
+            >
+              <BarChart3 className="h-6 w-6" />
+              <div className="flex flex-col items-center">
+                <span className="font-semibold">Fundamental Analysis</span>
+                <span className="text-xs opacity-70 font-normal">Valuation & Metrics</span>
+              </div>
+            </TabsTrigger>
+            <TabsTrigger
+              value="technical"
+              className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground border bg-card h-24 flex flex-col items-center justify-center gap-2 rounded-lg shadow-sm"
+            >
+              <LineChart className="h-6 w-6" />
+              <div className="flex flex-col items-center">
+                <span className="font-semibold">Technical Analysis</span>
+                <span className="text-xs opacity-70 font-normal">Charts & Patterns</span>
+              </div>
             </TabsTrigger>
           </TabsList>
 
-          <TabsContent value="glossary" className="space-y-6">
-            {isLoading ? (
-              <div className="flex min-h-[200px] items-center justify-center">
-                <Loader2 className="h-8 w-8 animate-spin text-primary" />
-              </div>
+          <TabsContent value="wiki" className="space-y-6">
+            <div className="flex items-center justify-between">
+              <h2 className="text-2xl font-bold tracking-tight">Financial Terms & Glossary</h2>
+              <Badge variant="secondary">{filteredDefinitions.length} Terms</Badge>
+            </div>
+            {loadingDefs ? (
+              <div className="flex justify-center p-12"><Loader2 className="h-8 w-8 animate-spin" /></div>
             ) : (
-              <>
-                <div className="flex flex-wrap gap-2">
-                  <Button
-                    variant={activeGroup === "all" ? "default" : "outline"}
-                    size="sm"
-                    onClick={() => { setActiveGroup("all"); setCategoryFilter("all"); }}
-                  >
-                    All Topics
-                  </Button>
-                  {CATEGORY_GROUPS.map((group) => (
-                    <Button
-                      key={group.name}
-                      variant={activeGroup === group.name ? "default" : "outline"}
-                      size="sm"
-                      onClick={() => { setActiveGroup(group.name); setCategoryFilter("all"); }}
-                    >
-                      {group.name}
-                    </Button>
-                  ))}
-                </div>
-
-                {/* Sub-category filters when group is selected */}
-                {activeGroup !== "all" && (
-                  <div className="flex flex-wrap gap-2 pl-4 border-l-2 border-muted">
-                    <span className="text-sm text-muted-foreground self-center">Filter:</span>
-                    <Button
-                      variant={categoryFilter === "all" ? "secondary" : "ghost"}
-                      size="sm"
-                      onClick={() => setCategoryFilter("all")}
-                    >
-                      All
-                    </Button>
-                    {CATEGORY_GROUPS.find(g => g.name === activeGroup)?.categories.map((cat) => (
-                      <Button
-                        key={cat}
-                        variant={categoryFilter === cat ? "secondary" : "ghost"}
-                        size="sm"
-                        onClick={() => setCategoryFilter(cat)}
-                      >
-                        {cat}
-                      </Button>
-                    ))}
-                  </div>
-                )}
-
-                <p className="text-sm text-muted-foreground">
-                  Showing {filteredDefinitions.length} of {definitions.length} terms
-                  {activeGroup !== "all" && ` in ${activeGroup}`}
-                </p>
-
-                {/* Grouped Display */}
-                {Object.keys(groupedDefinitions).length > 0 ? (
-                  <div className="space-y-8">
-                    {Object.entries(groupedDefinitions)
-                      .sort(([a], [b]) => a.localeCompare(b))
-                      .map(([category, defs]) => {
-                        const IconComponent = CATEGORY_ICONS[category] || BookOpen;
-                        return (
-                          <div key={category} className="space-y-4">
-                            <div className="flex items-center gap-2">
-                              <IconComponent className="h-5 w-5 text-muted-foreground" />
-                              <h2 className="text-lg font-semibold">{category}</h2>
-                              <Badge variant="secondary" className="text-xs">{defs.length}</Badge>
-                            </div>
-                            <DefinitionsGrid
-                              definitions={defs as any}
-                              onExplain={handleExplain}
-                              onViewDetails={handleViewDetails}
-                            />
-                          </div>
-                        );
-                      })}
-                  </div>
-                ) : (
-                  <div className="text-center py-12">
-                    <p className="text-muted-foreground">No definitions found matching your search.</p>
-                  </div>
-                )}
-              </>
+              <DefinitionsGrid definitions={filteredDefinitions} onExplain={handleExplain} />
             )}
           </TabsContent>
 
-          <TabsContent value="calculators" className="space-y-8">
-            {/* Investment & Personal Finance Calculators */}
-            <div className="space-y-4">
-              <div className="flex items-center gap-2">
-                <TrendingUp className="h-5 w-5 text-emerald" />
-                <h2 className="text-xl font-semibold">Investment & Personal Finance</h2>
-              </div>
-              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                <SIPCalculator onExplain={handleExplainFormula} />
-                <FutureValueCalculator onExplain={handleExplainFormula} />
-                <PresentValueCalculator onExplain={handleExplainFormula} />
-                <CAGRCalculator onExplain={handleExplainFormula} />
-                <EMICalculator onExplain={handleExplainFormula} />
-                <CompoundInterestCalculator onExplain={handleExplainFormula} />
-                <RuleOf72Calculator onExplain={handleExplainFormula} />
-                <InflationAdjustedReturnCalculator onExplain={handleExplainFormula} />
-              </div>
+          <TabsContent value="basics" className="space-y-6">
+            <div className="flex items-center justify-between">
+              <h2 className="text-2xl font-bold tracking-tight">Stock Market Basics</h2>
             </div>
+            {loadingArticles ? (
+              <div className="flex justify-center p-12"><Loader2 className="h-8 w-8 animate-spin" /></div>
+            ) : (
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {getArticlesByCategory("basics").length > 0 ? (
+                  getArticlesByCategory("basics").map(article => (
+                    <ArticleCard key={article.id} article={article} />
+                  ))
+                ) : (
+                  <div className="col-span-full text-center py-12 text-muted-foreground bg-muted/20 rounded-lg">
+                    No articles found for Basics.
+                  </div>
+                )}
+              </div>
+            )}
           </TabsContent>
+
+          <TabsContent value="fundamental" className="space-y-6">
+            <div className="flex items-center justify-between">
+              <h2 className="text-2xl font-bold tracking-tight">Fundamental Analysis</h2>
+            </div>
+            {loadingArticles ? (
+              <div className="flex justify-center p-12"><Loader2 className="h-8 w-8 animate-spin" /></div>
+            ) : (
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {getArticlesByCategory("fundamental").length > 0 ? (
+                  getArticlesByCategory("fundamental").map(article => (
+                    <ArticleCard key={article.id} article={article} />
+                  ))
+                ) : (
+                  <div className="col-span-full text-center py-12 text-muted-foreground bg-muted/20 rounded-lg">
+                    No articles found for Fundamental Analysis.
+                  </div>
+                )}
+              </div>
+            )}
+          </TabsContent>
+
+          <TabsContent value="technical" className="space-y-6">
+            <div className="flex items-center justify-between">
+              <h2 className="text-2xl font-bold tracking-tight">Technical Analysis</h2>
+            </div>
+            {loadingArticles ? (
+              <div className="flex justify-center p-12"><Loader2 className="h-8 w-8 animate-spin" /></div>
+            ) : (
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {getArticlesByCategory("technical").length > 0 ? (
+                  getArticlesByCategory("technical").map(article => (
+                    <ArticleCard key={article.id} article={article} />
+                  ))
+                ) : (
+                  <div className="col-span-full text-center py-12 text-muted-foreground bg-muted/20 rounded-lg">
+                    No articles found for Technical Analysis.
+                  </div>
+                )}
+              </div>
+            )}
+          </TabsContent>
+
         </Tabs>
       </div>
 

@@ -1,7 +1,12 @@
+```typescript
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
-import { Menu, Bot, User, LogOut, ChevronDown, Settings } from "lucide-react";
+import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetClose } from "@/components/ui/sheet";
+import {
+  Menu, Bot, User, LogOut, ChevronDown, Settings,
+  BookOpen, BarChart3, LineChart, Calculator, TrendingUp,
+  Users, FileText, Globe, LayoutDashboard
+} from "lucide-react";
 import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
@@ -13,35 +18,36 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { cn } from "@/lib/utils";
 
 interface NavItem {
   label: string;
   href?: string;
-  items?: { label: string; href: string }[];
+  items?: { label: string; href: string; icon: React.ElementType }[];
 }
 
 const navItems: NavItem[] = [
   {
     label: "Learn",
     items: [
-      { label: "Financial Wiki", href: "/learn" },
-      { label: "Fundamental Analysis", href: "/learn/fundamental-analysis" },
-      { label: "Technical Analysis", href: "/learn/technical-analysis" },
+      { label: "Financial Wiki", href: "/learn", icon: BookOpen },
+      { label: "Fundamental Analysis", href: "/learn/fundamental-analysis", icon: BarChart3 },
+      { label: "Technical Analysis", href: "/learn/technical-analysis", icon: LineChart },
     ],
   },
   {
     label: "Tools",
     items: [
-      { label: "Calculators", href: "/calculators" },
-      { label: "Stock Market", href: "/stocks" },
+      { label: "Calculators", href: "/calculators", icon: Calculator },
+      { label: "Stock Market", href: "/stocks", icon: TrendingUp },
     ],
   },
   {
     label: "Resources",
     items: [
-      { label: "Community", href: "/community" },
-      { label: "Compliance & Regulations", href: "/compliance" },
-      { label: "Investment Migration", href: "/migration" }, // Added for easy access during dev
+      { label: "Community", href: "/community", icon: Users },
+      { label: "Compliance & Regulations", href: "/compliance", icon: FileText },
+      { label: "Investment Migration", href: "/migration", icon: Globe },
     ],
   },
 ];
@@ -49,9 +55,18 @@ const navItems: NavItem[] = [
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState<SupabaseUser | null>(null);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const { toast } = useToast();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
@@ -93,43 +108,60 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header
+      className={cn(
+        "sticky top-0 z-50 w-full border-b transition-all duration-300",
+        scrolled
+          ? "bg-background/80 backdrop-blur-md border-border shadow-sm supports-[backdrop-filter]:bg-background/60"
+          : "bg-background/95 border-transparent"
+      )}
+    >
       <div className="container flex h-16 items-center justify-between gap-4">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 shrink-0">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg gradient-slate">
-            <Bot className="h-5 w-5 text-primary-foreground" />
+        <Link to="/" className="flex items-center gap-2 shrink-0 group">
+          <div className="flex h-9 w-9 items-center justify-center rounded-xl gradient-navy shadow-lg shadow-primary/20 group-hover:scale-105 transition-transform duration-300">
+            <Bot className="h-5 w-5 text-white" />
           </div>
           <div className="hidden sm:block">
-            <span className="text-lg font-bold text-foreground">FinBot</span>
-            <span className="text-lg font-light text-muted-foreground ml-1">India</span>
+            <span className="text-xl font-bold bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">FinBot</span>
+            <span className="text-xl font-medium text-slate-500 ml-1">India</span>
           </div>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden items-center gap-1 lg:flex">
+        <nav className="hidden items-center gap-2 lg:flex">
           {navItems.map((item) => (
             <div key={item.label}>
               {item.items ? (
                 <DropdownMenu>
                   <DropdownMenuTrigger
-                    className={`flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-md transition-colors outline-none ${isActive(item)
-                      ? "bg-muted text-foreground"
-                      : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
-                      }`}
+                    className={cn(
+                      "flex items-center gap-1.5 px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 outline-none select-none",
+                      isActive(item)
+                        ? "bg-primary/10 text-primary hover:bg-primary/15"
+                        : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                    )}
                   >
                     {item.label}
-                    <ChevronDown className="h-4 w-4" />
+                    <ChevronDown className="h-3.5 w-3.5 opacity-70" />
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end">
+                  <DropdownMenuContent align="center" className="w-56 p-2 rounded-xl shadow-xl border-border/50 animate-in fade-in-0 zoom-in-95 data-[side=bottom]:slide-in-from-top-2">
                     {item.items.map((subItem) => (
-                      <DropdownMenuItem key={subItem.href} asChild>
+                      <DropdownMenuItem key={subItem.href} asChild className="rounded-lg cursor-pointer">
                         <Link
                           to={subItem.href}
-                          className={`w-full ${location.pathname === subItem.href ? "bg-accent" : ""
-                            }`}
+                          className={cn(
+                            "flex items-center gap-3 w-full p-2.5",
+                            location.pathname === subItem.href && "bg-accent/50 text-accent-foreground"
+                          )}
                         >
-                          {subItem.label}
+                          <div className={cn(
+                            "flex items-center justify-center w-8 h-8 rounded-md",
+                            location.pathname === subItem.href ? "bg-primary/20 text-primary" : "bg-muted text-muted-foreground group-hover:bg-primary/10 group-hover:text-primary"
+                          )}>
+                            <subItem.icon className="h-4 w-4" />
+                          </div>
+                          <span className="font-medium">{subItem.label}</span>
                         </Link>
                       </DropdownMenuItem>
                     ))}
@@ -138,10 +170,12 @@ export function Header() {
               ) : (
                 <Link
                   to={item.href!}
-                  className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${location.pathname === item.href
-                    ? "bg-muted text-foreground"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
-                    }`}
+                  className={cn(
+                    "px-4 py-2 text-sm font-medium rounded-full transition-all duration-200",
+                    location.pathname === item.href
+                      ? "bg-primary/10 text-primary hover:bg-primary/15"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                  )}
                 >
                   {item.label}
                 </Link>
@@ -151,37 +185,47 @@ export function Header() {
         </nav>
 
         {/* Global Search */}
-        <div className="hidden md:block flex-1 max-w-md">
+        <div className="hidden md:block flex-1 max-w-sm mx-4">
           <GlobalSearch />
         </div>
 
         {/* Desktop Auth Buttons */}
-        <div className="hidden items-center gap-2 lg:flex shrink-0">
+        <div className="hidden items-center gap-3 lg:flex shrink-0">
           {user ? (
-            <>
-              <Button variant="ghost" size="sm" asChild>
+            <div className="flex items-center gap-2">
+              <Button variant="ghost" size="sm" asChild className="rounded-full">
                 <Link to="/dashboard">
-                  <User className="mr-2 h-4 w-4" />
+                  <LayoutDashboard className="mr-2 h-4 w-4" />
                   Dashboard
                 </Link>
               </Button>
-              <Button variant="ghost" size="sm" asChild>
-                <Link to="/settings">
-                  <Settings className="mr-2 h-4 w-4" />
-                  Settings
-                </Link>
-              </Button>
-              <Button variant="outline" size="sm" onClick={handleLogout}>
-                <LogOut className="mr-2 h-4 w-4" />
-                Log Out
-              </Button>
-            </>
+
+              <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="outline" size="icon" className="rounded-full h-9 w-9 border-border/60 hover:bg-accent/50">
+                       <User className="h-4 w-4" />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end" className="w-48 p-2 rounded-xl">
+                      <DropdownMenuItem asChild className="rounded-lg cursor-pointer">
+                          <Link to="/settings" className="flex items-center gap-2">
+                            <Settings className="h-4 w-4 mr-2" />
+                            Settings
+                          </Link>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem onClick={handleLogout} className="rounded-lg cursor-pointer text-destructive focus:text-destructive focus:bg-destructive/10">
+                          <LogOut className="h-4 w-4 mr-2" />
+                          Log Out
+                      </DropdownMenuItem>
+                  </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
           ) : (
             <>
-              <Button variant="ghost" size="sm" asChild>
+              <Button variant="ghost" size="sm" asChild className="rounded-full hover:bg-muted/60">
                 <Link to="/login">Log In</Link>
               </Button>
-              <Button size="sm" asChild>
+              <Button size="sm" asChild className="rounded-full px-5 shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-shadow">
                 <Link to="/signup">Get Started</Link>
               </Button>
             </>
@@ -191,80 +235,106 @@ export function Header() {
         {/* Mobile Menu */}
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild className="lg:hidden">
-            <Button variant="ghost" size="icon">
+            <Button variant="ghost" size="icon" className="rounded-full">
               <Menu className="h-5 w-5" />
               <span className="sr-only">Toggle menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-[300px]">
-            <SheetTitle className="text-left">Menu</SheetTitle>
-            <nav className="mt-6 flex flex-col gap-4">
+          <SheetContent side="right" className="w-[300px] sm:w-[350px] p-6">
+            <SheetTitle className="text-left flex items-center gap-2 mb-6">
+               <div className="flex h-8 w-8 items-center justify-center rounded-lg gradient-navy">
+                <Bot className="h-4 w-4 text-white" />
+              </div>
+              <span className="font-bold">Menu</span>
+            </SheetTitle>
+            <nav className="flex flex-col gap-6">
               {navItems.map((item) => (
-                <div key={item.label} className="flex flex-col gap-2">
+                <div key={item.label} className="flex flex-col gap-3">
                   {item.items ? (
                     <>
-                      <div className="text-lg font-medium text-foreground">
+                      <div className="text-sm font-semibold text-muted-foreground uppercase tracking-wider px-2">
                         {item.label}
                       </div>
-                      <div className="flex flex-col gap-2 pl-4 border-l-2 ml-1">
+                      <div className="flex flex-col gap-1">
                         {item.items.map((subItem) => (
-                          <Link
-                            key={subItem.href}
-                            to={subItem.href}
-                            onClick={() => setIsOpen(false)}
-                            className={`text-base font-medium transition-colors ${location.pathname === subItem.href
-                              ? "text-foreground"
-                              : "text-muted-foreground hover:text-foreground"
-                              }`}
-                          >
-                            {subItem.label}
-                          </Link>
+                          <SheetClose asChild key={subItem.href}>
+                            <Link
+                              to={subItem.href}
+                              className={cn(
+                                "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors border border-transparent",
+                                location.pathname === subItem.href
+                                  ? "bg-primary/5 text-primary border-primary/10"
+                                  : "text-foreground/80 hover:bg-muted hover:text-foreground"
+                              )}
+                            >
+                              <div className={cn(
+                                  "flex items-center justify-center w-6 h-6 rounded",
+                                  location.pathname === subItem.href ? "text-primary" : "text-muted-foreground"
+                              )}>
+                                  <subItem.icon className="h-4 w-4" />
+                              </div>
+                              {subItem.label}
+                            </Link>
+                          </SheetClose>
                         ))}
                       </div>
                     </>
                   ) : (
-                    <Link
-                      to={item.href!}
-                      onClick={() => setIsOpen(false)}
-                      className={`text-lg font-medium transition-colors ${location.pathname === item.href
-                        ? "text-foreground"
-                        : "text-muted-foreground hover:text-foreground"
-                        }`}
-                    >
-                      {item.label}
-                    </Link>
+                    <SheetClose asChild key={item.href}>
+                      <Link
+                        to={item.href!}
+                        className={cn(
+                          "text-lg font-medium px-2 py-1",
+                          location.pathname === item.href ? "text-primary" : "text-foreground"
+                        )}
+                      >
+                        {item.label}
+                      </Link>
+                    </SheetClose>
                   )}
                 </div>
               ))}
-              <div className="my-4 h-px bg-border" />
+
+              <div className="my-2 h-px bg-border/50" />
+
               {user ? (
-                <>
-                  <Link
-                    to="/dashboard"
-                    onClick={() => setIsOpen(false)}
-                    className="text-lg font-medium text-muted-foreground hover:text-foreground"
-                  >
-                    Dashboard
-                  </Link>
-                  <Button variant="outline" onClick={() => { handleLogout(); setIsOpen(false); }}>
+                <div className="flex flex-col gap-2">
+                  <SheetClose asChild>
+                    <Link
+                      to="/dashboard"
+                      className="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-muted"
+                    >
+                      <LayoutDashboard className="h-4 w-4" />
+                      Dashboard
+                    </Link>
+                  </SheetClose>
+                  <SheetClose asChild>
+                    <Link
+                      to="/settings"
+                      className="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-muted"
+                    >
+                      <Settings className="h-4 w-4" />
+                      Settings
+                    </Link>
+                  </SheetClose>
+                  <Button variant="outline" className="w-full justify-start gap-3 mt-2 text-destructive border-destructive/20 hover:bg-destructive/10 hover:text-destructive" onClick={() => { handleLogout(); setIsOpen(false); }}>
+                    <LogOut className="h-4 w-4" />
                     Log Out
                   </Button>
-                </>
+                </div>
               ) : (
-                <>
-                  <Link
-                    to="/login"
-                    onClick={() => setIsOpen(false)}
-                    className="text-lg font-medium text-muted-foreground hover:text-foreground"
-                  >
-                    Log In
-                  </Link>
-                  <Button asChild>
-                    <Link to="/signup" onClick={() => setIsOpen(false)}>
-                      Get Started
-                    </Link>
+                <div className="grid grid-cols-2 gap-3">
+                  <Button variant="outline" asChild className="rounded-xl">
+                    <SheetClose asChild>
+                      <Link to="/login">Log In</Link>
+                    </SheetClose>
                   </Button>
-                </>
+                  <Button asChild className="rounded-xl gradient-navy">
+                    <SheetClose asChild>
+                      <Link to="/signup">Get Started</Link>
+                    </SheetClose>
+                  </Button>
+                </div>
               )}
             </nav>
           </SheetContent>
