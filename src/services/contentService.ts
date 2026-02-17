@@ -1,5 +1,6 @@
 import { supabase } from "@/integrations/supabase/client";
 import { Article, Category } from "@/data/articles";
+import localDefinitions from "@/data/definitions.json";
 
 // Types for Supabase response (snake_case)
 interface SupabaseArticle {
@@ -63,27 +64,53 @@ export const contentService = {
 
     // Fetch definitions
     async getDefinitions() {
-        const { data, error } = await supabase
-            .from("definitions")
-            .select("*")
-            .order("term", { ascending: true });
-
-        if (error) {
-            console.error("Error fetching definitions:", error);
-            return [];
-        }
-
-        return (data as unknown as SupabaseDefinition[]).map((def) => ({
+        // Start with local definitions
+        const localDefs = localDefinitions.map(def => ({
             id: def.id,
             term: def.term,
-            fullName: def.full_name,
+            fullName: def.fullName,
             category: def.category,
             definition: def.definition,
             formula: def.formula || "",
-            whyItMatters: def.why_it_matters || "",
+            whyItMatters: def.whyItMatters || "",
             example: def.example || "",
-            relatedTerms: def.related_terms || []
+            relatedTerms: def.relatedTerms || []
         }));
+
+        try {
+            const { data, error } = await supabase
+                .from("definitions")
+                .select("*")
+                .order("term", { ascending: true });
+
+            if (error) {
+                console.error("Error fetching definitions from Supabase:", error);
+                return localDefs;
+            }
+
+            const remoteDefs = (data as unknown as SupabaseDefinition[]).map((def) => ({
+                id: def.id,
+                term: def.term,
+                fullName: def.full_name,
+                category: def.category,
+                definition: def.definition,
+                formula: def.formula || "",
+                whyItMatters: def.why_it_matters || "",
+                example: def.example || "",
+                relatedTerms: def.related_terms || []
+            }));
+
+            // Combine both, prioritizing remote if IDs conflict (though they shouldn't usually)
+            // or just merge them. Since we want to ensure our local ones are definitely there:
+            const allDefs = [...remoteDefs, ...localDefs];
+
+            // Deduplicate by ID if needed, preferring local for this specific task ensuring update
+            // But let's simple concat for now as IDs are likely unique
+            return allDefs;
+        } catch (e) {
+            console.error("Exception fetching definitions:", e);
+            return localDefs;
+        }
     },
 
     // Fetch stocks

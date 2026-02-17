@@ -34,6 +34,7 @@ const CATEGORY_ICONS: Record<string, React.ElementType> = {
   "Fundamentals": BarChart3,
   "Mutual Funds": TrendingUp,
   "Indices": LineChart,
+  "Basics of Stock Market": BookOpen,
 };
 
 const CATEGORY_GROUPS = [
@@ -43,7 +44,7 @@ const CATEGORY_GROUPS = [
   { name: "Regulatory & Compliance", categories: ["Regulatory Compliance"] },
   { name: "Risk & Portfolio", categories: ["Risk & Portfolio"] },
   { name: "Taxation", categories: ["Taxation"] },
-  { name: "Market Basics", categories: ["Fundamentals", "Mutual Funds", "Indices"] },
+  { name: "Market Basics", categories: ["Fundamentals", "Mutual Funds", "Indices", "Basics of Stock Market"] },
 ];
 
 interface Definition {
@@ -98,9 +99,9 @@ export default function Learn() {
     return grouped;
   }, [filteredDefinitions]);
 
-  const handleExplain = (term: string) => {
-    setInitialMessage(`Can you explain "${term}" in simple terms?`);
-    setChatContext(`User is asking about the financial term: ${term}`);
+  const handleExplain = (item: Definition) => {
+    setInitialMessage(`Can you explain "${item.term}" in simple terms?`);
+    setChatContext(`User is asking about the financial term: ${item.term}`);
     setChatOpen(true);
   };
 

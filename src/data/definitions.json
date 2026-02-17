@@ -8,7 +8,11 @@
     "formula": "FV = PV × (1 + r)^n",
     "whyItMatters": "Understanding FV helps you set realistic financial goals and compare investment options. It shows the power of compounding over time.",
     "example": "₹1 lakh invested at 12% for 10 years = ₹3.11 lakhs. Your money more than tripled due to compound growth.",
-    "relatedTerms": ["Present Value", "CAGR", "Compound Interest"]
+    "relatedTerms": [
+      "Present Value",
+      "CAGR",
+      "Compound Interest"
+    ]
   },
   {
     "id": "present-value",
@@ -19,7 +23,11 @@
     "formula": "PV = FV / (1 + r)^n",
     "whyItMatters": "PV helps you understand how much you need to invest today to reach a future goal. Essential for retirement planning and loan valuations.",
     "example": "To have ₹1 crore in 15 years at 12% return, you need ₹18.27 lakhs today.",
-    "relatedTerms": ["Future Value", "NPV", "Discount Rate"]
+    "relatedTerms": [
+      "Future Value",
+      "NPV",
+      "Discount Rate"
+    ]
   },
   {
     "id": "sip",
@@ -30,7 +38,12 @@
     "formula": "FV = P × [((1 + i)^n - 1) / i] × (1 + i)",
     "whyItMatters": "SIP reduces timing risk through rupee cost averaging — you buy more units when prices are low. Even small monthly amounts compound significantly over decades.",
     "example": "₹10,000/month SIP for 20 years at 12% CAGR = ₹1 crore corpus. Total invested: ₹24 lakhs, wealth created: ₹76 lakhs.",
-    "relatedTerms": ["Rupee Cost Averaging", "Step-up SIP", "SWP", "Lumpsum"]
+    "relatedTerms": [
+      "Rupee Cost Averaging",
+      "Step-up SIP",
+      "SWP",
+      "Lumpsum"
+    ]
   },
   {
     "id": "cagr",
@@ -41,7 +54,11 @@
     "formula": "CAGR = [(Ending Value / Beginning Value)^(1/n) - 1] × 100",
     "whyItMatters": "CAGR smooths out volatility to show the 'true' annual return. It's the standard way to compare investments over different time periods.",
     "example": "₹1 lakh growing to ₹2 lakh in 5 years = CAGR of 14.87%. This means 14.87% annual return if compounded.",
-    "relatedTerms": ["Absolute Returns", "XIRR", "Annualized Returns"]
+    "relatedTerms": [
+      "Absolute Returns",
+      "XIRR",
+      "Annualized Returns"
+    ]
   },
   {
     "id": "rule-of-72",
@@ -52,7 +69,11 @@
     "formula": "Time to Double = 72 / Interest Rate",
     "whyItMatters": "Quick mental math for investment planning. Helps compare different investment options without complex calculations.",
     "example": "At 12% annual return, money doubles in 72/12 = 6 years. At 8%, it takes 9 years.",
-    "relatedTerms": ["Compound Interest", "CAGR", "Future Value"]
+    "relatedTerms": [
+      "Compound Interest",
+      "CAGR",
+      "Future Value"
+    ]
   },
   {
     "id": "emi",
@@ -63,7 +84,11 @@
     "formula": "EMI = P × r × [(1 + r)^n / ((1 + r)^n - 1)]",
     "whyItMatters": "Understanding EMI helps you plan loan affordability. Higher tenure means lower EMI but more total interest paid.",
     "example": "₹50 lakh home loan at 8.5% for 20 years = EMI of ₹43,391. Total payment: ₹1.04 crore (₹54 lakh interest).",
-    "relatedTerms": ["Principal", "Interest Rate", "Loan Tenure"]
+    "relatedTerms": [
+      "Principal",
+      "Interest Rate",
+      "Loan Tenure"
+    ]
   },
   {
     "id": "real-return",
@@ -74,7 +99,11 @@
     "formula": "Real Return = [(1 + Nominal Return) / (1 + Inflation)] - 1",
     "whyItMatters": "A 10% return with 6% inflation gives only 3.77% real return. Essential for long-term financial planning.",
     "example": "FD giving 7% with 5% inflation = 1.9% real return. Your purchasing power barely increased.",
-    "relatedTerms": ["Inflation", "Nominal Return", "Purchasing Power"]
+    "relatedTerms": [
+      "Inflation",
+      "Nominal Return",
+      "Purchasing Power"
+    ]
   },
   {
     "id": "simple-interest",
@@ -85,7 +114,11 @@
     "formula": "A = P(1 + rt)",
     "whyItMatters": "Used in some short-term deposits and loans. Less beneficial for savers compared to compound interest.",
     "example": "₹1 lakh at 8% simple interest for 3 years = ₹1.24 lakh. Interest: ₹24,000 (₹8,000/year).",
-    "relatedTerms": ["Compound Interest", "Principal", "Interest Rate"]
+    "relatedTerms": [
+      "Compound Interest",
+      "Principal",
+      "Interest Rate"
+    ]
   },
   {
     "id": "compound-interest",
@@ -96,7 +129,11 @@
     "formula": "A = P(1 + r/n)^(nt)",
     "whyItMatters": "Compound interest makes your money grow exponentially over time. The more frequently it compounds, the faster wealth accumulates.",
     "example": "₹1 lakh at 8% for 3 years: Simple = ₹1.24L, Compound (yearly) = ₹1.26L, Compound (monthly) = ₹1.27L.",
-    "relatedTerms": ["Simple Interest", "Future Value", "Rule of 72"]
+    "relatedTerms": [
+      "Simple Interest",
+      "Future Value",
+      "Rule of 72"
+    ]
   },
   {
     "id": "npv",
@@ -107,7 +144,11 @@
     "formula": "NPV = Σ[Ct / (1 + r)^t] - C0",
     "whyItMatters": "Positive NPV means the investment is expected to generate value. Widely used in capital budgeting and project evaluation.",
     "example": "Project costs ₹10L upfront, returns ₹3L/year for 5 years at 10% discount rate. NPV = ₹1.37L (profitable).",
-    "relatedTerms": ["IRR", "Present Value", "Discount Rate"]
+    "relatedTerms": [
+      "IRR",
+      "Present Value",
+      "Discount Rate"
+    ]
   },
   {
     "id": "eps",
@@ -118,7 +159,11 @@
     "formula": "EPS = Net Income / Total Shares Outstanding",
     "whyItMatters": "Rising EPS over time indicates growing profitability. Used to calculate P/E ratio and compare companies of different sizes.",
     "example": "Company earns ₹100 crore with 10 crore shares = EPS of ₹10. Each share 'earns' ₹10 annually.",
-    "relatedTerms": ["P/E Ratio", "Diluted EPS", "Net Income"]
+    "relatedTerms": [
+      "P/E Ratio",
+      "Diluted EPS",
+      "Net Income"
+    ]
   },
   {
     "id": "roe",
@@ -129,7 +174,11 @@
     "formula": "ROE = Net Income / Shareholders' Equity",
     "whyItMatters": "Higher ROE indicates better use of investor capital. Consistently high ROE (>15%) often signals competitive advantage. Watch for high ROE from excessive debt.",
     "example": "If a company earns ₹10 crore profit with ₹50 crore equity, ROE = 20%. Every ₹100 invested generates ₹20 profit.",
-    "relatedTerms": ["ROA", "ROCE", "Net Profit Margin"]
+    "relatedTerms": [
+      "ROA",
+      "ROCE",
+      "Net Profit Margin"
+    ]
   },
   {
     "id": "roa",
@@ -140,7 +189,11 @@
     "formula": "ROA = Net Income / Total Assets",
     "whyItMatters": "Higher ROA means better asset utilization. Asset-light businesses typically have higher ROA. Compare within same industry.",
     "example": "₹20 crore profit on ₹200 crore assets = 10% ROA. Each ₹100 in assets generates ₹10 in profit.",
-    "relatedTerms": ["ROE", "Asset Turnover", "Net Profit Margin"]
+    "relatedTerms": [
+      "ROE",
+      "Asset Turnover",
+      "Net Profit Margin"
+    ]
   },
   {
     "id": "roce",
@@ -151,7 +204,12 @@
     "formula": "ROCE = EBIT / (Total Assets - Current Liabilities)",
     "whyItMatters": "ROCE above cost of capital creates value. Unlike ROE, it considers debt. Essential for infrastructure, manufacturing, and telecom.",
     "example": "EBIT ₹50 crore on ₹200 crore capital = 25% ROCE. If cost of capital is 12%, company creates significant value.",
-    "relatedTerms": ["ROE", "ROIC", "WACC", "EBIT"]
+    "relatedTerms": [
+      "ROE",
+      "ROIC",
+      "WACC",
+      "EBIT"
+    ]
   },
   {
     "id": "net-profit-margin",
@@ -162,7 +220,11 @@
     "formula": "Net Profit Margin = Net Income / Total Revenue",
     "whyItMatters": "Higher margins indicate pricing power and operational efficiency. Tech companies often have 20%+ margins; retail may have 2-5%.",
     "example": "₹10 crore profit on ₹100 crore revenue = 10% margin. For every ₹100 earned, ₹10 is profit.",
-    "relatedTerms": ["Gross Margin", "Operating Margin", "EBITDA Margin"]
+    "relatedTerms": [
+      "Gross Margin",
+      "Operating Margin",
+      "EBITDA Margin"
+    ]
   },
   {
     "id": "ebitda-margin",
@@ -173,7 +235,11 @@
     "formula": "EBITDA Margin = EBITDA / Total Revenue",
     "whyItMatters": "Shows core operational profitability without accounting differences. Useful for comparing companies with different capital structures.",
     "example": "EBITDA of ₹25 crore on ₹100 crore revenue = 25% EBITDA margin. Strong operational efficiency.",
-    "relatedTerms": ["EBITDA", "Operating Margin", "Net Profit Margin"]
+    "relatedTerms": [
+      "EBITDA",
+      "Operating Margin",
+      "Net Profit Margin"
+    ]
   },
   {
     "id": "pe-ratio",
@@ -184,7 +250,11 @@
     "formula": "P/E = Market Price per Share / EPS",
     "whyItMatters": "A high P/E suggests investors expect high future growth, while a low P/E might indicate undervaluation or problems. Compare within same industry.",
     "example": "Stock at ₹100 with EPS ₹5 = P/E of 20. Investors pay ₹20 for every ₹1 of annual earnings.",
-    "relatedTerms": ["EPS", "PEG Ratio", "Forward P/E"]
+    "relatedTerms": [
+      "EPS",
+      "PEG Ratio",
+      "Forward P/E"
+    ]
   },
   {
     "id": "pb-ratio",
@@ -195,7 +265,11 @@
     "formula": "P/B = Market Price per Share / Book Value per Share",
     "whyItMatters": "P/B below 1 may indicate undervaluation (or problems). Banks and asset-heavy companies are often valued on book value.",
     "example": "Stock at ₹200 with book value ₹100 = P/B of 2. Investors pay twice the accounting value of assets.",
-    "relatedTerms": ["Book Value", "NAV", "P/E Ratio"]
+    "relatedTerms": [
+      "Book Value",
+      "NAV",
+      "P/E Ratio"
+    ]
   },
   {
     "id": "peg-ratio",
@@ -206,7 +280,11 @@
     "formula": "PEG = P/E Ratio / Annual EPS Growth Rate",
     "whyItMatters": "PEG < 1 may indicate undervaluation relative to growth. A high P/E stock with high growth may still be attractively priced.",
     "example": "P/E of 30 with 30% growth = PEG of 1 (fairly valued). P/E of 30 with 15% growth = PEG of 2 (expensive).",
-    "relatedTerms": ["P/E Ratio", "EPS Growth", "Growth Investing"]
+    "relatedTerms": [
+      "P/E Ratio",
+      "EPS Growth",
+      "Growth Investing"
+    ]
   },
   {
     "id": "dividend-yield",
@@ -217,7 +295,11 @@
     "formula": "Dividend Yield = Annual Dividend per Share / Market Price per Share",
     "whyItMatters": "High yield can indicate good income but may also signal a falling stock price. Sustainable yield with growth is ideal for income investors.",
     "example": "₹10 annual dividend on ₹200 stock = 5% yield. You earn ₹5 in dividends for every ₹100 invested.",
-    "relatedTerms": ["Payout Ratio", "Dividend Growth", "Ex-Dividend Date"]
+    "relatedTerms": [
+      "Payout Ratio",
+      "Dividend Growth",
+      "Ex-Dividend Date"
+    ]
   },
   {
     "id": "enterprise-value",
@@ -228,7 +310,11 @@
     "formula": "EV = Market Cap + Total Debt - Cash",
     "whyItMatters": "EV is more comprehensive than market cap as it accounts for debt burden and cash reserves. Used in EV/EBITDA multiples.",
     "example": "Market cap ₹1000 cr + Debt ₹200 cr - Cash ₹50 cr = EV ₹1150 crore.",
-    "relatedTerms": ["Market Cap", "EV/EBITDA", "Debt"]
+    "relatedTerms": [
+      "Market Cap",
+      "EV/EBITDA",
+      "Debt"
+    ]
   },
   {
     "id": "ev-ebitda",
@@ -239,7 +325,11 @@
     "formula": "EV/EBITDA = Enterprise Value / EBITDA",
     "whyItMatters": "More reliable than P/E for comparing companies with different capital structures. Lower ratio may indicate undervaluation.",
     "example": "EV of ₹1000 crore with EBITDA ₹100 crore = EV/EBITDA of 10x. Industry average is 12x — potentially undervalued.",
-    "relatedTerms": ["Enterprise Value", "EBITDA", "P/E Ratio"]
+    "relatedTerms": [
+      "Enterprise Value",
+      "EBITDA",
+      "P/E Ratio"
+    ]
   },
   {
     "id": "current-ratio",
@@ -250,7 +340,11 @@
     "formula": "Current Ratio = Current Assets / Current Liabilities",
     "whyItMatters": "Ratio above 1 means company can cover short-term debts. Too high may indicate inefficient use of assets. Ideal: 1.5-2.5.",
     "example": "Current assets ₹150 crore, current liabilities ₹100 crore = ratio of 1.5. Healthy liquidity position.",
-    "relatedTerms": ["Quick Ratio", "Working Capital", "Liquidity"]
+    "relatedTerms": [
+      "Quick Ratio",
+      "Working Capital",
+      "Liquidity"
+    ]
   },
   {
     "id": "quick-ratio",
@@ -261,7 +355,11 @@
     "formula": "Quick Ratio = (Current Assets - Inventory) / Current Liabilities",
     "whyItMatters": "More conservative than current ratio. Essential for businesses where inventory can't be quickly liquidated.",
     "example": "Current assets ₹150 cr minus inventory ₹50 cr = ₹100 cr. Liabilities ₹100 cr = Quick ratio of 1.",
-    "relatedTerms": ["Current Ratio", "Liquidity", "Working Capital"]
+    "relatedTerms": [
+      "Current Ratio",
+      "Liquidity",
+      "Working Capital"
+    ]
   },
   {
     "id": "debt-to-equity",
@@ -272,7 +370,11 @@
     "formula": "D/E = Total Liabilities / Shareholders' Equity",
     "whyItMatters": "High D/E (>1) means more debt than equity, increasing financial risk. Different industries have different acceptable levels — banks naturally have higher D/E.",
     "example": "₹200 crore debt with ₹100 crore equity = D/E of 2. The company owes twice what shareholders invested.",
-    "relatedTerms": ["Interest Coverage", "Leverage", "Solvency"]
+    "relatedTerms": [
+      "Interest Coverage",
+      "Leverage",
+      "Solvency"
+    ]
   },
   {
     "id": "interest-coverage",
@@ -283,7 +385,11 @@
     "formula": "Interest Coverage = EBIT / Interest Expense",
     "whyItMatters": "Ratio below 1.5 is concerning. Companies with low coverage may struggle during downturns. Look for consistent coverage above 3.",
     "example": "EBIT ₹50 crore with interest expense ₹10 crore = 5x coverage. Can comfortably service debt.",
-    "relatedTerms": ["EBIT", "Debt-to-Equity", "Financial Leverage"]
+    "relatedTerms": [
+      "EBIT",
+      "Debt-to-Equity",
+      "Financial Leverage"
+    ]
   },
   {
     "id": "asset-turnover",
@@ -294,7 +400,11 @@
     "formula": "Asset Turnover = Total Revenue / Average Total Assets",
     "whyItMatters": "Retail and trading companies have high turnover; capital-intensive industries have lower. Combine with margins for full picture.",
     "example": "Revenue ₹500 crore on ₹200 crore assets = 2.5x turnover. Every ₹1 in assets generates ₹2.50 revenue.",
-    "relatedTerms": ["ROA", "Inventory Turnover", "Efficiency"]
+    "relatedTerms": [
+      "ROA",
+      "Inventory Turnover",
+      "Efficiency"
+    ]
   },
   {
     "id": "rsi",
@@ -305,7 +415,12 @@
     "formula": "RSI = 100 - [100 / (1 + (Average Gain / Average Loss))]",
     "whyItMatters": "RSI above 70 suggests overbought (potential selling opportunity). Below 30 suggests oversold (potential buying opportunity). Use with other indicators.",
     "example": "Stock RSI at 85 after a rally — it's overbought. This doesn't mean sell immediately, but momentum might slow.",
-    "relatedTerms": ["MACD", "Overbought", "Oversold", "Momentum"]
+    "relatedTerms": [
+      "MACD",
+      "Overbought",
+      "Oversold",
+      "Momentum"
+    ]
   },
   {
     "id": "macd",
@@ -316,7 +431,12 @@
     "formula": "MACD = 12-period EMA - 26-period EMA",
     "whyItMatters": "MACD crossing above signal line is bullish; below is bearish. Used to identify trend changes and momentum.",
     "example": "MACD line crosses above signal line = bullish crossover. Often used as a buy signal.",
-    "relatedTerms": ["EMA", "Signal Line", "Momentum", "Crossover"]
+    "relatedTerms": [
+      "EMA",
+      "Signal Line",
+      "Momentum",
+      "Crossover"
+    ]
   },
   {
     "id": "bollinger-bands",
@@ -327,7 +447,11 @@
     "formula": "Middle = 20-period SMA; Upper/Lower = Middle ± (2 × Standard Deviation)",
     "whyItMatters": "Price touching upper band may indicate overbought; lower band oversold. Band squeeze often precedes big moves.",
     "example": "Stock repeatedly touching upper Bollinger Band with expanding bands = strong uptrend with high volatility.",
-    "relatedTerms": ["SMA", "Volatility", "Standard Deviation"]
+    "relatedTerms": [
+      "SMA",
+      "Volatility",
+      "Standard Deviation"
+    ]
   },
   {
     "id": "atr",
@@ -338,7 +462,11 @@
     "formula": "ATR = Average of max[(High-Low), |High-Prev Close|, |Low-Prev Close|]",
     "whyItMatters": "High ATR indicates high volatility. Used for position sizing and stop-loss placement. Doesn't indicate direction.",
     "example": "Stock with ATR of ₹50 on ₹1000 price = 5% daily volatility. Set stop-loss at least 2x ATR away.",
-    "relatedTerms": ["Volatility", "Stop Loss", "True Range"]
+    "relatedTerms": [
+      "Volatility",
+      "Stop Loss",
+      "True Range"
+    ]
   },
   {
     "id": "fibonacci",
@@ -349,7 +477,12 @@
     "formula": "Key levels: 23.6%, 38.2%, 50%, 61.8%, 78.6%",
     "whyItMatters": "Widely watched levels become self-fulfilling. 61.8% retracement is considered 'golden ratio' — strong support/resistance.",
     "example": "Stock falls from ₹100 to ₹60, then bounces. 61.8% retracement = ₹84.72. Watch for resistance there.",
-    "relatedTerms": ["Support", "Resistance", "Retracement", "Golden Ratio"]
+    "relatedTerms": [
+      "Support",
+      "Resistance",
+      "Retracement",
+      "Golden Ratio"
+    ]
   },
   {
     "id": "obv",
@@ -360,7 +493,11 @@
     "formula": "OBV = Previous OBV + Current Volume (if close > prev close) or - Volume (if close < prev close)",
     "whyItMatters": "Rising OBV with rising price confirms uptrend. Divergence between price and OBV can signal trend reversal.",
     "example": "Price making new highs but OBV falling = bearish divergence. Smart money might be selling.",
-    "relatedTerms": ["Volume", "Accumulation", "Distribution"]
+    "relatedTerms": [
+      "Volume",
+      "Accumulation",
+      "Distribution"
+    ]
   },
   {
     "id": "stochastic",
@@ -371,7 +508,12 @@
     "formula": "%K = 100 × (Current Close - Lowest Low) / (Highest High - Lowest Low)",
     "whyItMatters": "Above 80 is overbought, below 20 is oversold. %K crossing %D from below is bullish signal.",
     "example": "Stochastic at 15 with %K crossing above %D = oversold stock showing buy signal.",
-    "relatedTerms": ["RSI", "Overbought", "Oversold", "Momentum"]
+    "relatedTerms": [
+      "RSI",
+      "Overbought",
+      "Oversold",
+      "Momentum"
+    ]
   },
   {
     "id": "ema",
@@ -382,7 +524,11 @@
     "formula": "EMA = (Price × Multiplier) + (Previous EMA × (1 - Multiplier))",
     "whyItMatters": "Traders use 20-day and 50-day EMAs for trend identification. Price above EMA suggests uptrend. EMA crossovers generate buy/sell signals.",
     "example": "Stock crosses above 50-day EMA — bullish signal. 20-day EMA crossing above 50-day = stronger confirmation.",
-    "relatedTerms": ["SMA", "Moving Average Crossover", "Golden Cross"]
+    "relatedTerms": [
+      "SMA",
+      "Moving Average Crossover",
+      "Golden Cross"
+    ]
   },
   {
     "id": "sebi-lodr",
@@ -393,7 +539,11 @@
     "formula": "N/A - Regulatory Framework",
     "whyItMatters": "Non-compliance can result in penalties and trading suspension. Ensures transparency for investors in listed companies.",
     "example": "Companies must file quarterly results within 45 days, disclose related party transactions, and maintain minimum promoter holding.",
-    "relatedTerms": ["SEBI", "Corporate Governance", "Disclosures"]
+    "relatedTerms": [
+      "SEBI",
+      "Corporate Governance",
+      "Disclosures"
+    ]
   },
   {
     "id": "sebi-pit",
@@ -404,7 +554,11 @@
     "formula": "N/A - Regulatory Framework",
     "whyItMatters": "Violations can lead to imprisonment and heavy fines. Ensures fair markets where all investors have equal access to information.",
     "example": "CEO can't trade company shares if they know about an upcoming acquisition before it's announced publicly.",
-    "relatedTerms": ["Insider Trading", "UPSI", "Trading Window"]
+    "relatedTerms": [
+      "Insider Trading",
+      "UPSI",
+      "Trading Window"
+    ]
   },
   {
     "id": "sebi-sast",
@@ -415,7 +569,11 @@
     "formula": "Open offer triggered at 25% ownership or acquisition of control",
     "whyItMatters": "Protects minority shareholders during takeovers. Acquirers must make open offer at fair price above certain thresholds.",
     "example": "Acquirer crossing 25% must make open offer for additional 26% at a price not below volume-weighted average.",
-    "relatedTerms": ["Open Offer", "Takeover", "Acquirer"]
+    "relatedTerms": [
+      "Open Offer",
+      "Takeover",
+      "Acquirer"
+    ]
   },
   {
     "id": "sebi-icdr",
@@ -426,7 +584,12 @@
     "formula": "N/A - Regulatory Framework",
     "whyItMatters": "Ensures companies meet minimum criteria before raising public money. Protects retail investors in primary markets.",
     "example": "Company must have ₹3 crore net tangible assets, positive net worth for 3 years to qualify for IPO.",
-    "relatedTerms": ["IPO", "Rights Issue", "QIP", "DRHP"]
+    "relatedTerms": [
+      "IPO",
+      "Rights Issue",
+      "QIP",
+      "DRHP"
+    ]
   },
   {
     "id": "account-aggregator",
@@ -437,7 +600,11 @@
     "formula": "N/A - Data Sharing Framework",
     "whyItMatters": "Enables instant loan approvals, better financial products. User controls what data is shared and with whom.",
     "example": "Share your bank statements with a lender via AA instead of downloading PDFs. Faster loan approval, no document fraud.",
-    "relatedTerms": ["RBI", "Open Banking", "Data Privacy"]
+    "relatedTerms": [
+      "RBI",
+      "Open Banking",
+      "Data Privacy"
+    ]
   },
   {
     "id": "demat",
@@ -448,7 +615,12 @@
     "formula": "N/A - Account Type",
     "whyItMatters": "Mandatory for trading in India. Eliminates risks of physical certificates — theft, damage, forgery.",
     "example": "Buy 100 Reliance shares — they're credited to your demat account electronically. Selling debits from same account.",
-    "relatedTerms": ["NSDL", "CDSL", "DP", "Trading Account"]
+    "relatedTerms": [
+      "NSDL",
+      "CDSL",
+      "DP",
+      "Trading Account"
+    ]
   },
   {
     "id": "aoc-4",
@@ -459,7 +631,12 @@
     "formula": "N/A - Compliance Filing",
     "whyItMatters": "Late filing attracts penalties. These filings are public and help assess company's financial health.",
     "example": "Companies must file AOC-4 within 30 days of AGM. Includes balance sheet, P&L, cash flow statement.",
-    "relatedTerms": ["MCA", "ROC", "MGT-7", "Annual Return"]
+    "relatedTerms": [
+      "MCA",
+      "ROC",
+      "MGT-7",
+      "Annual Return"
+    ]
   },
   {
     "id": "mgt-7",
@@ -470,7 +647,12 @@
     "formula": "N/A - Compliance Filing",
     "whyItMatters": "Public document showing ownership structure and changes. Important for due diligence and tracking promoter holdings.",
     "example": "MGT-7 shows shareholding pattern, director details, and compliance with various regulations.",
-    "relatedTerms": ["AOC-4", "MCA", "ROC", "Shareholding Pattern"]
+    "relatedTerms": [
+      "AOC-4",
+      "MCA",
+      "ROC",
+      "Shareholding Pattern"
+    ]
   },
   {
     "id": "t1-settlement",
@@ -481,7 +663,12 @@
     "formula": "Settlement Date = Trade Date + 1 business day",
     "whyItMatters": "Faster access to sale proceeds and purchased shares. Reduces counterparty risk and margin requirements.",
     "example": "Sell shares on Monday — get funds on Tuesday. Buy shares on Monday — they're in your demat on Tuesday.",
-    "relatedTerms": ["Settlement", "Clearing", "NSCCL", "ICCL"]
+    "relatedTerms": [
+      "Settlement",
+      "Clearing",
+      "NSCCL",
+      "ICCL"
+    ]
   },
   {
     "id": "circuit-breakers",
@@ -492,7 +679,11 @@
     "formula": "Index circuits: 10%, 15%, 20% movement triggers halt",
     "whyItMatters": "Prevents panic selling and manipulative trading. Gives market time to absorb information during extreme moves.",
     "example": "Nifty falls 10% — trading halts for 45 minutes. Individual stocks may have 5%, 10%, or 20% daily limits.",
-    "relatedTerms": ["Upper Circuit", "Lower Circuit", "Volatility"]
+    "relatedTerms": [
+      "Upper Circuit",
+      "Lower Circuit",
+      "Volatility"
+    ]
   },
   {
     "id": "beta",
@@ -503,7 +694,11 @@
     "formula": "Beta = Covariance(Stock, Market) / Variance(Market)",
     "whyItMatters": "Beta >1 means more volatile than market (high risk, high reward). Beta <1 means less volatile. Defensive stocks typically have low beta.",
     "example": "Beta of 1.5 means if Nifty rises 10%, stock rises ~15%. If Nifty falls 10%, stock falls ~15%.",
-    "relatedTerms": ["Alpha", "Sharpe Ratio", "Systematic Risk"]
+    "relatedTerms": [
+      "Alpha",
+      "Sharpe Ratio",
+      "Systematic Risk"
+    ]
   },
   {
     "id": "sharpe-ratio",
@@ -514,7 +709,11 @@
     "formula": "Sharpe Ratio = (Rp - Rf) / σp",
     "whyItMatters": "Higher Sharpe means better risk-adjusted returns. Compare funds with similar mandates using Sharpe ratio.",
     "example": "Fund A: 15% return, 10% volatility, Sharpe = 1.0. Fund B: 18% return, 20% volatility, Sharpe = 0.65. A is better risk-adjusted.",
-    "relatedTerms": ["Risk-Free Rate", "Standard Deviation", "Treynor Ratio"]
+    "relatedTerms": [
+      "Risk-Free Rate",
+      "Standard Deviation",
+      "Treynor Ratio"
+    ]
   },
   {
     "id": "treynor-ratio",
@@ -525,7 +724,11 @@
     "formula": "Treynor Ratio = (Rp - Rf) / βp",
     "whyItMatters": "Use for comparing well-diversified portfolios. Measures return per unit of market risk taken.",
     "example": "Fund with 12% return, 6% risk-free rate, beta 0.8: Treynor = 7.5. Higher is better.",
-    "relatedTerms": ["Beta", "Sharpe Ratio", "Systematic Risk"]
+    "relatedTerms": [
+      "Beta",
+      "Sharpe Ratio",
+      "Systematic Risk"
+    ]
   },
   {
     "id": "capm",
@@ -536,7 +739,11 @@
     "formula": "E(Ri) = Rf + βi × (Rm - Rf)",
     "whyItMatters": "Helps calculate required rate of return for investments. Foundation of modern portfolio theory.",
     "example": "Risk-free rate 7%, market return 12%, stock beta 1.2: Expected return = 7% + 1.2×(12%-7%) = 13%.",
-    "relatedTerms": ["Beta", "Risk Premium", "Required Return"]
+    "relatedTerms": [
+      "Beta",
+      "Risk Premium",
+      "Required Return"
+    ]
   },
   {
     "id": "wacc",
@@ -547,7 +754,11 @@
     "formula": "WACC = (E/V × Re) + (D/V × Rd × (1-T))",
     "whyItMatters": "The hurdle rate for new investments. Projects must earn above WACC to create value. Used in DCF valuations.",
     "example": "Company with 60% equity at 15% cost, 40% debt at 10%, 25% tax rate: WACC = 9% + 3% = 12%.",
-    "relatedTerms": ["Cost of Equity", "Cost of Debt", "Hurdle Rate"]
+    "relatedTerms": [
+      "Cost of Equity",
+      "Cost of Debt",
+      "Hurdle Rate"
+    ]
   },
   {
     "id": "standard-deviation",
@@ -558,7 +769,11 @@
     "formula": "σ = √[Σ(xi - μ)² / n]",
     "whyItMatters": "Used to measure investment risk. Two-thirds of returns typically fall within 1 standard deviation of average.",
     "example": "Fund with 12% average return and 8% standard deviation: 68% of the time, returns are between 4% and 20%.",
-    "relatedTerms": ["Volatility", "Variance", "Risk"]
+    "relatedTerms": [
+      "Volatility",
+      "Variance",
+      "Risk"
+    ]
   },
   {
     "id": "alpha",
@@ -569,7 +784,11 @@
     "formula": "Alpha = Actual Return - [Rf + β × (Market Return - Rf)]",
     "whyItMatters": "Positive alpha indicates outperformance vs benchmark. Consistent alpha is rare and valuable. Most active funds fail to generate alpha after fees.",
     "example": "Fund returned 18% when expected return (based on beta) was 15%. Alpha = 3% — manager added extra value.",
-    "relatedTerms": ["Beta", "Sharpe Ratio", "Benchmark"]
+    "relatedTerms": [
+      "Beta",
+      "Sharpe Ratio",
+      "Benchmark"
+    ]
   },
   {
     "id": "stcg",
@@ -580,7 +799,11 @@
     "formula": "STCG Tax = 20% for listed equity (from July 2024)",
     "whyItMatters": "Short-term gains are taxed at higher rates. Holding period matters significantly for tax efficiency.",
     "example": "Sell shares at ₹1 lakh profit within 12 months = ₹20,000 tax. Holding longer could reduce to ₹12,500 (LTCG).",
-    "relatedTerms": ["LTCG", "Holding Period", "Capital Gains"]
+    "relatedTerms": [
+      "LTCG",
+      "Holding Period",
+      "Capital Gains"
+    ]
   },
   {
     "id": "ltcg",
@@ -591,7 +814,11 @@
     "formula": "LTCG Tax = 12.5% on gains above ₹1.25 lakh (from July 2024)",
     "whyItMatters": "Lower tax rate incentivizes long-term investing. First ₹1.25 lakh of LTCG per year is tax-free.",
     "example": "LTCG of ₹2 lakh. Exempt: ₹1.25 lakh. Taxable: ₹75,000. Tax = ₹9,375 (12.5%).",
-    "relatedTerms": ["STCG", "Indexation", "Capital Gains"]
+    "relatedTerms": [
+      "STCG",
+      "Indexation",
+      "Capital Gains"
+    ]
   },
   {
     "id": "gst",
@@ -602,7 +829,12 @@
     "formula": "Intra-state: CGST + SGST; Inter-state: IGST",
     "whyItMatters": "Affects cost of goods and services. Businesses can claim input tax credit, reducing cascading effect.",
     "example": "Buy goods for ₹100 + 18% GST = ₹118. If you sell for ₹150 + 18% = ₹177, pay only ₹9 GST (₹27-₹18 credit).",
-    "relatedTerms": ["CGST", "SGST", "IGST", "Input Tax Credit"]
+    "relatedTerms": [
+      "CGST",
+      "SGST",
+      "IGST",
+      "Input Tax Credit"
+    ]
   },
   {
     "id": "section-80c",
@@ -613,7 +845,12 @@
     "formula": "Maximum deduction: ₹1,50,000 per year",
     "whyItMatters": "Reduces taxable income significantly. ELSS funds offer 80C benefit with shortest lock-in (3 years) among options.",
     "example": "Invest ₹1.5 lakh in ELSS. If in 30% bracket, save ₹45,000 in taxes. Plus potential equity returns.",
-    "relatedTerms": ["ELSS", "PPF", "Tax Saving", "Old Tax Regime"]
+    "relatedTerms": [
+      "ELSS",
+      "PPF",
+      "Tax Saving",
+      "Old Tax Regime"
+    ]
   },
   {
     "id": "stt",
@@ -624,7 +861,11 @@
     "formula": "STT rates vary: 0.1% on delivery equity, 0.0125% on F&O",
     "whyItMatters": "STT is deducted at source. It's in addition to capital gains tax but can't be claimed as expense.",
     "example": "Buy ₹1 lakh shares = ₹100 STT. Sell = another ₹100 STT. Total transaction cost: ₹200 + brokerage.",
-    "relatedTerms": ["Capital Gains", "Transaction Costs", "Brokerage"]
+    "relatedTerms": [
+      "Capital Gains",
+      "Transaction Costs",
+      "Brokerage"
+    ]
   },
   {
     "id": "market-cap",
@@ -635,7 +876,11 @@
     "formula": "Market Cap = Current Stock Price × Total Outstanding Shares",
     "whyItMatters": "Determines company size classification (Large/Mid/Small cap). Larger market cap usually means more stability but slower growth.",
     "example": "Stock at ₹500 with 2 crore shares = ₹1,000 crore market cap. This is a small-cap company.",
-    "relatedTerms": ["Enterprise Value", "Free Float", "Index Weightage"]
+    "relatedTerms": [
+      "Enterprise Value",
+      "Free Float",
+      "Index Weightage"
+    ]
   },
   {
     "id": "book-value",
@@ -646,7 +891,11 @@
     "formula": "Book Value = (Total Assets - Total Liabilities) / Outstanding Shares",
     "whyItMatters": "Comparing stock price to book value (P/B ratio) helps identify undervalued stocks. Banks are often valued on book value.",
     "example": "Assets ₹500 cr, Liabilities ₹300 cr, 10 cr shares = Book Value ₹20. If stock trades at ₹15, it's below book.",
-    "relatedTerms": ["P/B Ratio", "NAV", "Tangible Book Value"]
+    "relatedTerms": [
+      "P/B Ratio",
+      "NAV",
+      "Tangible Book Value"
+    ]
   },
   {
     "id": "nav",
@@ -657,7 +906,11 @@
     "formula": "NAV = (Total Assets - Total Liabilities) / Number of Units",
     "whyItMatters": "NAV changes daily based on market movements. Don't compare NAVs across funds — higher NAV doesn't mean better. Focus on returns.",
     "example": "Fund with ₹100 crore assets, ₹1 crore liabilities, 9.9 crore units = NAV of ₹10.",
-    "relatedTerms": ["AUM", "Expense Ratio", "Exit Load"]
+    "relatedTerms": [
+      "AUM",
+      "Expense Ratio",
+      "Exit Load"
+    ]
   },
   {
     "id": "expense-ratio",
@@ -668,7 +921,11 @@
     "formula": "Expense Ratio = (Total Fund Expenses / Average AUM) × 100",
     "whyItMatters": "Lower expense ratios mean more returns in your pocket. A 0.5% difference compounded over 20 years costs lakhs.",
     "example": "1% expense on ₹10 lakh = ₹10,000/year fee. Over 20 years at 12% return, this 1% reduces corpus by ₹15 lakhs.",
-    "relatedTerms": ["NAV", "Direct vs Regular", "Exit Load"]
+    "relatedTerms": [
+      "NAV",
+      "Direct vs Regular",
+      "Exit Load"
+    ]
   },
   {
     "id": "free-float",
@@ -679,7 +936,11 @@
     "formula": "Free Float = Total Shares - (Promoter Shares + Locked Shares)",
     "whyItMatters": "Index weightages are based on free float. Low free float means less liquidity and higher price volatility.",
     "example": "Company has 10 crore shares, promoters hold 60%. Free float = 4 crore shares (40%). Only these trade actively.",
-    "relatedTerms": ["Market Cap", "Index Weightage", "Liquidity"]
+    "relatedTerms": [
+      "Market Cap",
+      "Index Weightage",
+      "Liquidity"
+    ]
   },
   {
     "id": "face-value",
@@ -690,7 +951,11 @@
     "formula": "Share Capital = Face Value × Number of Shares",
     "whyItMatters": "Face value is used to calculate dividends (often expressed as % of face value) and for stock splits. Has no relation to market price.",
     "example": "Stock with ₹10 face value trading at ₹1000. A 2:1 split makes face value ₹5, shares double, price halves to ₹500.",
-    "relatedTerms": ["Stock Split", "Bonus Shares", "Premium"]
+    "relatedTerms": [
+      "Stock Split",
+      "Bonus Shares",
+      "Premium"
+    ]
   },
   {
     "id": "nifty50",
@@ -701,6 +966,796 @@
     "formula": "Free Float Market Cap Weighted Index",
     "whyItMatters": "The primary benchmark for Indian equity performance. Most large-cap funds are measured against it. Used for F&O trading.",
     "example": "Nifty at 22,000 with P/E of 24. Historical average P/E is 20. Market trading 20% above historical average.",
-    "relatedTerms": ["Sensex", "Nifty Next 50", "Index Fund"]
+    "relatedTerms": [
+      "Sensex",
+      "Nifty Next 50",
+      "Index Fund"
+    ]
+  },
+  {
+    "id": "ltcg-stock",
+    "term": "LTCG",
+    "fullName": "Long Term Capital Gain",
+    "category": "Basics of Stock Market",
+    "definition": "Profit earned from selling a stock held for more than 12 months.",
+    "formula": "Sale Price - Purchase Price (if held > 12 months)",
+    "whyItMatters": "LTCG tax rates are generally lower than STCG, encouraging long-term investing.",
+    "example": "Bought shares for ₹1 lakh, sold for ₹2 lakh after 2 years. Gain of ₹1 lakh is LTCG.",
+    "relatedTerms": [
+      "STCG",
+      "Captain Gains Tax"
+    ]
+  },
+  {
+    "id": "dividend",
+    "term": "Dividend",
+    "fullName": "Dividend",
+    "category": "Basics of Stock Market",
+    "definition": "A portion of the company's profits distributed to shareholders.",
+    "formula": "Dividend Per Share * Number of Shares",
+    "whyItMatters": "Provides regular income in addition to capital appreciation.",
+    "example": "Company declares ₹5 dividend/share. You own 100 shares. You receive ₹500.",
+    "relatedTerms": [
+      "Dividend Yield",
+      "Ex-Dividend Date"
+    ]
+  },
+  {
+    "id": "face-value-basics",
+    "term": "Face Value",
+    "fullName": "Face Value",
+    "category": "Basics of Stock Market",
+    "definition": "The original value of a share as listed in the company's books.",
+    "formula": "Equity Share Capital / Total Number of Shares",
+    "whyItMatters": "Used to calculate dividends and for stock splits.",
+    "example": "A stock with market price ₹1000 might have a Face Value of ₹10.",
+    "relatedTerms": [
+      "Book Value",
+      "Market Value"
+    ]
+  },
+  {
+    "id": "promoter",
+    "term": "Promoter",
+    "fullName": "Promoter",
+    "category": "Basics of Stock Market",
+    "definition": "The individual or group who starts the company and raises capital.",
+    "formula": "N/A",
+    "whyItMatters": "Promoters run the business. Their stake indicates their confidence in the company.",
+    "example": "Tata Sons is the promoter of Tata Motors.",
+    "relatedTerms": [
+      "Promoter Holding",
+      "Management"
+    ]
+  },
+  {
+    "id": "top-line-bottom-line",
+    "term": "Top Line & Bottom Line",
+    "fullName": "Top Line and Bottom Line",
+    "category": "Basics of Stock Market",
+    "definition": "Top Line refers to Revenue/Sales. Bottom Line refers to Net Profit.",
+    "formula": "Top Line = Revenue; Bottom Line = Revenue - Expenses - Taxes",
+    "whyItMatters": "Growth in top line shows business expansion; growth in bottom line shows efficiency.",
+    "example": "Revenue (Top Line) ₹100cr. Expenses ₹80cr. Net Profit (Bottom Line) ₹20cr.",
+    "relatedTerms": [
+      "Revenue",
+      "Net Profit"
+    ]
+  },
+  {
+    "id": "share-split",
+    "term": "Share Split",
+    "fullName": "Stock Split",
+    "category": "Basics of Stock Market",
+    "definition": "Dividing existing shares into multiple shares to increase liquidity and reduce price per share.",
+    "formula": "New Price = Old Price / Split Ratio",
+    "whyItMatters": "Makes expensive stocks more affordable for retail investors.",
+    "example": "1 share of ₹1000 (FV ₹10) split 1:10 becomes 10 shares of ₹100 (FV ₹1).",
+    "relatedTerms": [
+      "Face Value",
+      "Bonus Shares"
+    ]
+  },
+  {
+    "id": "bonus-shares",
+    "term": "Bonus Shares",
+    "fullName": "Bonus Issue",
+    "category": "Basics of Stock Market",
+    "definition": "Free shares given to existing shareholders based on their current holding.",
+    "formula": "N/A",
+    "whyItMatters": "Rewards shareholders without cash outflow; increases liquidity.",
+    "example": "1:1 Bonus means you get 1 free share for every 1 share you hold.",
+    "relatedTerms": [
+      "Stock Split",
+      "Dividend"
+    ]
+  },
+  {
+    "id": "who-decides-price",
+    "term": "Price Discovery",
+    "fullName": "Who decides share prices?",
+    "category": "Basics of Stock Market",
+    "definition": "Share prices are determined by supply and demand in the market.",
+    "formula": "N/A",
+    "whyItMatters": "Reflects the market's collective valuation of the company.",
+    "example": "More buyers than sellers -> Price goes up.",
+    "relatedTerms": [
+      "Bid-Ask Spread",
+      "Market Depth"
+    ]
+  },
+  {
+    "id": "types-securities-market",
+    "term": "Securities Market Types",
+    "fullName": "Types of Securities Market",
+    "category": "Basics of Stock Market",
+    "definition": "Primary Market (New securities issued) and Secondary Market (Existing securities traded).",
+    "formula": "N/A",
+    "whyItMatters": "Primary provides capital to companies; Secondary provides liquidity to investors.",
+    "example": "IPO is Primary Market. Buying Tata Motors on NSE is Secondary Market.",
+    "relatedTerms": [
+      "IPO",
+      "Stock Exchange"
+    ]
+  },
+  {
+    "id": "demat-account",
+    "term": "DEMAT Account",
+    "fullName": "Dematerialized Account",
+    "category": "Basics of Stock Market",
+    "definition": "An account used to hold shares and securities in electronic format.",
+    "formula": "N/A",
+    "whyItMatters": "Mandatory for trading in Indian stock markets.",
+    "example": "Holding shares in NSDL or CDSL via a broker.",
+    "relatedTerms": [
+      "Trading Account",
+      "Depository"
+    ]
+  },
+  {
+    "id": "savings-account",
+    "term": "Savings Account",
+    "fullName": "Savings Bank Account",
+    "category": "Basics of Stock Market",
+    "definition": "A bank deposit account that provides modest interest.",
+    "formula": "N/A",
+    "whyItMatters": "Linked to trading account for fund transfer.",
+    "example": "Your SBI/HDFC bank account linked to Zerodha/Upstox.",
+    "relatedTerms": [
+      "Trading Account",
+      "DEMAT Account"
+    ]
+  },
+  {
+    "id": "trading-account",
+    "term": "Trading Account",
+    "fullName": "Trading Account",
+    "category": "Basics of Stock Market",
+    "definition": "An account used to place buy and sell orders in the stock market.",
+    "formula": "N/A",
+    "whyItMatters": "Links your bank account to the stock exchange.",
+    "example": "Account with a broker for executing trades.",
+    "relatedTerms": [
+      "DEMAT Account",
+      "Broker"
+    ]
+  },
+  {
+    "id": "documents-demat",
+    "term": "DEMAT Documents",
+    "fullName": "Documents for Opening DEMAT",
+    "category": "Basics of Stock Market",
+    "definition": "PAN Card, Aadhaar (Address Proof), Bank Proof (Cancelled Cheque), Photos.",
+    "formula": "N/A",
+    "whyItMatters": "KYC compliance is mandatory.",
+    "example": "Submitting PAN and Aadhaar for video KYC.",
+    "relatedTerms": [
+      "KYC",
+      "SEBI"
+    ]
+  },
+  {
+    "id": "contract-note",
+    "term": "Contract Note",
+    "fullName": "Contract Note",
+    "category": "Basics of Stock Market",
+    "definition": "A legal record of trades executed on a given day.",
+    "formula": "N/A",
+    "whyItMatters": "Proof of transaction, includes brokerage and tax details.",
+    "example": "Received via email after trading hours.",
+    "relatedTerms": [
+      "Trade Confirmation",
+      "STT"
+    ]
+  },
+  {
+    "id": "settlement-date",
+    "term": "Settlement Date",
+    "fullName": "Settlement Date",
+    "category": "Basics of Stock Market",
+    "definition": "The date when ownership is transferred and funds are exchanged.",
+    "formula": "T+1 (Trade Day + 1 Business Day)",
+    "whyItMatters": "Determines when you get money or shares.",
+    "example": "Sell on Monday -> Money in account on Tuesday.",
+    "relatedTerms": [
+      "T+1",
+      "Clearing Corporation"
+    ]
+  },
+  {
+    "id": "ltp",
+    "term": "LTP",
+    "fullName": "Latest Traded Price",
+    "category": "Basics of Stock Market",
+    "definition": "The price at which the last trade occurred.",
+    "formula": "N/A",
+    "whyItMatters": "Current market price of the stock.",
+    "example": "Reliance LTP is ₹2500.",
+    "relatedTerms": [
+      "Closing Price",
+      "Opening Price"
+    ]
+  },
+  {
+    "id": "pre-opening-session",
+    "term": "Pre-opening Session",
+    "fullName": "Pre-opening Market Session",
+    "category": "Basics of Stock Market",
+    "definition": "Session from 9:00 AM to 9:15 AM to stabilize opening price.",
+    "formula": "N/A",
+    "whyItMatters": "Reduces volatility at market open.",
+    "example": "Orders placed between 9:00-9:08 AM.",
+    "relatedTerms": [
+      "Market Open",
+      "Call Auction"
+    ]
+  },
+  {
+    "id": "amo",
+    "term": "AMO",
+    "fullName": "After Market Orders",
+    "category": "Basics of Stock Market",
+    "definition": "Orders placed after trading hours for the next trading day.",
+    "formula": "N/A",
+    "whyItMatters": "Allows busy people to plan trades anytime.",
+    "example": "Placing a buy order at 8:00 PM for tomorrow.",
+    "relatedTerms": [
+      "GTT",
+      "Limit Order"
+    ]
+  },
+  {
+    "id": "gap-up",
+    "term": "Gap Up",
+    "fullName": "Gap Up Opening",
+    "category": "Basics of Stock Market",
+    "definition": "When a stock opens significantly higher than yesterday's close.",
+    "formula": "Open > Prev Close",
+    "whyItMatters": "Indicates strong positive sentiment/news.",
+    "example": "Stock closed at 100, opens at 105.",
+    "relatedTerms": [
+      "Gap Down",
+      "Gap Filling"
+    ]
+  },
+  {
+    "id": "gap-down",
+    "term": "Gap Down",
+    "fullName": "Gap Down Opening",
+    "category": "Basics of Stock Market",
+    "definition": "When a stock opens significantly lower than yesterday's close.",
+    "formula": "Open < Prev Close",
+    "whyItMatters": "Indicates negative sentiment/news.",
+    "example": "Stock closed at 100, opens at 95.",
+    "relatedTerms": [
+      "Gap Up",
+      "Bearish Market"
+    ]
+  },
+  {
+    "id": "announcement-date",
+    "term": "Announcement Date",
+    "fullName": "Declaration Date",
+    "category": "Basics of Stock Market",
+    "definition": "Date when company board announces corporate actions like dividend/bonus.",
+    "formula": "N/A",
+    "whyItMatters": "First public information about the benefit.",
+    "example": "Infosys board announces dividend on 15th April.",
+    "relatedTerms": [
+      "Record Date",
+      "Ex-Date"
+    ]
+  },
+  {
+    "id": "record-date",
+    "term": "Record Date",
+    "fullName": "Record Date",
+    "category": "Basics of Stock Market",
+    "definition": "The cut-off date to determine which shareholders are eligible for dividends/bonus.",
+    "formula": "N/A",
+    "whyItMatters": "You must be in the company records on this date to get benefits.",
+    "example": "If Record Date is Friday, you generally buy by Wednesday (T+1).",
+    "relatedTerms": [
+      "Ex-Date",
+      "Corporate Action"
+    ]
+  },
+  {
+    "id": "investor-types",
+    "term": "Investor Types",
+    "fullName": "Types of Investors",
+    "category": "Basics of Stock Market",
+    "definition": "Retail (Small), HNI (High Net Worth), DII (Domestic Institutions), FII (Foreign Institutions).",
+    "formula": "N/A",
+    "whyItMatters": "Institutional flows (FII/DII) drive market trends.",
+    "example": "Retail: Individual investing < ₹2 Lakhs.",
+    "relatedTerms": [
+      "FII",
+      "DII",
+      "Retail Investor"
+    ]
+  },
+  {
+    "id": "depositories",
+    "term": "Depositories",
+    "fullName": "Depositories (NSDL/CDSL)",
+    "category": "Basics of Stock Market",
+    "definition": "Institutions that hold securities in electronic form (like a bank for shares).",
+    "formula": "N/A",
+    "whyItMatters": "Safe-keep your shares.",
+    "example": "NSDL and CDSL are the two depositories in India.",
+    "relatedTerms": [
+      "DP",
+      "DEMAT"
+    ]
+  },
+  {
+    "id": "dp",
+    "term": "DP",
+    "fullName": "Depository Participant",
+    "category": "Basics of Stock Market",
+    "definition": "Agent of the depository (Broker) who interacts with the investor.",
+    "formula": "N/A",
+    "whyItMatters": "Investors interact with DPs, not directly with NSDL/CDSL.",
+    "example": "Zerodha, Angel One, ICICI Direct.",
+    "relatedTerms": [
+      "Broker",
+      "Depository"
+    ]
+  },
+  {
+    "id": "corporate-actions",
+    "term": "Corporate Actions",
+    "fullName": "Corporate Actions",
+    "category": "Basics of Stock Market",
+    "definition": "Events initiated by a company that affect its shareholders.",
+    "formula": "N/A",
+    "whyItMatters": "Directly impacts share price and quantity.",
+    "example": "Dividends, Rights Issue, Bonus, Splits.",
+    "relatedTerms": [
+      "Dividend",
+      "Bonus Shares"
+    ]
+  },
+  {
+    "id": "volume",
+    "term": "Volume",
+    "fullName": "Trading Volume",
+    "category": "Basics of Stock Market",
+    "definition": "Total number of shares traded in a specified period.",
+    "formula": "N/A",
+    "whyItMatters": "High volume with price rise indicates strong trend confirmation.",
+    "example": "10 Lakh shares traded today.",
+    "relatedTerms": [
+      "Liquidity",
+      "Turnover"
+    ]
+  },
+  {
+    "id": "trading-system",
+    "term": "Trading System",
+    "fullName": "Screen Based Trading System",
+    "category": "Basics of Stock Market",
+    "definition": "Electronic system where orders are matched automatically.",
+    "formula": "N/A",
+    "whyItMatters": "Ensures transparency and speed.",
+    "example": "NEAT (NSE), BOLT (BSE).",
+    "relatedTerms": [
+      "Exchange",
+      "Order Matching"
+    ]
+  },
+  {
+    "id": "types-of-order",
+    "term": "Order Types",
+    "fullName": "Types of Orders",
+    "category": "Basics of Stock Market",
+    "definition": "Market Order (Buy at current price), Limit Order (Buy at specific price).",
+    "formula": "N/A",
+    "whyItMatters": "Control over price vs execution speed.",
+    "example": "Limit Order: Buy Reliance at ₹2400 (Current ₹2410).",
+    "relatedTerms": [
+      "Market Order",
+      "Limit Order",
+      "Stop Loss"
+    ]
+  },
+  {
+    "id": "bullish-bearish",
+    "term": "Bullish & Bearish",
+    "fullName": "Market Sentiment",
+    "category": "Basics of Stock Market",
+    "definition": "Bullish: Expecting prices to rise. Bearish: Expecting prices to fall.",
+    "formula": "N/A",
+    "whyItMatters": "Describes market trend and sentiment.",
+    "example": "Bull Market: Sensex going 60k to 70k.",
+    "relatedTerms": [
+      "Trend",
+      "Correction"
+    ]
+  },
+  {
+    "id": "short-sell",
+    "term": "Short Sell",
+    "fullName": "Short Selling",
+    "category": "Basics of Stock Market",
+    "definition": "Selling shares you don't own, hoping to buy them back lower.",
+    "formula": "Profit = Sell Price - Buy Price",
+    "whyItMatters": "Allows profit in falling markets.",
+    "example": "Sell at ₹100, Buy back at ₹90. Profit ₹10.",
+    "relatedTerms": [
+      "Intraday",
+      "Square Off"
+    ]
+  },
+  {
+    "id": "shares-auction",
+    "term": "Auction",
+    "fullName": "Shares Auction",
+    "category": "Basics of Stock Market",
+    "definition": "Process to settle trades when a seller fails to deliver shares (Short Delivery).",
+    "formula": "N/A",
+    "whyItMatters": "Penalizes defaulters, ensures buyer gets shares.",
+    "example": "Exchange buys from auction market to deliver to buyer.",
+    "relatedTerms": [
+      "Short Delivery",
+      "Settlement"
+    ]
+  },
+  {
+    "id": "sl",
+    "term": "Stop Loss",
+    "fullName": "Stop Loss (SL)",
+    "category": "Basics of Stock Market",
+    "definition": "An order to sell automatically if price drops to a certain level to limit loss.",
+    "formula": "N/A",
+    "whyItMatters": "Essential risk management tool.",
+    "example": "Buy at 100, SL at 95. Max loss ₹5.",
+    "relatedTerms": [
+      "Target",
+      "Risk Management"
+    ]
+  },
+  {
+    "id": "circuit-filter",
+    "term": "Circuit Filter",
+    "fullName": "Circuit Breaker / Filter",
+    "category": "Basics of Stock Market",
+    "definition": "Max allowed price movement in a day to check excessive volatility.",
+    "formula": "Usually 5%, 10%, 20%",
+    "whyItMatters": "Protects investors from massive single-day swings.",
+    "example": "Upper Circuit: Buyers only, no sellers.",
+    "relatedTerms": [
+      "Upper Circuit",
+      "Lower Circuit"
+    ]
+  },
+  {
+    "id": "trend-analysis",
+    "term": "Trend Analysis",
+    "fullName": "Trend Analysis",
+    "category": "Basics of Stock Market",
+    "definition": "Studying historical price movements to predict future direction.",
+    "formula": "N/A",
+    "whyItMatters": "Ideally trade with the trend.",
+    "example": "Uptrend (Higher Highs), Downtrend (Lower Lows).",
+    "relatedTerms": [
+      "Technical Analysis",
+      "Moving Average"
+    ]
+  },
+  {
+    "id": "market-cap-2",
+    "term": "Market Cap",
+    "fullName": "Market Capitalization",
+    "category": "Basics of Stock Market",
+    "definition": "Total value of a company's shares.",
+    "formula": "Current Price * Total Shares",
+    "whyItMatters": "Classifies companies as Large, Mid, Small Cap.",
+    "example": "TCS is a Large Cap company.",
+    "relatedTerms": [
+      "Large Cap",
+      "Free Float"
+    ]
+  },
+  {
+    "id": "ring-trading",
+    "term": "Ring Trading",
+    "fullName": "Ring Trading / Open Outcry",
+    "category": "Basics of Stock Market",
+    "definition": "Old physical floor trading method (now replaced by electronic).",
+    "formula": "N/A",
+    "whyItMatters": "Historical context.",
+    "example": "Traders shouting orders in a pit (like in 'Scam 1992').",
+    "relatedTerms": [
+      "Electronic Trading",
+      "BSE"
+    ]
+  },
+  {
+    "id": "block-deal",
+    "term": "Block Deal",
+    "fullName": "Block Deal",
+    "category": "Basics of Stock Market",
+    "definition": "A single trade with value > ₹10 Crore or 5 lakh shares.",
+    "formula": "N/A",
+    "whyItMatters": "Indicates institutional interest.",
+    "example": "Usually happens in a separate trading window.",
+    "relatedTerms": [
+      "Bulk Deal",
+      "Institutional Investors"
+    ]
+  },
+  {
+    "id": "order-quantity-types",
+    "term": "Order Quantity Types",
+    "fullName": "Types of Orders based on quantity",
+    "category": "Basics of Stock Market",
+    "definition": "Disclosed Quantity (show less than actual) to hide intent.",
+    "formula": "N/A",
+    "whyItMatters": "Used by big players to not spook the market.",
+    "example": "Order for 10,000 shares, disclose only 1,000.",
+    "relatedTerms": [
+      "Iceberg Order",
+      "Market Depth"
+    ]
+  },
+  {
+    "id": "bid-ask-spread",
+    "term": "Bid-Ask Spread",
+    "fullName": "Bid-Ask Spread",
+    "category": "Basics of Stock Market",
+    "definition": "Difference between highest buy price (Bid) and lowest sell price (Ask).",
+    "formula": "Ask Price - Bid Price",
+    "whyItMatters": "Lower spread = Higher liquidity.",
+    "example": "Bid 100, Ask 100.5. Spread = 0.5.",
+    "relatedTerms": [
+      "Liquidity",
+      "Impact Cost"
+    ]
+  },
+  {
+    "id": "market-indices",
+    "term": "Indices",
+    "fullName": "Market Indices",
+    "category": "Basics of Stock Market",
+    "definition": "Benchmark tracking the performance of a group of stocks.",
+    "formula": "Weighted Average of constituent stocks",
+    "whyItMatters": "Gauge overall market health.",
+    "example": "Nifty 50, Sensex.",
+    "relatedTerms": [
+      "Sectoral Indices",
+      "Benchmark"
+    ]
+  },
+  {
+    "id": "sectoral-indices",
+    "term": "Sector Indices",
+    "fullName": "Sectoral Indices",
+    "category": "Basics of Stock Market",
+    "definition": "Indices tracking specific sectors.",
+    "formula": "N/A",
+    "whyItMatters": "Track performance of specific industries.",
+    "example": "Nifty Bank, Nifty IT, Nifty Auto.",
+    "relatedTerms": [
+      "Market Indices",
+      "Sector Rotation"
+    ]
+  },
+  {
+    "id": "free-float-mcap",
+    "term": "Free Float Mcap",
+    "fullName": "Free Float Market Cap",
+    "category": "Basics of Stock Market",
+    "definition": "Market cap calculated using only shares available for public trading.",
+    "formula": "Price * (Total Shares - Promoter/Locked Shares)",
+    "whyItMatters": "Used for calculating Sensex/Nifty weightage.",
+    "example": "Nifty 50 is free-float weighted.",
+    "relatedTerms": [
+      "Market Cap",
+      "Index Weightage"
+    ]
+  },
+  {
+    "id": "pledging-shares",
+    "term": "Pledging",
+    "fullName": "Promoters Pledging Shares",
+    "category": "Basics of Stock Market",
+    "definition": "Promoters using their shares as collateral to take loans.",
+    "formula": "N/A",
+    "whyItMatters": "High pledging is a risk; if price falls, lenders might sell.",
+    "example": "Promoters pledge 20% stake to raise funds for business.",
+    "relatedTerms": [
+      "Collateral",
+      "Margin Call"
+    ]
+  },
+  {
+    "id": "lot-size",
+    "term": "Lot Size",
+    "fullName": "Lot Size",
+    "category": "Basics of Stock Market",
+    "definition": "Minimum number of shares you must buy (usually in F&O or SME IPOs).",
+    "formula": "N/A",
+    "whyItMatters": "Defines minimum investment amount.",
+    "example": "Nifty F&O lot size is 25. SME IPO lot might be 1000 shares.",
+    "relatedTerms": [
+      "F&O",
+      "Contract Size"
+    ]
+  },
+  {
+    "id": "ipo-vs-ofs",
+    "term": "IPO vs OFS",
+    "fullName": "IPO vs Offer For Sale",
+    "category": "Basics of Stock Market",
+    "definition": "IPO: Fresh shares issued (Money to company). OFS: Existing shareholders sell (Money to seller).",
+    "formula": "N/A",
+    "whyItMatters": "Check objects of the issue.",
+    "example": "Startup IPO usually creates new shares. Govt divestment often OFS.",
+    "relatedTerms": [
+      "Primary Market",
+      "FPO"
+    ]
+  },
+  {
+    "id": "fpo",
+    "term": "FPO",
+    "fullName": "Further Public Offer",
+    "category": "Basics of Stock Market",
+    "definition": "Already listed company issues new shares to public.",
+    "formula": "N/A",
+    "whyItMatters": "Dilutes equity but raises fresh capital.",
+    "example": "Vodafone Idea FPO.",
+    "relatedTerms": [
+      "Rights Issue",
+      "Dilution"
+    ]
+  },
+  {
+    "id": "book-value-2",
+    "term": "Book Value",
+    "fullName": "Book Value",
+    "category": "Basics of Stock Market",
+    "definition": "Net worth of the company per share.",
+    "formula": "(Assets - Liabilities) / Shares",
+    "whyItMatters": "Value if company liquidates today.",
+    "example": "PB Ratio compares Price to Book Value.",
+    "relatedTerms": [
+      "PB Ratio",
+      "Undervalued"
+    ]
+  },
+  {
+    "id": "merchant-banker",
+    "term": "Merchant Banker",
+    "fullName": "Merchant Banker / Lead Manager",
+    "category": "Basics of Stock Market",
+    "definition": "Financial institution managing the IPO process.",
+    "formula": "N/A",
+    "whyItMatters": "Ensures compliance and marketing of IPO.",
+    "example": "SBI Caps, Kotak Investment Banking.",
+    "relatedTerms": [
+      "Underwriter",
+      "IPO"
+    ]
+  },
+  {
+    "id": "price-band",
+    "term": "Price Band",
+    "fullName": "Price Band",
+    "category": "Basics of Stock Market",
+    "definition": "The price range within which investors can bid for IPO shares.",
+    "formula": "N/A",
+    "whyItMatters": "Determines the IPO valuation.",
+    "example": "₹500 - ₹525 per share.",
+    "relatedTerms": [
+      "Cut-off Price",
+      "Book Building"
+    ]
+  },
+  {
+    "id": "book-building",
+    "term": "Book Building",
+    "fullName": "Book Building Issue",
+    "category": "Basics of Stock Market",
+    "definition": "Process of discovering price by inviting bids within a price band.",
+    "formula": "N/A",
+    "whyItMatters": "Most modern IPOs use this method.",
+    "example": "Bids collected at various prices to find demand.",
+    "relatedTerms": [
+      "Fixed Price Issue",
+      "Price Discovery"
+    ]
+  },
+  {
+    "id": "prospectus",
+    "term": "Prospectus",
+    "fullName": "Prospectus / RHP",
+    "category": "Basics of Stock Market",
+    "definition": "Detailed document describing the company, risks, and financials for IPO.",
+    "formula": "N/A",
+    "whyItMatters": "Must read before investing in IPO.",
+    "example": "Red Herring Prospectus (RHP).",
+    "relatedTerms": [
+      "DRHP",
+      "SEBI"
+    ]
+  },
+  {
+    "id": "primary-market-imp",
+    "term": "Primary Market",
+    "fullName": "Importance of Primary Markets",
+    "category": "Basics of Stock Market",
+    "definition": "Allows companies to raise capital for growth and expansion.",
+    "formula": "N/A",
+    "whyItMatters": "Engine of capital formation in economy.",
+    "example": "Company raising funds to build a new factory.",
+    "relatedTerms": [
+      "IPO",
+      "Capital Formation"
+    ]
+  },
+  {
+    "id": "underwriter",
+    "term": "Underwriter",
+    "fullName": "Underwriter",
+    "category": "Basics of Stock Market",
+    "definition": "Institution guaranteeing to buy unsold shares in an IPO.",
+    "formula": "N/A",
+    "whyItMatters": "Ensures IPO success.",
+    "example": "Investment banks often act as underwriters.",
+    "relatedTerms": [
+      "Subscription",
+      "Merchant Banker"
+    ]
+  },
+  {
+    "id": "listing-ipo",
+    "term": "IPO Listing",
+    "fullName": "Listing of IPO",
+    "category": "Basics of Stock Market",
+    "definition": "The day shares start trading on the exchange.",
+    "formula": "N/A",
+    "whyItMatters": "Provides liquidity to investors.",
+    "example": "Listing ceremony at BSE/NSE.",
+    "relatedTerms": [
+      "Listing Gains",
+      "Secondary Market"
+    ]
+  },
+  {
+    "id": "price-determination",
+    "term": "Price Determination",
+    "fullName": "Price Determination",
+    "category": "Basics of Stock Market",
+    "definition": "How IPO price is finalized based on bids received.",
+    "formula": "N/A",
+    "whyItMatters": "Usually set at the 'Cut-off' price where max demand exists.",
+    "example": "Final issue price ₹525 (Upper end of band).",
+    "relatedTerms": [
+      "Cut-off Price",
+      "Book Building"
+    ]
   }
 ]
