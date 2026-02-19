@@ -18,6 +18,8 @@ import { AdminRoute } from "./components/auth/AdminRoute";
 import AdminLayout from "./components/admin/AdminLayout";
 import ContentManager from "./components/admin/ContentManager";
 import EmbeddingManager from "./components/admin/EmbeddingManager";
+import AdminDashboard from "./components/admin/AdminDashboard";
+const AdminLogin = lazy(() => import("./pages/AdminLogin"));
 const Settings = lazy(() => import("./pages/Settings"));
 const Migration = lazy(() => import("./pages/Migration"));
 const ArticleView = lazy(() => import("./pages/ArticleView"));
@@ -52,6 +54,7 @@ const App = () => (
             <Route path="/stocks" element={<Stocks />} />
             <Route path="/calculators" element={<Calculators />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/admin-login" element={<AdminLogin />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/community" element={<Community />} />
@@ -63,7 +66,7 @@ const App = () => (
                 <AdminLayout />
               </AdminRoute>
             }>
-              <Route index element={<Navigate to="/admin/content" replace />} />
+              <Route index element={<AdminDashboard />} />
               <Route path="content" element={<ContentManager />} />
               <Route path="embeddings" element={<EmbeddingManager />} />
               <Route path="users" element={<div className="text-slate-400 p-8">User Management Coming Soon</div>} />

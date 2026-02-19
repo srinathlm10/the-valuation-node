@@ -11,7 +11,7 @@ import { Loader2 } from "lucide-react";
 import { AuthSocial } from "@/components/auth/AuthSocial";
 
 export default function Login() {
-  const [email, setEmail] = useState("srinathguna12@gmail.com");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -34,19 +34,10 @@ export default function Login() {
         description: "You have successfully logged in.",
       });
 
-      // Check if user is admin
-      if (data.session?.user) {
-        const { data: profile } = await supabase
-          .from('profiles')
-          .select('role')
-          .eq('id', data.session.user.id)
-          .single();
+      // Check if user is admin - moved to AdminLogin for explicit access
+      // Standard users go to dashboard
+      // if (data.session?.user) ... removed
 
-        if (profile?.role === 'admin') {
-          navigate("/admin");
-          return;
-        }
-      }
 
       navigate("/dashboard");
     } catch (error) {
@@ -67,7 +58,7 @@ export default function Login() {
         <Card className="w-full max-w-md border-primary/10 shadow-lg">
           <CardHeader className="text-center">
             <CardTitle className="text-2xl font-bold font-display text-primary">
-              {email === "srinathguna12@gmail.com" ? "Admin Login" : "Welcome Back"}
+              Welcome Back
             </CardTitle>
             <CardDescription>
               Sign in to continue your financial journey
@@ -115,14 +106,11 @@ export default function Login() {
                 </Link>
               </div>
 
-              {/* Admin Shortcut */}
-              <button
-                type="button"
-                onClick={() => setEmail("srinathguna12@gmail.com")}
-                className="text-xs text-muted-foreground hover:text-emerald-500 transition-colors"
-              >
-                Admin Access
-              </button>
+              <div>
+                <Link to="/admin-login" className="text-xs text-muted-foreground hover:text-primary transition-colors">
+                  Admin Access
+                </Link>
+              </div>
             </div>
           </CardContent>
         </Card>
