@@ -9,6 +9,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { useBookmarks } from "@/hooks/useBookmarks";
 import { ArrowLeft, Clock, BookOpen, Bookmark, BookmarkCheck, CheckCircle2 } from "lucide-react";
 import ReactMarkdown from "react-markdown";
+import { Quiz } from "@/components/quiz/Quiz";
 
 const difficultyColors = {
   beginner: "bg-success/10 text-success border-success/20",
@@ -100,6 +101,11 @@ export default function Article() {
             {/* Article Content */}
             <div className="prose prose-lg max-w-none dark:prose-invert prose-headings:font-semibold prose-a:text-primary">
               <ReactMarkdown>{article.content}</ReactMarkdown>
+            </div>
+
+            {/* Quiz Section */}
+            <div className="mt-12">
+              <Quiz articleId={article.id} />
             </div>
           </div>
 

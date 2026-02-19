@@ -24,22 +24,37 @@ export interface QuizResult {
 
 export const quizService = {
     // Get Quiz for an Article
+    // Get Quiz for an Article
     async getQuizByArticleId(articleId: string): Promise<Quiz | null> {
-        const { data: quiz, error } = await supabase
-            .from("quizzes")
-            .select(`
-        *,
-        questions (*)
-      `)
-            .eq("article_id", articleId)
-            .maybeSingle();
+        try {
+            const { data: quiz, error } = await supabase
+                .from("quizzes")
+                .select(`
+            *,
+            questions (*)
+          `)
+                .eq("article_id", articleId)
+                .maybeSingle();
 
-        if (error) {
-            console.error("Error fetching quiz:", error);
-            return null;
+            if (error) {
+                console.log("Error fetching quiz from Supabase (falling back to local):", error);
+                // Fallback to local
+                const { localQuizzes } = await import("@/data/quizzes");
+                return localQuizzes.find(q => q.article_id === articleId) || null;
+            }
+
+            if (!quiz) {
+                // Fallback to local if no remote quiz found
+                const { localQuizzes } = await import("@/data/quizzes");
+                return localQuizzes.find(q => q.article_id === articleId) || null;
+            }
+
+            return quiz;
+        } catch (e) {
+            console.error("Exception in getQuizByArticleId:", e);
+            const { localQuizzes } = await import("@/data/quizzes");
+            return localQuizzes.find(q => q.article_id === articleId) || null;
         }
-
-        return quiz;
     },
 
     // Submit Quiz Attempt

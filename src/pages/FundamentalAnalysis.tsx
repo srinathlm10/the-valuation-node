@@ -12,6 +12,7 @@ import {
   Layers, Users, DollarSign, PieChart, Activity, Target,
   ArrowUpDown, Banknote, Factory, Laptop, Scale
 } from "lucide-react";
+import { Quiz } from "@/components/quiz/Quiz";
 
 const ANALYSIS_APPROACHES = [
   {
@@ -542,6 +543,11 @@ export function FundamentalAnalysisContent({ onAskAI }: { onAskAI: (context: str
             </Card>
           ))}
         </div>
+      </section>
+
+      {/* Quiz Section */}
+      <section>
+        <Quiz articleId="fundamental-analysis-intro" />
       </section>
 
       {/* CTA */}

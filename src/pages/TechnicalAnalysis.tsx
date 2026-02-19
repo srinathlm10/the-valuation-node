@@ -10,6 +10,7 @@ import {
   Bot, TrendingUp, TrendingDown, BarChart3, CandlestickChart,
   Activity, Target, ShieldCheck, ArrowUpDown, Gauge, LineChart
 } from "lucide-react";
+import { Quiz } from "@/components/quiz/Quiz";
 
 export function TechnicalAnalysisContent({ onAskAI }: { onAskAI: (context: string, message: string) => void }) {
   const handleAskAI = (topic: string, question: string) => {
@@ -727,7 +728,11 @@ export function TechnicalAnalysisContent({ onAskAI }: { onAskAI: (context: strin
           </Card>
         </div>
       </section >
-    </div >
+      {/* Quiz Section */}
+      <section>
+        <Quiz articleId="technical-analysis-intro" />
+      </section>
+    </div>
   );
 }
 
