@@ -1,9 +1,11 @@
-export type Category = 
-  | "investing" 
-  | "budgeting" 
-  | "taxes" 
-  | "retirement" 
-  | "credit";
+export type Category =
+  | "investing"
+  | "budgeting"
+  | "taxes"
+  | "retirement"
+  | "credit"
+  | "fundamental-analysis"
+  | "technical-analysis";
 
 export type DifficultyLevel = "beginner" | "intermediate" | "advanced";
 
@@ -537,6 +539,122 @@ Both work. The best method is the one you'll actually follow through on.
     ],
     relatedArticleIds: ["credit-score-explained", "building-emergency-fund"],
   },
+  {
+    id: "stock-market-myths",
+    title: "Common Myths About the Stock Market Debunked",
+    excerpt: "Think investing is just gambling? Think you need millions to start? Let's bust the biggest myths holding you back.",
+    content: `
+# Myths About the Stock Market
+
+Investing in the stock market is one of the best ways to build wealth, but many people stay away because of misconceptions. Let's clear up the most common myths.
+
+## Myth 1: Investing is Just Like Gambling
+**Reality:** Gambling is a zero-sum game where the house always wins. Investing is purchasing ownership in real businesses that produce goods and services. Over the long term, the stock market has historically trended upwards as the economy grows.
+
+## Myth 2: You Need a Lot of Money to Start
+**Reality:** You can start with as little as $5 or $10 thanks to fractional shares and modern trading apps. The key is starting *now*, not waiting until you're rich.
+
+## Myth 3: You Need to Be a Financial Expert
+**Reality:** You don't need to analyze balance sheets or watch charts all day. Simple strategies, like investing in broad index funds (e.g., S&P 500), often outperform professional fund managers over time.
+
+## Myth 4: You Can Time the Market
+**Reality:** "Buy low, sell high" sounds easy, but nobody can consistently predict market tops and bottoms. Time *in* the market beats *timing* the market. Missing just the best 10 days of the market over 20 years can cut your returns in half.
+
+## Myth 5: Stocks Are Too Risky
+**Reality:** While individual stocks can be risky, a diversified portfolio reduces that risk significantly. Inflation is also a risk—leaving cash under your mattress guarantees it loses value over time.
+
+## Myth 6: You Should Sell When the Market Drops
+**Reality:** Panic selling locks in your losses. Market corrections are normal. Historically, the market has recovered from every crash, including buying opportunities for disciplined investors.
+
+## Conclusion
+Don't let these myths stop you from securing your financial future. Educate yourself, start small, and think long-term.
+    `,
+    category: "investing",
+    difficulty: "beginner",
+    readingTime: 5,
+    author: "FinBot Team",
+    publishedAt: "2024-03-10",
+    imageUrl: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800",
+    keyTakeaways: [
+      "Investing is owning businesses, not gambling",
+      "You can start with very little money",
+      "Time in the market beats timing the market"
+    ],
+    relatedArticleIds: ["index-funds-101", "compound-interest-basics"],
+  },
+  {
+    id: "pe-ratio-explained",
+    title: "Understanding the P/E Ratio: A Fundamental Metric",
+    excerpt: "The Price-to-Earnings ratio is the most popular valuation metric. Here is how to use it correctly.",
+    content: `
+# Understanding the P/E Ratio
+
+The Price-to-Earnings (P/E) ratio is a key metric used by investors to determine if a stock is overvalued or undervalued.
+
+## What is P/E Ratio?
+It is the ratio of a company's share price to its earnings per share (EPS).
+
+**Formula:**
+P/E = Market Value per Share / Earnings per Share (EPS)
+
+## Interpreting the P/E Ratio
+- **High P/E:** Investors expect higher earnings growth in the future compared to companies with a lower P/E. It could also mean the stock is overvalued.
+- **Low P/E:** The company may be undervalued, or investors are expecting earnings to fall.
+
+## Types of P/E
+1. **Trailing P/E:** Based on the last 12 months of earnings.
+2. **Forward P/E:** Based on estimated future earnings.
+
+The P/E ratio is best used when comparing companies within the *same industry*.
+    `,
+    category: "fundamental-analysis",
+    difficulty: "beginner",
+    readingTime: 4,
+    author: "FinBot Team",
+    publishedAt: "2024-03-12",
+    imageUrl: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800",
+    keyTakeaways: [
+      "P/E measures valuation",
+      "Compare P/E within same industry",
+      "High P/E suggests high growth expectations"
+    ],
+    relatedArticleIds: ["stock-market-myths"],
+  },
+  {
+    id: "technical-analysis-basics",
+    title: "Introduction to Technical Analysis: Charts & Patterns",
+    excerpt: "Technical analysis uses chart patterns to predict future price movements. Learn the basics here.",
+    content: `
+# Introduction to Technical Analysis
+
+Technical analysis is the art of reading chart patterns and price action to identify trading opportunities.
+
+## Core Assumptions
+1. **Market Discounts Everything:** The price reflects all known information.
+2. **Price Moves in Trends:** Prices tend to move in uptrends, downtrends, or sideways ranges.
+3. **History Repeats Itself:** Chart patterns tend to recur because human psychology doesn't change.
+
+## Basic Tools
+*   **Candlestick Charts:** Show open, high, low, and close prices.
+*   **Support & Resistance:** Levels where price tends to stop and reverse.
+*   **Moving Averages:** Smooth out price action to identify trends.
+
+## Fundamental vs. Technical
+While Fundamental analysis looks at the business (earnings, debt), Technical analysis looks only at the *price* and *volume* data.
+    `,
+    category: "technical-analysis",
+    difficulty: "beginner",
+    readingTime: 6,
+    author: "FinBot Team",
+    publishedAt: "2024-03-14",
+    imageUrl: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800",
+    keyTakeaways: [
+      "Focuses on price action and volume",
+      "Uses charts to identify trends",
+      "Assumes history repeats itself"
+    ],
+    relatedArticleIds: ["stock-market-myths"],
+  }
 ];
 
 export function getArticleById(id: string): Article | undefined {

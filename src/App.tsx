@@ -43,7 +43,10 @@ const App = () => (
         <Suspense fallback={<PageLoader />}>
           <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/learn" element={<Learn />} />
+            <Route path="/learn" element={<Learn initialTab="wiki" />} />
+            <Route path="/learn/basics" element={<Learn initialTab="basics" />} />
+            <Route path="/learn/fundamental-analysis" element={<Learn initialTab="fundamental" />} />
+            <Route path="/learn/technical-analysis" element={<Learn initialTab="technical" />} />
             <Route path="/learn/:slug" element={<ArticleView />} />
             <Route path="/compliance" element={<Compliance />} />
             <Route path="/stocks" element={<Stocks />} />

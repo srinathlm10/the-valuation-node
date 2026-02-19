@@ -40,10 +40,22 @@ export const contentService = {
 
         if (error) {
             console.error("Error fetching articles:", error);
-            return [];
+            // Fallback to local articles if DB fails
+            const localArticles = (await import("@/data/articles")).articles;
+            return localArticles;
         }
 
-        return (data as unknown as SupabaseArticle[]).map(mapArticleFromDb);
+        const remoteArticles = (data as unknown as SupabaseArticle[]).map(mapArticleFromDb);
+        const localArticles = (await import("@/data/articles")).articles;
+
+        // Merge: Remote first, then local (or vice versa depending on priority)
+        // Here we'll just combine them. We might want to deduplicate by ID if we sync them later.
+        // For now, simple contact.
+        // Filter out local articles that might already be in remote (by ID)
+        const remoteIds = new Set(remoteArticles.map(a => a.id));
+        const uniqueLocalArticles = localArticles.filter(a => !remoteIds.has(a.id));
+
+        return [...remoteArticles, ...uniqueLocalArticles];
     },
 
     // Fetch single article by ID

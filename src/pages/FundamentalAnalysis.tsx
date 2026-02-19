@@ -248,6 +248,319 @@ const VALUATION_MODELS = [
   }
 ];
 
+// ... (imports remain the same, I will assume they are available or I need to check if I can just replace the component definition)
+
+// I will replace the component definition to split it.
+
+export function FundamentalAnalysisContent({ onAskAI }: { onAskAI: (context: string, message: string) => void }) {
+  const handleAskAI = (topic: string, question: string) => {
+    const context = `Fundamental Analysis: ${topic}`;
+    onAskAI(context, question);
+  };
+
+  return (
+    <div className="space-y-12">
+      {/* Analysis Approaches */}
+      <section>
+        <h2 className="text-2xl font-bold mb-2">1. Analysis Approaches</h2>
+        <p className="text-muted-foreground mb-6">The order in which you conduct research defines your investment strategy.</p>
+
+        <div className="grid md:grid-cols-2 gap-6">
+          {ANALYSIS_APPROACHES.map((approach) => {
+            const IconComponent = approach.icon;
+            return (
+              <Card key={approach.id} className="relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-primary/5 to-transparent rounded-bl-full" />
+                <CardHeader>
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 rounded-lg bg-primary/10">
+                      <IconComponent className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-lg">{approach.title}</CardTitle>
+                      <CardDescription>{approach.description}</CardDescription>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="space-y-2">
+                    {approach.steps.map((step, idx) => (
+                      <div key={idx} className="flex items-start gap-3">
+                        <div className="flex-shrink-0 w-6 h-6 rounded-full bg-muted flex items-center justify-center text-xs font-medium">
+                          {idx + 1}
+                        </div>
+                        <div>
+                          <span className="font-medium">{step.label}:</span>
+                          <span className="text-muted-foreground text-sm ml-1">{step.detail}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="pt-2 border-t">
+                    <span className="text-xs text-muted-foreground">Best for: </span>
+                    <span className="text-xs">{approach.bestFor}</span>
+                  </div>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Qualitative Analysis */}
+      <section>
+        <h2 className="text-2xl font-bold mb-2">2. Qualitative Analysis</h2>
+        <p className="text-muted-foreground mb-6">Before diving into numbers, assess the quality of the business itself.</p>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {QUALITATIVE_FACTORS.map((factor) => {
+            const IconComponent = factor.icon;
+            return (
+              <Card key={factor.title} className="group hover:shadow-md transition-shadow">
+                <CardHeader className="pb-2">
+                  <div className="flex items-center gap-2">
+                    <IconComponent className="h-4 w-4 text-primary" />
+                    <CardTitle className="text-base">{factor.title}</CardTitle>
+                  </div>
+                  <CardDescription className="text-sm font-medium text-foreground/80">
+                    {factor.question}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground">{factor.details}</p>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Financial Statements */}
+      <section>
+        <h2 className="text-2xl font-bold mb-2">3. Financial Statement Deep Dive</h2>
+        <p className="text-muted-foreground mb-6">Methodical review of the "Big Three" reports.</p>
+
+        <Tabs defaultValue="income" className="space-y-4">
+          <TabsList className="grid w-full max-w-lg grid-cols-3">
+            {FINANCIAL_STATEMENTS.map((stmt) => (
+              <TabsTrigger key={stmt.id} value={stmt.id} className="text-xs sm:text-sm">
+                {stmt.title.split(" ")[0]}
+              </TabsTrigger>
+            ))}
+          </TabsList>
+
+          {FINANCIAL_STATEMENTS.map((stmt) => {
+            const IconComponent = stmt.icon;
+            return (
+              <TabsContent key={stmt.id} value={stmt.id}>
+                <Card>
+                  <CardHeader>
+                    <div className="flex items-center gap-3">
+                      <IconComponent className={`h-6 w-6 ${stmt.color}`} />
+                      <div>
+                        <CardTitle>{stmt.title}</CardTitle>
+                        <CardDescription className="text-base">{stmt.question}</CardDescription>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-3">
+                      {stmt.items.map((item, idx) => (
+                        <div key={idx} className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 py-2 border-b last:border-0">
+                          <span className="font-medium min-w-[180px]">{item.term}</span>
+                          <span className="text-sm text-muted-foreground font-mono bg-muted/50 px-2 py-1 rounded">
+                            {item.formula}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="mt-4 gap-2"
+                      onClick={() => handleAskAI(stmt.title, `Explain the ${stmt.title} in simple terms. What should I look for when analyzing a company's ${stmt.title.toLowerCase()}? Give examples from Indian companies.`)}
+                    >
+                      <Bot className="h-4 w-4" />
+                      Explain with Examples
+                    </Button>
+                  </CardContent>
+                </Card>
+              </TabsContent>
+            );
+          })}
+        </Tabs>
+      </section>
+
+      {/* Ratio Checklist */}
+      <section>
+        <h2 className="text-2xl font-bold mb-2">4. Quantitative Metric Checklist</h2>
+        <p className="text-muted-foreground mb-6">Ratios allow for "apples-to-apples" comparisons between companies of different sizes.</p>
+
+        <Accordion type="multiple" className="space-y-4">
+          {RATIO_CATEGORIES.map((category) => {
+            const IconComponent = category.icon;
+            return (
+              <AccordionItem key={category.id} value={category.id} className="border rounded-lg px-4">
+                <AccordionTrigger className="hover:no-underline">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 rounded-lg bg-primary/10">
+                      <IconComponent className="h-4 w-4 text-primary" />
+                    </div>
+                    <div className="text-left">
+                      <div className="font-semibold">{category.title}</div>
+                      <div className="text-sm text-muted-foreground font-normal">{category.description}</div>
+                    </div>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <div className="space-y-4 pt-2">
+                    {category.ratios.map((ratio, idx) => (
+                      <div key={idx} className="p-4 bg-muted/30 rounded-lg space-y-2">
+                        <div className="flex flex-wrap items-center gap-2">
+                          <span className="font-semibold">{ratio.name}</span>
+                          <Badge variant="outline" className="text-xs">{ratio.benchmark}</Badge>
+                        </div>
+                        <div className="font-mono text-sm bg-background px-3 py-1.5 rounded border">
+                          {ratio.formula}
+                        </div>
+                        <p className="text-sm text-muted-foreground">{ratio.interpretation}</p>
+                      </div>
+                    ))}
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="gap-2"
+                      onClick={() => handleAskAI(category.title, `Explain ${category.title} ratios in fundamental analysis. Which ratios are most important for Indian investors and why? Give practical examples.`)}
+                    >
+                      <Bot className="h-4 w-4" />
+                      Ask AI about {category.title}
+                    </Button>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            );
+          })}
+        </Accordion>
+      </section>
+
+      {/* Sector-Specific Checks */}
+      <section>
+        <h2 className="text-2xl font-bold mb-2">5. Sector-Specific Checks</h2>
+        <p className="text-muted-foreground mb-6">A "good" ratio depends entirely on the industry. Here are specialized metrics by sector.</p>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {SECTOR_CHECKS.map((sector) => {
+            const IconComponent = sector.icon;
+            return (
+              <Card key={sector.sector}>
+                <CardHeader>
+                  <div className="flex items-center gap-2">
+                    <IconComponent className="h-5 w-5 text-primary" />
+                    <CardTitle className="text-lg">{sector.sector}</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-3">
+                  {sector.metrics.map((metric, idx) => (
+                    <div key={idx} className="border-l-2 border-primary/30 pl-3">
+                      <div className="font-medium text-sm">{metric.name}</div>
+                      <div className="text-xs text-muted-foreground">{metric.description}</div>
+                    </div>
+                  ))}
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Red Flags */}
+      <section>
+        <h2 className="text-2xl font-bold mb-2 flex items-center gap-2">
+          <AlertTriangle className="h-6 w-6 text-amber-500" />
+          6. Forensic Checklist: Red Flags
+        </h2>
+        <p className="text-muted-foreground mb-6">Always check the footnotes of financial disclosures for "earnings quality".</p>
+
+        <div className="grid md:grid-cols-2 gap-4">
+          {RED_FLAGS.map((item, idx) => (
+            <Card key={idx} className="border-l-4 border-l-amber-500">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-base flex items-center gap-2">
+                  <AlertTriangle className="h-4 w-4 text-amber-500" />
+                  {item.flag}
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-2">
+                <p className="text-sm text-muted-foreground">{item.description}</p>
+                <div className="text-xs bg-amber-50 dark:bg-amber-950/30 text-amber-800 dark:text-amber-200 px-3 py-2 rounded">
+                  <strong>Check for:</strong> {item.checkFor}
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Valuation Models */}
+      <section>
+        <h2 className="text-2xl font-bold mb-2">7. Valuation Modeling</h2>
+        <p className="text-muted-foreground mb-6">The final step: calculating a specific number for intrinsic value.</p>
+
+        <div className="space-y-4">
+          {VALUATION_MODELS.map((model, idx) => (
+            <Card key={idx}>
+              <CardHeader>
+                <div className="flex items-center justify-between">
+                  <CardTitle className="text-lg">{model.model}</CardTitle>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="gap-1"
+                    onClick={() => handleAskAI(model.model, `Explain the ${model.model} valuation method step by step. Show me a practical example for an Indian company. What are the key assumptions I need to make?`)}
+                  >
+                    <Bot className="h-4 w-4" />
+                    Learn
+                  </Button>
+                </div>
+                <CardDescription>{model.description}</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <div className="font-mono text-sm bg-muted px-4 py-2 rounded-lg">
+                  {model.formula}
+                </div>
+                <div className="grid sm:grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <span className="text-muted-foreground">Best for: </span>
+                    <span>{model.bestFor}</span>
+                  </div>
+                  <div>
+                    <span className="text-muted-foreground">Limitations: </span>
+                    <span>{model.limitations}</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-gradient-to-r from-primary/10 to-primary/5 rounded-2xl p-8 text-center">
+        <h3 className="text-xl font-bold mb-2">Ready to Apply These Concepts?</h3>
+        <p className="text-muted-foreground mb-4">Explore our Stock Archive to analyze Nifty 50 companies with these fundamentals.</p>
+        <div className="flex justify-center gap-4">
+          <Button asChild>
+            <a href="/stocks">
+              <BarChart3 className="h-4 w-4 mr-2" />
+              Explore Stocks
+            </a>
+          </Button>
+        </div>
+      </section>
+    </div>
+  );
+}
+
 export default function FundamentalAnalysis() {
   const [chatOpen, setChatOpen] = useState(false);
   const [chatContext, setChatContext] = useState<string | undefined>(
@@ -263,8 +576,8 @@ Focus: Explain concepts in simple terms, use Indian company examples (TCS, Relia
   );
   const [initialMessage, setInitialMessage] = useState<string | undefined>();
 
-  const handleAskAI = (topic: string, question: string) => {
-    setChatContext(`Fundamental Analysis: ${topic}`);
+  const handleAskAI = (context: string, question: string) => {
+    setChatContext(context);
     setInitialMessage(question);
     setChatOpen(true);
   };
@@ -288,310 +601,8 @@ Focus: Explain concepts in simple terms, use Indian company examples (TCS, Relia
         </div>
       </section>
 
-      <div className="container py-8 space-y-12">
-        {/* Analysis Approaches */}
-        <section>
-          <h2 className="text-2xl font-bold mb-2">1. Analysis Approaches</h2>
-          <p className="text-muted-foreground mb-6">The order in which you conduct research defines your investment strategy.</p>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            {ANALYSIS_APPROACHES.map((approach) => {
-              const IconComponent = approach.icon;
-              return (
-                <Card key={approach.id} className="relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-primary/5 to-transparent rounded-bl-full" />
-                  <CardHeader>
-                    <div className="flex items-center gap-3">
-                      <div className="p-2 rounded-lg bg-primary/10">
-                        <IconComponent className="h-5 w-5 text-primary" />
-                      </div>
-                      <div>
-                        <CardTitle className="text-lg">{approach.title}</CardTitle>
-                        <CardDescription>{approach.description}</CardDescription>
-                      </div>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div className="space-y-2">
-                      {approach.steps.map((step, idx) => (
-                        <div key={idx} className="flex items-start gap-3">
-                          <div className="flex-shrink-0 w-6 h-6 rounded-full bg-muted flex items-center justify-center text-xs font-medium">
-                            {idx + 1}
-                          </div>
-                          <div>
-                            <span className="font-medium">{step.label}:</span>
-                            <span className="text-muted-foreground text-sm ml-1">{step.detail}</span>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                    <div className="pt-2 border-t">
-                      <span className="text-xs text-muted-foreground">Best for: </span>
-                      <span className="text-xs">{approach.bestFor}</span>
-                    </div>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-        </section>
-
-        {/* Qualitative Analysis */}
-        <section>
-          <h2 className="text-2xl font-bold mb-2">2. Qualitative Analysis</h2>
-          <p className="text-muted-foreground mb-6">Before diving into numbers, assess the quality of the business itself.</p>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {QUALITATIVE_FACTORS.map((factor) => {
-              const IconComponent = factor.icon;
-              return (
-                <Card key={factor.title} className="group hover:shadow-md transition-shadow">
-                  <CardHeader className="pb-2">
-                    <div className="flex items-center gap-2">
-                      <IconComponent className="h-4 w-4 text-primary" />
-                      <CardTitle className="text-base">{factor.title}</CardTitle>
-                    </div>
-                    <CardDescription className="text-sm font-medium text-foreground/80">
-                      {factor.question}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground">{factor.details}</p>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-        </section>
-
-        {/* Financial Statements */}
-        <section>
-          <h2 className="text-2xl font-bold mb-2">3. Financial Statement Deep Dive</h2>
-          <p className="text-muted-foreground mb-6">Methodical review of the "Big Three" reports.</p>
-
-          <Tabs defaultValue="income" className="space-y-4">
-            <TabsList className="grid w-full max-w-lg grid-cols-3">
-              {FINANCIAL_STATEMENTS.map((stmt) => (
-                <TabsTrigger key={stmt.id} value={stmt.id} className="text-xs sm:text-sm">
-                  {stmt.title.split(" ")[0]}
-                </TabsTrigger>
-              ))}
-            </TabsList>
-
-            {FINANCIAL_STATEMENTS.map((stmt) => {
-              const IconComponent = stmt.icon;
-              return (
-                <TabsContent key={stmt.id} value={stmt.id}>
-                  <Card>
-                    <CardHeader>
-                      <div className="flex items-center gap-3">
-                        <IconComponent className={`h-6 w-6 ${stmt.color}`} />
-                        <div>
-                          <CardTitle>{stmt.title}</CardTitle>
-                          <CardDescription className="text-base">{stmt.question}</CardDescription>
-                        </div>
-                      </div>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="space-y-3">
-                        {stmt.items.map((item, idx) => (
-                          <div key={idx} className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 py-2 border-b last:border-0">
-                            <span className="font-medium min-w-[180px]">{item.term}</span>
-                            <span className="text-sm text-muted-foreground font-mono bg-muted/50 px-2 py-1 rounded">
-                              {item.formula}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="mt-4 gap-2"
-                        onClick={() => handleAskAI(stmt.title, `Explain the ${stmt.title} in simple terms. What should I look for when analyzing a company's ${stmt.title.toLowerCase()}? Give examples from Indian companies.`)}
-                      >
-                        <Bot className="h-4 w-4" />
-                        Explain with Examples
-                      </Button>
-                    </CardContent>
-                  </Card>
-                </TabsContent>
-              );
-            })}
-          </Tabs>
-        </section>
-
-        {/* Ratio Checklist */}
-        <section>
-          <h2 className="text-2xl font-bold mb-2">4. Quantitative Metric Checklist</h2>
-          <p className="text-muted-foreground mb-6">Ratios allow for "apples-to-apples" comparisons between companies of different sizes.</p>
-
-          <Accordion type="multiple" className="space-y-4">
-            {RATIO_CATEGORIES.map((category) => {
-              const IconComponent = category.icon;
-              return (
-                <AccordionItem key={category.id} value={category.id} className="border rounded-lg px-4">
-                  <AccordionTrigger className="hover:no-underline">
-                    <div className="flex items-center gap-3">
-                      <div className="p-2 rounded-lg bg-primary/10">
-                        <IconComponent className="h-4 w-4 text-primary" />
-                      </div>
-                      <div className="text-left">
-                        <div className="font-semibold">{category.title}</div>
-                        <div className="text-sm text-muted-foreground font-normal">{category.description}</div>
-                      </div>
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <div className="space-y-4 pt-2">
-                      {category.ratios.map((ratio, idx) => (
-                        <div key={idx} className="p-4 bg-muted/30 rounded-lg space-y-2">
-                          <div className="flex flex-wrap items-center gap-2">
-                            <span className="font-semibold">{ratio.name}</span>
-                            <Badge variant="outline" className="text-xs">{ratio.benchmark}</Badge>
-                          </div>
-                          <div className="font-mono text-sm bg-background px-3 py-1.5 rounded border">
-                            {ratio.formula}
-                          </div>
-                          <p className="text-sm text-muted-foreground">{ratio.interpretation}</p>
-                        </div>
-                      ))}
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        className="gap-2"
-                        onClick={() => handleAskAI(category.title, `Explain ${category.title} ratios in fundamental analysis. Which ratios are most important for Indian investors and why? Give practical examples.`)}
-                      >
-                        <Bot className="h-4 w-4" />
-                        Ask AI about {category.title}
-                      </Button>
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
-              );
-            })}
-          </Accordion>
-        </section>
-
-        {/* Sector-Specific Checks */}
-        <section>
-          <h2 className="text-2xl font-bold mb-2">5. Sector-Specific Checks</h2>
-          <p className="text-muted-foreground mb-6">A "good" ratio depends entirely on the industry. Here are specialized metrics by sector.</p>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {SECTOR_CHECKS.map((sector) => {
-              const IconComponent = sector.icon;
-              return (
-                <Card key={sector.sector}>
-                  <CardHeader>
-                    <div className="flex items-center gap-2">
-                      <IconComponent className="h-5 w-5 text-primary" />
-                      <CardTitle className="text-lg">{sector.sector}</CardTitle>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="space-y-3">
-                    {sector.metrics.map((metric, idx) => (
-                      <div key={idx} className="border-l-2 border-primary/30 pl-3">
-                        <div className="font-medium text-sm">{metric.name}</div>
-                        <div className="text-xs text-muted-foreground">{metric.description}</div>
-                      </div>
-                    ))}
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-        </section>
-
-        {/* Red Flags */}
-        <section>
-          <h2 className="text-2xl font-bold mb-2 flex items-center gap-2">
-            <AlertTriangle className="h-6 w-6 text-amber-500" />
-            6. Forensic Checklist: Red Flags
-          </h2>
-          <p className="text-muted-foreground mb-6">Always check the footnotes of financial disclosures for "earnings quality".</p>
-
-          <div className="grid md:grid-cols-2 gap-4">
-            {RED_FLAGS.map((item, idx) => (
-              <Card key={idx} className="border-l-4 border-l-amber-500">
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-base flex items-center gap-2">
-                    <AlertTriangle className="h-4 w-4 text-amber-500" />
-                    {item.flag}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-2">
-                  <p className="text-sm text-muted-foreground">{item.description}</p>
-                  <div className="text-xs bg-amber-50 dark:bg-amber-950/30 text-amber-800 dark:text-amber-200 px-3 py-2 rounded">
-                    <strong>Check for:</strong> {item.checkFor}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </section>
-
-        {/* Valuation Models */}
-        <section>
-          <h2 className="text-2xl font-bold mb-2">7. Valuation Modeling</h2>
-          <p className="text-muted-foreground mb-6">The final step: calculating a specific number for intrinsic value.</p>
-
-          <div className="space-y-4">
-            {VALUATION_MODELS.map((model, idx) => (
-              <Card key={idx}>
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <CardTitle className="text-lg">{model.model}</CardTitle>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="gap-1"
-                      onClick={() => handleAskAI(model.model, `Explain the ${model.model} valuation method step by step. Show me a practical example for an Indian company. What are the key assumptions I need to make?`)}
-                    >
-                      <Bot className="h-4 w-4" />
-                      Learn
-                    </Button>
-                  </div>
-                  <CardDescription>{model.description}</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <div className="font-mono text-sm bg-muted px-4 py-2 rounded-lg">
-                    {model.formula}
-                  </div>
-                  <div className="grid sm:grid-cols-2 gap-4 text-sm">
-                    <div>
-                      <span className="text-muted-foreground">Best for: </span>
-                      <span>{model.bestFor}</span>
-                    </div>
-                    <div>
-                      <span className="text-muted-foreground">Limitations: </span>
-                      <span>{model.limitations}</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </section>
-
-        {/* CTA */}
-        <section className="bg-gradient-to-r from-primary/10 to-primary/5 rounded-2xl p-8 text-center">
-          <h3 className="text-xl font-bold mb-2">Ready to Apply These Concepts?</h3>
-          <p className="text-muted-foreground mb-4">Explore our Stock Archive to analyze Nifty 50 companies with these fundamentals.</p>
-          <div className="flex justify-center gap-4">
-            <Button asChild>
-              <a href="/stocks">
-                <BarChart3 className="h-4 w-4 mr-2" />
-                Explore Stocks
-              </a>
-            </Button>
-            <Button variant="outline" asChild>
-              <a href="/learn">
-                <FileText className="h-4 w-4 mr-2" />
-                Finance Wiki
-              </a>
-            </Button>
-          </div>
-        </section>
+      <div className="container py-8">
+        <FundamentalAnalysisContent onAskAI={handleAskAI} />
       </div>
 
       <ChatSidebar

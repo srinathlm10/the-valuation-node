@@ -1,4 +1,3 @@
-```typescript
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetClose } from "@/components/ui/sheet";
@@ -31,6 +30,7 @@ const navItems: NavItem[] = [
     label: "Learn",
     items: [
       { label: "Financial Wiki", href: "/learn", icon: BookOpen },
+      { label: "Basics of Stock Market", href: "/learn/basics", icon: TrendingUp },
       { label: "Fundamental Analysis", href: "/learn/fundamental-analysis", icon: BarChart3 },
       { label: "Technical Analysis", href: "/learn/technical-analysis", icon: LineChart },
     ],
@@ -201,23 +201,23 @@ export function Header() {
               </Button>
 
               <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button variant="outline" size="icon" className="rounded-full h-9 w-9 border-border/60 hover:bg-accent/50">
-                       <User className="h-4 w-4" />
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end" className="w-48 p-2 rounded-xl">
-                      <DropdownMenuItem asChild className="rounded-lg cursor-pointer">
-                          <Link to="/settings" className="flex items-center gap-2">
-                            <Settings className="h-4 w-4 mr-2" />
-                            Settings
-                          </Link>
-                      </DropdownMenuItem>
-                      <DropdownMenuItem onClick={handleLogout} className="rounded-lg cursor-pointer text-destructive focus:text-destructive focus:bg-destructive/10">
-                          <LogOut className="h-4 w-4 mr-2" />
-                          Log Out
-                      </DropdownMenuItem>
-                  </DropdownMenuContent>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="outline" size="icon" className="rounded-full h-9 w-9 border-border/60 hover:bg-accent/50">
+                    <User className="h-4 w-4" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-48 p-2 rounded-xl">
+                  <DropdownMenuItem asChild className="rounded-lg cursor-pointer">
+                    <Link to="/settings" className="flex items-center gap-2">
+                      <Settings className="h-4 w-4 mr-2" />
+                      Settings
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={handleLogout} className="rounded-lg cursor-pointer text-destructive focus:text-destructive focus:bg-destructive/10">
+                    <LogOut className="h-4 w-4 mr-2" />
+                    Log Out
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
               </DropdownMenu>
             </div>
           ) : (
@@ -242,7 +242,7 @@ export function Header() {
           </SheetTrigger>
           <SheetContent side="right" className="w-[300px] sm:w-[350px] p-6">
             <SheetTitle className="text-left flex items-center gap-2 mb-6">
-               <div className="flex h-8 w-8 items-center justify-center rounded-lg gradient-navy">
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg gradient-navy">
                 <Bot className="h-4 w-4 text-white" />
               </div>
               <span className="font-bold">Menu</span>
@@ -268,10 +268,10 @@ export function Header() {
                               )}
                             >
                               <div className={cn(
-                                  "flex items-center justify-center w-6 h-6 rounded",
-                                  location.pathname === subItem.href ? "text-primary" : "text-muted-foreground"
+                                "flex items-center justify-center w-6 h-6 rounded",
+                                location.pathname === subItem.href ? "text-primary" : "text-muted-foreground"
                               )}>
-                                  <subItem.icon className="h-4 w-4" />
+                                <subItem.icon className="h-4 w-4" />
                               </div>
                               {subItem.label}
                             </Link>

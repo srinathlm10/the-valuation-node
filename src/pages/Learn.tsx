@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Layout } from "@/components/layout/Layout";
 import { DefinitionsGrid } from "@/components/learn/DefinitionsGrid";
@@ -11,6 +11,8 @@ import { contentService } from "@/services/contentService";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useNavigate } from "react-router-dom";
+import { FundamentalAnalysisContent } from "./FundamentalAnalysis";
+import { TechnicalAnalysisContent } from "./TechnicalAnalysis";
 
 // Definition Interface
 interface Definition {
@@ -25,12 +27,42 @@ interface Definition {
   relatedTerms: string[];
 }
 
-export default function Learn() {
+interface LearnProps {
+  initialTab?: string;
+}
+
+export default function Learn({ initialTab = "wiki" }: LearnProps) {
+  const [currentTab, setCurrentTab] = useState(initialTab);
+
+  // Update tab when prop changes (navigation)
+  useEffect(() => {
+    setCurrentTab(initialTab);
+  }, [initialTab]);
+
   const [chatOpen, setChatOpen] = useState(false);
   const [chatContext, setChatContext] = useState<string | undefined>();
   const [initialMessage, setInitialMessage] = useState<string | undefined>();
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
+
+  // Handle tab change to update URL
+  const handleTabChange = (value: string) => {
+    setCurrentTab(value);
+    switch (value) {
+      case "wiki":
+        navigate("/learn");
+        break;
+      case "basics":
+        navigate("/learn/basics");
+        break;
+      case "fundamental":
+        navigate("/learn/fundamental-analysis");
+        break;
+      case "technical":
+        navigate("/learn/technical-analysis");
+        break;
+    }
+  };
 
   // Fetch definitions
   const { data: definitions = [], isLoading: loadingDefs } = useQuery({
@@ -137,7 +169,7 @@ export default function Learn() {
       </section>
 
       <div className="container py-8">
-        <Tabs defaultValue="wiki" className="space-y-8">
+        <Tabs value={currentTab} onValueChange={handleTabChange} className="space-y-8">
           <TabsList className="grid w-full h-auto grid-cols-1 md:grid-cols-4 gap-2 bg-transparent p-0">
             <TabsTrigger
               value="wiki"
@@ -218,44 +250,27 @@ export default function Learn() {
             <div className="flex items-center justify-between">
               <h2 className="text-2xl font-bold tracking-tight">Fundamental Analysis</h2>
             </div>
-            {loadingArticles ? (
-              <div className="flex justify-center p-12"><Loader2 className="h-8 w-8 animate-spin" /></div>
-            ) : (
-              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {getArticlesByCategory("fundamental").length > 0 ? (
-                  getArticlesByCategory("fundamental").map(article => (
-                    <ArticleCard key={article.id} article={article} />
-                  ))
-                ) : (
-                  <div className="col-span-full text-center py-12 text-muted-foreground bg-muted/20 rounded-lg">
-                    No articles found for Fundamental Analysis.
-                  </div>
-                )}
-              </div>
-            )}
+            <FundamentalAnalysisContent
+              onAskAI={(context, message) => {
+                setChatContext(context);
+                setInitialMessage(message);
+                setChatOpen(true);
+              }}
+            />
           </TabsContent>
 
           <TabsContent value="technical" className="space-y-6">
             <div className="flex items-center justify-between">
               <h2 className="text-2xl font-bold tracking-tight">Technical Analysis</h2>
             </div>
-            {loadingArticles ? (
-              <div className="flex justify-center p-12"><Loader2 className="h-8 w-8 animate-spin" /></div>
-            ) : (
-              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {getArticlesByCategory("technical").length > 0 ? (
-                  getArticlesByCategory("technical").map(article => (
-                    <ArticleCard key={article.id} article={article} />
-                  ))
-                ) : (
-                  <div className="col-span-full text-center py-12 text-muted-foreground bg-muted/20 rounded-lg">
-                    No articles found for Technical Analysis.
-                  </div>
-                )}
-              </div>
-            )}
+            <TechnicalAnalysisContent
+              onAskAI={(context, message) => {
+                setChatContext(context);
+                setInitialMessage(message);
+                setChatOpen(true);
+              }}
+            />
           </TabsContent>
-
         </Tabs>
       </div>
 

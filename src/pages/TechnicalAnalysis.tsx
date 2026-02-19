@@ -11,49 +11,130 @@ import {
   Activity, Target, ShieldCheck, ArrowUpDown, Gauge, LineChart
 } from "lucide-react";
 
-export default function TechnicalAnalysis() {
-  const [chatOpen, setChatOpen] = useState(false);
-  const [chatContext, setChatContext] = useState<string | undefined>(
-    `You are helping users learn technical analysis for Indian stock markets.
-Page: Technical Analysis Guide
-Topics: Chart patterns, Technical indicators, Candlestick patterns, Support/Resistance
-Key Indicators: Moving Averages (SMA, EMA), RSI, MACD, Bollinger Bands, Volume analysis
-Chart Patterns: Head & Shoulders, Double Top/Bottom, Triangles, Flags, Wedges
-Candlestick: Doji, Hammer, Engulfing, Morning/Evening Star
-Trading Context:
-- NSE/BSE trading hours: 9:15 AM - 3:30 PM IST
-- Circuit breakers: 10%, 20% limits
-- Delivery vs Intraday trading
-Focus: Explain patterns visually, provide entry/exit strategies, risk management for Indian traders`
-  );
-  const [initialMessage, setInitialMessage] = useState<string | undefined>();
-
+export function TechnicalAnalysisContent({ onAskAI }: { onAskAI: (context: string, message: string) => void }) {
   const handleAskAI = (topic: string, question: string) => {
-    setChatContext(`Technical Analysis: ${topic}`);
-    setInitialMessage(question);
-    setChatOpen(true);
+    const context = `Technical Analysis: ${topic}`;
+    onAskAI(context, question);
   };
 
   return (
-    <Layout>
-      {/* Hero Section */}
-      <section className="gradient-slate py-12 md:py-16">
-        <div className="container">
-          <div className="max-w-3xl">
-            <Badge variant="secondary" className="mb-4">Technical Analysis Guide</Badge>
-            <h1 className="text-3xl md:text-4xl font-bold text-hero-heading mb-4">
-              Master Technical Analysis
-            </h1>
-            <p className="text-lg text-hero-subtext">
-              Study historical market data—price and volume—to forecast future movements.
-              Technical analysis assumes all known information is already reflected in the price.
-            </p>
+    <div className="space-y-12">
+      {/* Types of Charts */}
+      <section>
+        <div className="flex items-center justify-between mb-6">
+          <div>
+            <h2 className="text-2xl font-bold">Types of Charts</h2>
+            <p className="text-muted-foreground mr-1">Different ways to visualize price action</p>
+          </div>
+          <Button variant="outline" size="sm" onClick={() => handleAskAI("Types of Charts", "Explain the advantages of Candlestick charts over Line and Bar charts")}>
+            <Bot className="mr-2 h-4 w-4" />Ask AI
+          </Button>
+        </div>
+        <div className="grid gap-4 md:grid-cols-3">
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg flex items-center gap-2">
+                <LineChart className="h-5 w-5 text-blue-500" />
+                Line Chart
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground">
+                Connects closing prices with a continuous line. Good for seeing the overall
+                trend but misses intraday volatility (highs and lows).
+              </p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg flex items-center gap-2">
+                <BarChart3 className="h-5 w-5 text-amber-500" />
+                Bar Chart (OHLC)
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground">
+                Shows Open, High, Low, and Close prices for each period using a vertical line
+                and small horizontal ticks.
+              </p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg flex items-center gap-2">
+                <CandlestickChart className="h-5 w-5 text-emerald-500" />
+                Candlestick Chart
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground">
+                The standard for traders. Uses "bodies" and "wicks" to clearly show the
+                battle between buyers (bulls) and sellers (bears).
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Types of Trends */}
+      <section className="bg-muted/30 py-12 -mx-4 px-4 sm:-mx-8 sm:px-8 rounded-xl">
+        <div className="">
+          <h2 className="text-2xl font-bold mb-6">Types of Trends</h2>
+          <div className="grid gap-4 md:grid-cols-3">
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-lg flex items-center gap-2">
+                  <TrendingUp className="h-5 w-5 text-emerald-500" />
+                  Uptrend (Bullish)
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground mb-3">
+                  Sequence of <strong>Higher Highs (HH)</strong> and <strong>Higher Lows (HL)</strong>.
+                </p>
+                <div className="text-xs bg-muted p-2 rounded">
+                  Strategy: Buy on dips (Higher Lows).
+                </div>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-lg flex items-center gap-2">
+                  <TrendingDown className="h-5 w-5 text-red-500" />
+                  Downtrend (Bearish)
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground mb-3">
+                  Sequence of <strong>Lower Highs (LH)</strong> and <strong>Lower Lows (LL)</strong>.
+                </p>
+                <div className="text-xs bg-muted p-2 rounded">
+                  Strategy: Sell on rallies (Lower Highs).
+                </div>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-lg flex items-center gap-2">
+                  <Activity className="h-5 w-5 text-slate-500" />
+                  Sideways (Consolidation)
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground mb-3">
+                  Price moves within a horizontal range (Rectangle). No clear trend.
+                </p>
+                <div className="text-xs bg-muted p-2 rounded">
+                  Strategy: Buy support, Sell resistance.
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
 
       {/* Workflow Sequence */}
-      <section className="container py-12">
+      <section>
         <h2 className="text-2xl font-bold mb-6">Professional Workflow Sequence</h2>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {[
@@ -81,8 +162,8 @@ Focus: Explain patterns visually, provide entry/exit strategies, risk management
       </section>
 
       {/* Chart Patterns */}
-      <section className="bg-muted/30 py-12">
-        <div className="container">
+      <section className="bg-muted/30 py-12 -mx-4 px-4 sm:-mx-8 sm:px-8 rounded-xl">
+        <div className="">
           <div className="flex items-center justify-between mb-6">
             <div>
               <h2 className="text-2xl font-bold">Chart Patterns (Structural Analysis)</h2>
@@ -138,40 +219,116 @@ Focus: Explain patterns visually, provide entry/exit strategies, risk management
                     </div>
                   </CardContent>
                 </Card>
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="text-lg flex items-center gap-2">
+                      <TrendingUp className="h-5 w-5 text-emerald-500" />
+                      Inverted Head & Shoulders
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                    <p className="text-sm text-muted-foreground">
+                      Opposite of H&S. Three troughs with the middle one being the lowest (Head).
+                      A break above the neckline is a strong buy signal.
+                    </p>
+                    <div className="p-3 bg-muted rounded-lg">
+                      <p className="text-xs font-medium">Signal: Bullish Reversal</p>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="text-lg flex items-center gap-2">
+                      <Activity className="h-5 w-5 text-emerald-500" />
+                      Rounding Bottom
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                    <p className="text-sm text-muted-foreground">
+                      "Saucer" shape showing gradual shift from sellers to buyers.
+                      Indicates long-term accumulation.
+                    </p>
+                    <div className="p-3 bg-muted rounded-lg">
+                      <p className="text-xs font-medium">Signal: Bullish Reversal</p>
+                    </div>
+                  </CardContent>
+                </Card>
               </div>
             </TabsContent>
 
             <TabsContent value="continuation">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-lg">Triangles & Wedges</CardTitle>
-                  <CardDescription>Signal that the trend will likely persist after consolidation</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="grid gap-4 md:grid-cols-3">
-                    {[
-                      { name: "Ascending Triangle", signal: "Bullish", desc: "Flat top, rising bottom" },
-                      { name: "Descending Triangle", signal: "Bearish", desc: "Flat bottom, falling top" },
-                      { name: "Symmetrical Triangle", signal: "Neutral", desc: "Converging trendlines, breakout direction matters" },
-                    ].map((pattern) => (
-                      <div key={pattern.name} className="p-4 border rounded-lg">
-                        <h4 className="font-medium mb-1">{pattern.name}</h4>
-                        <Badge variant={pattern.signal === "Bullish" ? "default" : pattern.signal === "Bearish" ? "destructive" : "secondary"} className="mb-2">
-                          {pattern.signal}
-                        </Badge>
-                        <p className="text-xs text-muted-foreground">{pattern.desc}</p>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+              <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                <Card className="col-span-full lg:col-span-1">
+                  <CardHeader>
+                    <CardTitle className="text-lg">Triangles & Wedges</CardTitle>
+                    <CardDescription>Signal that the trend will likely persist after consolidation</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="grid gap-4">
+                      {[
+                        { name: "Ascending Triangle", signal: "Bullish", desc: "Flat top, rising bottom" },
+                        { name: "Descending Triangle", signal: "Bearish", desc: "Flat bottom, falling top" },
+                        { name: "Symmetrical Triangle", signal: "Neutral", desc: "Converging trendlines" },
+                      ].map((pattern) => (
+                        <div key={pattern.name} className="p-3 border rounded-lg">
+                          <h4 className="font-medium text-sm mb-1">{pattern.name}</h4>
+                          <Badge variant={pattern.signal === "Bullish" ? "default" : pattern.signal === "Bearish" ? "destructive" : "secondary"} className="mb-1 text-[10px]">
+                            {pattern.signal}
+                          </Badge>
+                          <p className="text-[10px] text-muted-foreground">{pattern.desc}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="text-lg">Flags & Pennants</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="p-3 border rounded-lg border-l-4 border-l-emerald-500">
+                      <h4 className="font-medium mb-1">Bull Flag (Up Flag)</h4>
+                      <p className="text-sm text-muted-foreground">
+                        Sharp rise (pole) followed by a downward sloping channel.
+                        Breakout resumes uptrend.
+                      </p>
+                    </div>
+                    <div className="p-3 border rounded-lg border-l-4 border-l-red-500">
+                      <h4 className="font-medium mb-1">Bear Flag (Down Flag)</h4>
+                      <p className="text-sm text-muted-foreground">
+                        Sharp drop (pole) followed by an upward sloping channel.
+                        Breakout resumes downtrend.
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="text-lg">Listing Breakout</CardTitle>
+                    <CardDescription>Range Breakout / Box Pattern</CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                    <p className="text-sm text-muted-foreground">
+                      Price moves sideways in a "box" range. A strong candle breaking
+                      the upper boundary signals a buy, while breaking the lower boundary signals a sell.
+                    </p>
+                    <div className="p-3 bg-muted rounded-lg text-xs space-y-1">
+                      <p><span className="font-medium">Key:</span> Wait for candle close outside the box.</p>
+                      <p><span className="font-medium">Fakeout:</span> If price reverses back in, exit immediately.</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
             </TabsContent>
           </Tabs>
         </div>
       </section>
 
       {/* Candlestick Patterns */}
-      <section className="container py-12">
+      <section>
         <div className="flex items-center justify-between mb-6">
           <div>
             <h2 className="text-2xl font-bold">Candlestick Analysis (Sentiment Analysis)</h2>
@@ -185,34 +342,32 @@ Focus: Explain patterns visually, provide entry/exit strategies, risk management
         <div className="grid gap-4 md:grid-cols-3">
           <Card className="border-l-4 border-l-emerald-500">
             <CardHeader>
-              <CardTitle className="text-lg">Hammer</CardTitle>
-              <Badge variant="outline" className="w-fit">Bullish Signal</Badge>
+              <CardTitle className="text-lg">Hammer & Inverted Hammer</CardTitle>
+              <Badge variant="outline" className="w-fit">Bullish Reversal</Badge>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground mb-3">
-                Short body with a long lower wick in a downtrend. Signifies that buyers
-                regained control after a sharp drop.
+                <strong>Hammer:</strong> Short body, long lower wick. Buyers push price up after sell-off.<br />
+                <strong>Inv. Hammer:</strong> Short body, long upper wick. Buyers testing higher levels.
               </p>
-              <div className="flex items-center gap-2 text-xs">
-                <span className="font-medium">Context:</span>
-                <span className="text-muted-foreground">Appears at bottom of downtrends</span>
+              <div className="text-xs bg-muted p-2 rounded">
+                Found at <strong>Bottom</strong> of downtrend.
               </div>
             </CardContent>
           </Card>
 
           <Card className="border-l-4 border-l-red-500">
             <CardHeader>
-              <CardTitle className="text-lg">Shooting Star</CardTitle>
-              <Badge variant="outline" className="w-fit">Bearish Signal</Badge>
+              <CardTitle className="text-lg">Shooting Star & Hanging Man</CardTitle>
+              <Badge variant="outline" className="w-fit">Bearish Reversal</Badge>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground mb-3">
-                Short body with a long upper wick in an uptrend. Signifies that sellers
-                pushed prices back down after an initial surge.
+                <strong>Shooting Star:</strong> Long upper wick. Sellers rejection.<br />
+                <strong>Hanging Man:</strong> Long lower wick but appears at top. Weakening bulls.
               </p>
-              <div className="flex items-center gap-2 text-xs">
-                <span className="font-medium">Context:</span>
-                <span className="text-muted-foreground">Appears at top of uptrends</span>
+              <div className="text-xs bg-muted p-2 rounded">
+                Found at <strong>Top</strong> of uptrend.
               </div>
             </CardContent>
           </Card>
@@ -220,25 +375,58 @@ Focus: Explain patterns visually, provide entry/exit strategies, risk management
           <Card className="border-l-4 border-l-emerald-500">
             <CardHeader>
               <CardTitle className="text-lg">Bullish Engulfing</CardTitle>
-              <Badge variant="outline" className="w-fit">Strong Bullish Signal</Badge>
+              <Badge variant="outline" className="w-fit">Strong Buy</Badge>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground mb-3">
-                A large green candle that completely "covers" the previous day's red candle,
-                marking a decisive shift in sentiment.
+                Large green candle completely covers previous red candle.
+                Shows total shift in control to buyers.
               </p>
-              <div className="flex items-center gap-2 text-xs">
-                <span className="font-medium">Context:</span>
-                <span className="text-muted-foreground">Two-candle pattern at trend reversal</span>
-              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="border-l-4 border-l-red-500">
+            <CardHeader>
+              <CardTitle className="text-lg">Bearish Engulfing</CardTitle>
+              <Badge variant="outline" className="w-fit">Strong Sell</Badge>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground mb-3">
+                Large red candle completely covers previous green candle.
+                Sellers overwhelm buyers.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="border-l-4 border-l-emerald-500">
+            <CardHeader>
+              <CardTitle className="text-lg">Morning Star</CardTitle>
+              <Badge variant="outline" className="w-fit">Bullish Reversal</Badge>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground mb-3">
+                3-Candle Pattern: Big Red &rarr; Small Body (Indecision) &rarr; Big Green.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="border-l-4 border-l-red-500">
+            <CardHeader>
+              <CardTitle className="text-lg">Evening Star</CardTitle>
+              <Badge variant="outline" className="w-fit">Bearish Reversal</Badge>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground mb-3">
+                3-Candle Pattern: Big Green &rarr; Small Body (Indecision) &rarr; Big Red.
+              </p>
             </CardContent>
           </Card>
         </div>
       </section>
 
       {/* Technical Indicators */}
-      <section className="bg-muted/30 py-12">
-        <div className="container">
+      <section className="bg-muted/30 py-12 -mx-4 px-4 sm:-mx-8 sm:px-8 rounded-xl">
+        <div className="">
           <div className="flex items-center justify-between mb-6">
             <div>
               <h2 className="text-2xl font-bold">Technical Indicators (Mathematical Confirmation)</h2>
@@ -303,6 +491,25 @@ Focus: Explain patterns visually, provide entry/exit strategies, risk management
                       <p><span className="font-medium">Price at upper band:</span> Overbought</p>
                     </div>
                     <Button variant="ghost" size="sm" className="w-full" onClick={() => handleAskAI("Bollinger Bands", "How do I use Bollinger Bands to identify overbought and oversold conditions?")}>
+                      <Bot className="mr-2 h-4 w-4" />Explain
+                    </Button>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="text-lg">Fibonacci Retracement</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                    <p className="text-sm text-muted-foreground">
+                      Horizontal lines indicating where support/resistance are likely to occur
+                      (23.6%, 38.2%, 50%, 61.8%).
+                    </p>
+                    <div className="p-3 bg-muted rounded-lg text-xs">
+                      <p><span className="font-medium">Golden Ratio:</span> 61.8% is key reversal level.</p>
+                      <p className="text-muted-foreground mt-1">Drawn from Swing Low to Swing High.</p>
+                    </div>
+                    <Button variant="ghost" size="sm" className="w-full" onClick={() => handleAskAI("Fibonacci Retracement", "How do I draw Fibonacci Retracement levels correctly?")}>
                       <Bot className="mr-2 h-4 w-4" />Explain
                     </Button>
                   </CardContent>
@@ -428,10 +635,10 @@ Focus: Explain patterns visually, provide entry/exit strategies, risk management
             </TabsContent>
           </Tabs>
         </div>
-      </section>
+      </section >
 
       {/* Risk Management */}
-      <section className="container py-12">
+      < section >
         <div className="flex items-center justify-between mb-6">
           <div>
             <h2 className="text-2xl font-bold">Risk Management Checklist</h2>
@@ -519,7 +726,55 @@ Focus: Explain patterns visually, provide entry/exit strategies, risk management
             </CardContent>
           </Card>
         </div>
+      </section >
+    </div >
+  );
+}
+
+export default function TechnicalAnalysis() {
+  const [chatOpen, setChatOpen] = useState(false);
+  const [chatContext, setChatContext] = useState<string | undefined>(
+    `You are helping users learn technical analysis for Indian stock markets.
+Page: Technical Analysis Guide
+Topics: Chart patterns, Technical indicators, Candlestick patterns, Support/Resistance
+Key Indicators: Moving Averages (SMA, EMA), RSI, MACD, Bollinger Bands, Volume analysis
+Chart Patterns: Head & Shoulders, Double Top/Bottom, Triangles, Flags, Wedges
+Candlestick: Doji, Hammer, Engulfing, Morning/Evening Star
+Trading Context:
+- NSE/BSE trading hours: 9:15 AM - 3:30 PM IST
+- Circuit breakers: 10%, 20% limits
+- Delivery vs Intraday trading
+Focus: Explain patterns visually, provide entry/exit strategies, risk management for Indian traders`
+  );
+  const [initialMessage, setInitialMessage] = useState<string | undefined>();
+
+  const handleAskAI = (topic: string, question: string) => {
+    setChatContext(`Technical Analysis: ${topic}`);
+    setInitialMessage(question);
+    setChatOpen(true);
+  };
+
+  return (
+    <Layout>
+      {/* Hero Section */}
+      <section className="gradient-slate py-12 md:py-16">
+        <div className="container">
+          <div className="max-w-3xl">
+            <Badge variant="secondary" className="mb-4">Technical Analysis Guide</Badge>
+            <h1 className="text-3xl md:text-4xl font-bold text-hero-heading mb-4">
+              Master Technical Analysis
+            </h1>
+            <p className="text-lg text-hero-subtext">
+              Study historical market data—price and volume—to forecast future movements.
+              Technical analysis assumes all known information is already reflected in the price.
+            </p>
+          </div>
+        </div>
       </section>
+
+      <div className="container py-8">
+        <TechnicalAnalysisContent onAskAI={handleAskAI} />
+      </div>
 
       <ChatSidebar
         isOpen={chatOpen}
