@@ -46,6 +46,11 @@ export function Header() {
       <div className="container flex h-16 items-center justify-between gap-4">
         {/* Wordmark */}
         <Link to="/" className="shrink-0 flex items-center gap-2 group">
+          <img
+            src="/logo.png"
+            alt="The Valuation Node"
+            className="h-9 w-9 object-contain"
+          />
           <span className="font-bold text-foreground tracking-tight text-lg">
             The Valuation Node
           </span>
@@ -139,7 +144,8 @@ export function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[280px] p-6">
-              <SheetTitle className="text-left font-bold mb-6">
+              <SheetTitle className="text-left font-bold mb-6 flex items-center gap-2">
+                <img src="/logo.png" alt="" className="h-8 w-8 object-contain" aria-hidden="true" />
                 The Valuation Node
               </SheetTitle>
               <nav className="flex flex-col gap-2">

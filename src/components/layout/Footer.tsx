@@ -22,7 +22,8 @@ export function Footer() {
         <div className="grid gap-8 md:grid-cols-3">
           {/* Column 1: Wordmark */}
           <div>
-            <Link to="/" className="font-bold text-foreground text-base tracking-tight">
+            <Link to="/" className="font-bold text-foreground text-base tracking-tight flex items-center gap-2">
+              <img src="/logo.png" alt="" className="h-8 w-8 object-contain" aria-hidden="true" />
               The Valuation Node
             </Link>
             <p className="mt-2 text-sm text-muted-foreground">
