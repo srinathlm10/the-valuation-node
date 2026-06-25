@@ -19,7 +19,7 @@ export default function AboutAuthor() {
           "@type": "Person",
           name: "Srinath Gajji",
           jobTitle: "Founder and Editor, The Valuation Node | MBA Candidate, NIT Rourkela",
-          email: "srinath@thevaluationnode.com",
+          email: "srinathguna12@gmail.com",
           url: "https://thevaluationnode.com/about/author",
         })}</script>
       </Helmet>
@@ -72,10 +72,10 @@ export default function AboutAuthor() {
             <Github className="h-4 w-4" /> GitHub
           </a>
           <a
-            href="mailto:srinath@thevaluationnode.com"
+            href="mailto:srinathguna12@gmail.com"
             className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
-            <Mail className="h-4 w-4" /> srinath@thevaluationnode.com
+            <Mail className="h-4 w-4" /> srinathguna12@gmail.com
           </a>
           <a
             href="/resume.pdf" // TODO: Replace with actual resume PDF link
