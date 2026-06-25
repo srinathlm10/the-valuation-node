@@ -7,7 +7,7 @@ const SUPABASE_PUBLISHABLE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
 
 if (!SUPABASE_URL || !SUPABASE_PUBLISHABLE_KEY) {
   console.error(
-    "Missing Supabase Environment Variables. Please check if VITE_SUPABASE_URL and VITE_SUPABASE_PUBLISHABLE_KEY are set in your .env file or deployment settings."
+    "Missing Supabase environment variables. Check VITE_SUPABASE_URL and VITE_SUPABASE_PUBLISHABLE_KEY."
   );
 }
 
@@ -19,9 +19,11 @@ export const supabase = createClient<Database>(
   SUPABASE_PUBLISHABLE_KEY || "placeholder-key",
   {
     auth: {
-      storage: localStorage,
       persistSession: true,
       autoRefreshToken: true,
-    }
+      detectSessionInUrl: true,
+      flowType: "pkce", // PKCE is more secure for OAuth flows
+      storage: localStorage,
+    },
   }
 );

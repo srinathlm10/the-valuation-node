@@ -94,7 +94,7 @@ export function ChatSidebar({ isOpen, onToggle, initialMessage, context }: ChatS
         id: "welcome",
         session_id: "temp",
         role: "assistant",
-        content: "Hello! I'm **FinBot**, your financial knowledge assistant. I can help you with Indian markets, SEBI regulations, and more. Start a new chat!"
+        content: "Hi, I am the assistant for The Valuation Node. I can answer questions about the analyses, definitions, and methodology on this site. I do not provide investment advice."
       } as ChatMessage]);
     }
   }, [currentSessionId]);
@@ -134,7 +134,7 @@ export function ChatSidebar({ isOpen, onToggle, initialMessage, context }: ChatS
       id: "welcome",
       session_id: "temp",
       role: "assistant",
-      content: "Hello! I'm **FinBot**, your financial knowledge assistant. I can help you with Indian markets, SEBI regulations, and more. Start a new chat!"
+      content: "Hi, I am the assistant for The Valuation Node. I can answer questions about the analyses, definitions, and methodology on this site. I do not provide investment advice."
     } as ChatMessage]);
   };
 
@@ -264,8 +264,8 @@ export function ChatSidebar({ isOpen, onToggle, initialMessage, context }: ChatS
       conversationHistory.push({ role: "user", content: finalContent });
 
       const systemPrompt = context
-        ? `You are FinBot, an expert financial assistant for the Indian market.Context for this conversation: \n${context} `
-        : `You are FinBot, an expert financial assistant for the Indian market. If the user uploads a file/portfolio, analyze it and give insights.`;
+        ? `You are the assistant for The Valuation Node, an expert financial assistant for the Indian market.Context for this conversation: \n${context} `
+        : `You are the assistant for The Valuation Node, an expert financial assistant for the Indian market. If the user uploads a file/portfolio, analyze it and give insights.`;
 
       // 4. Call Cloud Function
       const response = await supabase.functions.invoke("chat", {
@@ -354,7 +354,7 @@ export function ChatSidebar({ isOpen, onToggle, initialMessage, context }: ChatS
 
           <div className="flex flex-col">
             <h3 className="font-bold text-base leading-none mb-1.5 flex items-center gap-2">
-              {showHistory ? "Chat History" : "FinBot"}
+              {showHistory ? "Chat History" : "Assistant"}
               {!showHistory && <Sparkles className="h-3.5 w-3.5 text-yellow-300 animate-pulse" />}
             </h3>
             <span className="text-[11px] opacity-90 font-medium">
@@ -542,7 +542,7 @@ export function ChatSidebar({ isOpen, onToggle, initialMessage, context }: ChatS
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && !e.shiftKey && handleSendMessage()}
-                placeholder={isListening ? "🎤 Listening..." : "Ask FinBot anything..."}
+                placeholder={isListening ? "🎤 Listening..." : "Ask the assistant anything..."}
                 className="flex-1 min-h-[48px] text-base border-2 rounded-2xl px-5 focus-visible:ring-2 focus-visible:ring-primary/50 bg-background/50 backdrop-blur-sm"
                 disabled={isLoading}
               />

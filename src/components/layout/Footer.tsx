@@ -1,56 +1,49 @@
 import { Link } from "react-router-dom";
-import { Bot, ExternalLink } from "lucide-react";
 
-const footerLinks = {
-  platform: [
-    { label: "Knowledge Hub", href: "/" },
-    { label: "Compliance Feed", href: "/compliance" },
-    { label: "Stock Archive", href: "/stocks" },
-    { label: "Finance Lab", href: "/learn" },
-  ],
-  resources: [
-    { label: "SEBI Official", href: "https://www.sebi.gov.in", external: true },
-    { label: "NSE India", href: "https://www.nseindia.com", external: true },
-    { label: "BSE India", href: "https://www.bseindia.com", external: true },
-    { label: "RBI", href: "https://www.rbi.org.in", external: true },
-  ],
-  legal: [
-    { label: "Privacy Policy", href: "/privacy" },
-    { label: "Terms of Service", href: "/terms" },
-    { label: "Disclaimer", href: "/disclaimer" },
-  ],
-};
+const navLinks = [
+  { label: "Research", href: "/research" },
+  { label: "Learn", href: "/learn" },
+  { label: "Tools", href: "/tools" },
+  { label: "Markets", href: "/markets" },
+  { label: "About", href: "/about" },
+];
+
+const externalLinks = [
+  { label: "LinkedIn", href: "https://linkedin.com" }, // TODO: Replace with actual LinkedIn URL
+  { label: "X (Twitter)", href: "https://x.com" }, // TODO: Replace with actual X handle
+  { label: "GitHub", href: "https://github.com" }, // TODO: Replace with actual GitHub URL
+  { label: "Email", href: "mailto:srinath@thevaluationnode.com" },
+];
 
 export function Footer() {
   return (
-    <footer className="border-t bg-muted/30">
-      <div className="container py-12 md:py-16">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-          {/* Brand */}
-          <div className="lg:col-span-1">
-            <Link to="/" className="flex items-center gap-2">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg gradient-slate">
-                <Bot className="h-5 w-5 text-primary-foreground" />
-              </div>
-              <div>
-                <span className="text-lg font-bold">FinBot</span>
-                <span className="text-lg font-light text-muted-foreground ml-1">India</span>
-              </div>
+    <footer className="border-t bg-background">
+      <div className="container py-12">
+        <div className="grid gap-8 md:grid-cols-3">
+          {/* Column 1: Wordmark */}
+          <div>
+            <Link to="/" className="font-bold text-foreground text-base tracking-tight">
+              The Valuation Node
             </Link>
-            <p className="mt-4 text-sm text-muted-foreground max-w-xs">
-              Decoding Indian finance through regulatory intelligence, interactive learning, and AI-powered insights.
+            <p className="mt-2 text-sm text-muted-foreground">
+              Indian markets research and learning
+            </p>
+            <p className="mt-4 text-xs text-muted-foreground">
+              © 2026 Srinath Gajji
             </p>
           </div>
 
-          {/* Platform Links */}
+          {/* Column 2: Navigation */}
           <div>
-            <h3 className="mb-4 text-sm font-semibold">Platform</h3>
-            <ul className="space-y-3">
-              {footerLinks.platform.map((link) => (
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-4">
+              Navigation
+            </h3>
+            <ul className="space-y-2.5">
+              {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     to={link.href}
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -59,53 +52,39 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Resources Links */}
+          {/* Column 3: External links */}
           <div>
-            <h3 className="mb-4 text-sm font-semibold">Official Resources</h3>
-            <ul className="space-y-3">
-              {footerLinks.resources.map((link) => (
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-4">
+              Connect
+            </h3>
+            <ul className="space-y-2.5">
+              {externalLinks.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    target="_blank"
+                    target={link.href.startsWith("mailto") ? undefined : "_blank"}
                     rel="noopener noreferrer"
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground inline-flex items-center gap-1"
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {link.label}
-                    <ExternalLink className="h-3 w-3" />
                   </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Legal Links */}
-          <div>
-            <h3 className="mb-4 text-sm font-semibold">Legal</h3>
-            <ul className="space-y-3">
-              {footerLinks.legal.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    to={link.href}
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                  >
-                    {link.label}
-                  </Link>
                 </li>
               ))}
             </ul>
           </div>
         </div>
 
-        <div className="mt-12 border-t pt-8">
-          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-            <p className="text-xs text-muted-foreground text-center md:text-left">
-              © {new Date().getFullYear()} FinBot India. All rights reserved.
-            </p>
-            <p className="text-xs text-muted-foreground text-center md:text-right max-w-md">
-              <strong>Disclaimer:</strong> This platform provides educational content only and does not constitute financial advice. 
-              Always consult a SEBI-registered advisor for investment decisions.
-            </p>
+        <div className="mt-10 border-t pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
+          <p>
+            This is not investment advice. Any opinions are personal. No paid promotions.
+          </p>
+          <div className="flex items-center gap-4">
+            <Link to="/disclaimer" className="hover:text-foreground transition-colors">
+              Disclaimer
+            </Link>
+            <Link to="/privacy" className="hover:text-foreground transition-colors">
+              Privacy Policy
+            </Link>
           </div>
         </div>
       </div>

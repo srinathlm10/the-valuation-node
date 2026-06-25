@@ -2,11 +2,12 @@ import { Navigate, useLocation } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { Loader2 } from "lucide-react";
 
-interface AdminRouteProps {
+interface ProtectedRouteProps {
   children: React.ReactNode;
+  requireAdmin?: boolean;
 }
 
-export function AdminRoute({ children }: AdminRouteProps) {
+export function ProtectedRoute({ children, requireAdmin = false }: ProtectedRouteProps) {
   const { user, profile, loading } = useAuth();
   const location = useLocation();
 
@@ -22,7 +23,7 @@ export function AdminRoute({ children }: AdminRouteProps) {
     return <Navigate to={`/login?next=${encodeURIComponent(location.pathname)}`} replace />;
   }
 
-  if (profile?.role !== "admin") {
+  if (requireAdmin && profile?.role !== "admin") {
     return <Navigate to="/" replace />;
   }
 

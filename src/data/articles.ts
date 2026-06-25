@@ -572,7 +572,7 @@ Don't let these myths stop you from securing your financial future. Educate your
     category: "investing",
     difficulty: "beginner",
     readingTime: 5,
-    author: "FinBot Team",
+    author: "Srinath Gajji",
     publishedAt: "2024-03-10",
     imageUrl: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800",
     keyTakeaways: [
@@ -610,7 +610,7 @@ The P/E ratio is best used when comparing companies within the *same industry*.
     category: "fundamental-analysis",
     difficulty: "beginner",
     readingTime: 4,
-    author: "FinBot Team",
+    author: "Srinath Gajji",
     publishedAt: "2024-03-12",
     imageUrl: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800",
     keyTakeaways: [
@@ -645,7 +645,7 @@ While Fundamental analysis looks at the business (earnings, debt), Technical ana
     category: "technical-analysis",
     difficulty: "beginner",
     readingTime: 6,
-    author: "FinBot Team",
+    author: "Srinath Gajji",
     publishedAt: "2024-03-14",
     imageUrl: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800",
     keyTakeaways: [
