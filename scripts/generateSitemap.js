@@ -107,6 +107,7 @@ const routes = [
 
   // ── Tools ─────────────────────────────────────────────────────────────
   { path: "/tools",                                   priority: "0.8", changefreq: "monthly" },
+  { path: "/tools/dcf-sensitivity",                  priority: "0.9", changefreq: "monthly" },
   { path: "/tools/sip",                               priority: "0.7", changefreq: "monthly" },
   { path: "/tools/future-value",                      priority: "0.7", changefreq: "monthly" },
   { path: "/tools/present-value",                     priority: "0.7", changefreq: "monthly" },

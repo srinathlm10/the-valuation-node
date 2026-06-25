@@ -41,6 +41,7 @@ const ArticleView = lazy(() => import("./pages/ArticleView"));
 // Tools
 const Tools = lazy(() => import("./pages/Tools"));
 const ToolPage = lazy(() => import("./pages/ToolPage"));
+const DcfSensitivityPage = lazy(() => import("./pages/DcfSensitivityPage"));
 
 // Markets
 const Markets = lazy(() => import("./pages/Markets"));
@@ -108,6 +109,7 @@ const App = () => (
 
                 {/* Tools */}
                 <Route path="/tools" element={<Tools />} />
+                <Route path="/tools/dcf-sensitivity" element={<DcfSensitivityPage />} />
                 <Route path="/tools/:slug" element={<ToolPage />} />
                 {/* Legacy calculator route */}
                 <Route path="/calculators" element={<Navigate to="/tools" replace />} />
