@@ -8,9 +8,10 @@ const modules = [
   {
     slug: "build-a-dcf",
     title: "Build a DCF, Step by Step",
-    description: "Start from a blank spreadsheet and build a complete discounted cash flow model for a real Indian company.",
+    description: "Start from scratch and build a complete discounted cash flow model for a real Indian company, one concept at a time.",
     duration: "~30 min",
     steps: 8,
+    live: true,
   },
   {
     slug: "read-an-income-statement",
@@ -68,7 +69,15 @@ export default function LearnByDoing() {
             <div key={m.slug} className="py-6">
               <div className="flex items-start justify-between gap-4">
                 <div className="flex-1">
-                  <h2 className="font-semibold text-lg leading-snug">{m.title}</h2>
+                  <h2 className="font-semibold text-lg leading-snug">
+                    {m.live ? (
+                      <Link to={`/learn/by-doing/${m.slug}`} className="hover:underline">
+                        {m.title}
+                      </Link>
+                    ) : (
+                      m.title
+                    )}
+                  </h2>
                   <p className="mt-1 text-sm text-muted-foreground">{m.description}</p>
                   <div className="mt-3 flex items-center gap-3 text-xs text-muted-foreground">
                     <span className="flex items-center gap-1">
@@ -77,9 +86,18 @@ export default function LearnByDoing() {
                     {m.steps && <span>{m.steps} steps</span>}
                   </div>
                 </div>
-                <span className="shrink-0 text-xs font-medium px-2.5 py-1 rounded-full bg-muted text-muted-foreground">
-                  Coming soon
-                </span>
+                {m.live ? (
+                  <Link
+                    to={`/learn/by-doing/${m.slug}`}
+                    className="shrink-0 text-xs font-medium px-2.5 py-1 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-colors"
+                  >
+                    Start →
+                  </Link>
+                ) : (
+                  <span className="shrink-0 text-xs font-medium px-2.5 py-1 rounded-full bg-muted text-muted-foreground">
+                    Coming soon
+                  </span>
+                )}
               </div>
             </div>
           ))}

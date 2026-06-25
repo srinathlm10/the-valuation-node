@@ -96,7 +96,7 @@ const routes = [
 
   // Learn-by-Doing
   { path: "/learn/by-doing",                                  priority: "0.8", changefreq: "monthly" },
-  { path: "/learn/by-doing/build-a-dcf",                      priority: "0.6", changefreq: "monthly" },
+  { path: "/learn/by-doing/build-a-dcf",                      priority: "0.9", changefreq: "monthly" },
   { path: "/learn/by-doing/read-an-income-statement",         priority: "0.6", changefreq: "monthly" },
   { path: "/learn/by-doing/compute-ratios-from-raw-statements", priority: "0.6", changefreq: "monthly" },
   { path: "/learn/by-doing/compare-two-companies",            priority: "0.6", changefreq: "monthly" },

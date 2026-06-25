@@ -42,6 +42,7 @@ const ArticleView = lazy(() => import("./pages/ArticleView"));
 const Tools = lazy(() => import("./pages/Tools"));
 const ToolPage = lazy(() => import("./pages/ToolPage"));
 const DcfSensitivityPage = lazy(() => import("./pages/DcfSensitivityPage"));
+const BuildADcfPage = lazy(() => import("./pages/BuildADcfPage"));
 
 // Markets
 const Markets = lazy(() => import("./pages/Markets"));
@@ -96,6 +97,7 @@ const App = () => (
                 <Route path="/learn/foundations/:section" element={<Foundations />} />
                 <Route path="/learn/foundations/:section/:topic" element={<FoundationsLeaf />} />
                 <Route path="/learn/by-doing" element={<LearnByDoing />} />
+                <Route path="/learn/by-doing/build-a-dcf" element={<BuildADcfPage />} />
                 <Route path="/learn/by-doing/:slug" element={<LearnByDoingModule />} />
                 <Route path="/learn/glossary" element={<Glossary />} />
                 <Route path="/learn/glossary/:termSlug" element={<GlossaryEntry />} />
