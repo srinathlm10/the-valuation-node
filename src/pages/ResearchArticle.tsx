@@ -279,7 +279,7 @@ export default function ResearchArticle() {
               {/* TODO: Full author bio. Srinath to fill. */}
             </p>
             <a
-              href="https://linkedin.com" // TODO: Replace with actual LinkedIn URL
+              href="https://www.linkedin.com/in/gajji-srinath/"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-2 inline-block text-sm text-muted-foreground hover:text-foreground underline"

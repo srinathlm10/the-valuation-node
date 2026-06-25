@@ -9,7 +9,7 @@ const navLinks = [
 ];
 
 const externalLinks = [
-  { label: "LinkedIn", href: "https://linkedin.com" }, // TODO: Replace with actual LinkedIn URL
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/gajji-srinath/" },
   { label: "X (Twitter)", href: "https://x.com" }, // TODO: Replace with actual X handle
   { label: "GitHub", href: "https://github.com" }, // TODO: Replace with actual GitHub URL
   { label: "Email", href: "mailto:srinath@thevaluationnode.com" },

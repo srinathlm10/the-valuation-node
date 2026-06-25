@@ -56,7 +56,7 @@ export default function AboutAuthor() {
         {/* Links */}
         <div className="mt-8 flex flex-wrap gap-4">
           <a
-            href="https://linkedin.com" // TODO: Replace with actual LinkedIn URL
+            href="https://www.linkedin.com/in/gajji-srinath/"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
