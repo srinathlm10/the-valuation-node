@@ -3,6 +3,7 @@ import {
     LayoutDashboard,
     FileText,
     Database,
+    MessageSquare,
     ArrowLeft,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -15,6 +16,7 @@ export default function AdminLayout() {
         { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
         { href: "/admin/content", label: "Content Manager", icon: FileText },
         { href: "/admin/embeddings", label: "Embeddings", icon: Database },
+        { href: "/admin/comments", label: "Comments", icon: MessageSquare },
     ];
 
     return (

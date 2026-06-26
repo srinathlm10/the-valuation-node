@@ -12,6 +12,7 @@ import AdminLayout from "./components/admin/AdminLayout";
 import ContentManager from "./components/admin/ContentManager";
 import EmbeddingManager from "./components/admin/EmbeddingManager";
 import AdminDashboard from "./components/admin/AdminDashboard";
+import CommentsManager from "./components/admin/CommentsManager";
 
 // Auth pages (no Layout wrapper — they render standalone)
 const Login = lazy(() => import("./pages/Login"));
@@ -168,6 +169,7 @@ const App = () => (
                   <Route index element={<AdminDashboard />} />
                   <Route path="content" element={<ContentManager />} />
                   <Route path="embeddings" element={<EmbeddingManager />} />
+                  <Route path="comments" element={<CommentsManager />} />
                 </Route>
 
                 {/* Hidden routes (not in public nav) */}

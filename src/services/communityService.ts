@@ -22,10 +22,32 @@ export interface Comment {
     user_id: string;
     content: string;
     created_at: string;
+    updated_at?: string | null;
+    is_hidden?: boolean;
     profiles?: {
         display_name: string | null;
         avatar_url: string | null;
     };
+}
+
+export interface CommentReport {
+    id: string;
+    comment_id: string;
+    reporter_user_id: string | null;
+    reason: string;
+    details: string | null;
+    status: "pending" | "reviewed" | "dismissed";
+    created_at: string;
+    reviewed_at: string | null;
+    reviewed_by: string | null;
+    comments?: {
+        id: string;
+        content: string;
+        is_hidden: boolean;
+        post_id: string;
+        profiles?: { display_name: string | null } | null;
+    } | null;
+    profiles?: { display_name: string | null } | null;
 }
 
 export const communityService = {
@@ -116,6 +138,99 @@ export const communityService = {
                 content
             });
 
+        if (error) throw error;
+    },
+
+    async updateComment(commentId: string, content: string) {
+        const { error } = await supabase
+            .from("comments")
+            .update({ content, updated_at: new Date().toISOString() })
+            .eq("id", commentId);
+        if (error) throw error;
+    },
+
+    async deleteComment(commentId: string) {
+        const { error } = await supabase
+            .from("comments")
+            .delete()
+            .eq("id", commentId);
+        if (error) throw error;
+    },
+
+    async hideComment(commentId: string, isHidden: boolean) {
+        const { error } = await supabase
+            .from("comments")
+            .update({ is_hidden: isHidden })
+            .eq("id", commentId);
+        if (error) throw error;
+    },
+
+    async adminDeleteComment(commentId: string) {
+        const { error } = await supabase
+            .from("comments")
+            .delete()
+            .eq("id", commentId);
+        if (error) throw error;
+    },
+
+    async reportComment(commentId: string, reason: string, details?: string) {
+        const { data: { user } } = await supabase.auth.getUser();
+        if (!user) throw new Error("User not authenticated");
+
+        const { error } = await supabase
+            .from("comment_reports")
+            .insert({
+                comment_id: commentId,
+                reporter_user_id: user.id,
+                reason,
+                details: details ?? null,
+            });
+        if (error) throw error;
+    },
+
+    async getAdminComments() {
+        const { data, error } = await supabase
+            .from("comments")
+            .select("id, post_id, user_id, content, created_at, is_hidden, updated_at, profiles(display_name)")
+            .order("created_at", { ascending: false });
+        if (error) {
+            console.error("Error fetching admin comments:", error);
+            return [];
+        }
+        return data as Comment[];
+    },
+
+    async getAdminReports() {
+        const { data, error } = await supabase
+            .from("comment_reports")
+            .select(`
+                id, comment_id, reason, details, status, created_at,
+                comments (id, content, is_hidden, post_id, profiles (display_name)),
+                profiles!reporter_user_id (display_name)
+            `)
+            .eq("status", "pending")
+            .order("created_at", { ascending: false });
+        if (error) {
+            console.error("Error fetching reports:", error);
+            return [];
+        }
+        return data as CommentReport[];
+    },
+
+    async resolveReports(commentId: string, status: "reviewed" | "dismissed") {
+        const { error } = await supabase
+            .from("comment_reports")
+            .update({ status, reviewed_at: new Date().toISOString() })
+            .eq("comment_id", commentId)
+            .eq("status", "pending");
+        if (error) throw error;
+    },
+
+    async dismissReport(reportId: string) {
+        const { error } = await supabase
+            .from("comment_reports")
+            .update({ status: "dismissed", reviewed_at: new Date().toISOString() })
+            .eq("id", reportId);
         if (error) throw error;
     },
 
