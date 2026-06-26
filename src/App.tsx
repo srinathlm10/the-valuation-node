@@ -168,8 +168,6 @@ const App = () => (
                   <Route index element={<AdminDashboard />} />
                   <Route path="content" element={<ContentManager />} />
                   <Route path="embeddings" element={<EmbeddingManager />} />
-                  <Route path="users" element={<div className="text-slate-400 p-8">User Management Coming Soon</div>} />
-                  <Route path="settings" element={<div className="text-slate-400 p-8">Admin Settings Coming Soon</div>} />
                 </Route>
 
                 {/* Hidden routes (not in public nav) */}

@@ -4,8 +4,6 @@ import {
     FileText,
     Database,
     ArrowLeft,
-    Settings,
-    Users
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -17,8 +15,6 @@ export default function AdminLayout() {
         { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
         { href: "/admin/content", label: "Content Manager", icon: FileText },
         { href: "/admin/embeddings", label: "Embeddings", icon: Database },
-        { href: "/admin/users", label: "Users", icon: Users },
-        { href: "/admin/settings", label: "Settings", icon: Settings },
     ];
 
     return (
