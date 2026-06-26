@@ -8,7 +8,7 @@ export default function AboutAuthor() {
   return (
     <Layout>
       <Helmet>
-        <title>Srinath Gajji — The Valuation Node</title>
+        <title>Srinath Gajji - The Valuation Node</title>
         <meta
           name="description"
           content="About Srinath Gajji, Founder of The Valuation Node, MBA candidate at NIT Rourkela."
@@ -49,7 +49,7 @@ export default function AboutAuthor() {
         <div className="mt-6 prose prose-slate dark:prose-invert max-w-none">
           {/* TODO: Author bio, 400-600 words. Srinath to fill. */}
           <p className="text-muted-foreground italic">
-            [Author bio — 400-600 words. Srinath to fill.]
+            [Author bio - 400-600 words. Srinath to fill.]
           </p>
         </div>
 
@@ -90,9 +90,9 @@ export default function AboutAuthor() {
           <h2 className="font-semibold">Currently working on</h2>
           <ul className="mt-3 text-sm text-muted-foreground list-disc list-inside space-y-1">
             {/* TODO: Srinath to fill in 2-3 current projects */}
-            <li>— [Current project 1 — Srinath to fill] —</li>
-            <li>— [Current project 2 — Srinath to fill] —</li>
-            <li>— [Current project 3 — Srinath to fill] —</li>
+            <li>[Current project 1 - Srinath to fill]</li>
+            <li>[Current project 2 - Srinath to fill]</li>
+            <li>[Current project 3 - Srinath to fill]</li>
           </ul>
         </section>
 

@@ -45,12 +45,12 @@ export default function Research() {
   return (
     <Layout>
       <Helmet>
-        <title>Research — The Valuation Node</title>
+        <title>Research - The Valuation Node</title>
         <meta
           name="description"
           content="Original analysis of Indian companies, sectors, and credit. All work is authored, dated, and shows its sources."
         />
-        <meta property="og:title" content="Research — The Valuation Node" />
+        <meta property="og:title" content="Research - The Valuation Node" />
         <link rel="canonical" href="https://thevaluationnode.com/research" />
       </Helmet>
 

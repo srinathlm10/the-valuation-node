@@ -129,9 +129,9 @@ export default function ResearchArticle() {
   return (
     <Layout>
       <Helmet>
-        <title>{article.title} — The Valuation Node</title>
+        <title>{article.title} - The Valuation Node</title>
         <meta name="description" content={article.excerpt || `Research article: ${article.title}`} />
-        <meta property="og:title" content={`${article.title} — The Valuation Node`} />
+        <meta property="og:title" content={`${article.title} - The Valuation Node`} />
         <meta property="og:description" content={article.excerpt || ""} />
         <meta property="og:type" content="article" />
         {article.cover_image_url && <meta property="og:image" content={article.cover_image_url} />}

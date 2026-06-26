@@ -33,12 +33,12 @@ export default function Index() {
   return (
     <Layout>
       <Helmet>
-        <title>The Valuation Node — Indian Markets Research and Learning</title>
+        <title>The Valuation Node</title>
         <meta
           name="description"
           content="Research and learning on Indian markets, by Srinath Gajji. Original valuations, credit analysis, and a public learning library."
         />
-        <meta property="og:title" content="The Valuation Node — Indian Markets Research and Learning" />
+        <meta property="og:title" content="The Valuation Node" />
         <meta property="og:type" content="website" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
@@ -205,7 +205,7 @@ export default function Index() {
               </h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 From first principles to a working DCF model. Intuition, mechanics, and common
-                mistakes — with real Indian company numbers.
+                mistakes - with real Indian company numbers.
               </p>
             </div>
             {/* Small cards */}

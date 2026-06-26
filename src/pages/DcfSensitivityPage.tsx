@@ -8,13 +8,13 @@ export default function DcfSensitivityPage() {
   return (
     <Layout>
       <Helmet>
-        <title>DCF Sensitivity Calculator — Tools — The Valuation Node</title>
+        <title>DCF Sensitivity Calculator - Tools - The Valuation Node</title>
         <meta
           name="description"
           content="Interactive DCF model with a 5×5 sensitivity grid across WACC and terminal growth. Adjust assumptions live and download as Excel. Built for Indian markets research."
         />
         <link rel="canonical" href="https://thevaluationnode.com/tools/dcf-sensitivity" />
-        <meta property="og:title" content="DCF Sensitivity Calculator — The Valuation Node" />
+        <meta property="og:title" content="DCF Sensitivity Calculator - The Valuation Node" />
         <meta
           property="og:description"
           content="Two-stage DCF model with live sliders, sensitivity heatmap, and Excel export. For Indian markets research."
@@ -46,13 +46,13 @@ export default function DcfSensitivityPage() {
             <p>
               <strong className="text-foreground">Assumptions (top-left):</strong> Six sliders control
               the key drivers. Revenue growth and operating margin determine the size of each year's FCF.
-              WACC is the cost of capital — it both discounts the forecast-period cash flows and anchors
+              WACC is the cost of capital - it both discounts the forecast-period cash flows and anchors
               the terminal value denominator. Terminal growth is the rate at which cash flows are assumed
               to grow in perpetuity beyond the forecast period.
             </p>
             <p>
               <strong className="text-foreground">Cash flow table (top-right):</strong> Year-by-year
-              projection. FCF here is NOPAT (EBIT after tax) — a simplification that ignores capex and
+              projection. FCF here is NOPAT (EBIT after tax) - a simplification that ignores capex and
               working capital changes. The TV row shows the Gordon Growth perpetuity value, discounted
               back to today. The final EV row is their sum.
             </p>
@@ -60,7 +60,7 @@ export default function DcfSensitivityPage() {
               <strong className="text-foreground">Sensitivity grid (bottom-left):</strong> The 5×5
               matrix holds WACC fixed on columns (±2% from your base) and terminal growth on rows. Green
               = higher value, red = lower. The outlined cell is your current base case. A single-point
-              DCF estimate is almost never the right answer — the grid shows the range of outcomes under
+              DCF estimate is almost never the right answer - the grid shows the range of outcomes under
               plausible assumptions.
             </p>
             <p>

@@ -15,7 +15,7 @@ const TOOL_META: Record<string, {
   sip: {
     label: "SIP Calculator",
     description: "Estimate the maturity value of a Systematic Investment Plan (SIP) over time.",
-    howToUse: "Enter your monthly investment amount, the expected annual return rate, and the investment duration in years. The calculator shows your estimated corpus at the end of the period.\n\nUse realistic return assumptions — Indian equity mutual funds have historically returned 12–15% CAGR over long periods, but past performance is not a guarantee.",
+    howToUse: "Enter your monthly investment amount, the expected annual return rate, and the investment duration in years. The calculator shows your estimated corpus at the end of the period.\n\nUse realistic return assumptions. Indian equity mutual funds have historically returned 12–15% CAGR over long periods, but past performance is not a guarantee.",
     mathExplainer: "SIP maturity value = P × [(1+r)ⁿ − 1] / r × (1+r), where P is the monthly investment, r is the monthly return rate (annual rate ÷ 12), and n is the total number of months.",
     foundationsLink: { href: "/learn/foundations/corporate-finance/time-value-of-money", label: "Time Value of Money" },
   },
@@ -64,7 +64,7 @@ const TOOL_META: Record<string, {
   "inflation-adjusted-returns": {
     label: "Inflation-Adjusted Returns Calculator",
     description: "See what a nominal return actually means after adjusting for inflation.",
-    howToUse: "Enter the nominal return and the inflation rate. The real return tells you the purchasing power gain — which is what matters for long-term wealth creation.",
+    howToUse: "Enter the nominal return and the inflation rate. The real return tells you the purchasing power gain, which is what matters for long-term wealth creation.",
     mathExplainer: "Real Return ≈ (1 + Nominal Return) / (1 + Inflation Rate) − 1. This is the Fisher equation.",
     foundationsLink: { href: "/learn/foundations/markets-and-instruments/debt-markets-and-yield-curves", label: "Debt Markets and Yield Curves" },
   },
@@ -127,7 +127,7 @@ export default function ToolPage() {
   return (
     <Layout>
       <Helmet>
-        <title>{meta.label} — Tools — The Valuation Node</title>
+        <title>{meta.label} - Tools - The Valuation Node</title>
         <meta name="description" content={meta.description} />
         <link rel="canonical" href={`https://thevaluationnode.com/tools/${slug}`} />
       </Helmet>

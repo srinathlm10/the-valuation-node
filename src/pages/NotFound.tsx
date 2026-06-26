@@ -7,7 +7,7 @@ export default function NotFound() {
   return (
     <Layout>
       <Helmet>
-        <title>Page not found — The Valuation Node</title>
+        <title>Page not found - The Valuation Node</title>
       </Helmet>
 
       <div className="container max-w-xl py-24 text-center space-y-6">

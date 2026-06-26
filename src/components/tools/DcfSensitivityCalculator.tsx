@@ -17,14 +17,14 @@ import {
 // ── Formatting ────────────────────────────────────────────────────────────────
 
 function fmtCr(n: number): string {
-  if (!isFinite(n)) return "—";
+  if (!isFinite(n)) return "-";
   const sign = n < 0 ? "-" : "";
   const abs = Math.abs(n);
   return `${sign}₹${abs.toLocaleString("en-IN", { maximumFractionDigits: 0 })} Cr`;
 }
 
 function fmtShare(n: number): string {
-  if (!isFinite(n)) return "—";
+  if (!isFinite(n)) return "-";
   return `₹${Math.round(n).toLocaleString("en-IN")}`;
 }
 
@@ -139,7 +139,7 @@ function SensitivityHeatmap({
     <Card>
       <CardHeader className="pb-3">
         <CardTitle className="text-xs font-semibold tracking-widest text-muted-foreground uppercase">
-          Sensitivity — Value per Share (₹)
+          Sensitivity: Value per Share (₹)
         </CardTitle>
         <p className="text-xs text-muted-foreground mt-0.5">
           WACC → (columns) · Terminal Growth ↓ (rows) · Outlined cell = base case
@@ -183,10 +183,10 @@ function SensitivityHeatmap({
                       title={
                         val !== null
                           ? `WACC: ${fmtPct(baseWacc + WACC_DELTAS[ci])}, TG: ${fmtPct(baseTg + TG_DELTAS[ri])}, Value: ${fmtShare(val)}`
-                          : "N/A — WACC ≤ Terminal Growth"
+                          : "N/A (WACC ≤ Terminal Growth)"
                       }
                     >
-                      {val !== null ? fmtShare(val) : "—"}
+                      {val !== null ? fmtShare(val) : "-"}
                     </td>
                   );
                 })}
@@ -432,7 +432,7 @@ export function DcfSensitivityCalculator({
       const wb = XLSX.utils.book_new();
 
       const s1 = XLSX.utils.aoa_to_sheet([
-        ["The Valuation Node — DCF Model"],
+        ["The Valuation Node - DCF Model"],
         ["Generated", new Date().toLocaleDateString("en-IN")],
         [],
         ["Assumption", "Value"],
@@ -470,7 +470,7 @@ export function DcfSensitivityCalculator({
       const waccHeaders = WACC_DELTAS.map((d) => `WACC ${((wacc + d) * 100).toFixed(1)}%`);
       const tgHeaders = TG_DELTAS.map((d) => `TG ${((terminalGrowth + d) * 100).toFixed(1)}%`);
       const s3 = XLSX.utils.aoa_to_sheet([
-        ["Sensitivity — Intrinsic Value per Share (₹)"],
+        ["Sensitivity - Intrinsic Value per Share (₹)"],
         ["TG / WACC", ...waccHeaders],
         ...sensitivityMatrix.map((row, ri) => [
           tgHeaders[ri],
@@ -646,7 +646,7 @@ export function DcfSensitivityCalculator({
       {showFormulas && <FormulasPanel />}
 
       <p className="text-xs text-muted-foreground border-t pt-4">
-        FCF is simplified as NOPAT (EBIT after tax) — a full model would account for capex, changes
+        FCF is simplified as NOPAT (EBIT after tax) - a full model would account for capex, changes
         in working capital, and depreciation separately. All figures in ₹ crore. Not financial advice.
       </p>
     </div>

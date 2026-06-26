@@ -342,7 +342,7 @@ export function BuildADcfLesson() {
               >
                 {LEARN_COMPANIES.map(c => (
                   <option key={c.slug} value={c.slug}>
-                    {c.name} ({c.ticker}) — {c.sector}
+                    {c.name} ({c.ticker}) - {c.sector}
                   </option>
                 ))}
               </select>
@@ -375,7 +375,7 @@ export function BuildADcfLesson() {
 
             <div className="mt-4 p-4 rounded-lg bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800">
               <p className="text-sm text-blue-800 dark:text-blue-200">
-                <strong>Why this matters:</strong> The base revenue is our starting point. Every cash flow we forecast builds from this number. The historical trend also tells us whether the business has been growing steadily or erratically — context you'll use when you set the growth rate in the next step.
+                <strong>Why this matters:</strong> The base revenue is our starting point. Every cash flow we forecast builds from this number. The historical trend also tells us whether the business has been growing steadily or erratically - context you'll use when you set the growth rate in the next step.
               </p>
             </div>
           </div>
@@ -387,7 +387,7 @@ export function BuildADcfLesson() {
           <div>
             <h2 className="text-xl font-bold">Forecasting Revenue Growth</h2>
             <p className="mt-3 text-muted-foreground leading-relaxed">
-              How fast will {company.name} grow over the next five years? Analysts look at historical CAGR, industry trends, competitive dynamics, capacity expansion, and management guidance. Past growth is a useful anchor — not a guarantee. High past growth often reverts towards the industry average over time.
+              How fast will {company.name} grow over the next five years? Analysts look at historical CAGR, industry trends, competitive dynamics, capacity expansion, and management guidance. Past growth is a useful anchor, not a guarantee. High past growth often reverts towards the industry average over time.
             </p>
 
             <div className="mt-5 grid grid-cols-2 gap-3">
@@ -456,7 +456,7 @@ export function BuildADcfLesson() {
 
             <div className="mt-4 p-4 rounded-lg bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800">
               <p className="text-sm text-amber-800 dark:text-amber-200">
-                <strong>Why this matters:</strong> A 2–3% change in revenue growth can swing the final valuation by 20–30%. This is the single most sensitive input in a DCF. Analysts spend most of their research time getting the growth assumption right — because it cascades through every line below it.
+                <strong>Why this matters:</strong> A 2–3% change in revenue growth can swing the final valuation by 20–30%. This is the single most sensitive input in a DCF. Analysts spend most of their research time getting the growth assumption right, because it cascades through every line below it.
               </p>
             </div>
           </div>
@@ -498,7 +498,7 @@ export function BuildADcfLesson() {
             </div>
 
             <div className="mt-6">
-              <p className="text-sm font-medium mb-3">Revenue vs Operating Profit — Forecast (₹ Cr)</p>
+              <p className="text-sm font-medium mb-3">Revenue vs Operating Profit - Forecast (₹ Cr)</p>
               <ResponsiveContainer width="100%" height={230}>
                 <BarChart data={marginChartData} barGap={4}>
                   <XAxis dataKey="fy" tick={{ fontSize: 11 }} />
@@ -529,7 +529,7 @@ export function BuildADcfLesson() {
           <div>
             <h2 className="text-xl font-bold">Applying Taxes to Get NOPAT</h2>
             <p className="mt-3 text-muted-foreground leading-relaxed">
-              NOPAT stands for Net Operating Profit After Tax. We take EBIT and subtract corporate taxes. This is the after-tax operating profit available to all capital providers — both debt holders and shareholders.
+              NOPAT stands for Net Operating Profit After Tax. We take EBIT and subtract corporate taxes. This is the after-tax operating profit available to all capital providers: both debt holders and shareholders.
             </p>
             <div className="mt-3 p-3 bg-muted/30 rounded-lg font-mono text-sm">
               NOPAT = EBIT × (1 − Tax Rate)
@@ -615,7 +615,7 @@ export function BuildADcfLesson() {
               FCF = NOPAT + D&A − CapEx − ΔNWC
             </div>
             <p className="mt-3 text-muted-foreground leading-relaxed">
-              <strong>For this educational model, FCF ≈ NOPAT.</strong> This assumes depreciation roughly offsets maintenance capex, and working capital stays stable as a share of revenue. In a full model, you'd research each of these explicitly — CapEx guidance, historical D&A, and working capital trends from cash flow statements.
+              <strong>For this educational model, FCF ≈ NOPAT.</strong> This assumes depreciation roughly offsets maintenance capex, and working capital stays stable as a share of revenue. In a full model, you'd research each of these explicitly: CapEx guidance, historical D&A, and working capital trends from cash flow statements.
             </p>
 
             {result && (
@@ -668,7 +668,7 @@ export function BuildADcfLesson() {
 
             <div className="mt-4 p-4 rounded-lg bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800">
               <p className="text-sm text-amber-800 dark:text-amber-200">
-                <strong>Why this matters:</strong> The gap between profit and cash is where many accounting irregularities hide. A company reporting high profits but generating little cash is a warning sign. When you read annual reports, always compare PAT to operating cash flow — if they consistently diverge, investigate why.
+                <strong>Why this matters:</strong> The gap between profit and cash is where many accounting irregularities hide. A company reporting high profits but generating little cash is a warning sign. When you read annual reports, always compare PAT to operating cash flow. If they consistently diverge, investigate why.
               </p>
             </div>
           </div>
@@ -680,10 +680,10 @@ export function BuildADcfLesson() {
           <div>
             <h2 className="text-xl font-bold">Choosing the Discount Rate (WACC)</h2>
             <p className="mt-3 text-muted-foreground leading-relaxed">
-              ₹100 received five years from now is worth less than ₹100 today — because you could invest today's ₹100 and earn a return. The discount rate, called WACC (Weighted Average Cost of Capital), is the rate we use to shrink future cash flows back to their present value.
+              ₹100 received five years from now is worth less than ₹100 today, because you could invest today's ₹100 and earn a return. The discount rate, called WACC (Weighted Average Cost of Capital), is the rate we use to shrink future cash flows back to their present value.
             </p>
             <p className="mt-2 text-muted-foreground leading-relaxed">
-              WACC reflects the blended required return for all capital providers: equity holders (who take more risk) and debt holders (who get priority). A riskier business deserves a higher WACC — its future cash should be discounted more steeply.
+              WACC reflects the blended required return for all capital providers: equity holders (who take more risk) and debt holders (who get priority). A riskier business deserves a higher WACC. Its future cash should be discounted more steeply.
             </p>
 
             <div className="mt-5 grid grid-cols-3 gap-3 text-center text-sm">
@@ -774,7 +774,7 @@ export function BuildADcfLesson() {
 
             <div className="mt-4 p-4 rounded-lg bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800">
               <p className="text-sm text-blue-800 dark:text-blue-200">
-                <strong>Why this matters:</strong> The discount rate is brutally powerful. Dropping WACC from 13% to 11% on the same set of cash flows can raise the valuation by 30–40%. This is why interest rate cuts are bullish for equities — lower rates mean lower discount rates, which mechanically lifts all DCF valuations.
+                <strong>Why this matters:</strong> The discount rate is brutally powerful. Dropping WACC from 13% to 11% on the same set of cash flows can raise the valuation by 30–40%. This is why interest rate cuts are bullish for equities: lower rates mean lower discount rates, which mechanically lifts all DCF valuations.
               </p>
             </div>
           </div>
@@ -793,7 +793,7 @@ export function BuildADcfLesson() {
               TV = FCF₅ × (1 + TGR) / (WACC − TGR)
             </div>
             <p className="mt-3 text-muted-foreground leading-relaxed">
-              The TGR must be conservative — roughly equal to India's long-term nominal GDP growth rate or slightly below. Most analysts use 4–6% for established Indian companies. Using a higher TGR is aggressive and inflates the terminal value dramatically.
+              The TGR must be conservative, roughly equal to India's long-term nominal GDP growth rate or slightly below. Most analysts use 4–6% for established Indian companies. Using a higher TGR is aggressive and inflates the terminal value dramatically.
             </p>
 
             <div className="mt-6">
@@ -887,7 +887,7 @@ export function BuildADcfLesson() {
           <div>
             <h2 className="text-xl font-bold">Arriving at Value per Share</h2>
             <p className="mt-3 text-muted-foreground leading-relaxed">
-              Enterprise Value is what the entire business is worth to all capital providers. To get to equity value — what belongs to shareholders — we subtract net debt. Dividing by shares outstanding gives us value per share.
+              Enterprise Value is what the entire business is worth to all capital providers. To get to equity value (what belongs to shareholders), we subtract net debt. Dividing by shares outstanding gives us value per share.
             </p>
             <div className="mt-3 p-3 bg-muted/30 rounded-lg font-mono text-sm leading-relaxed">
               Equity Value = Enterprise Value − Net Debt<br />
@@ -925,7 +925,7 @@ export function BuildADcfLesson() {
                 </div>
 
                 <div className="mt-8">
-                  <h3 className="font-semibold mb-3">You built this — your assumptions</h3>
+                  <h3 className="font-semibold mb-3">Your assumptions</h3>
                   <div className="divide-y text-sm">
                     {[
                       ["Company", `${company.name} (${company.ticker})`],
@@ -978,28 +978,28 @@ export function BuildADcfLesson() {
                       className="flex items-center gap-2 text-blue-600 hover:underline"
                     >
                       <ChevronRight className="h-4 w-4 shrink-0" />
-                      DCF Theory and Mechanics — Foundations
+                      DCF Theory and Mechanics - Foundations
                     </Link>
                     <Link
                       to="/learn/foundations/valuation/common-dcf-mistakes"
                       className="flex items-center gap-2 text-blue-600 hover:underline"
                     >
                       <ChevronRight className="h-4 w-4 shrink-0" />
-                      Common DCF Mistakes — Foundations
+                      Common DCF Mistakes - Foundations
                     </Link>
                     <Link
                       to="/tools/dcf-sensitivity"
                       className="flex items-center gap-2 text-blue-600 hover:underline"
                     >
                       <ChevronRight className="h-4 w-4 shrink-0" />
-                      DCF Sensitivity Calculator — run scenarios across WACC and TGR
+                      DCF Sensitivity Calculator - run scenarios across WACC and TGR
                     </Link>
                     <Link
                       to="/research"
                       className="flex items-center gap-2 text-blue-600 hover:underline"
                     >
                       <ChevronRight className="h-4 w-4 shrink-0" />
-                      Research — see DCF used in real company analysis
+                      Research - see DCF used in real company analysis
                     </Link>
                   </div>
                 </div>

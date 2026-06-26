@@ -7,7 +7,7 @@ export default function MarketsCompliance() {
   return (
     <Layout>
       <Helmet>
-        <title>Compliance — Markets — The Valuation Node</title>
+        <title>Compliance - Markets - The Valuation Node</title>
         <meta
           name="description"
           content="SEBI, NSE, and BSE regulatory circulars. Updated monthly."

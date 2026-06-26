@@ -14,16 +14,16 @@ export default function MarketsNifty50() {
   });
 
   const lastUpdated = stocks && (stocks as any[]).length > 0
-    ? (stocks as any[])[0]?.last_updated || "—"
-    : "—";
+    ? (stocks as any[])[0]?.last_updated || "-"
+    : "-";
 
   return (
     <Layout>
       <Helmet>
-        <title>Nifty 50 — Markets — The Valuation Node</title>
+        <title>Nifty 50 - Markets - The Valuation Node</title>
         <meta
           name="description"
-          content="Fundamental data for all 50 Nifty 50 constituents — P/E, P/B, dividend yield, market cap."
+          content="Fundamental data for all 50 Nifty 50 constituents - P/E, P/B, dividend yield, market cap."
         />
         <link rel="canonical" href="https://thevaluationnode.com/markets/nifty50" />
       </Helmet>

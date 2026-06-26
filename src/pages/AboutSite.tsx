@@ -15,7 +15,7 @@ export default function AboutSite() {
   return (
     <Layout>
       <Helmet>
-        <title>About this site — The Valuation Node</title>
+        <title>About this site - The Valuation Node</title>
         <meta
           name="description"
           content="The mission, editorial principles, and disclosure for The Valuation Node."
@@ -38,10 +38,10 @@ export default function AboutSite() {
         <div className="mt-6 prose prose-slate dark:prose-invert max-w-none">
           {/* TODO: Two-paragraph mission statement. Srinath to fill. */}
           <p className="text-muted-foreground italic">
-            [Mission statement — paragraph 1. Srinath to fill.]
+            [Mission statement - paragraph 1. Srinath to fill.]
           </p>
           <p className="text-muted-foreground italic">
-            [Mission statement — paragraph 2. Srinath to fill.]
+            [Mission statement - paragraph 2. Srinath to fill.]
           </p>
         </div>
 

@@ -62,7 +62,7 @@ export default function Dashboard() {
   return (
     <Layout>
       <Helmet>
-        <title>Dashboard — The Valuation Node</title>
+        <title>Dashboard - The Valuation Node</title>
       </Helmet>
 
       <div className="container max-w-4xl py-12">

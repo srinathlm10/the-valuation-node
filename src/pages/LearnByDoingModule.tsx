@@ -18,7 +18,7 @@ export default function LearnByDoingModule() {
   return (
     <Layout>
       <Helmet>
-        <title>{title} — Learn-by-Doing — The Valuation Node</title>
+        <title>{title} - Learn-by-Doing - The Valuation Node</title>
         <link rel="canonical" href={`https://thevaluationnode.com/learn/by-doing/${slug}`} />
       </Helmet>
 

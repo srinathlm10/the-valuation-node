@@ -47,7 +47,7 @@ export default function FoundationsLeaf() {
   return (
     <Layout>
       <Helmet>
-        <title>{topicData.label} — Foundations — The Valuation Node</title>
+        <title>{topicData.label} - Foundations - The Valuation Node</title>
         <meta
           name="description"
           content={`Learn ${topicData.label} from first principles, with Indian context and worked examples.`}
@@ -106,7 +106,7 @@ export default function FoundationsLeaf() {
               <p className="text-sm font-medium">Before reading this, you should be comfortable with:</p>
               <ul className="mt-2 text-sm text-muted-foreground list-disc list-inside">
                 {/* TODO: Populate prerequisites with links to other Foundations pages */}
-                <li>— Prerequisites to be filled in by author —</li>
+                <li>Prerequisites to be filled in by author</li>
               </ul>
             </div>
 
@@ -115,7 +115,7 @@ export default function FoundationsLeaf() {
               <h2 className="text-xl font-semibold">Intuition</h2>
               <div className="mt-3 prose prose-slate dark:prose-invert max-w-none text-muted-foreground">
                 {/* TODO: 2-3 paragraphs, plain English, real Indian-context example. Srinath to fill. */}
-                <p>[Intuition section — to be written by Srinath]</p>
+                <p>[Intuition section - to be written by Srinath]</p>
               </div>
             </section>
 
@@ -124,7 +124,7 @@ export default function FoundationsLeaf() {
               <h2 className="text-xl font-semibold">Mechanics</h2>
               <div className="mt-3 prose prose-slate dark:prose-invert max-w-none">
                 {/* TODO: Formal explanation, formulas (KaTeX), worked example with real Indian company. Srinath to fill. */}
-                <p>[Mechanics section — to be written by Srinath]</p>
+                <p>[Mechanics section - to be written by Srinath]</p>
               </div>
             </section>
 
@@ -132,7 +132,7 @@ export default function FoundationsLeaf() {
             <Collapsible title="Show advanced details">
               <div className="prose prose-sm prose-slate dark:prose-invert max-w-none text-muted-foreground">
                 {/* TODO: Edge cases, sector-specific adjustments, Indian-context nuances. Srinath to fill. */}
-                <p>[Deep dive — to be written by Srinath]</p>
+                <p>[Deep dive - to be written by Srinath]</p>
               </div>
             </Collapsible>
 
@@ -141,7 +141,7 @@ export default function FoundationsLeaf() {
               <h2 className="font-semibold text-red-800 dark:text-red-200">Common mistakes</h2>
               <div className="mt-3 prose prose-sm prose-slate dark:prose-invert max-w-none text-muted-foreground">
                 {/* TODO: Three ways analysts get this wrong. Srinath to fill. */}
-                <p>[Common mistakes — to be written by Srinath]</p>
+                <p>[Common mistakes - to be written by Srinath]</p>
               </div>
             </div>
 

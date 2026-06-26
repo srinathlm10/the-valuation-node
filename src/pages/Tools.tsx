@@ -35,7 +35,7 @@ export default function Tools() {
   return (
     <Layout>
       <Helmet>
-        <title>Tools — The Valuation Node</title>
+        <title>Tools - The Valuation Node</title>
         <meta
           name="description"
           content="Financial calculators for SIP, CAGR, EMI, compound interest, future value, present value, and more."

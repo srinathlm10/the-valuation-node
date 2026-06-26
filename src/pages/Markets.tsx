@@ -7,10 +7,10 @@ export default function Markets() {
   return (
     <Layout>
       <Helmet>
-        <title>Markets — The Valuation Node</title>
+        <title>Markets - The Valuation Node</title>
         <meta
           name="description"
-          content="Indian market data — Nifty 50 fundamentals and SEBI/NSE/BSE compliance circulars."
+          content="Indian market data - Nifty 50 fundamentals and SEBI/NSE/BSE compliance circulars."
         />
         <link rel="canonical" href="https://thevaluationnode.com/markets" />
       </Helmet>
@@ -28,7 +28,7 @@ export default function Markets() {
           >
             <h2 className="font-semibold text-lg group-hover:underline">Nifty 50</h2>
             <p className="mt-2 text-sm text-muted-foreground">
-              Fundamental data — P/E, P/B, dividend yield, market cap — for all 50 constituents.
+              Fundamental data on P/E, P/B, dividend yield, and market cap for all 50 constituents.
             </p>
             <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-foreground">
               View data <ArrowRight className="h-3.5 w-3.5" />

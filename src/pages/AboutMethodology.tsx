@@ -16,10 +16,10 @@ export default function AboutMethodology() {
   return (
     <Layout>
       <Helmet>
-        <title>Methodology — The Valuation Node</title>
+        <title>Methodology - The Valuation Node</title>
         <meta
           name="description"
-          content="How Srinath Gajji approaches financial analysis — DCF, WACC, data sources, and more."
+          content="How Srinath Gajji approaches financial analysis - DCF, WACC, data sources, and more."
         />
         <link rel="canonical" href="https://thevaluationnode.com/about/methodology" />
       </Helmet>
@@ -46,7 +46,7 @@ export default function AboutMethodology() {
               <h2 className="text-lg font-semibold">{section}</h2>
               <p className="mt-3 text-sm text-muted-foreground italic">
                 {/* TODO: Srinath to fill in methodology notes for each section. */}
-                [Content for "{section}" — Srinath to fill.]
+                [Content for "{section}" - Srinath to fill.]
               </p>
             </div>
           ))}

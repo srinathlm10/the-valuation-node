@@ -178,7 +178,7 @@ An emergency fund is one of the most important financial tools you can have. It'
 
 ## Why You Need an Emergency Fund
 
-Life is unpredictable. Job loss, medical emergencies, car repairs—unexpected expenses can derail your finances without proper preparation.
+Life is unpredictable. Job loss, medical emergencies, car repairs - unexpected expenses can derail your finances without proper preparation.
 
 ## How Much Should You Save?
 
@@ -561,7 +561,7 @@ Investing in the stock market is one of the best ways to build wealth, but many 
 **Reality:** "Buy low, sell high" sounds easy, but nobody can consistently predict market tops and bottoms. Time *in* the market beats *timing* the market. Missing just the best 10 days of the market over 20 years can cut your returns in half.
 
 ## Myth 5: Stocks Are Too Risky
-**Reality:** While individual stocks can be risky, a diversified portfolio reduces that risk significantly. Inflation is also a risk—leaving cash under your mattress guarantees it loses value over time.
+**Reality:** While individual stocks can be risky, a diversified portfolio reduces that risk significantly. Inflation is also a risk - leaving cash under your mattress guarantees it loses value over time.
 
 ## Myth 6: You Should Sell When the Market Drops
 **Reality:** Panic selling locks in your losses. Market corrections are normal. Historically, the market has recovered from every crash, including buying opportunities for disciplined investors.

@@ -38,7 +38,7 @@ export default function GlossaryEntry() {
   return (
     <Layout>
       <Helmet>
-        <title>{def.term} — Glossary — The Valuation Node</title>
+        <title>{def.term} - Glossary - The Valuation Node</title>
         <meta
           name="description"
           content={def.definition ? def.definition.slice(0, 160) : `Definition of ${def.term}`}
@@ -140,7 +140,7 @@ export default function GlossaryEntry() {
         {/* Last reviewed */}
         <p className="mt-8 text-xs text-muted-foreground">
           {/* TODO: Last reviewed date */}
-          Last reviewed: —
+          Last reviewed: -
         </p>
       </article>
     </Layout>

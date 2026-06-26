@@ -180,7 +180,7 @@ export default function Foundations() {
   return (
     <Layout>
       <Helmet>
-        <title>Foundations — The Valuation Node</title>
+        <title>Foundations - The Valuation Node</title>
         <meta
           name="description"
           content="Finance from first principles. Topics in accounting, valuation, credit, markets, ESG, and fintech, with Indian context."
@@ -214,7 +214,7 @@ export default function Foundations() {
               worked examples with real Indian company data.
             </p>
             <p className="mt-3 text-sm text-muted-foreground">
-              Select a topic from the sidebar. Pages marked "Soon" are placeholders — content is
+              Select a topic from the sidebar. Pages marked "Soon" are placeholders - content is
               added as it's written.
             </p>
 

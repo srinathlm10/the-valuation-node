@@ -7,13 +7,13 @@ export default function BuildADcfPage() {
   return (
     <Layout>
       <Helmet>
-        <title>Build a DCF, Step by Step — Learn-by-Doing — The Valuation Node</title>
+        <title>Build a DCF, Step by Step - Learn-by-Doing - The Valuation Node</title>
         <meta
           name="description"
           content="Build a complete discounted cash flow model for a real Indian company, one step at a time. Learn what each assumption means and how it affects the final valuation."
         />
         <link rel="canonical" href="https://thevaluationnode.com/learn/by-doing/build-a-dcf" />
-        <meta property="og:title" content="Build a DCF, Step by Step — The Valuation Node" />
+        <meta property="og:title" content="Build a DCF, Step by Step - The Valuation Node" />
         <meta
           property="og:description"
           content="An interactive 8-step lesson that teaches you to build a DCF model from scratch, using real Indian companies."
@@ -49,7 +49,7 @@ export default function BuildADcfPage() {
         <div className="mb-8">
           <h1 className="text-3xl font-bold tracking-tight">Build a DCF, Step by Step</h1>
           <p className="mt-3 text-muted-foreground max-w-2xl">
-            Start from scratch and build a complete discounted cash flow model for a real Indian company — one concept at a time. Each step reveals one new assumption, explains why it matters, and shows you the live consequence in the model.
+            Start from scratch and build a complete discounted cash flow model for a real Indian company, one concept at a time. Each step reveals one new assumption, explains why it matters, and shows you the live consequence in the model.
           </p>
           <div className="mt-3 flex items-center gap-4 text-xs text-muted-foreground">
             <span>~30 min</span>

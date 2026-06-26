@@ -709,7 +709,7 @@ export function TechnicalAnalysisContent({ onAskAI }: { onAskAI: (context: strin
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-amber-600 font-bold">2.</span>
-                  <span>Wait for confirmation—don't anticipate breakouts</span>
+                  <span>Wait for confirmation - don't anticipate breakouts</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-amber-600 font-bold">3.</span>
@@ -770,7 +770,7 @@ Focus: Explain patterns visually, provide entry/exit strategies, risk management
               Master Technical Analysis
             </h1>
             <p className="text-lg text-hero-subtext">
-              Study historical market data—price and volume—to forecast future movements.
+              Study historical market data - price and volume - to forecast future movements.
               Technical analysis assumes all known information is already reflected in the price.
             </p>
           </div>

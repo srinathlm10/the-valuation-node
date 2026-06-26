@@ -45,7 +45,7 @@ export default function Glossary() {
   return (
     <Layout>
       <Helmet>
-        <title>Glossary — The Valuation Node</title>
+        <title>Glossary - The Valuation Node</title>
         <meta
           name="description"
           content="500+ finance definitions, each with a formula, a real Indian example, and links to Foundations pages."

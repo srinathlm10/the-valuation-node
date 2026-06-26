@@ -9,7 +9,7 @@ const sections = [
     title: "Foundations",
     href: "/learn/foundations",
     description:
-      "Finance from first principles — accounting, valuation, credit, markets, ESG, and fintech. Each topic covers intuition, mechanics, and worked examples with Indian company numbers.",
+      "Finance from first principles - accounting, valuation, credit, markets, ESG, and fintech. Each topic covers intuition, mechanics, and worked examples with Indian company numbers.",
   },
   {
     title: "Learn-by-Doing",
@@ -29,7 +29,7 @@ export default function LearnIndex() {
   return (
     <Layout>
       <Helmet>
-        <title>Learn — The Valuation Node</title>
+        <title>Learn - The Valuation Node</title>
         <meta
           name="description"
           content="Finance concepts, from foundations to applied analysis, explained from first principles. A public learning library by Srinath Gajji."

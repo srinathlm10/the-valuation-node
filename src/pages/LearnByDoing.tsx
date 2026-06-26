@@ -47,7 +47,7 @@ export default function LearnByDoing() {
   return (
     <Layout>
       <Helmet>
-        <title>Learn-by-Doing — The Valuation Node</title>
+        <title>Learn-by-Doing - The Valuation Node</title>
         <meta
           name="description"
           content="Interactive finance lessons through actual practice with real company data."

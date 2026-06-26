@@ -80,7 +80,7 @@ export function NewsletterSignup({ source = "site" }: Props) {
       <div className="rounded-xl border border-border bg-muted/30 p-6 text-center">
         <p className="font-semibold text-foreground">Already subscribed.</p>
         <p className="mt-1 text-sm text-muted-foreground">
-          That email is already on the list — you're all set.
+          That email is already on the list. You're all set.
         </p>
       </div>
     );

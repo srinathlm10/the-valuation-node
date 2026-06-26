@@ -220,7 +220,7 @@ const RED_FLAGS = [
   },
   {
     flag: "Promoter Pledging",
-    description: "Shares pledged as collateral for loans—risk of forced selling",
+    description: "Shares pledged as collateral for loans - risk of forced selling",
     checkFor: "Shareholding pattern disclosure, pledge percentage trends"
   }
 ];

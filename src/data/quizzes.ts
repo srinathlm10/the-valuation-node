@@ -186,7 +186,7 @@ export const localQuizzes: Quiz[] = [
                     "Investing in a hot stock tip"
                 ],
                 correct_answer_index: 2,
-                explanation: "Emergency funds are strictly for true emergencies—unforeseen, necessary expenses or income loss."
+                explanation: "Emergency funds are strictly for true emergencies - unforeseen, necessary expenses or income loss."
             },
             {
                 id: "q3",

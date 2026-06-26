@@ -60,7 +60,7 @@ export const LEARN_COMPANIES: LearnCompany[] = [
     slug: "marico",
     name: "Marico",
     ticker: "MARICO",
-    sector: "FMCG — Personal Care",
+    sector: "FMCG - Personal Care",
     description:
       "Owner of Parachute (coconut oil), Saffola, and Hair & Care. About 24% of revenue comes from international markets. A mature India business with ongoing premiumisation.",
     baseRevenue: 9800,
@@ -100,7 +100,7 @@ export const LEARN_COMPANIES: LearnCompany[] = [
     slug: "britannia",
     name: "Britannia Industries",
     ticker: "BRITANNIA",
-    sector: "FMCG — Biscuits & Bakery",
+    sector: "FMCG - Biscuits & Bakery",
     description:
       "India's largest biscuits company with Good Day, Marie Gold, and NutriChoice. Strong rural distribution push underway. Shifting mix towards premium products.",
     baseRevenue: 16500,
@@ -120,7 +120,7 @@ export const LEARN_COMPANIES: LearnCompany[] = [
     slug: "titan",
     name: "Titan Company",
     ticker: "TITAN",
-    sector: "Consumer Discretionary — Watches & Jewellery",
+    sector: "Consumer Discretionary - Watches & Jewellery",
     description:
       "Conglomerate across jewellery (Tanishq), watches (Titan, Fastrack), and eyewear. Jewellery drives ~90% of revenue. Strong brand moat and expanding international presence.",
     baseRevenue: 51000,
@@ -140,7 +140,7 @@ export const LEARN_COMPANIES: LearnCompany[] = [
     slug: "page-industries",
     name: "Page Industries",
     ticker: "PAGEIND",
-    sector: "Garments — Innerwear",
+    sector: "Garments - Innerwear",
     description:
       "Exclusive licensee of Jockey in India, Sri Lanka, and UAE. Asset-light model, high ROCE, strong brand positioning in innerwear and leisurewear. Low volumes but high realisation.",
     baseRevenue: 4300,
