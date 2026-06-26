@@ -50,25 +50,29 @@ export default function Index() {
       </Helmet>
 
       {/* Hero */}
-      <section className="border-b bg-background">
-        <div className="container py-20 md:py-28 max-w-3xl">
-          <p className="text-sm font-medium text-muted-foreground mb-4 tracking-wide uppercase">
-            The Valuation Node
-          </p>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground leading-tight">
-            Research and learning on Indian markets.
+      <section className="border-b relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--primary)/0.08),transparent_65%)] pointer-events-none" />
+        <div className="container relative py-24 md:py-32 max-w-3xl">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="h-px w-10 bg-primary shrink-0" />
+            <p className="text-xs font-semibold text-primary tracking-[0.15em] uppercase">
+              The Valuation Node
+            </p>
+          </div>
+          <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-foreground leading-[1.08]">
+            Research and learning<br className="hidden sm:block" /> on Indian markets.
           </h1>
-          <p className="mt-5 text-lg text-muted-foreground max-w-xl">
+          <p className="mt-6 text-xl text-muted-foreground max-w-lg leading-relaxed">
             Original valuation and credit analysis, plus a public learning library, by Srinath Gajji.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Button asChild size="lg">
+          <div className="mt-10 flex flex-wrap gap-3">
+            <Button asChild size="lg" className="rounded-full px-8">
               <Link to={latestResearchHref}>
-                Read the latest research <ArrowRight className="ml-2 h-4 w-4" />
+                Latest research <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline">
-              <Link to="/learn">Explore the learning library</Link>
+            <Button asChild size="lg" variant="outline" className="rounded-full px-8">
+              <Link to="/learn">Learning library</Link>
             </Button>
           </div>
         </div>
@@ -81,9 +85,9 @@ export default function Index() {
             Featured research
           </h2>
           {featured ? (
-            <article>
+            <article className="rounded-2xl border overflow-hidden bg-card shadow-sm hover:shadow-md transition-shadow">
               {featured.cover_image_url && (
-                <div className="mb-6 aspect-[2/1] overflow-hidden rounded-lg bg-muted">
+                <div className="aspect-[21/9] overflow-hidden bg-muted">
                   <img
                     src={featured.cover_image_url}
                     alt={featured.title}
@@ -91,42 +95,51 @@ export default function Index() {
                   />
                 </div>
               )}
-              {featured.category && (
-                <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
-                  {featured.category}
-                </span>
-              )}
-              <h2 className="mt-2 text-2xl font-bold leading-snug">
-                <Link to={`/research/${featured.slug}`} className="hover:underline">
-                  {featured.title}
-                </Link>
-              </h2>
-              {featured.excerpt && (
-                <p className="mt-3 text-muted-foreground leading-relaxed">{featured.excerpt}</p>
-              )}
-              <div className="mt-4 flex items-center gap-4 text-sm text-muted-foreground">
-                {featured.published_at && (
-                  <time dateTime={featured.published_at}>
-                    {new Date(featured.published_at).toLocaleDateString("en-IN", {
-                      day: "numeric",
-                      month: "long",
-                      year: "numeric",
-                    })}
-                  </time>
+              <div className="p-6 md:p-8">
+                {featured.category && (
+                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold uppercase tracking-wide bg-primary/10 text-primary">
+                    {featured.category}
+                  </span>
                 )}
-                {featured.reading_time && <span>{featured.reading_time} min read</span>}
-              </div>
-              <div className="mt-5">
-                <Link
-                  to={`/research/${featured.slug}`}
-                  className="text-sm font-medium text-foreground hover:underline inline-flex items-center gap-1"
-                >
-                  Read article <ArrowRight className="h-3.5 w-3.5" />
-                </Link>
+                <h2 className="mt-3 text-2xl font-bold leading-snug">
+                  <Link to={`/research/${featured.slug}`} className="hover:underline">
+                    {featured.title}
+                  </Link>
+                </h2>
+                {featured.excerpt && (
+                  <p className="mt-3 text-muted-foreground leading-relaxed">{featured.excerpt}</p>
+                )}
+                <div className="mt-6 flex items-center justify-between flex-wrap gap-3">
+                  <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                    {featured.published_at && (
+                      <time dateTime={featured.published_at}>
+                        {new Date(featured.published_at).toLocaleDateString("en-IN", {
+                          day: "numeric",
+                          month: "long",
+                          year: "numeric",
+                        })}
+                      </time>
+                    )}
+                    {featured.reading_time && (
+                      <>
+                        <span className="text-border">·</span>
+                        <span>{featured.reading_time} min read</span>
+                      </>
+                    )}
+                  </div>
+                  <Link
+                    to={`/research/${featured.slug}`}
+                    className="text-sm font-medium text-foreground hover:underline inline-flex items-center gap-1.5"
+                  >
+                    Read article <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                </div>
               </div>
             </article>
           ) : (
-            <p className="text-muted-foreground">Coming soon: first research piece</p>
+            <div className="rounded-2xl border border-dashed p-12 text-center">
+              <p className="text-muted-foreground">Coming soon — first research piece</p>
+            </div>
           )}
         </div>
       </section>
@@ -146,21 +159,28 @@ export default function Index() {
                 All research <ArrowRight className="h-3.5 w-3.5" />
               </Link>
             </div>
-            <div className="grid gap-8 md:grid-cols-3">
+            <div className="grid gap-4 md:grid-cols-3">
               {recent.map((article: any) => (
-                <article key={article.id}>
+                <Link
+                  key={article.id}
+                  to={`/research/${article.slug}`}
+                  className="group block rounded-xl border bg-card p-5 hover:shadow-md hover:border-primary/30 transition-all"
+                >
                   {article.category && (
-                    <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                    <span className="text-xs font-semibold uppercase tracking-wider text-primary">
                       {article.category}
                     </span>
                   )}
-                  <h3 className="mt-1 font-semibold leading-snug">
-                    <Link to={`/research/${article.slug}`} className="hover:underline">
-                      {article.title}
-                    </Link>
+                  <h3 className="mt-2 font-semibold leading-snug group-hover:underline">
+                    {article.title}
                   </h3>
+                  {article.excerpt && (
+                    <p className="mt-2 text-xs text-muted-foreground line-clamp-2 leading-relaxed">
+                      {article.excerpt}
+                    </p>
+                  )}
                   {article.published_at && (
-                    <p className="mt-2 text-xs text-muted-foreground">
+                    <p className="mt-3 text-xs text-muted-foreground">
                       {new Date(article.published_at).toLocaleDateString("en-IN", {
                         month: "short",
                         day: "numeric",
@@ -168,7 +188,7 @@ export default function Index() {
                       })}
                     </p>
                   )}
-                </article>
+                </Link>
               ))}
             </div>
           </div>
@@ -191,11 +211,11 @@ export default function Index() {
           </div>
           <div className="grid gap-4 md:grid-cols-3">
             {/* Flagship card */}
-            <div className="md:col-span-2 rounded-xl border bg-muted/20 p-6">
-              <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+            <div className="md:col-span-2 rounded-xl border border-primary/20 bg-primary/5 p-6 hover:shadow-md transition-shadow">
+              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold uppercase tracking-wide bg-primary/10 text-primary">
                 Foundations · Valuation
               </span>
-              <h3 className="mt-2 text-xl font-bold leading-snug">
+              <h3 className="mt-3 text-xl font-bold leading-snug">
                 <Link
                   to="/learn/foundations/valuation/dcf-theory-and-mechanics"
                   className="hover:underline"
@@ -203,9 +223,9 @@ export default function Index() {
                   DCF: Theory and Mechanics
                 </Link>
               </h3>
-              <p className="mt-2 text-sm text-muted-foreground">
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
                 From first principles to a working DCF model. Intuition, mechanics, and common
-                mistakes - with real Indian company numbers.
+                mistakes — with real Indian company numbers.
               </p>
             </div>
             {/* Small cards */}
@@ -215,14 +235,18 @@ export default function Index() {
                 { label: "Credit Analysis", title: "Credit Risk Fundamentals", href: "/learn/foundations/credit-analysis/credit-risk-fundamentals" },
                 { label: "Learn-by-Doing", title: "Build a DCF, Step by Step", href: "/learn/by-doing/build-a-dcf" },
               ].map((item) => (
-                <div key={item.href} className="rounded-lg border bg-muted/10 p-4">
-                  <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  className="group rounded-lg border bg-card p-4 hover:border-primary/30 hover:shadow-sm transition-all"
+                >
+                  <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                     {item.label}
                   </span>
-                  <p className="mt-1 text-sm font-medium leading-snug">
-                    <Link to={item.href} className="hover:underline">{item.title}</Link>
+                  <p className="mt-1.5 text-sm font-medium leading-snug group-hover:underline">
+                    {item.title}
                   </p>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
@@ -230,28 +254,24 @@ export default function Index() {
       </section>
 
       {/* About + Newsletter */}
-      <section className="border-b" id="newsletter">
+      <section id="newsletter">
         <div className="container py-16 max-w-4xl">
           <div className="grid gap-12 md:grid-cols-2">
             {/* Author */}
             <div>
-              {/* TODO: Replace with actual author photo */}
-              <div className="w-20 h-20 rounded-full bg-muted border-2 border-border flex items-center justify-center mb-4">
-                <span className="text-xs text-muted-foreground text-center px-2">
-                  [Photo placeholder]
-                </span>
+              <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center mb-5 shadow-md">
+                <span className="text-base font-bold text-primary-foreground tracking-tight select-none">SG</span>
               </div>
               <h2 className="text-xl font-bold">Srinath Gajji</h2>
               <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                {/* TODO: Author bio, 2-3 sentences. Srinath to fill. */}
                 Founder of The Valuation Node. MBA candidate at NIT Rourkela, writing about
                 Indian markets from first principles.
               </p>
               <Link
                 to="/about"
-                className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-foreground hover:underline"
+                className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:underline"
               >
-                Read more about the site <ArrowRight className="h-3.5 w-3.5" />
+                More about the site <ArrowRight className="h-3.5 w-3.5" />
               </Link>
             </div>
 

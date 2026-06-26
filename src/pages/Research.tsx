@@ -56,7 +56,7 @@ export default function Research() {
 
       <div className="container max-w-4xl py-14">
         <h1 className="text-3xl font-bold tracking-tight">Research</h1>
-        <p className="mt-3 text-muted-foreground max-w-xl">
+        <p className="mt-3 text-muted-foreground max-w-xl leading-relaxed">
           Original analysis of Indian companies, sectors, and credit. All work is authored, dated,
           and shows its sources.
         </p>
@@ -71,7 +71,7 @@ export default function Research() {
                 "px-4 py-1.5 rounded-full text-sm font-medium transition-colors border",
                 category === c
                   ? "bg-foreground text-background border-foreground"
-                  : "border-border text-muted-foreground hover:text-foreground hover:border-foreground/50"
+                  : "border-border text-muted-foreground hover:text-foreground hover:border-foreground/40 hover:bg-muted/50"
               )}
             >
               {c}
@@ -90,16 +90,16 @@ export default function Research() {
             </div>
           ) : (
             articles.map((article: any) => (
-              <article key={article.id} className="py-6">
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex-1">
+              <article key={article.id} className="group py-7">
+                <div className="flex items-start justify-between gap-6">
+                  <div className="flex-1 min-w-0">
                     {article.category && (
-                      <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold uppercase tracking-wide bg-primary/10 text-primary">
                         {article.category}
                       </span>
                     )}
-                    <h2 className="mt-1 text-lg font-semibold leading-snug">
-                      <Link to={`/research/${article.slug}`} className="hover:underline">
+                    <h2 className="mt-2 text-lg font-semibold leading-snug">
+                      <Link to={`/research/${article.slug}`} className="group-hover:underline">
                         {article.title}
                       </Link>
                     </h2>
@@ -108,7 +108,7 @@ export default function Research() {
                         {article.excerpt}
                       </p>
                     )}
-                    <div className="mt-3 flex items-center gap-4 text-xs text-muted-foreground">
+                    <div className="mt-3 flex items-center gap-3 text-xs text-muted-foreground">
                       {article.published_at && (
                         <time dateTime={article.published_at}>
                           {new Date(article.published_at).toLocaleDateString("en-IN", {
@@ -118,12 +118,17 @@ export default function Research() {
                           })}
                         </time>
                       )}
-                      {article.reading_time && <span>{article.reading_time} min read</span>}
+                      {article.reading_time && (
+                        <>
+                          <span className="text-border">·</span>
+                          <span>{article.reading_time} min read</span>
+                        </>
+                      )}
                     </div>
                   </div>
                   <Link
                     to={`/research/${article.slug}`}
-                    className="shrink-0 text-sm font-medium text-foreground hover:underline inline-flex items-center gap-1"
+                    className="shrink-0 mt-1 text-sm font-medium text-foreground hover:underline inline-flex items-center gap-1.5 opacity-70 group-hover:opacity-100 transition-opacity"
                   >
                     Read <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
@@ -141,6 +146,7 @@ export default function Research() {
               size="sm"
               disabled={page === 0}
               onClick={() => setPage((p) => p - 1)}
+              className="rounded-full px-5"
             >
               Previous
             </Button>
@@ -152,6 +158,7 @@ export default function Research() {
               size="sm"
               disabled={page >= totalPages - 1}
               onClick={() => setPage((p) => p + 1)}
+              className="rounded-full px-5"
             >
               Next
             </Button>

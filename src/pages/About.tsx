@@ -7,7 +7,7 @@ const subpages = [
   {
     href: "/about/author",
     title: "Author",
-    description: "About Srinath Gajji - background, what he's working on, and how to reach him.",
+    description: "About Srinath Gajji — background, what he's working on, and how to reach him.",
   },
   {
     href: "/about/site",
@@ -17,7 +17,7 @@ const subpages = [
   {
     href: "/about/methodology",
     title: "Methodology",
-    description: "How valuation and credit analysis work on this site - DCF approach, WACC, data sources.",
+    description: "How valuation and credit analysis work on this site — DCF approach, WACC, data sources.",
   },
 ];
 
@@ -43,24 +43,22 @@ export default function About() {
 
       <div className="container max-w-3xl py-14">
         <h1 className="text-3xl font-bold tracking-tight">About</h1>
-        <p className="mt-3 text-muted-foreground">
+        <p className="mt-3 text-muted-foreground leading-relaxed">
           The Valuation Node is an independent finance research publication.
         </p>
 
-        <div className="mt-10 grid gap-4">
+        <div className="mt-10 space-y-3">
           {subpages.map((p) => (
             <Link
               key={p.href}
               to={p.href}
-              className="group rounded-xl border bg-muted/10 p-5 hover:bg-muted/30 transition-colors"
+              className="group flex items-center justify-between gap-4 rounded-xl border bg-card p-5 hover:shadow-md hover:border-primary/30 transition-all"
             >
-              <div className="flex items-center justify-between gap-2">
-                <div>
-                  <h2 className="font-semibold group-hover:underline">{p.title}</h2>
-                  <p className="mt-1 text-sm text-muted-foreground">{p.description}</p>
-                </div>
-                <ArrowRight className="h-4 w-4 text-muted-foreground shrink-0" />
+              <div>
+                <h2 className="font-semibold group-hover:underline">{p.title}</h2>
+                <p className="mt-1 text-sm text-muted-foreground">{p.description}</p>
               </div>
+              <ArrowRight className="h-4 w-4 text-muted-foreground shrink-0 group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
             </Link>
           ))}
         </div>

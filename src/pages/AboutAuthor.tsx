@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
-import { Mail, Linkedin, Github, FileText } from "lucide-react";
+import { Mail, Linkedin } from "lucide-react";
 
 export default function AboutAuthor() {
   return (
@@ -33,11 +33,9 @@ export default function AboutAuthor() {
       </nav>
 
       <div className="container max-w-3xl py-12">
-        {/* Photo placeholder */}
-        <div className="w-24 h-24 rounded-full bg-muted border-2 border-border flex items-center justify-center mb-6">
-          <span className="text-xs text-muted-foreground text-center px-2">
-            [Author photo placeholder]
-          </span>
+        {/* Author avatar */}
+        <div className="w-20 h-20 rounded-full bg-primary flex items-center justify-center mb-6 shadow-md">
+          <span className="text-xl font-bold text-primary-foreground tracking-tight select-none">SG</span>
         </div>
 
         <h1 className="text-3xl font-bold tracking-tight">Srinath Gajji</h1>
@@ -54,35 +52,21 @@ export default function AboutAuthor() {
         </div>
 
         {/* Links */}
-        <div className="mt-8 flex flex-wrap gap-4">
+        <div className="mt-8 flex flex-wrap gap-3">
           <a
             href="https://www.linkedin.com/in/gajji-srinath/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            className="inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:border-foreground/40 transition-colors"
           >
             <Linkedin className="h-4 w-4" /> LinkedIn
           </a>
-          {/* <a
-            href="https://github.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <Github className="h-4 w-4" /> GitHub
-          </a> */}
           <a
             href="mailto:srinath@valuationnode.com"
-            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            className="inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:border-foreground/40 transition-colors"
           >
             <Mail className="h-4 w-4" /> srinath@valuationnode.com
           </a>
-          {/* <a
-            href="/resume.pdf"
-            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <FileText className="h-4 w-4" /> Resume (PDF placeholder)
-          </a> */}
         </div>
 
         {/* Currently working on */}

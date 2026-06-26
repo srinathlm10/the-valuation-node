@@ -10,26 +10,25 @@ const navLinks = [
 
 const externalLinks = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/gajji-srinath/" },
-  { label: "X (Twitter)", href: "https://x.com" }, // TODO: Replace with actual X handle
-  { label: "GitHub", href: "https://github.com" }, // TODO: Replace with actual GitHub URL
+  { label: "X (Twitter)", href: "https://x.com" },
   { label: "Email", href: "mailto:srinath@valuationnode.com" },
 ];
 
 export function Footer() {
   return (
     <footer className="border-t bg-background">
-      <div className="container py-12">
-        <div className="grid gap-8 md:grid-cols-3">
+      <div className="container py-14">
+        <div className="grid gap-10 md:grid-cols-3">
           {/* Column 1: Wordmark */}
           <div>
             <Link to="/" className="font-bold text-foreground text-base tracking-tight flex items-center gap-2">
               <img src="/logo.png" alt="" className="h-8 w-8 object-contain" aria-hidden="true" />
               The Valuation Node
             </Link>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Indian markets research and learning
+            <p className="mt-2.5 text-sm text-muted-foreground leading-relaxed">
+              Independent research and learning on Indian markets.
             </p>
-            <p className="mt-4 text-xs text-muted-foreground">
+            <p className="mt-5 text-xs text-muted-foreground">
               © 2026 Srinath Gajji
             </p>
           </div>
@@ -77,9 +76,9 @@ export function Footer() {
 
         <div className="mt-10 border-t pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
           <p>
-            This is not investment advice. Any opinions are personal. No paid promotions.
+            Not investment advice. Opinions are personal. No paid promotions.
           </p>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-5">
             <Link to="/disclaimer" className="hover:text-foreground transition-colors">
               Disclaimer
             </Link>
