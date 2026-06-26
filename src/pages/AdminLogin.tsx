@@ -28,13 +28,13 @@ export default function AdminLogin() {
     }
 
     if (data.session?.user) {
-      const { data: profile } = await supabase
+      const { data: profile, error: profileError } = await supabase
         .from("profiles")
         .select("role")
         .eq("id", data.session.user.id)
         .single();
 
-      if ((profile as any)?.role !== "admin") {
+      if (profileError || (profile as any)?.role !== "admin") {
         await supabase.auth.signOut();
         setError("This account does not have administrator access.");
         setLoading(false);
