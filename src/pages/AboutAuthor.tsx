@@ -63,26 +63,26 @@ export default function AboutAuthor() {
           >
             <Linkedin className="h-4 w-4" /> LinkedIn
           </a>
-          <a
-            href="https://github.com" // TODO: Replace with actual GitHub URL
+          {/* <a
+            href="https://github.com"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
             <Github className="h-4 w-4" /> GitHub
-          </a>
+          </a> */}
           <a
             href="mailto:srinath@valuationnode.com"
             className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
             <Mail className="h-4 w-4" /> srinath@valuationnode.com
           </a>
-          <a
-            href="/resume.pdf" // TODO: Replace with actual resume PDF link
+          {/* <a
+            href="/resume.pdf"
             className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
             <FileText className="h-4 w-4" /> Resume (PDF placeholder)
-          </a>
+          </a> */}
         </div>
 
         {/* Currently working on */}
