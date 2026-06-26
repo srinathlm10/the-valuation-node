@@ -12,7 +12,7 @@ const externalLinks = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/gajji-srinath/" },
   { label: "X (Twitter)", href: "https://x.com" }, // TODO: Replace with actual X handle
   { label: "GitHub", href: "https://github.com" }, // TODO: Replace with actual GitHub URL
-  { label: "Email", href: "mailto:srinathguna12@gmail.com" },
+  { label: "Email", href: "mailto:srinath@valuationnode.com" },
 ];
 
 export function Footer() {

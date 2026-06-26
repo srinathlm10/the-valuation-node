@@ -67,6 +67,16 @@ export default function AboutSite() {
             This is not investment advice. Any opinions are personal. No paid promotions.
           </p>
         </section>
+
+        <section className="mt-10">
+          <h2 className="font-semibold">Contact</h2>
+          <p className="mt-2 text-sm text-muted-foreground">
+            For general enquiries, reach us at{" "}
+            <a href="mailto:info@valuationnode.com" className="text-foreground underline underline-offset-4 hover:no-underline">
+              info@valuationnode.com
+            </a>
+          </p>
+        </section>
       </div>
     </Layout>
   );
