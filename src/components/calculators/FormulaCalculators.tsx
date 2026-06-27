@@ -1,8 +1,60 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { Calculator } from "lucide-react";
+
+function NumericInput({
+  value,
+  onChange,
+  min,
+  sliderMax,
+  prefix,
+  suffix,
+  step = "any",
+}: {
+  value: number;
+  onChange: (n: number) => void;
+  min: number;
+  sliderMax: number;
+  prefix?: string;
+  suffix?: string;
+  step?: string;
+}) {
+  const [raw, setRaw] = useState(String(value));
+
+  useEffect(() => {
+    setRaw(String(value));
+  }, [value]);
+
+  return (
+    <div className="flex items-center gap-0.5 border rounded-md px-2 py-0.5 bg-background focus-within:ring-1 focus-within:ring-ring">
+      {prefix && <span className="text-xs text-muted-foreground select-none">{prefix}</span>}
+      <input
+        type="number"
+        step={step}
+        value={raw}
+        onChange={(e) => {
+          setRaw(e.target.value);
+          const n = parseFloat(e.target.value);
+          if (!isNaN(n) && n >= 0) onChange(n);
+        }}
+        onBlur={() => {
+          const n = parseFloat(raw);
+          const clamped = isNaN(n) ? value : Math.max(min, n);
+          onChange(clamped);
+          setRaw(String(clamped));
+        }}
+        className="w-[88px] text-sm font-mono text-right bg-transparent outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+      />
+      {suffix && <span className="text-xs text-muted-foreground select-none">{suffix}</span>}
+    </div>
+  );
+}
+
+function clamp(val: number, min: number, max: number) {
+  return Math.min(max, Math.max(min, val));
+}
 
 export function FutureValueCalculator() {
   const [presentValue, setPresentValue] = useState(100000);
@@ -28,25 +80,25 @@ export function FutureValueCalculator() {
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <Label className="text-sm font-medium">Present Value (PV)</Label>
-            <span className="text-sm font-mono text-muted-foreground">₹{presentValue.toLocaleString("en-IN")}</span>
+            <NumericInput value={presentValue} onChange={setPresentValue} min={0} sliderMax={10000000} prefix="₹" step="1000" />
           </div>
-          <Slider min={10000} max={10000000} step={10000} value={[presentValue]} onValueChange={([val]) => setPresentValue(val)} className="py-2" />
+          <Slider min={10000} max={10000000} step={10000} value={[clamp(presentValue, 10000, 10000000)]} onValueChange={([val]) => setPresentValue(val)} className="py-2" />
           <div className="flex justify-between text-xs text-muted-foreground"><span>₹10,000</span><span>₹1 Crore</span></div>
         </div>
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <Label className="text-sm font-medium">Annual Interest Rate (r)</Label>
-            <span className="text-sm font-mono text-muted-foreground">{rate}%</span>
+            <NumericInput value={rate} onChange={setRate} min={0} sliderMax={30} suffix="%" />
           </div>
-          <Slider min={1} max={30} step={0.5} value={[rate]} onValueChange={([val]) => setRate(val)} className="py-2" />
+          <Slider min={1} max={30} step={0.5} value={[clamp(rate, 1, 30)]} onValueChange={([val]) => setRate(val)} className="py-2" />
           <div className="flex justify-between text-xs text-muted-foreground"><span>1%</span><span>30%</span></div>
         </div>
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <Label className="text-sm font-medium">Time Period (n)</Label>
-            <span className="text-sm font-mono text-muted-foreground">{years} years</span>
+            <NumericInput value={years} onChange={setYears} min={1} sliderMax={40} suffix=" yr" step="1" />
           </div>
-          <Slider min={1} max={40} step={1} value={[years]} onValueChange={([val]) => setYears(val)} className="py-2" />
+          <Slider min={1} max={40} step={1} value={[clamp(years, 1, 40)]} onValueChange={([val]) => setYears(val)} className="py-2" />
           <div className="flex justify-between text-xs text-muted-foreground"><span>1 year</span><span>40 years</span></div>
         </div>
         <div className="rounded-lg bg-muted/50 p-4 space-y-3">
@@ -94,25 +146,25 @@ export function SIPCalculator() {
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <Label className="text-sm font-medium">Monthly Investment</Label>
-            <span className="text-sm font-mono text-muted-foreground">₹{monthlyInvestment.toLocaleString("en-IN")}</span>
+            <NumericInput value={monthlyInvestment} onChange={setMonthlyInvestment} min={0} sliderMax={100000} prefix="₹" step="500" />
           </div>
-          <Slider min={500} max={100000} step={500} value={[monthlyInvestment]} onValueChange={([val]) => setMonthlyInvestment(val)} className="py-2" />
+          <Slider min={500} max={100000} step={500} value={[clamp(monthlyInvestment, 500, 100000)]} onValueChange={([val]) => setMonthlyInvestment(val)} className="py-2" />
           <div className="flex justify-between text-xs text-muted-foreground"><span>₹500</span><span>₹1,00,000</span></div>
         </div>
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <Label className="text-sm font-medium">Expected Annual Return</Label>
-            <span className="text-sm font-mono text-muted-foreground">{rate}%</span>
+            <NumericInput value={rate} onChange={setRate} min={0} sliderMax={25} suffix="%" />
           </div>
-          <Slider min={6} max={25} step={0.5} value={[rate]} onValueChange={([val]) => setRate(val)} className="py-2" />
+          <Slider min={6} max={25} step={0.5} value={[clamp(rate, 6, 25)]} onValueChange={([val]) => setRate(val)} className="py-2" />
           <div className="flex justify-between text-xs text-muted-foreground"><span>6%</span><span>25%</span></div>
         </div>
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <Label className="text-sm font-medium">Investment Duration</Label>
-            <span className="text-sm font-mono text-muted-foreground">{years} years</span>
+            <NumericInput value={years} onChange={setYears} min={1} sliderMax={30} suffix=" yr" step="1" />
           </div>
-          <Slider min={1} max={30} step={1} value={[years]} onValueChange={([val]) => setYears(val)} className="py-2" />
+          <Slider min={1} max={30} step={1} value={[clamp(years, 1, 30)]} onValueChange={([val]) => setYears(val)} className="py-2" />
           <div className="flex justify-between text-xs text-muted-foreground"><span>1 year</span><span>30 years</span></div>
         </div>
         <div className="rounded-lg bg-muted/50 p-4 space-y-3">
@@ -157,23 +209,23 @@ export function CAGRCalculator() {
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <Label className="text-sm font-medium">Beginning Value</Label>
-            <span className="text-sm font-mono text-muted-foreground">₹{beginningValue.toLocaleString("en-IN")}</span>
+            <NumericInput value={beginningValue} onChange={setBeginningValue} min={0} sliderMax={10000000} prefix="₹" step="1000" />
           </div>
-          <Slider min={10000} max={10000000} step={10000} value={[beginningValue]} onValueChange={([val]) => setBeginningValue(val)} className="py-2" />
+          <Slider min={10000} max={10000000} step={10000} value={[clamp(beginningValue, 10000, 10000000)]} onValueChange={([val]) => setBeginningValue(val)} className="py-2" />
         </div>
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <Label className="text-sm font-medium">Ending Value</Label>
-            <span className="text-sm font-mono text-muted-foreground">₹{endingValue.toLocaleString("en-IN")}</span>
+            <NumericInput value={endingValue} onChange={setEndingValue} min={0} sliderMax={50000000} prefix="₹" step="1000" />
           </div>
-          <Slider min={10000} max={50000000} step={10000} value={[endingValue]} onValueChange={([val]) => setEndingValue(val)} className="py-2" />
+          <Slider min={10000} max={50000000} step={10000} value={[clamp(endingValue, 10000, 50000000)]} onValueChange={([val]) => setEndingValue(val)} className="py-2" />
         </div>
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <Label className="text-sm font-medium">Time Period</Label>
-            <span className="text-sm font-mono text-muted-foreground">{years} years</span>
+            <NumericInput value={years} onChange={setYears} min={1} sliderMax={30} suffix=" yr" step="1" />
           </div>
-          <Slider min={1} max={30} step={1} value={[years]} onValueChange={([val]) => setYears(val)} className="py-2" />
+          <Slider min={1} max={30} step={1} value={[clamp(years, 1, 30)]} onValueChange={([val]) => setYears(val)} className="py-2" />
         </div>
         <div className="rounded-lg bg-muted/50 p-4 space-y-3">
           <div className="flex items-center justify-between">
@@ -220,25 +272,25 @@ export function EMICalculator() {
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <Label className="text-sm font-medium">Loan Amount</Label>
-            <span className="text-sm font-mono text-muted-foreground">₹{principal.toLocaleString("en-IN")}</span>
+            <NumericInput value={principal} onChange={setPrincipal} min={0} sliderMax={50000000} prefix="₹" step="100000" />
           </div>
-          <Slider min={100000} max={50000000} step={100000} value={[principal]} onValueChange={([val]) => setPrincipal(val)} className="py-2" />
+          <Slider min={100000} max={50000000} step={100000} value={[clamp(principal, 100000, 50000000)]} onValueChange={([val]) => setPrincipal(val)} className="py-2" />
           <div className="flex justify-between text-xs text-muted-foreground"><span>₹1 Lakh</span><span>₹5 Crore</span></div>
         </div>
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <Label className="text-sm font-medium">Interest Rate</Label>
-            <span className="text-sm font-mono text-muted-foreground">{rate}%</span>
+            <NumericInput value={rate} onChange={setRate} min={0} sliderMax={20} suffix="%" />
           </div>
-          <Slider min={5} max={20} step={0.25} value={[rate]} onValueChange={([val]) => setRate(val)} className="py-2" />
+          <Slider min={5} max={20} step={0.25} value={[clamp(rate, 5, 20)]} onValueChange={([val]) => setRate(val)} className="py-2" />
           <div className="flex justify-between text-xs text-muted-foreground"><span>5%</span><span>20%</span></div>
         </div>
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <Label className="text-sm font-medium">Loan Tenure</Label>
-            <span className="text-sm font-mono text-muted-foreground">{years} years</span>
+            <NumericInput value={years} onChange={setYears} min={1} sliderMax={30} suffix=" yr" step="1" />
           </div>
-          <Slider min={1} max={30} step={1} value={[years]} onValueChange={([val]) => setYears(val)} className="py-2" />
+          <Slider min={1} max={30} step={1} value={[clamp(years, 1, 30)]} onValueChange={([val]) => setYears(val)} className="py-2" />
           <div className="flex justify-between text-xs text-muted-foreground"><span>1 year</span><span>30 years</span></div>
         </div>
         <div className="rounded-lg bg-muted/50 p-4 space-y-3">
@@ -283,24 +335,24 @@ export function PresentValueCalculator() {
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <Label className="text-sm font-medium">Future Value (Goal)</Label>
-            <span className="text-sm font-mono text-muted-foreground">₹{futureValue.toLocaleString("en-IN")}</span>
+            <NumericInput value={futureValue} onChange={setFutureValue} min={0} sliderMax={100000000} prefix="₹" step="100000" />
           </div>
-          <Slider min={100000} max={100000000} step={100000} value={[futureValue]} onValueChange={([val]) => setFutureValue(val)} className="py-2" />
+          <Slider min={100000} max={100000000} step={100000} value={[clamp(futureValue, 100000, 100000000)]} onValueChange={([val]) => setFutureValue(val)} className="py-2" />
           <div className="flex justify-between text-xs text-muted-foreground"><span>₹1 Lakh</span><span>₹10 Crore</span></div>
         </div>
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <Label className="text-sm font-medium">Expected Return Rate</Label>
-            <span className="text-sm font-mono text-muted-foreground">{rate}%</span>
+            <NumericInput value={rate} onChange={setRate} min={0} sliderMax={25} suffix="%" />
           </div>
-          <Slider min={1} max={25} step={0.5} value={[rate]} onValueChange={([val]) => setRate(val)} className="py-2" />
+          <Slider min={1} max={25} step={0.5} value={[clamp(rate, 1, 25)]} onValueChange={([val]) => setRate(val)} className="py-2" />
         </div>
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <Label className="text-sm font-medium">Time Horizon</Label>
-            <span className="text-sm font-mono text-muted-foreground">{years} years</span>
+            <NumericInput value={years} onChange={setYears} min={1} sliderMax={40} suffix=" yr" step="1" />
           </div>
-          <Slider min={1} max={40} step={1} value={[years]} onValueChange={([val]) => setYears(val)} className="py-2" />
+          <Slider min={1} max={40} step={1} value={[clamp(years, 1, 40)]} onValueChange={([val]) => setYears(val)} className="py-2" />
         </div>
         <div className="rounded-lg bg-muted/50 p-4 space-y-3">
           <div className="flex items-center justify-between">
@@ -325,7 +377,7 @@ export function CompoundInterestCalculator() {
   const [principal, setPrincipal] = useState(100000);
   const [rate, setRate] = useState(8);
   const [years, setYears] = useState(10);
-  const [frequency, setFrequency] = useState(12); // Monthly
+  const [frequency, setFrequency] = useState(12);
 
   const amount = principal * Math.pow(1 + rate / 100 / frequency, frequency * years);
   const interest = amount - principal;
@@ -347,23 +399,23 @@ export function CompoundInterestCalculator() {
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <Label className="text-sm font-medium">Principal Amount</Label>
-            <span className="text-sm font-mono text-muted-foreground">₹{principal.toLocaleString("en-IN")}</span>
+            <NumericInput value={principal} onChange={setPrincipal} min={0} sliderMax={10000000} prefix="₹" step="10000" />
           </div>
-          <Slider min={10000} max={10000000} step={10000} value={[principal]} onValueChange={([val]) => setPrincipal(val)} className="py-2" />
+          <Slider min={10000} max={10000000} step={10000} value={[clamp(principal, 10000, 10000000)]} onValueChange={([val]) => setPrincipal(val)} className="py-2" />
         </div>
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <Label className="text-sm font-medium">Annual Interest Rate</Label>
-            <span className="text-sm font-mono text-muted-foreground">{rate}%</span>
+            <NumericInput value={rate} onChange={setRate} min={0} sliderMax={20} suffix="%" />
           </div>
-          <Slider min={1} max={20} step={0.25} value={[rate]} onValueChange={([val]) => setRate(val)} className="py-2" />
+          <Slider min={1} max={20} step={0.25} value={[clamp(rate, 1, 20)]} onValueChange={([val]) => setRate(val)} className="py-2" />
         </div>
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <Label className="text-sm font-medium">Time Period</Label>
-            <span className="text-sm font-mono text-muted-foreground">{years} years</span>
+            <NumericInput value={years} onChange={setYears} min={1} sliderMax={30} suffix=" yr" step="1" />
           </div>
-          <Slider min={1} max={30} step={1} value={[years]} onValueChange={([val]) => setYears(val)} className="py-2" />
+          <Slider min={1} max={30} step={1} value={[clamp(years, 1, 30)]} onValueChange={([val]) => setYears(val)} className="py-2" />
         </div>
         <div className="rounded-lg bg-muted/50 p-4 space-y-3">
           <div className="flex items-center justify-between">
@@ -405,9 +457,9 @@ export function RuleOf72Calculator() {
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <Label className="text-sm font-medium">Annual Interest Rate</Label>
-            <span className="text-sm font-mono text-muted-foreground">{rate}%</span>
+            <NumericInput value={rate} onChange={setRate} min={0.1} sliderMax={25} suffix="%" />
           </div>
-          <Slider min={1} max={25} step={0.5} value={[rate]} onValueChange={([val]) => setRate(val)} className="py-2" />
+          <Slider min={1} max={25} step={0.5} value={[clamp(rate, 1, 25)]} onValueChange={([val]) => setRate(val)} className="py-2" />
           <div className="flex justify-between text-xs text-muted-foreground"><span>1%</span><span>25%</span></div>
         </div>
         <div className="rounded-lg bg-muted/50 p-4 space-y-3">
@@ -451,16 +503,16 @@ export function InflationAdjustedReturnCalculator() {
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <Label className="text-sm font-medium">Nominal Return</Label>
-            <span className="text-sm font-mono text-muted-foreground">{nominalReturn}%</span>
+            <NumericInput value={nominalReturn} onChange={setNominalReturn} min={0} sliderMax={30} suffix="%" />
           </div>
-          <Slider min={1} max={30} step={0.5} value={[nominalReturn]} onValueChange={([val]) => setNominalReturn(val)} className="py-2" />
+          <Slider min={1} max={30} step={0.5} value={[clamp(nominalReturn, 1, 30)]} onValueChange={([val]) => setNominalReturn(val)} className="py-2" />
         </div>
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <Label className="text-sm font-medium">Inflation Rate</Label>
-            <span className="text-sm font-mono text-muted-foreground">{inflation}%</span>
+            <NumericInput value={inflation} onChange={setInflation} min={0} sliderMax={15} suffix="%" />
           </div>
-          <Slider min={0} max={15} step={0.5} value={[inflation]} onValueChange={([val]) => setInflation(val)} className="py-2" />
+          <Slider min={0} max={15} step={0.5} value={[clamp(inflation, 0, 15)]} onValueChange={([val]) => setInflation(val)} className="py-2" />
         </div>
         <div className="rounded-lg bg-muted/50 p-4 space-y-3">
           <div className="flex items-center justify-between">
