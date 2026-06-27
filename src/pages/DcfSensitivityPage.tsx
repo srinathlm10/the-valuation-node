@@ -13,7 +13,7 @@ export default function DcfSensitivityPage() {
           name="description"
           content="Interactive DCF model with a 5×5 sensitivity grid across WACC and terminal growth. Adjust assumptions live and download as Excel. Built for Indian markets research."
         />
-        <link rel="canonical" href="https://thevaluationnode.com/tools/dcf-sensitivity" />
+        <link rel="canonical" href="https://valuationnode.com/tools/dcf-sensitivity" />
         <meta property="og:title" content="DCF Sensitivity Calculator - The Valuation Node" />
         <meta
           property="og:description"

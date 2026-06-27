@@ -20,7 +20,7 @@ export default function AboutSite() {
           name="description"
           content="The mission, editorial principles, and disclosure for The Valuation Node."
         />
-        <link rel="canonical" href="https://thevaluationnode.com/about/site" />
+        <link rel="canonical" href="https://valuationnode.com/about/site" />
       </Helmet>
 
       <nav className="border-b">

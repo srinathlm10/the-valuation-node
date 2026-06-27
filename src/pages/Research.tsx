@@ -51,7 +51,7 @@ export default function Research() {
           content="Original analysis of Indian companies, sectors, and credit. All work is authored, dated, and shows its sources."
         />
         <meta property="og:title" content="Research - The Valuation Node" />
-        <link rel="canonical" href="https://thevaluationnode.com/research" />
+        <link rel="canonical" href="https://valuationnode.com/research" />
       </Helmet>
 
       <div className="container max-w-4xl py-14">

@@ -40,7 +40,7 @@ export default function Tools() {
           name="description"
           content="Financial calculators for SIP, CAGR, EMI, compound interest, future value, present value, and more."
         />
-        <link rel="canonical" href="https://thevaluationnode.com/tools" />
+        <link rel="canonical" href="https://valuationnode.com/tools" />
       </Helmet>
 
       <div className="container max-w-3xl py-14">

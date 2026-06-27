@@ -129,7 +129,7 @@ export default function ToolPage() {
       <Helmet>
         <title>{meta.label} - Tools - The Valuation Node</title>
         <meta name="description" content={meta.description} />
-        <link rel="canonical" href={`https://thevaluationnode.com/tools/${slug}`} />
+        <link rel="canonical" href={`https://valuationnode.com/tools/${slug}`} />
       </Helmet>
 
       <div className="container max-w-3xl py-14">

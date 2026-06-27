@@ -12,7 +12,7 @@ export default function BuildADcfPage() {
           name="description"
           content="Build a complete discounted cash flow model for a real Indian company, one step at a time. Learn what each assumption means and how it affects the final valuation."
         />
-        <link rel="canonical" href="https://thevaluationnode.com/learn/by-doing/build-a-dcf" />
+        <link rel="canonical" href="https://valuationnode.com/learn/by-doing/build-a-dcf" />
         <meta property="og:title" content="Build a DCF, Step by Step - The Valuation Node" />
         <meta
           property="og:description"
@@ -30,7 +30,7 @@ export default function BuildADcfPage() {
             educationalLevel: "Beginner to Intermediate",
             learningResourceType: "Interactive Tutorial",
             teaches: ["DCF valuation", "WACC", "Terminal value", "NOPAT", "Free cash flow"],
-            url: "https://thevaluationnode.com/learn/by-doing/build-a-dcf",
+            url: "https://valuationnode.com/learn/by-doing/build-a-dcf",
           })}
         </script>
       </Helmet>

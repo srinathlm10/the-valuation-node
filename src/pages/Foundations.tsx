@@ -185,7 +185,7 @@ export default function Foundations() {
           name="description"
           content="Finance from first principles. Topics in accounting, valuation, credit, markets, ESG, and fintech, with Indian context."
         />
-        <link rel="canonical" href="https://thevaluationnode.com/learn/foundations" />
+        <link rel="canonical" href="https://valuationnode.com/learn/foundations" />
       </Helmet>
 
       <div className="container py-14">

@@ -52,7 +52,7 @@ export default function LearnByDoing() {
           name="description"
           content="Interactive finance lessons through actual practice with real company data."
         />
-        <link rel="canonical" href="https://thevaluationnode.com/learn/by-doing" />
+        <link rel="canonical" href="https://valuationnode.com/learn/by-doing" />
       </Helmet>
 
       <div className="container max-w-3xl py-14">

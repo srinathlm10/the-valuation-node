@@ -12,7 +12,7 @@ export default function MarketsCompliance() {
           name="description"
           content="SEBI, NSE, and BSE regulatory circulars. Updated monthly."
         />
-        <link rel="canonical" href="https://thevaluationnode.com/markets/compliance" />
+        <link rel="canonical" href="https://valuationnode.com/markets/compliance" />
       </Helmet>
 
       <div className="container py-14">

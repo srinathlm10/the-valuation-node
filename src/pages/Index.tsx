@@ -44,7 +44,7 @@ export default function Index() {
           "@context": "https://schema.org",
           "@type": "Organization",
           name: "The Valuation Node",
-          url: "https://thevaluationnode.com",
+          url: "https://valuationnode.com",
           description: "Indian markets research and learning by Srinath Gajji.",
         })}</script>
       </Helmet>

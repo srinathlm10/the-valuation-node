@@ -9,7 +9,7 @@ import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const BASE_URL = "https://thevaluationnode.com";
+const BASE_URL = "https://valuationnode.com";
 const today = new Date().toISOString().split("T")[0];
 
 const routes = [

@@ -43,13 +43,13 @@ export default function GlossaryEntry() {
           name="description"
           content={def.definition ? def.definition.slice(0, 160) : `Definition of ${def.term}`}
         />
-        <link rel="canonical" href={`https://thevaluationnode.com/learn/glossary/${termSlug}`} />
+        <link rel="canonical" href={`https://valuationnode.com/learn/glossary/${termSlug}`} />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "DefinedTerm",
           name: def.term,
           description: def.definition,
-          inDefinedTermSet: "https://thevaluationnode.com/learn/glossary",
+          inDefinedTermSet: "https://valuationnode.com/learn/glossary",
         })}</script>
       </Helmet>
 

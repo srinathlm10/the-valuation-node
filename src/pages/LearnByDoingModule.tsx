@@ -19,7 +19,7 @@ export default function LearnByDoingModule() {
     <Layout>
       <Helmet>
         <title>{title} - Learn-by-Doing - The Valuation Node</title>
-        <link rel="canonical" href={`https://thevaluationnode.com/learn/by-doing/${slug}`} />
+        <link rel="canonical" href={`https://valuationnode.com/learn/by-doing/${slug}`} />
       </Helmet>
 
       <div className="container max-w-3xl py-14 text-center">

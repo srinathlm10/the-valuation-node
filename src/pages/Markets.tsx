@@ -12,7 +12,7 @@ export default function Markets() {
           name="description"
           content="Indian market data - Nifty 50 fundamentals and SEBI/NSE/BSE compliance circulars."
         />
-        <link rel="canonical" href="https://thevaluationnode.com/markets" />
+        <link rel="canonical" href="https://valuationnode.com/markets" />
       </Helmet>
 
       <div className="container max-w-3xl py-14">

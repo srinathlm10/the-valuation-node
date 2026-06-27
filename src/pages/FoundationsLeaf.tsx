@@ -54,7 +54,7 @@ export default function FoundationsLeaf() {
         />
         <link
           rel="canonical"
-          href={`https://thevaluationnode.com/learn/foundations/${section}/${topic}`}
+          href={`https://valuationnode.com/learn/foundations/${section}/${topic}`}
         />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",

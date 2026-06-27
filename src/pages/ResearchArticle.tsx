@@ -47,7 +47,7 @@ function CitationBlock({ article }: { article: any }) {
   const [copied, setCopied] = useState(false);
   const citation =
     article.citation_format ||
-    `Gajji, S. (${new Date(article.published_at).getFullYear()}). "${article.title}." The Valuation Node. https://thevaluationnode.com/research/${article.slug}`;
+    `Gajji, S. (${new Date(article.published_at).getFullYear()}). "${article.title}." The Valuation Node. https://valuationnode.com/research/${article.slug}`;
 
   const copy = () => {
     navigator.clipboard.writeText(citation);
@@ -136,7 +136,7 @@ export default function ResearchArticle() {
         <meta property="og:type" content="article" />
         {article.cover_image_url && <meta property="og:image" content={article.cover_image_url} />}
         <meta property="article:published_time" content={article.published_at || ""} />
-        <link rel="canonical" href={`https://thevaluationnode.com/research/${slug}`} />
+        <link rel="canonical" href={`https://valuationnode.com/research/${slug}`} />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Article",

@@ -50,7 +50,7 @@ export default function Glossary() {
           name="description"
           content="500+ finance definitions, each with a formula, a real Indian example, and links to Foundations pages."
         />
-        <link rel="canonical" href="https://thevaluationnode.com/learn/glossary" />
+        <link rel="canonical" href="https://valuationnode.com/learn/glossary" />
       </Helmet>
 
       <div className="container max-w-4xl py-14">

@@ -34,7 +34,7 @@ export default function LearnIndex() {
           name="description"
           content="Finance concepts, from foundations to applied analysis, explained from first principles. A public learning library by Srinath Gajji."
         />
-        <link rel="canonical" href="https://thevaluationnode.com/learn" />
+        <link rel="canonical" href="https://valuationnode.com/learn" />
       </Helmet>
 
       <div className="container max-w-3xl py-14">

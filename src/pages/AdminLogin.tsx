@@ -70,7 +70,7 @@ export default function AdminLogin() {
             <Input
               id="email"
               type="email"
-              placeholder="admin@thevaluationnode.com"
+              placeholder="admin@valuationnode.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required

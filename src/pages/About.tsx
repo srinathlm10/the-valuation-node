@@ -30,14 +30,14 @@ export default function About() {
           name="description"
           content="About The Valuation Node - Indian markets research and learning by Srinath Gajji."
         />
-        <link rel="canonical" href="https://thevaluationnode.com/about" />
+        <link rel="canonical" href="https://valuationnode.com/about" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Person",
           name: "Srinath Gajji",
           jobTitle: "Founder, The Valuation Node",
           affiliation: { "@type": "Organization", name: "NIT Rourkela" },
-          url: "https://thevaluationnode.com/about/author",
+          url: "https://valuationnode.com/about/author",
         })}</script>
       </Helmet>
 

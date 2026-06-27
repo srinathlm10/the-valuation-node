@@ -8,7 +8,7 @@ No investment advice is given. No paid promotions.
 
 ## Research
 Original analysis of Indian companies, sectors, and credit instruments.
-URL: https://thevaluationnode.com/research
+URL: https://valuationnode.com/research
 
 ## Learning Library
 Free structured curriculum for Indian market analysis:
@@ -19,25 +19,25 @@ Free structured curriculum for Indian market analysis:
 - Markets & Instruments (equities, bonds, derivatives, REITs, ETFs)
 - ESG & Sustainable Finance (ESG scores, green bonds, carbon accounting)
 - Fintech & Digital Finance (payments, digital lending, account aggregators)
-URL: https://thevaluationnode.com/learn
+URL: https://valuationnode.com/learn
 
 ## Tools
 Free financial calculators for Indian investors (SIP, DCF sensitivity, CAGR, EMI, present value).
-URL: https://thevaluationnode.com/tools
+URL: https://valuationnode.com/tools
 
 ## Glossary
 Searchable glossary of Indian market and financial terms.
-URL: https://thevaluationnode.com/learn/glossary
+URL: https://valuationnode.com/learn/glossary
 
 ## Markets
 Nifty 50 company reference data and SEBI compliance calendar.
-URL: https://thevaluationnode.com/markets
+URL: https://valuationnode.com/markets
 
 ## Author
 Srinath Gajji — Founder and Editor, MBA Candidate at NIT Rourkela.
 Contact: srinath@valuationnode.com
 LinkedIn: https://www.linkedin.com/in/gajji-srinath/
-URL: https://thevaluationnode.com/about/author
+URL: https://valuationnode.com/about/author
 
 ## Editorial Principles
 1. All sources are cited.
@@ -47,4 +47,4 @@ URL: https://thevaluationnode.com/about/author
 5. No sponsored content.
 
 ## Sitemap
-https://thevaluationnode.com/sitemap.xml
+https://valuationnode.com/sitemap.xml

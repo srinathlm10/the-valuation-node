@@ -9,4 +9,4 @@ Disallow: /settings
 Disallow: /auth/callback
 Disallow: /migration
 
-Sitemap: https://thevaluationnode.com/sitemap.xml
+Sitemap: https://valuationnode.com/sitemap.xml

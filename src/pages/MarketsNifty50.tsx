@@ -25,7 +25,7 @@ export default function MarketsNifty50() {
           name="description"
           content="Fundamental data for all 50 Nifty 50 constituents - P/E, P/B, dividend yield, market cap."
         />
-        <link rel="canonical" href="https://thevaluationnode.com/markets/nifty50" />
+        <link rel="canonical" href="https://valuationnode.com/markets/nifty50" />
       </Helmet>
 
       <div className="container py-14">
