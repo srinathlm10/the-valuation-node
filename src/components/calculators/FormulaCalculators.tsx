@@ -1,15 +1,10 @@
 import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
-import { Bot, Calculator } from "lucide-react";
+import { Calculator } from "lucide-react";
 
-interface FormulaCalculatorProps {
-  onExplain: (formula: string, result: { inputs: Record<string, number>; output: number }) => void;
-}
-
-export function FutureValueCalculator({ onExplain }: FormulaCalculatorProps) {
+export function FutureValueCalculator() {
   const [presentValue, setPresentValue] = useState(100000);
   const [rate, setRate] = useState(12);
   const [years, setYears] = useState(10);
@@ -68,15 +63,12 @@ export function FutureValueCalculator({ onExplain }: FormulaCalculatorProps) {
             <span className="font-mono">{multiplier.toFixed(2)}x</span>
           </div>
         </div>
-        <Button variant="outline" className="w-full gap-2" onClick={() => onExplain("Future Value", { inputs: { presentValue, rate, years }, output: futureValue })}>
-          <Bot className="h-4 w-4" />Explain the Math
-        </Button>
       </CardContent>
     </Card>
   );
 }
 
-export function SIPCalculator({ onExplain }: FormulaCalculatorProps) {
+export function SIPCalculator() {
   const [monthlyInvestment, setMonthlyInvestment] = useState(10000);
   const [rate, setRate] = useState(12);
   const [years, setYears] = useState(15);
@@ -137,15 +129,12 @@ export function SIPCalculator({ onExplain }: FormulaCalculatorProps) {
             <span className="font-mono text-emerald">+₹{Math.round(totalGain).toLocaleString("en-IN")}</span>
           </div>
         </div>
-        <Button variant="outline" className="w-full gap-2" onClick={() => onExplain("SIP", { inputs: { monthlyInvestment, rate, years }, output: futureValue })}>
-          <Bot className="h-4 w-4" />Explain the Math
-        </Button>
       </CardContent>
     </Card>
   );
 }
 
-export function CAGRCalculator({ onExplain }: FormulaCalculatorProps) {
+export function CAGRCalculator() {
   const [beginningValue, setBeginningValue] = useState(100000);
   const [endingValue, setEndingValue] = useState(250000);
   const [years, setYears] = useState(5);
@@ -200,15 +189,12 @@ export function CAGRCalculator({ onExplain }: FormulaCalculatorProps) {
             <span className="font-mono">{(endingValue / beginningValue).toFixed(2)}x</span>
           </div>
         </div>
-        <Button variant="outline" className="w-full gap-2" onClick={() => onExplain("CAGR", { inputs: { beginningValue, endingValue, years }, output: cagr })}>
-          <Bot className="h-4 w-4" />Explain the Math
-        </Button>
       </CardContent>
     </Card>
   );
 }
 
-export function EMICalculator({ onExplain }: FormulaCalculatorProps) {
+export function EMICalculator() {
   const [principal, setPrincipal] = useState(5000000);
   const [rate, setRate] = useState(8.5);
   const [years, setYears] = useState(20);
@@ -269,15 +255,12 @@ export function EMICalculator({ onExplain }: FormulaCalculatorProps) {
             <span className="font-mono">₹{Math.round(totalPayment).toLocaleString("en-IN")}</span>
           </div>
         </div>
-        <Button variant="outline" className="w-full gap-2" onClick={() => onExplain("EMI", { inputs: { principal, rate, years }, output: emi })}>
-          <Bot className="h-4 w-4" />Explain the Math
-        </Button>
       </CardContent>
     </Card>
   );
 }
 
-export function PresentValueCalculator({ onExplain }: FormulaCalculatorProps) {
+export function PresentValueCalculator() {
   const [futureValue, setFutureValue] = useState(10000000);
   const [rate, setRate] = useState(12);
   const [years, setYears] = useState(15);
@@ -333,15 +316,12 @@ export function PresentValueCalculator({ onExplain }: FormulaCalculatorProps) {
             <span className="font-mono">{(futureValue / presentValue).toFixed(2)}x</span>
           </div>
         </div>
-        <Button variant="outline" className="w-full gap-2" onClick={() => onExplain("Present Value", { inputs: { futureValue, rate, years }, output: presentValue })}>
-          <Bot className="h-4 w-4" />Explain the Math
-        </Button>
       </CardContent>
     </Card>
   );
 }
 
-export function CompoundInterestCalculator({ onExplain }: FormulaCalculatorProps) {
+export function CompoundInterestCalculator() {
   const [principal, setPrincipal] = useState(100000);
   const [rate, setRate] = useState(8);
   const [years, setYears] = useState(10);
@@ -399,15 +379,12 @@ export function CompoundInterestCalculator({ onExplain }: FormulaCalculatorProps
             <span className="font-mono text-amber">+₹{Math.round(compoundingBenefit).toLocaleString("en-IN")} extra</span>
           </div>
         </div>
-        <Button variant="outline" className="w-full gap-2" onClick={() => onExplain("Compound Interest", { inputs: { principal, rate, years, frequency }, output: amount })}>
-          <Bot className="h-4 w-4" />Explain the Math
-        </Button>
       </CardContent>
     </Card>
   );
 }
 
-export function RuleOf72Calculator({ onExplain }: FormulaCalculatorProps) {
+export function RuleOf72Calculator() {
   const [rate, setRate] = useState(12);
 
   const yearsToDouble = 72 / rate;
@@ -447,15 +424,12 @@ export function RuleOf72Calculator({ onExplain }: FormulaCalculatorProps) {
             <span className="font-mono">{Math.abs(yearsToDouble - exactYears).toFixed(2)} years</span>
           </div>
         </div>
-        <Button variant="outline" className="w-full gap-2" onClick={() => onExplain("Rule of 72", { inputs: { rate }, output: yearsToDouble })}>
-          <Bot className="h-4 w-4" />Explain the Math
-        </Button>
       </CardContent>
     </Card>
   );
 }
 
-export function InflationAdjustedReturnCalculator({ onExplain }: FormulaCalculatorProps) {
+export function InflationAdjustedReturnCalculator() {
   const [nominalReturn, setNominalReturn] = useState(12);
   const [inflation, setInflation] = useState(6);
 
@@ -502,9 +476,6 @@ export function InflationAdjustedReturnCalculator({ onExplain }: FormulaCalculat
             <span className="font-mono">{realReturn >= 0 ? 'Growing' : 'Shrinking'}</span>
           </div>
         </div>
-        <Button variant="outline" className="w-full gap-2" onClick={() => onExplain("Real Return", { inputs: { nominalReturn, inflation }, output: realReturn })}>
-          <Bot className="h-4 w-4" />Explain the Math
-        </Button>
       </CardContent>
     </Card>
   );
