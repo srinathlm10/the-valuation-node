@@ -1,0 +1,50 @@
+# The Valuation Node
+> Independent research and learning on Indian markets, authored by Srinath Gajji.
+
+The Valuation Node publishes original equity valuation and credit analysis of Indian companies,
+alongside a structured free learning library covering accounting, corporate finance, valuation,
+credit analysis, ESG, fintech, and markets. All content cites sources and shows its methodology.
+No investment advice is given. No paid promotions.
+
+## Research
+Original analysis of Indian companies, sectors, and credit instruments.
+URL: https://thevaluationnode.com/research
+
+## Learning Library
+Free structured curriculum for Indian market analysis:
+- Accounting (income statement, balance sheet, cash flows, ratios)
+- Corporate Finance (WACC, capital structure, DCF)
+- Valuation (DCF, relative valuation, sector-specific multiples)
+- Credit Analysis (CRISIL/ICRA rating frameworks, Altman Z-score, bond pricing)
+- Markets & Instruments (equities, bonds, derivatives, REITs, ETFs)
+- ESG & Sustainable Finance (ESG scores, green bonds, carbon accounting)
+- Fintech & Digital Finance (payments, digital lending, account aggregators)
+URL: https://thevaluationnode.com/learn
+
+## Tools
+Free financial calculators for Indian investors (SIP, DCF sensitivity, CAGR, EMI, present value).
+URL: https://thevaluationnode.com/tools
+
+## Glossary
+Searchable glossary of Indian market and financial terms.
+URL: https://thevaluationnode.com/learn/glossary
+
+## Markets
+Nifty 50 company reference data and SEBI compliance calendar.
+URL: https://thevaluationnode.com/markets
+
+## Author
+Srinath Gajji — Founder and Editor, MBA Candidate at NIT Rourkela.
+Contact: srinath@valuationnode.com
+LinkedIn: https://www.linkedin.com/in/gajji-srinath/
+URL: https://thevaluationnode.com/about/author
+
+## Editorial Principles
+1. All sources are cited.
+2. Methodology is shown (models, assumptions, data sources).
+3. Uncertainty is named, not hidden.
+4. No investment advice.
+5. No sponsored content.
+
+## Sitemap
+https://thevaluationnode.com/sitemap.xml
