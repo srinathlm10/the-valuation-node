@@ -10,7 +10,6 @@ const navLinks = [
 
 const externalLinks = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/gajji-srinath/" },
-  { label: "X (Twitter)", href: "https://x.com" },
   { label: "Email", href: "mailto:srinath@valuationnode.com" },
 ];
 
