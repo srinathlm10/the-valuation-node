@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { FOUNDATIONS_TREE } from "./Foundations";
+import { FOUNDATIONS_CONTENT } from "@/data/foundationsContent";
 import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import ReactMarkdown from "react-markdown";
@@ -27,9 +28,9 @@ export default function FoundationsLeaf() {
   const { section, topic } = useParams<{ section: string; topic: string }>();
 
   const sectionData = FOUNDATIONS_TREE.find((g) => g.section === section);
-  const topicData = sectionData?.topics.find((t) => t.slug === topic);
+  const topicMeta = sectionData?.topics.find((t) => t.slug === topic);
 
-  if (!sectionData || !topicData) {
+  if (!sectionData || !topicMeta) {
     return (
       <Layout>
         <div className="container max-w-3xl py-20 text-center text-muted-foreground text-sm">
@@ -42,15 +43,16 @@ export default function FoundationsLeaf() {
     );
   }
 
-  const isPlaceholder = !topicData.published;
+  const content = FOUNDATIONS_CONTENT[topic!];
+  const isPlaceholder = !topicMeta.published || !content;
 
   return (
     <Layout>
       <Helmet>
-        <title>{topicData.label} - Foundations - The Valuation Node</title>
+        <title>{topicMeta.label} - Foundations - The Valuation Node</title>
         <meta
           name="description"
-          content={`Learn ${topicData.label} from first principles, with Indian context and worked examples.`}
+          content={`Learn ${topicMeta.label} from first principles, with Indian context and worked examples.`}
         />
         <link
           rel="canonical"
@@ -59,7 +61,7 @@ export default function FoundationsLeaf() {
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "LearningResource",
-          name: topicData.label,
+          name: topicMeta.label,
           author: { "@type": "Person", name: "Srinath Gajji" },
           provider: { "@type": "Organization", name: "The Valuation Node" },
         })}</script>
@@ -73,7 +75,7 @@ export default function FoundationsLeaf() {
           <li>/</li>
           <li><Link to={`/learn/foundations/${section}`} className="hover:text-foreground">{sectionData.label}</Link></li>
           <li>/</li>
-          <li className="text-foreground font-medium">{topicData.label}</li>
+          <li className="text-foreground font-medium">{topicMeta.label}</li>
         </ol>
       </nav>
 
@@ -81,7 +83,7 @@ export default function FoundationsLeaf() {
         <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
           Foundations · {sectionData.label}
         </span>
-        <h1 className="mt-2 text-3xl font-bold tracking-tight">{topicData.label}</h1>
+        <h1 className="mt-2 text-3xl font-bold tracking-tight">{topicMeta.label}</h1>
 
         {isPlaceholder ? (
           <div className="mt-8 rounded-xl border border-dashed border-border p-10 text-center">
@@ -97,25 +99,31 @@ export default function FoundationsLeaf() {
           <>
             {/* Meta */}
             <div className="mt-4 flex items-center gap-4 text-sm text-muted-foreground">
-              <span>TODO: reading time</span>
-              <span>Last reviewed: TODO</span>
+              <span>{content.readingTime}</span>
+              <span>Last reviewed: {content.lastReviewed}</span>
             </div>
 
             {/* Prerequisites */}
-            <div className="mt-6 rounded-lg bg-muted/30 border p-4">
-              <p className="text-sm font-medium">Before reading this, you should be comfortable with:</p>
-              <ul className="mt-2 text-sm text-muted-foreground list-disc list-inside">
-                {/* TODO: Populate prerequisites with links to other Foundations pages */}
-                <li>Prerequisites to be filled in by author</li>
-              </ul>
-            </div>
+            {content.prerequisites.length > 0 && (
+              <div className="mt-6 rounded-lg bg-muted/30 border p-4">
+                <p className="text-sm font-medium">Before reading this, you should be comfortable with:</p>
+                <ul className="mt-2 text-sm text-muted-foreground list-disc list-inside space-y-1">
+                  {content.prerequisites.map((p) => (
+                    <li key={p.href}>
+                      <Link to={p.href} className="underline underline-offset-2 hover:text-foreground">
+                        {p.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
             {/* Intuition */}
             <section className="mt-10">
               <h2 className="text-xl font-semibold">Intuition</h2>
               <div className="mt-3 prose prose-slate dark:prose-invert max-w-none text-muted-foreground">
-                {/* TODO: 2-3 paragraphs, plain English, real Indian-context example. Srinath to fill. */}
-                <p>[Intuition section - to be written by Srinath]</p>
+                <ReactMarkdown>{content.intuition}</ReactMarkdown>
               </div>
             </section>
 
@@ -123,26 +131,28 @@ export default function FoundationsLeaf() {
             <section className="mt-10">
               <h2 className="text-xl font-semibold">Mechanics</h2>
               <div className="mt-3 prose prose-slate dark:prose-invert max-w-none">
-                {/* TODO: Formal explanation, formulas (KaTeX), worked example with real Indian company. Srinath to fill. */}
-                <p>[Mechanics section - to be written by Srinath]</p>
+                <ReactMarkdown>{content.mechanics}</ReactMarkdown>
               </div>
             </section>
 
             {/* Deep Dive */}
             <Collapsible title="Show advanced details">
               <div className="prose prose-sm prose-slate dark:prose-invert max-w-none text-muted-foreground">
-                {/* TODO: Edge cases, sector-specific adjustments, Indian-context nuances. Srinath to fill. */}
-                <p>[Deep dive - to be written by Srinath]</p>
+                <ReactMarkdown>{content.deepDive}</ReactMarkdown>
               </div>
             </Collapsible>
 
             {/* Common Mistakes */}
             <div className="mt-8 rounded-xl bg-red-50/50 dark:bg-red-900/10 border border-red-200 dark:border-red-800 p-6">
               <h2 className="font-semibold text-red-800 dark:text-red-200">Common mistakes</h2>
-              <div className="mt-3 prose prose-sm prose-slate dark:prose-invert max-w-none text-muted-foreground">
-                {/* TODO: Three ways analysts get this wrong. Srinath to fill. */}
-                <p>[Common mistakes - to be written by Srinath]</p>
-              </div>
+              <ul className="mt-3 space-y-2">
+                {content.commonMistakes.map((mistake, i) => (
+                  <li key={i} className="text-sm text-muted-foreground flex gap-2">
+                    <span className="mt-0.5 shrink-0 text-red-400">✗</span>
+                    <span>{mistake}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
 
             {/* See it applied */}
@@ -154,18 +164,24 @@ export default function FoundationsLeaf() {
             </div>
 
             {/* Try it yourself */}
-            <div className="mt-4 rounded-lg border p-4">
-              <h2 className="text-sm font-semibold">Try it yourself</h2>
-              <p className="mt-1 text-sm text-muted-foreground">
-                {/* TODO: Link to relevant Tool or Learn-by-Doing module */}
-                Interactive exercises coming soon.
-              </p>
-            </div>
-
-            {/* Update log */}
-            <div className="mt-6 text-xs text-muted-foreground">
-              {/* TODO: Update log */}
-            </div>
+            {content.tryItHref ? (
+              <div className="mt-4 rounded-lg border p-4">
+                <h2 className="text-sm font-semibold">Try it yourself</h2>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Practice the concepts with an interactive calculator:{" "}
+                  <Link to={content.tryItHref} className="text-foreground underline underline-offset-2 hover:no-underline">
+                    open tool →
+                  </Link>
+                </p>
+              </div>
+            ) : (
+              <div className="mt-4 rounded-lg border p-4">
+                <h2 className="text-sm font-semibold">Try it yourself</h2>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Interactive exercises coming soon.
+                </p>
+              </div>
+            )}
 
             <div className="mt-10">
               <NewsletterSignup />
