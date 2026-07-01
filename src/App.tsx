@@ -44,6 +44,10 @@ const Tools = lazy(() => import("./pages/Tools"));
 const ToolPage = lazy(() => import("./pages/ToolPage"));
 const DcfSensitivityPage = lazy(() => import("./pages/DcfSensitivityPage"));
 const BuildADcfPage = lazy(() => import("./pages/BuildADcfPage"));
+const ReadIncomeStatementPage = lazy(() => import("./pages/ReadIncomeStatementPage"));
+const ComputeRatiosPage = lazy(() => import("./pages/ComputeRatiosPage"));
+const CompareCompaniesPage = lazy(() => import("./pages/CompareCompaniesPage"));
+const SpotRedFlagsPage = lazy(() => import("./pages/SpotRedFlagsPage"));
 
 // Markets
 const Markets = lazy(() => import("./pages/Markets"));
@@ -99,6 +103,10 @@ const App = () => (
                 <Route path="/learn/foundations/:section/:topic" element={<FoundationsLeaf />} />
                 <Route path="/learn/by-doing" element={<LearnByDoing />} />
                 <Route path="/learn/by-doing/build-a-dcf" element={<BuildADcfPage />} />
+                <Route path="/learn/by-doing/read-an-income-statement" element={<ReadIncomeStatementPage />} />
+                <Route path="/learn/by-doing/compute-ratios" element={<ComputeRatiosPage />} />
+                <Route path="/learn/by-doing/compare-two-companies" element={<CompareCompaniesPage />} />
+                <Route path="/learn/by-doing/spot-the-red-flags" element={<SpotRedFlagsPage />} />
                 <Route path="/learn/by-doing/:slug" element={<LearnByDoingModule />} />
                 <Route path="/learn/glossary" element={<Glossary />} />
                 <Route path="/learn/glossary/:termSlug" element={<GlossaryEntry />} />
