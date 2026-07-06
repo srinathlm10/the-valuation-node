@@ -33,13 +33,17 @@ export default function Index() {
   return (
     <Layout>
       <Helmet>
-        <title>The Valuation Node</title>
+        <title>The Valuation Node: Indian Market Research, Valuations & Learning</title>
         <meta
           name="description"
           content="Research and learning on Indian markets, by Srinath Gajji. Original valuations, credit analysis, and a public learning library."
         />
-        <meta property="og:title" content="The Valuation Node" />
-        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://valuationnode.com/" />
+        <meta property="og:title" content="The Valuation Node: Indian Market Research & Learning" />
+        <meta property="og:description" content="Original valuation and credit analysis of Indian companies, plus a free learning library covering accounting, valuation, ESG, and fintech." />
+        <meta property="og:url" content="https://valuationnode.com/" />
+        <meta name="twitter:title" content="The Valuation Node: Indian Market Research & Learning" />
+        <meta name="twitter:description" content="Original valuations, credit analysis, and a free learning library on Indian markets. By Srinath Gajji." />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Organization",

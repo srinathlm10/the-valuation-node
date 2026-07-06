@@ -96,12 +96,20 @@ export function CircularCard({ circular, onBotSummary, onViewDetails }: Circular
 }
 
 interface ComplianceFeedProps {
-  circulars: Circular[];
-  onBotSummary: (circular: Circular) => void;
-  onViewDetails: (circular: Circular) => void;
+  circulars?: Circular[];
+  onBotSummary?: (circular: Circular) => void;
+  onViewDetails?: (circular: Circular) => void;
 }
 
-export function ComplianceFeed({ circulars, onBotSummary, onViewDetails }: ComplianceFeedProps) {
+export function ComplianceFeed({ circulars = [], onBotSummary = () => {}, onViewDetails = () => {} }: ComplianceFeedProps) {
+  if (circulars.length === 0) {
+    return (
+      <div className="rounded-xl border border-dashed p-10 text-center text-sm text-muted-foreground">
+        No circulars to show yet. For the latest updates, see the SEBI and exchange
+        websites directly.
+      </div>
+    );
+  }
   return (
     <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
       {circulars.map((circular) => (

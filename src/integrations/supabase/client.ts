@@ -23,7 +23,8 @@ export const supabase = createClient<Database>(
       autoRefreshToken: true,
       detectSessionInUrl: true,
       flowType: "pkce", // PKCE is more secure for OAuth flows
-      storage: localStorage,
+      // Guard for SSR/SSG (Node has no localStorage): only use it in the browser.
+      storage: typeof window !== "undefined" ? window.localStorage : undefined,
     },
   }
 );
