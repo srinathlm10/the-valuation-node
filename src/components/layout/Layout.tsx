@@ -19,7 +19,7 @@ export function Layout({ children }: LayoutProps) {
         <meta property="og:image" content="https://valuationnode.com/og-image.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="The Valuation Node — Indian Market Research and Learning" />
+        <meta property="og:image:alt" content="The Valuation Node: Indian Market Research and Learning" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="https://valuationnode.com/og-image.png" />
       </Helmet>

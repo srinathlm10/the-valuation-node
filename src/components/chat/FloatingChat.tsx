@@ -13,7 +13,7 @@ export function FloatingChat({ context, initialMessage }: FloatingChatProps) {
 
   return (
     <>
-      {/* Floating button — bottom-right, always visible */}
+      {/* Floating button, bottom-right, always visible */}
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}

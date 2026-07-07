@@ -7,7 +7,7 @@ const subpages = [
   {
     href: "/about/author",
     title: "Author",
-    description: "About Srinath Gajji — background, what he's working on, and how to reach him.",
+    description: "About Srinath Gajji, background, what he's working on, and how to reach him.",
   },
   {
     href: "/about/site",
@@ -17,7 +17,7 @@ const subpages = [
   {
     href: "/about/methodology",
     title: "Methodology",
-    description: "How valuation and credit analysis work on this site — DCF approach, WACC, data sources.",
+    description: "How valuation and credit analysis work on this site, DCF approach, WACC, data sources.",
   },
 ];
 

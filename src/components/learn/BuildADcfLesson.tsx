@@ -1091,7 +1091,7 @@ export function BuildADcfLesson() {
           </div>
         </div>
 
-        {/* Sidebar — desktop only */}
+        {/* Sidebar, desktop only */}
         <aside className="hidden lg:block w-68 shrink-0" style={{ width: "17rem" }}>
           <ModelSidebar {...sidebarProps} />
         </aside>

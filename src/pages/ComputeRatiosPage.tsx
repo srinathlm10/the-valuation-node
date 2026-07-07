@@ -50,7 +50,7 @@ export default function ComputeRatiosPage() {
           <h1 className="text-3xl font-bold tracking-tight">Compute Ratios from Raw Statements</h1>
           <p className="mt-3 text-muted-foreground max-w-2xl">
             The only way to truly learn ratios is to compute them yourself. You'll be given the raw numbers from a real
-            company's statements and the formula — then you type the answer. Get instant feedback and a plain-English
+            company's statements and the formula, then you type the answer. Get instant feedback and a plain-English
             interpretation of what each ratio actually tells you.
           </p>
           <div className="mt-3 flex items-center gap-4 text-xs text-muted-foreground">

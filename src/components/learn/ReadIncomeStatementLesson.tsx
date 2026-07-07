@@ -30,7 +30,7 @@ const LINES: PnlLine[] = [
     kind: "start",
     value: (c) => c.revenue,
     explain: (c) =>
-      `This is the money ${c.name} earned from its core business — selling goods or services — before any costs are taken out. It is the top of the waterfall, and every line below reduces or adjusts it. Watch for separately disclosed "other operating revenue" which sometimes hides here.`,
+      `This is the money ${c.name} earned from its core business, selling goods or services, before any costs are taken out. It is the top of the waterfall, and every line below reduces or adjusts it. Watch for separately disclosed "other operating revenue" which sometimes hides here.`,
   },
   {
     key: "cogs",
@@ -38,7 +38,7 @@ const LINES: PnlLine[] = [
     kind: "cost",
     value: (c) => c.cogs,
     explain: () =>
-      `The direct cost of producing what was sold — raw materials, components, and manufacturing inputs. Subtracting this from revenue gives Gross Profit. A rising COGS as a share of revenue means input-cost pressure or weakening pricing power.`,
+      `The direct cost of producing what was sold, raw materials, components, and manufacturing inputs. Subtracting this from revenue gives Gross Profit. A rising COGS as a share of revenue means input-cost pressure or weakening pricing power.`,
   },
   {
     key: "grossProfit",
@@ -46,7 +46,7 @@ const LINES: PnlLine[] = [
     kind: "subtotal",
     value: (c) => derive(c).grossProfit,
     explain: () =>
-      `Revenue minus direct costs. Gross margin (Gross Profit ÷ Revenue) tells you how much is left to cover everything else — salaries, marketing, R&D — before profit. Higher and stable gross margins usually signal pricing power or a cost advantage.`,
+      `Revenue minus direct costs. Gross margin (Gross Profit ÷ Revenue) tells you how much is left to cover everything else, salaries, marketing, R&D, before profit. Higher and stable gross margins usually signal pricing power or a cost advantage.`,
   },
   {
     key: "employeeCost",
@@ -62,7 +62,7 @@ const LINES: PnlLine[] = [
     kind: "cost",
     value: (c) => c.otherExpenses,
     explain: () =>
-      `A catch-all for selling, distribution, advertising, rent, repairs, power, and admin costs. It's worth scanning the notes — a large or fast-growing "other expenses" line can mask items management would rather not highlight.`,
+      `A catch-all for selling, distribution, advertising, rent, repairs, power, and admin costs. It's worth scanning the notes, a large or fast-growing "other expenses" line can mask items management would rather not highlight.`,
   },
   {
     key: "ebitda",
@@ -70,7 +70,7 @@ const LINES: PnlLine[] = [
     kind: "subtotal",
     value: (c) => derive(c).ebitda,
     explain: () =>
-      `Earnings Before Interest, Tax, Depreciation & Amortisation. This is a proxy for operating cash profitability, before the effect of financing, accounting depreciation, and taxes. It's not a line item under Ind AS — analysts compute it — but it's one of the most-watched profitability measures.`,
+      `Earnings Before Interest, Tax, Depreciation & Amortisation. This is a proxy for operating cash profitability, before the effect of financing, accounting depreciation, and taxes. It's not a line item under Ind AS, analysts compute it, but it's one of the most-watched profitability measures.`,
   },
   {
     key: "depreciation",
@@ -86,7 +86,7 @@ const LINES: PnlLine[] = [
     kind: "subtotal",
     value: (c) => derive(c).ebit,
     explain: () =>
-      `EBITDA minus D&A. This is the profit from running the business — before the cost of debt and before tax. Because it ignores how the company is financed, EBIT lets you compare the operating quality of two companies with very different debt loads.`,
+      `EBITDA minus D&A. This is the profit from running the business, before the cost of debt and before tax. Because it ignores how the company is financed, EBIT lets you compare the operating quality of two companies with very different debt loads.`,
   },
   {
     key: "otherIncome",
@@ -94,7 +94,7 @@ const LINES: PnlLine[] = [
     kind: "income",
     value: (c) => c.otherIncome,
     explain: () =>
-      `Income from outside core operations — interest earned on cash, dividends, treasury gains. It's added back here. Be careful: a company whose profit is propped up by large "other income" rather than its actual business deserves a closer look.`,
+      `Income from outside core operations, interest earned on cash, dividends, treasury gains. It's added back here. Be careful: a company whose profit is propped up by large "other income" rather than its actual business deserves a closer look.`,
   },
   {
     key: "financeCosts",
@@ -110,7 +110,7 @@ const LINES: PnlLine[] = [
     kind: "subtotal",
     value: (c) => derive(c).pbt,
     explain: () =>
-      `EBIT plus other income, minus finance costs. This is what's left before the government takes its share. Exceptional one-off items (asset sales, impairments) also sit around here — always strip them out to see normalised earnings.`,
+      `EBIT plus other income, minus finance costs. This is what's left before the government takes its share. Exceptional one-off items (asset sales, impairments) also sit around here, always strip them out to see normalised earnings.`,
   },
   {
     key: "tax",
@@ -129,7 +129,7 @@ const LINES: PnlLine[] = [
     kind: "final",
     value: (c) => derive(c).pat,
     explain: () =>
-      `The bottom line — the profit that belongs to shareholders. Divided by the number of shares, this becomes Earnings Per Share (EPS), the number that drives the P/E ratio. Net margin (PAT ÷ Revenue) is the final measure of how much of each rupee of sales the company keeps.`,
+      `The bottom line, the profit that belongs to shareholders. Divided by the number of shares, this becomes Earnings Per Share (EPS), the number that drives the P/E ratio. Net margin (PAT ÷ Revenue) is the final measure of how much of each rupee of sales the company keeps.`,
   },
 ];
 
@@ -230,7 +230,7 @@ export function ReadIncomeStatementLesson() {
         >
           {FINANCIAL_COMPANIES.map((c) => (
             <option key={c.slug} value={c.slug}>
-              {c.name} ({c.ticker}) — {c.sector}
+              {c.name} ({c.ticker}), {c.sector}
             </option>
           ))}
         </select>
@@ -256,7 +256,7 @@ export function ReadIncomeStatementLesson() {
           {/* The building statement */}
           <div className="rounded-xl border overflow-hidden">
             <div className="px-4 py-3 bg-muted/30 border-b flex items-baseline justify-between">
-              <h3 className="text-sm font-semibold">{company.name} — Income Statement</h3>
+              <h3 className="text-sm font-semibold">{company.name}, Income Statement</h3>
               <span className="text-xs text-muted-foreground">{company.fy} · ₹ Crore</span>
             </div>
             <table className="w-full text-sm">
@@ -331,7 +331,7 @@ export function ReadIncomeStatementLesson() {
                       ? "employee cost"
                       : "other expenses"}
                   </strong>
-                  . That single insight — where the money goes — is what reading a P&L is really about.
+                  . That single insight, where the money goes, is what reading a P&L is really about.
                 </p>
               </div>
 
@@ -339,10 +339,10 @@ export function ReadIncomeStatementLesson() {
                 <h3 className="font-semibold mb-4">Go deeper</h3>
                 <div className="space-y-3 text-sm">
                   <Link to="/learn/foundations/accounting/reading-an-income-statement" className="flex items-center gap-2 text-blue-600 hover:underline">
-                    <ChevronRight className="h-4 w-4 shrink-0" /> Reading an Income Statement — Foundations
+                    <ChevronRight className="h-4 w-4 shrink-0" /> Reading an Income Statement, Foundations
                   </Link>
                   <Link to="/learn/foundations/accounting/quality-of-earnings" className="flex items-center gap-2 text-blue-600 hover:underline">
-                    <ChevronRight className="h-4 w-4 shrink-0" /> Quality of Earnings — Foundations
+                    <ChevronRight className="h-4 w-4 shrink-0" /> Quality of Earnings, Foundations
                   </Link>
                   <Link to="/learn/by-doing/compute-ratios" className="flex items-center gap-2 text-blue-600 hover:underline">
                     <ChevronRight className="h-4 w-4 shrink-0" /> Next: Compute Ratios from Raw Statements

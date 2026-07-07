@@ -10,7 +10,7 @@ export default function CompareCompaniesPage() {
         <title>Compare Two Companies Side by Side - Learn-by-Doing - The Valuation Node</title>
         <meta
           name="description"
-          content="Use a structured framework to compare two Indian companies in the same sector — growth, margins, returns, leverage, and valuation."
+          content="Use a structured framework to compare two Indian companies in the same sector, growth, margins, returns, leverage, and valuation."
         />
         <link rel="canonical" href="https://valuationnode.com/learn/by-doing/compare-two-companies" />
         <meta property="og:title" content="Compare Two Companies Side by Side - The Valuation Node" />
@@ -50,7 +50,7 @@ export default function CompareCompaniesPage() {
           <h1 className="text-3xl font-bold tracking-tight">Compare Two Companies Side by Side</h1>
           <p className="mt-3 text-muted-foreground max-w-2xl">
             Pick two real companies from the same sector and go head-to-head across the dimensions that matter. Predict
-            which company is stronger on each metric before the numbers reveal — then see the full profile on a radar
+            which company is stronger on each metric before the numbers reveal, then see the full profile on a radar
             chart and the analyst's verdict on why the "better business" isn't always the "better investment".
           </p>
           <div className="mt-3 flex items-center gap-4 text-xs text-muted-foreground">

@@ -14,7 +14,7 @@ export interface LearnCompany {
   currentPrice: number;
 }
 
-// Approximate FY24 figures — for educational use only, not investment data.
+// Approximate FY24 figures, for educational use only, not investment data.
 export const LEARN_COMPANIES: LearnCompany[] = [
   {
     slug: "asian-paints",

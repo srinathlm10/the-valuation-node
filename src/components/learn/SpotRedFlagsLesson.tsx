@@ -26,7 +26,7 @@ const CASES: RedFlagCase[] = [
     company: "Meridian Infra Ltd (hypothetical)",
     theme: "Profit up, cash missing",
     scenario:
-      "A mid-cap infrastructure company reports its best-ever profit. The headline looks great — but you decide to look past the net profit line. Tick every observation you'd treat as a genuine red flag.",
+      "A mid-cap infrastructure company reports its best-ever profit. The headline looks great, but you decide to look past the net profit line. Tick every observation you'd treat as a genuine red flag.",
     signals: [
       {
         text: "Net profit grew 40%, but operating cash flow turned negative.",
@@ -38,7 +38,7 @@ const CASES: RedFlagCase[] = [
         text: "Trade receivable days jumped from 60 to 130.",
         isRedFlag: true,
         explain:
-          "Customers are taking far longer to pay — or sales are being booked before cash is realistically collectible. Receivables growing much faster than revenue is a classic channel-stuffing signal.",
+          "Customers are taking far longer to pay, or sales are being booked before cash is realistically collectible. Receivables growing much faster than revenue is a classic channel-stuffing signal.",
       },
       {
         text: "A large chunk of revenue is recognised on unbilled percentage-of-completion.",
@@ -50,19 +50,19 @@ const CASES: RedFlagCase[] = [
         text: "The board raised the dividend this year.",
         isRedFlag: false,
         explain:
-          "On its own this is neutral-to-positive. It only becomes a concern if the dividend is being funded by fresh debt rather than genuine cash generation — which you'd verify separately.",
+          "On its own this is neutral-to-positive. It only becomes a concern if the dividend is being funded by fresh debt rather than genuine cash generation, which you'd verify separately.",
       },
       {
         text: "The statutory auditor issued a clean (unqualified) report.",
         isRedFlag: false,
         explain:
-          "A clean report is normal and not a red flag. Just remember it is not a guarantee — audits give reasonable, not absolute, assurance.",
+          "A clean report is normal and not a red flag. Just remember it is not a guarantee, audits give reasonable, not absolute, assurance.",
       },
       {
         text: "The cash balance rose, entirely because the company raised fresh equity.",
         isRedFlag: false,
         explain:
-          "Higher cash from an equity raise is financing, not operations. It isn't a red flag by itself — but don't mistake it for cash the business generated.",
+          "Higher cash from an equity raise is financing, not operations. It isn't a red flag by itself, but don't mistake it for cash the business generated.",
       },
     ],
   },
@@ -83,7 +83,7 @@ const CASES: RedFlagCase[] = [
         text: "Interest coverage has fallen to 1.3×.",
         isRedFlag: true,
         explain:
-          "Operating profit barely covers the interest bill. Any dip in earnings could mean the company can't service its debt — the definition of solvency risk.",
+          "Operating profit barely covers the interest bill. Any dip in earnings could mean the company can't service its debt, the definition of solvency risk.",
       },
       {
         text: "Promoters have pledged 78% of their shareholding.",
@@ -95,19 +95,19 @@ const CASES: RedFlagCase[] = [
         text: "Short-term borrowings are funding long-term capital projects.",
         isRedFlag: true,
         explain:
-          "An asset-liability mismatch. Long-gestation assets funded by loans that must be rolled over frequently create refinancing risk — dangerous if credit conditions tighten.",
+          "An asset-liability mismatch. Long-gestation assets funded by loans that must be rolled over frequently create refinancing risk, dangerous if credit conditions tighten.",
       },
       {
         text: "The company operates in a cyclical industry.",
         isRedFlag: false,
         explain:
-          "Cyclicality is a characteristic, not a red flag. It matters only in combination with high fixed costs and leverage — which is why the debt signals above are the real concern.",
+          "Cyclicality is a characteristic, not a red flag. It matters only in combination with high fixed costs and leverage, which is why the debt signals above are the real concern.",
       },
       {
         text: "Management issued confident revenue guidance for next year.",
         isRedFlag: false,
         explain:
-          "Optimistic guidance is normal management communication. It's neither reassuring nor alarming on its own — judge the company by its numbers, not its narrative.",
+          "Optimistic guidance is normal management communication. It's neither reassuring nor alarming on its own, judge the company by its numbers, not its narrative.",
       },
     ],
   },
@@ -119,7 +119,7 @@ const CASES: RedFlagCase[] = [
       "A fast-growing small-cap is the talk of the market, posting eye-popping margins. Extraordinary numbers deserve extraordinary scrutiny. Flag the observations that should make you cautious.",
     signals: [
       {
-        text: "Net margin is 45% — triple the industry average — with no obvious moat.",
+        text: "Net margin is 45%, triple the industry average, with no obvious moat.",
         isRedFlag: true,
         explain:
           "Margins far above peers without a clear, durable competitive advantage are suspicious. Either the moat is real and identifiable, or the numbers deserve deep scepticism.",
@@ -134,7 +134,7 @@ const CASES: RedFlagCase[] = [
         text: "The auditor resigned mid-year and was replaced.",
         isRedFlag: true,
         explain:
-          "An unexplained auditor exit — especially mid-cycle — is one of the strongest governance warning signs. Auditors rarely walk away from a clean, well-run client.",
+          "An unexplained auditor exit, especially mid-cycle, is one of the strongest governance warning signs. Auditors rarely walk away from a clean, well-run client.",
       },
       {
         text: "Most of the reported profit is 'other income', not operating profit.",
@@ -158,7 +158,7 @@ const CASES: RedFlagCase[] = [
         text: "Free cash flow is consistently strong and closely matches reported profit.",
         isRedFlag: false,
         explain:
-          "This is a green flag, not a red one. Profit converting cleanly into cash is exactly what you want to see — it's the opposite of the first case.",
+          "This is a green flag, not a red one. Profit converting cleanly into cash is exactly what you want to see, it's the opposite of the first case.",
       },
     ],
   },
@@ -380,7 +380,7 @@ export function SpotRedFlagsLesson() {
                 {scoreData.caught}/{scoreData.totalFlags}
               </p>
               <p className="mt-2 text-sm text-muted-foreground">
-                red flags{scoreData.falsePositives > 0 ? `, with ${scoreData.falsePositives} false alarm${scoreData.falsePositives > 1 ? "s" : ""}` : " — clean run"}.
+                red flags{scoreData.falsePositives > 0 ? `, with ${scoreData.falsePositives} false alarm${scoreData.falsePositives > 1 ? "s" : ""}` : ", clean run"}.
               </p>
             </div>
 
@@ -389,7 +389,7 @@ export function SpotRedFlagsLesson() {
               <p className="mt-2 text-sm text-muted-foreground">
                 Most real-world accounting failures rhyme with these three cases: <strong className="text-foreground">profit that never becomes cash</strong>,{" "}
                 <strong className="text-foreground">a balance sheet quietly buckling under debt</strong>, and{" "}
-                <strong className="text-foreground">numbers too good to be true with weak governance</strong>. When you see one flag, look for the others — they usually travel together.
+                <strong className="text-foreground">numbers too good to be true with weak governance</strong>. When you see one flag, look for the others, they usually travel together.
               </p>
             </div>
 
@@ -397,13 +397,13 @@ export function SpotRedFlagsLesson() {
               <h3 className="font-semibold mb-4">Go deeper</h3>
               <div className="space-y-3 text-sm">
                 <Link to="/learn/foundations/accounting/quality-of-earnings" className="flex items-center gap-2 text-blue-600 hover:underline">
-                  <ChevronRight className="h-4 w-4 shrink-0" /> Quality of Earnings — Foundations
+                  <ChevronRight className="h-4 w-4 shrink-0" /> Quality of Earnings, Foundations
                 </Link>
                 <Link to="/learn/foundations/credit-analysis/altman-z-score" className="flex items-center gap-2 text-blue-600 hover:underline">
-                  <ChevronRight className="h-4 w-4 shrink-0" /> Altman Z-Score and Distress Models — Foundations
+                  <ChevronRight className="h-4 w-4 shrink-0" /> Altman Z-Score and Distress Models, Foundations
                 </Link>
                 <Link to="/learn/foundations/accounting/reading-a-cash-flow-statement" className="flex items-center gap-2 text-blue-600 hover:underline">
-                  <ChevronRight className="h-4 w-4 shrink-0" /> Reading a Cash Flow Statement — Foundations
+                  <ChevronRight className="h-4 w-4 shrink-0" /> Reading a Cash Flow Statement, Foundations
                 </Link>
               </div>
             </div>

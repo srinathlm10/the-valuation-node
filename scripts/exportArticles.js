@@ -7,7 +7,7 @@
 //
 //   node scripts/exportArticles.js
 //
-// It does NOT modify or drop the `articles` table — that stays as-is.
+// It does NOT modify or drop the `articles` table, that stays as-is.
 
 import { createClient } from "@supabase/supabase-js";
 import matter from "gray-matter";
@@ -81,7 +81,7 @@ function toFrontmatter(a) {
     author: a.author || "Srinath Gajji",
     isResearch: a.is_research ?? true,
   };
-  // Optional rich fields — only include when present.
+  // Optional rich fields, only include when present.
   if (a.methodology_summary) fm.methodologySummary = a.methodology_summary;
   if (a.where_i_might_be_wrong) fm.whereIMightBeWrong = a.where_i_might_be_wrong;
   if (a.citation_format) fm.citationFormat = a.citation_format;
@@ -102,7 +102,7 @@ async function main() {
     .eq("is_research", true);
 
   if (error) {
-    console.warn("is_research query failed (", error.message, ") — fetching all articles.");
+    console.warn("is_research query failed (", error.message, "), fetching all articles.");
     ({ data, error } = await supabase.from("articles").select("*"));
   }
   if (error) {

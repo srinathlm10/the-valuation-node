@@ -41,7 +41,7 @@ const CHALLENGES: RatioChallenge[] = [
     ],
     answer: (_c, d) => d.netMargin * 100,
     interpret: (c, d) =>
-      `${c.name} keeps about ₹${Math.round(d.netMargin * 100)} of every ₹100 of sales as profit. Net margin varies hugely by sector — thin for autos and retail, fat for software and branded consumer goods — so always compare within an industry.`,
+      `${c.name} keeps about ₹${Math.round(d.netMargin * 100)} of every ₹100 of sales as profit. Net margin varies hugely by sector, thin for autos and retail, fat for software and branded consumer goods, so always compare within an industry.`,
   },
   {
     key: "roe",
@@ -57,7 +57,7 @@ const CHALLENGES: RatioChallenge[] = [
     interpret: (c, d) =>
       `ROE measures how much profit ${c.name} generates on each rupee shareholders have invested. At ~${Math.round(
         d.roe * 100
-      )}%, this is ${d.roe > 0.2 ? "strong" : d.roe > 0.12 ? "reasonable" : "modest"}. But watch out — ROE can be inflated by high leverage, which is why the DuPont breakdown exists.`,
+      )}%, this is ${d.roe > 0.2 ? "strong" : d.roe > 0.12 ? "reasonable" : "modest"}. But watch out, ROE can be inflated by high leverage, which is why the DuPont breakdown exists.`,
   },
   {
     key: "current-ratio",
@@ -73,7 +73,7 @@ const CHALLENGES: RatioChallenge[] = [
     interpret: (c, d) =>
       `A current ratio of ${d.currentRatio.toFixed(1)}× means ${c.name} has ₹${d.currentRatio.toFixed(
         1
-      )} of short-term assets for every ₹1 of short-term dues. Below 1.0× can signal liquidity stress; far above 2.0× may mean idle working capital. Context matters — negative-working-capital retailers thrive below 1.0×.`,
+      )} of short-term assets for every ₹1 of short-term dues. Below 1.0× can signal liquidity stress; far above 2.0× may mean idle working capital. Context matters, negative-working-capital retailers thrive below 1.0×.`,
   },
   {
     key: "debt-equity",
@@ -103,7 +103,7 @@ const CHALLENGES: RatioChallenge[] = [
     ],
     answer: (_c, d) => d.interestCoverage,
     interpret: (c, d) =>
-      `Interest coverage shows how many times over ${c.name}'s operating profit covers its interest bill — here about ${d.interestCoverage.toFixed(
+      `Interest coverage shows how many times over ${c.name}'s operating profit covers its interest bill, here about ${d.interestCoverage.toFixed(
         0
       )}×. Below ~2–3× is a warning sign: a small dip in profit could leave the company unable to service its debt.`,
   },
@@ -121,7 +121,7 @@ const CHALLENGES: RatioChallenge[] = [
     interpret: (c, d) =>
       `On average ${c.name} collects cash from customers in about ${Math.round(
         d.receivableDays
-      )} days. Rising receivable days — especially faster than revenue — is a classic early warning that sales are being "bought" with generous credit, or that customers are struggling to pay.`,
+      )} days. Rising receivable days, especially faster than revenue, is a classic early warning that sales are being "bought" with generous credit, or that customers are struggling to pay.`,
   },
 ];
 
@@ -228,7 +228,7 @@ export function ComputeRatiosLesson() {
         >
           {FINANCIAL_COMPANIES.map((c) => (
             <option key={c.slug} value={c.slug}>
-              {c.name} ({c.ticker}) — {c.sector}
+              {c.name} ({c.ticker}), {c.sector}
             </option>
           ))}
         </select>
@@ -319,7 +319,7 @@ export function ComputeRatiosLesson() {
             >
               <div className="flex items-center gap-2 font-medium text-sm">
                 {verdict === "wrong" ? <X className="h-4 w-4 text-red-500" /> : <Check className="h-4 w-4 text-emerald-500" />}
-                {verdict === "correct" ? "Correct!" : verdict === "close" ? "Close enough — well done." : "Not quite."}
+                {verdict === "correct" ? "Correct!" : verdict === "close" ? "Close enough, well done." : "Not quite."}
                 <span className="ml-auto text-muted-foreground font-normal">
                   Actual: {challenge.unit === "days" ? Math.round(answer) : answer.toFixed(challenge.unit === "%" ? 1 : 2)}
                   {unitLabel(challenge.unit)}
@@ -339,7 +339,7 @@ export function ComputeRatiosLesson() {
                 </p>
                 <p className="mt-2 text-sm text-muted-foreground">
                   {score === total
-                    ? "Perfect — you can pull ratios straight from raw statements."
+                    ? "Perfect, you can pull ratios straight from raw statements."
                     : score >= total - 2
                     ? "Strong work. Revisit the ones you missed and try another company."
                     : "Good start. Try the same ratios on a different company to lock it in."}
@@ -350,10 +350,10 @@ export function ComputeRatiosLesson() {
                 <h3 className="font-semibold mb-4">Go deeper</h3>
                 <div className="space-y-3 text-sm">
                   <Link to="/learn/foundations/financial-statement-analysis/profitability-ratios" className="flex items-center gap-2 text-blue-600 hover:underline">
-                    <ChevronRight className="h-4 w-4 shrink-0" /> Profitability Ratios — Foundations
+                    <ChevronRight className="h-4 w-4 shrink-0" /> Profitability Ratios, Foundations
                   </Link>
                   <Link to="/learn/foundations/financial-statement-analysis/dupont-decomposition" className="flex items-center gap-2 text-blue-600 hover:underline">
-                    <ChevronRight className="h-4 w-4 shrink-0" /> DuPont Decomposition — Foundations
+                    <ChevronRight className="h-4 w-4 shrink-0" /> DuPont Decomposition, Foundations
                   </Link>
                   <Link to="/learn/by-doing/compare-two-companies" className="flex items-center gap-2 text-blue-600 hover:underline">
                     <ChevronRight className="h-4 w-4 shrink-0" /> Next: Compare Two Companies Side by Side
@@ -376,7 +376,7 @@ export function ComputeRatiosLesson() {
           {!checked && (
             <div className="mt-6 p-3 rounded-lg border border-dashed flex items-start gap-2 text-xs text-muted-foreground">
               <Lightbulb className="h-4 w-4 shrink-0 mt-0.5" />
-              Compute it yourself before checking — that's the whole point. A calculator is fine; the goal is knowing which numbers to combine.
+              Compute it yourself before checking, that's the whole point. A calculator is fine; the goal is knowing which numbers to combine.
             </div>
           )}
 

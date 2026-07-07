@@ -36,7 +36,7 @@
     "category": "Investment Planning",
     "definition": "A method of investing a fixed sum regularly in mutual funds. It automates investing and leverages rupee cost averaging.",
     "formula": "FV = P × [((1 + i)^n - 1) / i] × (1 + i)",
-    "whyItMatters": "SIP reduces timing risk through rupee cost averaging — you buy more units when prices are low. Even small monthly amounts compound significantly over decades.",
+    "whyItMatters": "SIP reduces timing risk through rupee cost averaging, you buy more units when prices are low. Even small monthly amounts compound significantly over decades.",
     "example": "₹10,000/month SIP for 20 years at 12% CAGR = ₹1 crore corpus. Total invested: ₹24 lakhs, wealth created: ₹76 lakhs.",
     "relatedTerms": [
       "Rupee Cost Averaging",
@@ -324,7 +324,7 @@
     "definition": "Enterprise Value divided by EBITDA. A valuation metric that compares total company value to operating earnings.",
     "formula": "EV/EBITDA = Enterprise Value / EBITDA",
     "whyItMatters": "More reliable than P/E for comparing companies with different capital structures. Lower ratio may indicate undervaluation.",
-    "example": "EV of ₹1000 crore with EBITDA ₹100 crore = EV/EBITDA of 10x. Industry average is 12x — potentially undervalued.",
+    "example": "EV of ₹1000 crore with EBITDA ₹100 crore = EV/EBITDA of 10x. Industry average is 12x, potentially undervalued.",
     "relatedTerms": [
       "Enterprise Value",
       "EBITDA",
@@ -368,7 +368,7 @@
     "category": "Solvency Ratios",
     "definition": "A measure of a company's financial leverage, showing the proportion of debt used to finance assets relative to shareholders' equity.",
     "formula": "D/E = Total Liabilities / Shareholders' Equity",
-    "whyItMatters": "High D/E (>1) means more debt than equity, increasing financial risk. Different industries have different acceptable levels — banks naturally have higher D/E.",
+    "whyItMatters": "High D/E (>1) means more debt than equity, increasing financial risk. Different industries have different acceptable levels, banks naturally have higher D/E.",
     "example": "₹200 crore debt with ₹100 crore equity = D/E of 2. The company owes twice what shareholders invested.",
     "relatedTerms": [
       "Interest Coverage",
@@ -414,7 +414,7 @@
     "definition": "A momentum oscillator that measures the speed and magnitude of recent price changes. Oscillates between 0 and 100.",
     "formula": "RSI = 100 - [100 / (1 + (Average Gain / Average Loss))]",
     "whyItMatters": "RSI above 70 suggests overbought (potential selling opportunity). Below 30 suggests oversold (potential buying opportunity). Use with other indicators.",
-    "example": "Stock RSI at 85 after a rally — it's overbought. This doesn't mean sell immediately, but momentum might slow.",
+    "example": "Stock RSI at 85 after a rally, it's overbought. This doesn't mean sell immediately, but momentum might slow.",
     "relatedTerms": [
       "MACD",
       "Overbought",
@@ -475,7 +475,7 @@
     "category": "Technical Analysis",
     "definition": "Horizontal lines indicating potential support/resistance at key Fibonacci ratios before price continues in original direction.",
     "formula": "Key levels: 23.6%, 38.2%, 50%, 61.8%, 78.6%",
-    "whyItMatters": "Widely watched levels become self-fulfilling. 61.8% retracement is considered 'golden ratio' — strong support/resistance.",
+    "whyItMatters": "Widely watched levels become self-fulfilling. 61.8% retracement is considered 'golden ratio', strong support/resistance.",
     "example": "Stock falls from ₹100 to ₹60, then bounces. 61.8% retracement = ₹84.72. Watch for resistance there.",
     "relatedTerms": [
       "Support",
@@ -523,7 +523,7 @@
     "definition": "A type of moving average that gives more weight to recent prices, making it more responsive to new information than simple moving average.",
     "formula": "EMA = (Price × Multiplier) + (Previous EMA × (1 - Multiplier))",
     "whyItMatters": "Traders use 20-day and 50-day EMAs for trend identification. Price above EMA suggests uptrend. EMA crossovers generate buy/sell signals.",
-    "example": "Stock crosses above 50-day EMA — bullish signal. 20-day EMA crossing above 50-day = stronger confirmation.",
+    "example": "Stock crosses above 50-day EMA, bullish signal. 20-day EMA crossing above 50-day = stronger confirmation.",
     "relatedTerms": [
       "SMA",
       "Moving Average Crossover",
@@ -613,8 +613,8 @@
     "category": "Regulatory Compliance",
     "definition": "An account to hold securities (shares, bonds, ETFs) in electronic form. Managed by depositories NSDL or CDSL.",
     "formula": "N/A - Account Type",
-    "whyItMatters": "Mandatory for trading in India. Eliminates risks of physical certificates — theft, damage, forgery.",
-    "example": "Buy 100 Reliance shares — they're credited to your demat account electronically. Selling debits from same account.",
+    "whyItMatters": "Mandatory for trading in India. Eliminates risks of physical certificates, theft, damage, forgery.",
+    "example": "Buy 100 Reliance shares, they're credited to your demat account electronically. Selling debits from same account.",
     "relatedTerms": [
       "NSDL",
       "CDSL",
@@ -662,7 +662,7 @@
     "definition": "Settlement cycle where trade-related settlements happen within 24 hours of the transaction. India moved to T+1 in 2023.",
     "formula": "Settlement Date = Trade Date + 1 business day",
     "whyItMatters": "Faster access to sale proceeds and purchased shares. Reduces counterparty risk and margin requirements.",
-    "example": "Sell shares on Monday — get funds on Tuesday. Buy shares on Monday — they're in your demat on Tuesday.",
+    "example": "Sell shares on Monday, get funds on Tuesday. Buy shares on Monday, they're in your demat on Tuesday.",
     "relatedTerms": [
       "Settlement",
       "Clearing",
@@ -678,7 +678,7 @@
     "definition": "Price bands set by exchanges (NSE/BSE) to halt trading during extreme volatility. Index-wide and stock-specific circuits exist.",
     "formula": "Index circuits: 10%, 15%, 20% movement triggers halt",
     "whyItMatters": "Prevents panic selling and manipulative trading. Gives market time to absorb information during extreme moves.",
-    "example": "Nifty falls 10% — trading halts for 45 minutes. Individual stocks may have 5%, 10%, or 20% daily limits.",
+    "example": "Nifty falls 10%, trading halts for 45 minutes. Individual stocks may have 5%, 10%, or 20% daily limits.",
     "relatedTerms": [
       "Upper Circuit",
       "Lower Circuit",
@@ -783,7 +783,7 @@
     "definition": "Excess return of an investment relative to its expected return based on risk (beta). Measures manager skill.",
     "formula": "Alpha = Actual Return - [Rf + β × (Market Return - Rf)]",
     "whyItMatters": "Positive alpha indicates outperformance vs benchmark. Consistent alpha is rare and valuable. Most active funds fail to generate alpha after fees.",
-    "example": "Fund returned 18% when expected return (based on beta) was 15%. Alpha = 3% — manager added extra value.",
+    "example": "Fund returned 18% when expected return (based on beta) was 15%. Alpha = 3%, manager added extra value.",
     "relatedTerms": [
       "Beta",
       "Sharpe Ratio",
@@ -904,7 +904,7 @@
     "category": "Mutual Funds",
     "definition": "The per-unit value of a mutual fund scheme, calculated by dividing total value of all securities by number of units.",
     "formula": "NAV = (Total Assets - Total Liabilities) / Number of Units",
-    "whyItMatters": "NAV changes daily based on market movements. Don't compare NAVs across funds — higher NAV doesn't mean better. Focus on returns.",
+    "whyItMatters": "NAV changes daily based on market movements. Don't compare NAVs across funds, higher NAV doesn't mean better. Focus on returns.",
     "example": "Fund with ₹100 crore assets, ₹1 crore liabilities, 9.9 crore units = NAV of ₹10.",
     "relatedTerms": [
       "AUM",

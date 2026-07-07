@@ -394,12 +394,12 @@ export function fmtRs(n: number): string {
 }
 
 export function fmtPct(n: number, dp = 1): string {
-  if (!isFinite(n)) return "—";
+  if (!isFinite(n)) return ", ";
   return `${(n * 100).toFixed(dp)}%`;
 }
 
 export function fmtX(n: number, dp = 1): string {
-  if (!isFinite(n)) return "—";
+  if (!isFinite(n)) return ", ";
   return `${n.toFixed(dp)}×`;
 }
 

@@ -34,7 +34,7 @@ Nifty 50 company reference data and SEBI compliance calendar.
 URL: https://valuationnode.com/markets
 
 ## Author
-Srinath Gajji — Founder and Editor, MBA Candidate at NIT Rourkela.
+Srinath Gajji, Founder and Editor, MBA Candidate at NIT Rourkela.
 Contact: srinath@valuationnode.com
 LinkedIn: https://www.linkedin.com/in/gajji-srinath/
 URL: https://valuationnode.com/about/author

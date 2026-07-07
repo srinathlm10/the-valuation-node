@@ -15,7 +15,7 @@ import EmbeddingManager from "./components/admin/EmbeddingManager";
 import AdminDashboard from "./components/admin/AdminDashboard";
 import CommentsManager from "./components/admin/CommentsManager";
 
-// Auth pages (no Layout wrapper — they render standalone)
+// Auth pages (no Layout wrapper, they render standalone)
 const Login = lazy(() => import("./pages/Login"));
 const Signup = lazy(() => import("./pages/Signup"));
 const AdminLogin = lazy(() => import("./pages/AdminLogin"));
@@ -81,7 +81,7 @@ const PageLoader = () => (
 );
 
 // Root layout: app-wide providers wrap an <Outlet/>. vite-react-ssg supplies the
-// router AND the HelmetProvider (so <Helmet> tags are collected during SSG) — do
+// router AND the HelmetProvider (so <Helmet> tags are collected during SSG), do
 // not add another HelmetProvider here. The Suspense boundary lets lazy route
 // Components resolve during both client render and static prerender.
 function RootLayout() {

@@ -39,7 +39,7 @@ export const WACC_DELTAS = [-0.02, -0.01, 0, 0.01, 0.02] as const;
 export const TG_DELTAS = [0.02, 0.01, 0, -0.01, -0.02] as const;
 
 /**
- * Two-stage DCF model. FCF is simplified as NOPAT (EBIT after tax) — a full
+ * Two-stage DCF model. FCF is simplified as NOPAT (EBIT after tax), a full
  * model would subtract capex and working-capital changes.
  *
  * Returns null when WACC ≤ terminal growth (Gordon Growth denominator = 0 or negative).

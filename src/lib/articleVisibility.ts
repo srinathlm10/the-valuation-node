@@ -32,7 +32,7 @@ export function useToggleHidden() {
     mutationFn: async ({ slug, hide }: { slug: string; hide: boolean }) => {
       if (hide) {
         const { error } = await db.from("hidden_articles").insert({ slug });
-        // 23505 = unique_violation (already hidden) — safe to ignore.
+        // 23505 = unique_violation (already hidden), safe to ignore.
         if (error && error.code !== "23505") throw error;
       } else {
         const { error } = await db.from("hidden_articles").delete().eq("slug", slug);

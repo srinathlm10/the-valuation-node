@@ -36,7 +36,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         .single();
       setProfile(data ?? null);
     } catch {
-      // User exists in auth but has no profile row — not a fatal error
+      // User exists in auth but has no profile row, not a fatal error
       setProfile(null);
     }
   };
@@ -61,7 +61,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setLoading(false);
     });
 
-    // 2. Get the initial session — if it fires before onAuthStateChange the
+    // 2. Get the initial session, if it fires before onAuthStateChange the
     //    listener above will still set loading=false afterward.
     supabase.auth.getSession().then(({ data: { session } }) => {
       setUser(session?.user ?? null);

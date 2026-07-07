@@ -10,7 +10,7 @@ export default function SpotRedFlagsPage() {
         <title>Spot the Red Flags - Learn-by-Doing - The Valuation Node</title>
         <meta
           name="description"
-          content="Work through realistic case studies and identify the warning signs of financial distress and poor earnings quality — before they blow up."
+          content="Work through realistic case studies and identify the warning signs of financial distress and poor earnings quality, before they blow up."
         />
         <link rel="canonical" href="https://valuationnode.com/learn/by-doing/spot-the-red-flags" />
         <meta property="og:title" content="Spot the Red Flags - The Valuation Node" />
@@ -50,7 +50,7 @@ export default function SpotRedFlagsPage() {
           <h1 className="text-3xl font-bold tracking-tight">Spot the Red Flags</h1>
           <p className="mt-3 text-muted-foreground max-w-2xl">
             Three hypothetical companies, each hiding a different kind of trouble. Read each case, tick the observations
-            you'd genuinely flag, then reveal which are real warning signs and which are harmless — with an explanation
+            you'd genuinely flag, then reveal which are real warning signs and which are harmless, with an explanation
             for every one. Train the pattern recognition that keeps analysts out of blow-ups.
           </p>
           <div className="mt-3 flex items-center gap-4 text-xs text-muted-foreground">

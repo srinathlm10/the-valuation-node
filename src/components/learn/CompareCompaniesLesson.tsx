@@ -59,7 +59,7 @@ const DIMENSIONS: Dimension[] = [
     get: (_c, d) => d.roe,
     fmt: (v) => fmtPct(v),
     explain:
-      "ROE rewards efficient use of equity. But remember leverage flatters ROE — a highly indebted company can show a high ROE while being riskier, which is why you look at leverage next.",
+      "ROE rewards efficient use of equity. But remember leverage flatters ROE, a highly indebted company can show a high ROE while being riskier, which is why you look at leverage next.",
   },
   {
     key: "leverage",
@@ -69,7 +69,7 @@ const DIMENSIONS: Dimension[] = [
     get: (_c, d) => d.debtToEquity,
     fmt: (v) => fmtX(v, 2),
     explain:
-      "Lower debt means more resilience in a downturn and more flexibility to invest. High leverage is not automatically bad — but it demands stable, predictable cash flows to support it.",
+      "Lower debt means more resilience in a downturn and more flexibility to invest. High leverage is not automatically bad, but it demands stable, predictable cash flows to support it.",
   },
   {
     key: "coverage",
@@ -89,7 +89,7 @@ const DIMENSIONS: Dimension[] = [
     get: (c, d) => (isFinite(d.pe) ? d.pe : 0),
     fmt: (v) => fmtX(v, 0),
     explain:
-      "A lower P/E means you pay less per rupee of earnings — but cheap can be a trap. The market often assigns a lower multiple to slower-growing, riskier, or more cyclical businesses for good reason.",
+      "A lower P/E means you pay less per rupee of earnings, but cheap can be a trap. The market often assigns a lower multiple to slower-growing, riskier, or more cyclical businesses for good reason.",
   },
 ];
 
@@ -234,7 +234,7 @@ export function CompareCompaniesLesson() {
         <p className={cn("mt-3 text-2xl font-bold tabular-nums", answered ? "" : "blur-[6px] select-none")}>
           {dim.fmt(value)}
         </p>
-        {!answered && <p className="text-[11px] text-muted-foreground mt-1">Tap to pick — value reveals after</p>}
+        {!answered && <p className="text-[11px] text-muted-foreground mt-1">Tap to pick, value reveals after</p>}
       </button>
     );
   };
@@ -251,7 +251,7 @@ export function CompareCompaniesLesson() {
         >
           {COMPANY_PAIRS.map((p) => (
             <option key={p.key} value={p.key}>
-              {p.label} — {p.sector}
+              {p.label}, {p.sector}
             </option>
           ))}
         </select>
@@ -340,7 +340,7 @@ export function CompareCompaniesLesson() {
                     ? "the two are evenly matched"
                     : `${tally.aWins > tally.bWins ? a.name : b.name} leads ${Math.max(tally.aWins, tally.bWins)}–${Math.min(tally.aWins, tally.bWins)}`}
                 </strong>
-                . But the "better business" is not always the "better investment" — {da.pe < db.pe ? a.name : b.name} trades
+                . But the "better business" is not always the "better investment", {da.pe < db.pe ? a.name : b.name} trades
                 at the lower P/E, so the market is already pricing in some of these differences. Comparison is about
                 understanding trade-offs, not crowning a single winner.
               </p>
@@ -350,10 +350,10 @@ export function CompareCompaniesLesson() {
               <h3 className="font-semibold mb-4">Go deeper</h3>
               <div className="space-y-3 text-sm">
                 <Link to="/learn/foundations/valuation/relative-valuation" className="flex items-center gap-2 text-blue-600 hover:underline">
-                  <ChevronRight className="h-4 w-4 shrink-0" /> Relative Valuation — Foundations
+                  <ChevronRight className="h-4 w-4 shrink-0" /> Relative Valuation, Foundations
                 </Link>
                 <Link to="/learn/foundations/financial-statement-analysis/dupont-decomposition" className="flex items-center gap-2 text-blue-600 hover:underline">
-                  <ChevronRight className="h-4 w-4 shrink-0" /> DuPont Decomposition — Foundations
+                  <ChevronRight className="h-4 w-4 shrink-0" /> DuPont Decomposition, Foundations
                 </Link>
                 <Link to="/learn/by-doing/spot-the-red-flags" className="flex items-center gap-2 text-blue-600 hover:underline">
                   <ChevronRight className="h-4 w-4 shrink-0" /> Next: Spot the Red Flags

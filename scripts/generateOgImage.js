@@ -1,5 +1,5 @@
 // Generates public/og-image.png (1200×630) at build time using sharp.
-// sharp is already a devDependency — no new package needed.
+// sharp is already a devDependency, no new package needed.
 
 import sharp from "sharp";
 import { writeFileSync } from "fs";
@@ -9,7 +9,7 @@ import { fileURLToPath } from "url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const outPath = resolve(__dirname, "../public/og-image.png");
 
-// SVG template — dark navy brand background, no external font dependency
+// SVG template, dark navy brand background, no external font dependency
 const svg = `<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
   <!-- Background -->
   <rect width="1200" height="630" fill="#0f172a"/>

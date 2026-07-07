@@ -1,6 +1,6 @@
 // Build-time sitemap generator
 // Run via: node scripts/generateSitemap.js
-// Hooked into npm build — runs before vite build.
+// Hooked into npm build, runs before vite build.
 // Research articles are included automatically from src/content/research/*.md:
 // an article makes it into the sitemap only if it has a valid publish date AND
 // its slug is not in the Supabase hidden_articles table at build time.
@@ -40,7 +40,7 @@ async function fetchHiddenSlugs() {
     if (error) return new Set();
     return new Set((data ?? []).map((r) => r.slug));
   } catch {
-    // Fail open on network errors — the valid-date guard below still keeps
+    // Fail open on network errors, the valid-date guard below still keeps
     // drafts (which have no parseable date) out of the sitemap.
     return new Set();
   }
@@ -62,7 +62,7 @@ function readResearchArticles(hiddenSlugs) {
     const slug = data.slug || file.replace(/\.mdx?$/, "");
     const published = toDateStr(data.publishedAt ?? data.publishDate);
     const reviewed = toDateStr(data.updatedAt ?? data.lastReviewed);
-    if (!published) continue; // draft — no honest date yet
+    if (!published) continue; // draft, no honest date yet
     if (hiddenSlugs.has(slug)) continue; // hidden via visibility flag
     entries.push({
       path: `/research/${slug}`,
@@ -87,7 +87,7 @@ const routes = [
   // Foundations index
   { path: "/learn/foundations",       priority: "0.8", changefreq: "weekly"  },
 
-  // Foundations — Accounting
+  // Foundations, Accounting
   { path: "/learn/foundations/accounting/reading-an-income-statement",           priority: "0.7", changefreq: "monthly" },
   { path: "/learn/foundations/accounting/reading-a-balance-sheet",               priority: "0.7", changefreq: "monthly" },
   { path: "/learn/foundations/accounting/reading-a-cash-flow-statement",         priority: "0.7", changefreq: "monthly" },
@@ -96,14 +96,14 @@ const routes = [
   { path: "/learn/foundations/accounting/common-adjustments",                    priority: "0.7", changefreq: "monthly" },
   { path: "/learn/foundations/accounting/quality-of-earnings",                   priority: "0.7", changefreq: "monthly" },
 
-  // Foundations — Corporate Finance
+  // Foundations, Corporate Finance
   { path: "/learn/foundations/corporate-finance/time-value-of-money",            priority: "0.7", changefreq: "monthly" },
   { path: "/learn/foundations/corporate-finance/cost-of-capital",                priority: "0.7", changefreq: "monthly" },
   { path: "/learn/foundations/corporate-finance/capital-structure",              priority: "0.7", changefreq: "monthly" },
   { path: "/learn/foundations/corporate-finance/working-capital",                priority: "0.7", changefreq: "monthly" },
   { path: "/learn/foundations/corporate-finance/capital-budgeting",              priority: "0.7", changefreq: "monthly" },
 
-  // Foundations — Valuation
+  // Foundations, Valuation
   { path: "/learn/foundations/valuation/dcf-theory-and-mechanics",               priority: "0.7", changefreq: "monthly" },
   { path: "/learn/foundations/valuation/relative-valuation",                     priority: "0.7", changefreq: "monthly" },
   { path: "/learn/foundations/valuation/sum-of-the-parts",                       priority: "0.7", changefreq: "monthly" },
@@ -111,7 +111,7 @@ const routes = [
   { path: "/learn/foundations/valuation/terminal-value-approaches",              priority: "0.7", changefreq: "monthly" },
   { path: "/learn/foundations/valuation/common-dcf-mistakes",                    priority: "0.7", changefreq: "monthly" },
 
-  // Foundations — Financial Statement Analysis
+  // Foundations, Financial Statement Analysis
   { path: "/learn/foundations/financial-statement-analysis/profitability-ratios",priority: "0.7", changefreq: "monthly" },
   { path: "/learn/foundations/financial-statement-analysis/liquidity-ratios",    priority: "0.7", changefreq: "monthly" },
   { path: "/learn/foundations/financial-statement-analysis/solvency-ratios",     priority: "0.7", changefreq: "monthly" },
@@ -119,14 +119,14 @@ const routes = [
   { path: "/learn/foundations/financial-statement-analysis/market-ratios",       priority: "0.7", changefreq: "monthly" },
   { path: "/learn/foundations/financial-statement-analysis/dupont-decomposition",priority: "0.7", changefreq: "monthly" },
 
-  // Foundations — Credit Analysis
+  // Foundations, Credit Analysis
   { path: "/learn/foundations/credit-analysis/credit-risk-fundamentals",         priority: "0.7", changefreq: "monthly" },
   { path: "/learn/foundations/credit-analysis/reading-crisil-icra-moodys-reports", priority: "0.7", changefreq: "monthly" },
   { path: "/learn/foundations/credit-analysis/altman-z-score",                   priority: "0.7", changefreq: "monthly" },
   { path: "/learn/foundations/credit-analysis/bond-pricing-and-yields",          priority: "0.7", changefreq: "monthly" },
   { path: "/learn/foundations/credit-analysis/covenants-and-triggers",           priority: "0.7", changefreq: "monthly" },
 
-  // Foundations — Markets and Instruments
+  // Foundations, Markets and Instruments
   { path: "/learn/foundations/markets-and-instruments/equities",                 priority: "0.7", changefreq: "monthly" },
   { path: "/learn/foundations/markets-and-instruments/debt-markets-and-yield-curves", priority: "0.7", changefreq: "monthly" },
   { path: "/learn/foundations/markets-and-instruments/derivatives",              priority: "0.7", changefreq: "monthly" },
@@ -134,7 +134,7 @@ const routes = [
   { path: "/learn/foundations/markets-and-instruments/reits-and-invits",         priority: "0.7", changefreq: "monthly" },
   { path: "/learn/foundations/markets-and-instruments/technical-analysis-primer",priority: "0.7", changefreq: "monthly" },
 
-  // Foundations — ESG and Sustainable Finance
+  // Foundations, ESG and Sustainable Finance
   { path: "/learn/foundations/esg-and-sustainable-finance/esg-fundamentals",                    priority: "0.7", changefreq: "monthly" },
   { path: "/learn/foundations/esg-and-sustainable-finance/reporting-frameworks",                priority: "0.7", changefreq: "monthly" },
   { path: "/learn/foundations/esg-and-sustainable-finance/carbon-accounting",                   priority: "0.7", changefreq: "monthly" },
@@ -142,7 +142,7 @@ const routes = [
   { path: "/learn/foundations/esg-and-sustainable-finance/esg-integrated-valuation",           priority: "0.7", changefreq: "monthly" },
   { path: "/learn/foundations/esg-and-sustainable-finance/climate-risk-and-stranded-assets",   priority: "0.7", changefreq: "monthly" },
 
-  // Foundations — Fintech and Digital Finance
+  // Foundations, Fintech and Digital Finance
   { path: "/learn/foundations/fintech-and-digital-finance/payments-landscape",             priority: "0.7", changefreq: "monthly" },
   { path: "/learn/foundations/fintech-and-digital-finance/digital-lending-models",         priority: "0.7", changefreq: "monthly" },
   { path: "/learn/foundations/fintech-and-digital-finance/credit-scoring",                 priority: "0.7", changefreq: "monthly" },
@@ -150,7 +150,7 @@ const routes = [
   { path: "/learn/foundations/fintech-and-digital-finance/cybersecurity-in-financial-systems", priority: "0.7", changefreq: "monthly" },
   { path: "/learn/foundations/fintech-and-digital-finance/account-aggregators",            priority: "0.7", changefreq: "monthly" },
 
-  // Foundations — Data and Tools for Finance
+  // Foundations, Data and Tools for Finance
   { path: "/learn/foundations/data-and-tools/excel-modeling-conventions",      priority: "0.7", changefreq: "monthly" },
   { path: "/learn/foundations/data-and-tools/python-for-finance",              priority: "0.7", changefreq: "monthly" },
   { path: "/learn/foundations/data-and-tools/sql-for-finance-data",            priority: "0.7", changefreq: "monthly" },
@@ -164,7 +164,7 @@ const routes = [
   { path: "/learn/by-doing/compare-two-companies",            priority: "0.6", changefreq: "monthly" },
   { path: "/learn/by-doing/spot-the-red-flags",               priority: "0.6", changefreq: "monthly" },
 
-  // Glossary index (entries are dynamic — not listed here)
+  // Glossary index (entries are dynamic, not listed here)
   { path: "/learn/glossary",          priority: "0.8", changefreq: "weekly"  },
 
   // ── Tools ─────────────────────────────────────────────────────────────
@@ -210,7 +210,7 @@ ${allRoutes
   const outPath = resolve(__dirname, "../public/sitemap.xml");
   writeFileSync(outPath, sitemap, "utf-8");
   console.log(
-    `sitemap.xml written — ${allRoutes.length} URLs ` +
+    `sitemap.xml written, ${allRoutes.length} URLs ` +
       `(${routes.length} static + ${researchRoutes.length} research)`
   );
 }

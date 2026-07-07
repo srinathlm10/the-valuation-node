@@ -5,8 +5,8 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 // Routes that should NOT be statically prerendered (auth-gated, admin, or
-// otherwise SEO-irrelevant). Everything else — home, research (incl. the
-// per-article pages via getStaticPaths), learn, tools, markets, about — is
+// otherwise SEO-irrelevant). Everything else, home, research (incl. the
+// per-article pages via getStaticPaths), learn, tools, markets, about, is
 // prerendered to static HTML with baked meta tags.
 const NO_PRERENDER_EXACT = new Set([
   "/login",

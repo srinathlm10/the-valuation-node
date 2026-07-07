@@ -133,7 +133,7 @@ export default function Index() {
             </article>
           ) : (
             <div className="rounded-2xl border border-dashed p-12 text-center">
-              <p className="text-muted-foreground">Coming soon — first research piece</p>
+              <p className="text-muted-foreground">Coming soon, first research piece</p>
             </div>
           )}
         </div>
@@ -220,7 +220,7 @@ export default function Index() {
               </h3>
               <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
                 From first principles to a working DCF model. Intuition, mechanics, and common
-                mistakes — with real Indian company numbers.
+                mistakes, with real Indian company numbers.
               </p>
             </div>
             {/* Small cards */}

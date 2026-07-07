@@ -50,7 +50,7 @@ export default function ReadIncomeStatementPage() {
           <h1 className="text-3xl font-bold tracking-tight">Read an Income Statement, Line by Line</h1>
           <p className="mt-3 text-muted-foreground max-w-2xl">
             Pick a real Indian company and reveal its profit &amp; loss statement one line at a time. Each line explains
-            what the number means, how it's derived, and what to watch for — so you learn to read a P&amp;L the way an
+            what the number means, how it's derived, and what to watch for, so you learn to read a P&amp;L the way an
             analyst does.
           </p>
           <div className="mt-3 flex items-center gap-4 text-xs text-muted-foreground">

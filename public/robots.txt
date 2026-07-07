@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-# Private / authenticated routes — no value for crawlers
+# Private / authenticated routes, no value for crawlers
 Disallow: /admin
 Disallow: /admin/
 Disallow: /dashboard

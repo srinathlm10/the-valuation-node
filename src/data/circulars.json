@@ -39,7 +39,7 @@
     "category": "Settlement",
     "date": "2026-01-20",
     "summary": "BSE announces the introduction of T+0 (same-day) settlement for top 500 securities by market capitalization, effective March 2026. This reduces counterparty risk and improves capital efficiency.",
-    "botSummary": "Currently when you sell a stock, you get money in T+1 (next day). For top 500 stocks, BSE will offer T+0 — you get your money the SAME day you sell. This means faster access to funds and less risk of the buyer defaulting.",
+    "botSummary": "Currently when you sell a stock, you get money in T+1 (next day). For top 500 stocks, BSE will offer T+0, you get your money the SAME day you sell. This means faster access to funds and less risk of the buyer defaulting.",
     "pdfUrl": "/docs/bse-t0-settlement-2026.pdf",
     "tags": ["Settlement", "T+0", "Clearing"]
   },
@@ -50,7 +50,7 @@
     "category": "Investor Protection",
     "date": "2026-01-18",
     "summary": "SEBI mandates all market intermediaries to integrate with the Online Dispute Resolution (ODR) platform. Disputes under ₹50 lakhs must be resolved within 60 days through this mechanism.",
-    "botSummary": "Got a complaint against your broker or mutual fund? SEBI now requires all financial companies to use an online dispute system. If your issue is under ₹50 lakhs, they MUST resolve it within 60 days — no more endless delays.",
+    "botSummary": "Got a complaint against your broker or mutual fund? SEBI now requires all financial companies to use an online dispute system. If your issue is under ₹50 lakhs, they MUST resolve it within 60 days, no more endless delays.",
     "pdfUrl": "/docs/sebi-odr-guidelines-2026.pdf",
     "tags": ["Investor Protection", "ODR", "Grievance"]
   },

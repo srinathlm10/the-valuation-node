@@ -24,7 +24,7 @@ const modules = [
   {
     slug: "compute-ratios",
     title: "Compute Ratios from Raw Statements",
-    description: "Pull numbers from financial statements and compute the ratios analysts use every day — you do the math, we check it.",
+    description: "Pull numbers from financial statements and compute the ratios analysts use every day, you do the math, we check it.",
     duration: "~25 min",
     steps: 6,
     live: true,

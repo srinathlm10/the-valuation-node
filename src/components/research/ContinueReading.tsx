@@ -11,7 +11,7 @@ function track(event: string, props?: Record<string, unknown>) {
 }
 
 interface ContinueReadingProps {
-  /** Slug of the page the reader is on — excluded from suggestions and sent as from_slug. */
+  /** Slug of the page the reader is on, excluded from suggestions and sent as from_slug. */
   currentSlug?: string;
   /** Category to prioritise (same-category articles rank first). */
   category?: string;
@@ -26,7 +26,7 @@ interface ContinueReadingProps {
 
 /**
  * "Continue reading" cards. Reusable outside Research (e.g. on Foundations
- * pages) — pass the page's category/tags and it suggests related research.
+ * pages), pass the page's category/tags and it suggests related research.
  *
  * Selection: articles sharing the category or overlapping tags rank first
  * (category match weighs more, then tag-overlap count); any remaining slots
