@@ -475,8 +475,26 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://valuationnode.com/research/high-pe-what-it-implies-and-when-its-a-trap</loc>
+    <lastmod>2026-01-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://valuationnode.com/research/how-the-valuation-node-approaches-research</loc>
     <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/research/roe-comparison-dupont-why-higher-isnt-better</loc>
+    <lastmod>2026-02-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/research/three-years-cash-flow-what-one-year-hides</loc>
+    <lastmod>2026-03-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
