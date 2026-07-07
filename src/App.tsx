@@ -117,12 +117,23 @@ export const routes: RouteRecord[] = [
       {
         path: "research/:slug",
         Component: ResearchArticle,
-        // Only prerender articles that have a real publish date. Drafts (with a
-        // placeholder/missing date) are excluded so no static HTML leaks for
-        // them; they still resolve client-side (and show "unavailable" if the
-        // visibility flag is set).
-        getStaticPaths: () =>
-          RESEARCH_ARTICLES.filter((a) => a.publishedAt).map((a) => `research/${a.slug}`),
+        // Prerender an article only if it has a real publish date AND is not
+        // hidden at build time. Drafts (no date) and hidden articles produce no
+        // static HTML, so nothing leaks; they still resolve client-side and show
+        // "temporarily unavailable" when the visibility flag is set. Mirrors the
+        // sitemap's build-time logic; fails open if the DB can't be reached.
+        getStaticPaths: async () => {
+          const dated = RESEARCH_ARTICLES.filter((a) => a.publishedAt);
+          try {
+            const { supabase } = await import("@/integrations/supabase/client");
+            const { data, error } = await supabase.from("hidden_articles" as never).select("slug");
+            if (error) throw error;
+            const hidden = new Set((data ?? []).map((r: { slug: string }) => r.slug));
+            return dated.filter((a) => !hidden.has(a.slug)).map((a) => `research/${a.slug}`);
+          } catch {
+            return dated.map((a) => `research/${a.slug}`);
+          }
+        },
       },
 
       // Learn

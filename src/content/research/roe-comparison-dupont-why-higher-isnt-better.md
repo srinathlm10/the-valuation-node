@@ -6,8 +6,8 @@ tags: ["ROE", "DuPont analysis", "financial ratios", "leverage", "equity analysi
 metaTitle: "Why a Higher ROE Is Not Always Better: A DuPont Walkthrough | Valuation Node"
 metaDescription: "Two companies can report the same ROE for very different reasons. DuPont analysis shows why an ROE built on leverage is not the same as one built on quality."
 author: "Srinath Gajji"
-publishDate: "INSERT_HONEST_DATE"
-lastReviewed: "INSERT_HONEST_DATE"
+publishDate: "2026-02-11"
+lastReviewed: "2026-02-11"
 readingTime: 6
 isResearch: true
 excerpt: >-
