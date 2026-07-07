@@ -12,6 +12,7 @@ export interface ResearchArticleData {
   title: string;
   excerpt: string;
   category: string;
+  tags?: string[];
 
   // SEO / social
   metaTitle?: string;

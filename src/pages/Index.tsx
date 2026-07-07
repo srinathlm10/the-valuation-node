@@ -1,30 +1,20 @@
+import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import { useQuery } from "@tanstack/react-query";
-import { supabase } from "@/integrations/supabase/client";
-
-function useLatestResearch() {
-  return useQuery({
-    queryKey: ["research-articles"],
-    queryFn: async () => {
-      const { data } = await supabase
-        .from("articles")
-        .select("id, title, slug, excerpt, cover_image_url, published_at, category, reading_time")
-        .eq("status", "published")
-        .eq("is_research", true)
-        .order("published_at", { ascending: false })
-        .limit(4);
-      return data ?? [];
-    },
-  });
-}
+import { RESEARCH_ARTICLES } from "@/data/research.generated";
+import { useHiddenSlugs } from "@/lib/articleVisibility";
 
 export default function Index() {
-  const { data: researchArticles = [] } = useLatestResearch();
+  const { data: hidden } = useHiddenSlugs();
+  // Articles come from Git (newest first); hidden ones never appear here.
+  const researchArticles = useMemo(
+    () => RESEARCH_ARTICLES.filter((a) => !(hidden?.has(a.slug) ?? false)).slice(0, 4),
+    [hidden]
+  );
   const featured = researchArticles[0];
   const recent = researchArticles.slice(1, 4);
 
@@ -90,10 +80,11 @@ export default function Index() {
           </h2>
           {featured ? (
             <article className="rounded-2xl border overflow-hidden bg-card shadow-sm hover:shadow-md transition-shadow">
-              {featured.cover_image_url && (
+              {/* Show a cover only when the article has its own image (not the site-wide default). */}
+              {featured.ogImage && featured.ogImage !== "/og-image.png" && (
                 <div className="aspect-[21/9] overflow-hidden bg-muted">
                   <img
-                    src={featured.cover_image_url}
+                    src={featured.ogImage}
                     alt={featured.title}
                     className="w-full h-full object-cover"
                   />
@@ -115,19 +106,19 @@ export default function Index() {
                 )}
                 <div className="mt-6 flex items-center justify-between flex-wrap gap-3">
                   <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                    {featured.published_at && (
-                      <time dateTime={featured.published_at}>
-                        {new Date(featured.published_at).toLocaleDateString("en-IN", {
+                    {featured.publishedAt && (
+                      <time dateTime={featured.publishedAt}>
+                        {new Date(featured.publishedAt).toLocaleDateString("en-IN", {
                           day: "numeric",
                           month: "long",
                           year: "numeric",
                         })}
                       </time>
                     )}
-                    {featured.reading_time && (
+                    {featured.readingTime && (
                       <>
                         <span className="text-border">·</span>
-                        <span>{featured.reading_time} min read</span>
+                        <span>{featured.readingTime} min read</span>
                       </>
                     )}
                   </div>
@@ -164,9 +155,9 @@ export default function Index() {
               </Link>
             </div>
             <div className="grid gap-4 md:grid-cols-3">
-              {recent.map((article: any) => (
+              {recent.map((article) => (
                 <Link
-                  key={article.id}
+                  key={article.slug}
                   to={`/research/${article.slug}`}
                   className="group block rounded-xl border bg-card p-5 hover:shadow-md hover:border-primary/30 transition-all"
                 >
@@ -183,9 +174,9 @@ export default function Index() {
                       {article.excerpt}
                     </p>
                   )}
-                  {article.published_at && (
+                  {article.publishedAt && (
                     <p className="mt-3 text-xs text-muted-foreground">
-                      {new Date(article.published_at).toLocaleDateString("en-IN", {
+                      {new Date(article.publishedAt).toLocaleDateString("en-IN", {
                         month: "short",
                         day: "numeric",
                         year: "numeric",

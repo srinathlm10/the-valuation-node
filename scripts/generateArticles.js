@@ -17,11 +17,14 @@ const CONTENT_DIR = path.join(ROOT, "src", "content", "research");
 const OUT_FILE = path.join(ROOT, "src", "data", "research.generated.ts");
 
 // js-yaml (used by gray-matter) auto-parses `2026-07-01` into a Date object.
-// Normalise any date-ish value back to a plain YYYY-MM-DD string.
+// Normalise any date-ish value back to a plain YYYY-MM-DD string. Placeholder
+// or unparseable values (e.g. "INSERT_HONEST_DATE") are dropped entirely so
+// drafts never emit a broken date into meta tags or the UI.
 function toDateStr(v) {
   if (v == null) return undefined;
-  if (v instanceof Date) return v.toISOString().slice(0, 10);
-  return String(v);
+  if (v instanceof Date) return isNaN(v.getTime()) ? undefined : v.toISOString().slice(0, 10);
+  const s = String(v);
+  return isNaN(Date.parse(s)) ? undefined : s;
 }
 
 function readArticles() {
@@ -44,12 +47,14 @@ function readArticles() {
       title: data.title,
       excerpt: data.excerpt || "",
       category: data.category || "Uncategorised",
+      tags: Array.isArray(data.tags) ? data.tags : undefined,
       metaTitle: data.metaTitle,
       metaDescription: data.metaDescription || data.excerpt,
       canonical: data.canonical || `https://valuationnode.com/research/${slug}`,
       ogImage: data.ogImage || "/og-image.png",
-      publishedAt: toDateStr(data.publishedAt),
-      updatedAt: toDateStr(data.updatedAt),
+      // Accept both naming conventions: publishedAt/updatedAt and publishDate/lastReviewed.
+      publishedAt: toDateStr(data.publishedAt ?? data.publishDate),
+      updatedAt: toDateStr(data.updatedAt ?? data.lastReviewed),
       readingTime: typeof data.readingTime === "number" ? data.readingTime : undefined,
       author: data.author || "Srinath Gajji",
       methodologySummary: data.methodologySummary,

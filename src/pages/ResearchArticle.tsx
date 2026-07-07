@@ -10,6 +10,7 @@ import { RESEARCH_ARTICLES } from "@/data/research.generated";
 import type { ResearchArticleData } from "@/data/researchTypes";
 import { useHiddenSlugs, useToggleHidden } from "@/lib/articleVisibility";
 import { useIsAdmin } from "@/contexts/AuthContext";
+import { ContinueReading } from "@/components/research/ContinueReading";
 
 function fmtDate(d?: string) {
   if (!d) return null;
@@ -87,13 +88,6 @@ export default function ResearchArticle() {
   const { data: hidden } = useHiddenSlugs();
   const isHidden = hidden?.has(slug ?? "") ?? false;
 
-  const related = useMemo(() => {
-    if (!article) return [];
-    return RESEARCH_ARTICLES.filter(
-      (a) => a.slug !== article.slug && a.category === article.category && !(hidden?.has(a.slug) && !isAdmin)
-    ).slice(0, 3);
-  }, [article, hidden, isAdmin]);
-
   if (!article) {
     return (
       <Layout>
@@ -148,6 +142,7 @@ export default function ResearchArticle() {
         <meta property="og:title" content={article.metaTitle || `${article.title} - The Valuation Node`} />
         <meta property="og:description" content={article.metaDescription || article.excerpt} />
         <meta property="og:type" content="article" />
+        <meta property="og:url" content={article.canonical || `https://valuationnode.com/research/${article.slug}`} />
         {ogImageAbs && <meta property="og:image" content={ogImageAbs} />}
         <meta name="twitter:card" content="summary_large_image" />
         {article.publishedAt && <meta property="article:published_time" content={article.publishedAt} />}
@@ -158,9 +153,10 @@ export default function ResearchArticle() {
           "@type": "Article",
           headline: article.title,
           description: article.excerpt,
+          articleSection: article.category,
           datePublished: article.publishedAt,
           dateModified: article.updatedAt || article.publishedAt,
-          image: article.ogImage,
+          image: ogImageAbs,
           author: { "@type": "Person", name: article.author || "Srinath Gajji" },
           publisher: { "@type": "Organization", name: "The Valuation Node" },
           mainEntityOfPage: article.canonical || `https://valuationnode.com/research/${article.slug}`,
@@ -307,24 +303,13 @@ export default function ResearchArticle() {
           </div>
         </div>
 
-        {/* Related articles */}
-        {related.length > 0 && (
-          <div className="mt-14">
-            <h2 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-6">Related research</h2>
-            <div className="grid gap-6 md:grid-cols-3">
-              {related.map((r) => (
-                <article key={r.slug}>
-                  {r.category && (
-                    <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{r.category}</span>
-                  )}
-                  <h3 className="mt-1 text-sm font-medium leading-snug">
-                    <Link to={`/research/${r.slug}`} className="hover:underline">{r.title}</Link>
-                  </h3>
-                </article>
-              ))}
-            </div>
-          </div>
-        )}
+        {/* Continue reading */}
+        <ContinueReading
+          className="mt-14"
+          currentSlug={article.slug}
+          category={article.category}
+          tags={article.tags}
+        />
       </article>
     </Layout>
   );

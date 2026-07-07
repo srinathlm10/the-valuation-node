@@ -117,7 +117,12 @@ export const routes: RouteRecord[] = [
       {
         path: "research/:slug",
         Component: ResearchArticle,
-        getStaticPaths: () => RESEARCH_ARTICLES.map((a) => `research/${a.slug}`),
+        // Only prerender articles that have a real publish date. Drafts (with a
+        // placeholder/missing date) are excluded so no static HTML leaks for
+        // them; they still resolve client-side (and show "unavailable" if the
+        // visibility flag is set).
+        getStaticPaths: () =>
+          RESEARCH_ARTICLES.filter((a) => a.publishedAt).map((a) => `research/${a.slug}`),
       },
 
       // Learn
