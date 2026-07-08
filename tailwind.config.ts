@@ -57,20 +57,9 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        // Slate scale for institutional feel
-        slate: {
-          50: "hsl(var(--slate-50))",
-          100: "hsl(var(--slate-100))",
-          200: "hsl(var(--slate-200))",
-          300: "hsl(var(--slate-300))",
-          400: "hsl(var(--slate-400))",
-          500: "hsl(var(--slate-500))",
-          600: "hsl(var(--slate-600))",
-          700: "hsl(var(--slate-700))",
-          800: "hsl(var(--slate-800))",
-          900: "hsl(var(--slate-900))",
-          950: "hsl(var(--slate-950))",
-        },
+        // NOTE: the default Tailwind slate scale is used as-is (an earlier
+        // override mapped shades to partially-undefined CSS vars, silently
+        // breaking classes like bg-slate-400). Do not re-add an override here.
         emerald: {
           DEFAULT: "hsl(var(--emerald))",
           light: "hsl(var(--emerald-light))",
@@ -103,10 +92,22 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ["Inter", "system-ui", "sans-serif"],
-        display: ["Outfit", "system-ui", "sans-serif"],
-        mono: ["JetBrains Mono", "Fira Code", "monospace"],
-        heading: ["Outfit", "system-ui", "sans-serif"],
+        // UI, navigation, headings: modern sans
+        sans: ["Inter", "system-ui", "-apple-system", "Segoe UI", "sans-serif"],
+        // Article and Foundations body: refined reading serif
+        serif: ["Source Serif 4", "Georgia", "Cambria", "serif"],
+        // Legacy aliases kept so existing font-display/font-heading classes resolve
+        display: ["Inter", "system-ui", "sans-serif"],
+        heading: ["Inter", "system-ui", "sans-serif"],
+        mono: ["JetBrains Mono", "ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
+      },
+      boxShadow: {
+        // Soft, slate-tinted elevation scale (centralised; overrides defaults)
+        sm: "0 1px 2px 0 hsl(220 25% 15% / 0.05)",
+        DEFAULT: "0 1px 3px 0 hsl(220 25% 15% / 0.07), 0 1px 2px -1px hsl(220 25% 15% / 0.06)",
+        md: "0 4px 10px -2px hsl(220 25% 15% / 0.08), 0 2px 4px -2px hsl(220 25% 15% / 0.05)",
+        lg: "0 12px 24px -6px hsl(220 25% 15% / 0.12), 0 4px 8px -4px hsl(220 25% 15% / 0.06)",
+        xl: "0 20px 36px -10px hsl(220 25% 15% / 0.16), 0 8px 14px -6px hsl(220 25% 15% / 0.08)",
       },
       keyframes: {
         "accordion-down": {

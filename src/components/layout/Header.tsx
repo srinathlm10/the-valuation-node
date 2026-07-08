@@ -8,6 +8,7 @@ import { useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useToast } from "@/hooks/use-toast";
 import { GlobalSearch } from "@/components/search/GlobalSearch";
+import { ThemeToggle } from "@/components/layout/ThemeToggle";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -76,6 +77,9 @@ export function Header() {
 
         {/* Right side */}
         <div className="flex items-center gap-2">
+          {/* Theme toggle */}
+          <ThemeToggle />
+
           {/* Search icon */}
           <Button
             variant="ghost"

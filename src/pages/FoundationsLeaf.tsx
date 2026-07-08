@@ -122,7 +122,7 @@ export default function FoundationsLeaf() {
             {/* Intuition */}
             <section className="mt-10">
               <h2 className="text-xl font-semibold">Intuition</h2>
-              <div className="mt-3 prose prose-slate dark:prose-invert max-w-none text-muted-foreground">
+              <div className="mt-3 prose prose-slate dark:prose-invert max-w-none text-muted-foreground font-serif prose-headings:font-sans">
                 <ReactMarkdown>{content.intuition}</ReactMarkdown>
               </div>
             </section>
@@ -130,14 +130,14 @@ export default function FoundationsLeaf() {
             {/* Mechanics */}
             <section className="mt-10">
               <h2 className="text-xl font-semibold">Mechanics</h2>
-              <div className="mt-3 prose prose-slate dark:prose-invert max-w-none">
+              <div className="mt-3 prose prose-slate dark:prose-invert max-w-none font-serif prose-headings:font-sans">
                 <ReactMarkdown>{content.mechanics}</ReactMarkdown>
               </div>
             </section>
 
             {/* Deep Dive */}
             <Collapsible title="Show advanced details">
-              <div className="prose prose-sm prose-slate dark:prose-invert max-w-none text-muted-foreground">
+              <div className="prose prose-sm prose-slate dark:prose-invert max-w-none text-muted-foreground font-serif prose-headings:font-sans">
                 <ReactMarkdown>{content.deepDive}</ReactMarkdown>
               </div>
             </Collapsible>

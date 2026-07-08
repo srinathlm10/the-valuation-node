@@ -244,7 +244,7 @@ export function ComputeRatiosLesson() {
           </span>
         </div>
         <div className="h-1.5 bg-muted rounded-full overflow-hidden">
-          <div className="h-full bg-blue-600 transition-all duration-300 rounded-full" style={{ width: `${((idx + 1) / total) * 100}%` }} />
+          <div className="h-full bg-primary transition-all duration-300 rounded-full" style={{ width: `${((idx + 1) / total) * 100}%` }} />
         </div>
       </div>
 
@@ -332,9 +332,9 @@ export function ComputeRatiosLesson() {
           {/* Completion */}
           {done && (
             <div className="mt-8 space-y-6">
-              <div className="p-6 rounded-xl border-2 border-blue-200 dark:border-blue-800 bg-blue-50/40 dark:bg-blue-950/20 text-center">
+              <div className="p-6 rounded-xl border-2 border-primary/25 bg-primary/5 text-center">
                 <p className="text-sm text-muted-foreground">You computed</p>
-                <p className="text-4xl font-bold text-blue-700 dark:text-blue-400 mt-1">
+                <p className="text-4xl font-bold text-primary mt-1">
                   {score}/{total}
                 </p>
                 <p className="mt-2 text-sm text-muted-foreground">
@@ -349,13 +349,13 @@ export function ComputeRatiosLesson() {
               <div className="p-5 rounded-xl border">
                 <h3 className="font-semibold mb-4">Go deeper</h3>
                 <div className="space-y-3 text-sm">
-                  <Link to="/learn/foundations/financial-statement-analysis/profitability-ratios" className="flex items-center gap-2 text-blue-600 hover:underline">
+                  <Link to="/learn/foundations/financial-statement-analysis/profitability-ratios" className="flex items-center gap-2 text-primary hover:underline">
                     <ChevronRight className="h-4 w-4 shrink-0" /> Profitability Ratios, Foundations
                   </Link>
-                  <Link to="/learn/foundations/financial-statement-analysis/dupont-decomposition" className="flex items-center gap-2 text-blue-600 hover:underline">
+                  <Link to="/learn/foundations/financial-statement-analysis/dupont-decomposition" className="flex items-center gap-2 text-primary hover:underline">
                     <ChevronRight className="h-4 w-4 shrink-0" /> DuPont Decomposition, Foundations
                   </Link>
-                  <Link to="/learn/by-doing/compare-two-companies" className="flex items-center gap-2 text-blue-600 hover:underline">
+                  <Link to="/learn/by-doing/compare-two-companies" className="flex items-center gap-2 text-primary hover:underline">
                     <ChevronRight className="h-4 w-4 shrink-0" /> Next: Compare Two Companies Side by Side
                   </Link>
                 </div>

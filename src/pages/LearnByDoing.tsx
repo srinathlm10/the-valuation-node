@@ -93,7 +93,7 @@ export default function LearnByDoing() {
                 {m.live ? (
                   <Link
                     to={`/learn/by-doing/${m.slug}`}
-                    className="shrink-0 text-xs font-medium px-2.5 py-1 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-colors"
+                    className="shrink-0 text-xs font-medium px-2.5 py-1 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
                   >
                     Start →
                   </Link>

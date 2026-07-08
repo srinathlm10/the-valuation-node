@@ -6,6 +6,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="author" content="Srinath Gajji" />
 
+  <!-- Apply the saved (or system) theme before first paint to avoid a flash.
+       Uses the same "theme" localStorage key as next-themes. -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        var dark = t === "dark" || ((!t || t === "system") && window.matchMedia("(prefers-color-scheme: dark)").matches);
+        document.documentElement.classList.toggle("dark", dark);
+      } catch (e) { }
+    })();
+  </script>
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fbfaf7" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#10161e" />
+
+  <!-- Typography: Inter (UI) + Source Serif 4 (article body). Open-license Google Fonts. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap"
+    rel="stylesheet" />
+
   <!-- Page-specific SEO (title, description, canonical, Open Graph, Twitter) is
        set per-route via react-helmet-async and baked into each prerendered page.
        Only site-wide, non-page-specific tags live here. -->

@@ -137,20 +137,20 @@ const kindStyles: Record<LineKind, { row: string; badge: string; icon: React.Rea
   start: { row: "font-semibold", badge: "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300", icon: null },
   cost: { row: "text-muted-foreground", badge: "bg-red-50 dark:bg-red-950/40 text-red-600 dark:text-red-400", icon: <Minus className="h-3 w-3" /> },
   income: { row: "text-muted-foreground", badge: "bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400", icon: <Plus className="h-3 w-3" /> },
-  subtotal: { row: "font-medium", badge: "bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400", icon: <Equal className="h-3 w-3" /> },
-  final: { row: "font-bold text-blue-700 dark:text-blue-400", badge: "bg-blue-600 text-white", icon: <Equal className="h-3 w-3" /> },
+  subtotal: { row: "font-medium", badge: "bg-primary/10 text-primary", icon: <Equal className="h-3 w-3" /> },
+  final: { row: "font-bold text-primary", badge: "bg-primary text-primary-foreground", icon: <Equal className="h-3 w-3" /> },
 };
 
 // A shrinking-bar "margin ladder" for the key subtotals.
 function MarginLadder({ company }: { company: FinancialCompany }) {
   const d = derive(company);
   const rows = [
-    { label: "Revenue", value: company.revenue, color: "bg-slate-400" },
-    { label: "Gross Profit", value: d.grossProfit, color: "bg-sky-500" },
-    { label: "EBITDA", value: d.ebitda, color: "bg-blue-500" },
-    { label: "EBIT", value: d.ebit, color: "bg-indigo-500" },
-    { label: "PBT", value: d.pbt, color: "bg-violet-500" },
-    { label: "PAT", value: d.pat, color: "bg-blue-600" },
+    { label: "Revenue", value: company.revenue, color: "bg-primary/35" },
+    { label: "Gross Profit", value: d.grossProfit, color: "bg-primary/50" },
+    { label: "EBITDA", value: d.ebitda, color: "bg-primary/65" },
+    { label: "EBIT", value: d.ebit, color: "bg-primary/75" },
+    { label: "PBT", value: d.pbt, color: "bg-primary/85" },
+    { label: "PAT", value: d.pat, color: "bg-primary" },
   ];
   return (
     <div className="space-y-2">
@@ -247,7 +247,7 @@ export function ReadIncomeStatementLesson() {
           </button>
         </div>
         <div className="h-1.5 bg-muted rounded-full overflow-hidden">
-          <div className="h-full bg-blue-600 transition-all duration-300 rounded-full" style={{ width: `${(revealed / total) * 100}%` }} />
+          <div className="h-full bg-primary transition-all duration-300 rounded-full" style={{ width: `${(revealed / total) * 100}%` }} />
         </div>
       </div>
 
@@ -278,7 +278,7 @@ export function ReadIncomeStatementLesson() {
                       className={cn(
                         "border-b border-border/40 transition-colors",
                         s.row,
-                        isCurrent && "bg-blue-50/60 dark:bg-blue-950/20"
+                        isCurrent && "bg-primary/10"
                       )}
                     >
                       <td className="px-4 py-2.5">
@@ -301,8 +301,8 @@ export function ReadIncomeStatementLesson() {
           </div>
 
           {/* Explanation of the current line */}
-          <div className="mt-4 p-4 rounded-lg bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800">
-            <p className="text-sm text-blue-900 dark:text-blue-100">
+          <div className="mt-4 p-4 rounded-lg bg-primary/5 border border-primary/25">
+            <p className="text-sm text-foreground">
               <strong>{current.label}:</strong> {current.explain(company)}
             </p>
           </div>
@@ -318,7 +318,7 @@ export function ReadIncomeStatementLesson() {
           {/* Completion recap */}
           {done && (
             <div className="mt-8 space-y-6">
-              <div className="p-5 rounded-xl border-2 border-blue-200 dark:border-blue-800 bg-blue-50/40 dark:bg-blue-950/20">
+              <div className="p-5 rounded-xl border-2 border-primary/25 bg-primary/5">
                 <h3 className="font-semibold">You've read the whole statement.</h3>
                 <p className="mt-2 text-sm text-muted-foreground">
                   Of every ₹100 {company.name} earned in revenue, it kept about{" "}
@@ -338,13 +338,13 @@ export function ReadIncomeStatementLesson() {
               <div className="p-5 rounded-xl border">
                 <h3 className="font-semibold mb-4">Go deeper</h3>
                 <div className="space-y-3 text-sm">
-                  <Link to="/learn/foundations/accounting/reading-an-income-statement" className="flex items-center gap-2 text-blue-600 hover:underline">
+                  <Link to="/learn/foundations/accounting/reading-an-income-statement" className="flex items-center gap-2 text-primary hover:underline">
                     <ChevronRight className="h-4 w-4 shrink-0" /> Reading an Income Statement, Foundations
                   </Link>
-                  <Link to="/learn/foundations/accounting/quality-of-earnings" className="flex items-center gap-2 text-blue-600 hover:underline">
+                  <Link to="/learn/foundations/accounting/quality-of-earnings" className="flex items-center gap-2 text-primary hover:underline">
                     <ChevronRight className="h-4 w-4 shrink-0" /> Quality of Earnings, Foundations
                   </Link>
-                  <Link to="/learn/by-doing/compute-ratios" className="flex items-center gap-2 text-blue-600 hover:underline">
+                  <Link to="/learn/by-doing/compute-ratios" className="flex items-center gap-2 text-primary hover:underline">
                     <ChevronRight className="h-4 w-4 shrink-0" /> Next: Compute Ratios from Raw Statements
                   </Link>
                 </div>

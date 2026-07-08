@@ -94,7 +94,7 @@ const FINANCIAL_STATEMENTS = [
     title: "Balance Sheet",
     question: "What does the company own vs. owe?",
     icon: BarChart3,
-    color: "text-blue-600",
+    color: "text-primary",
     items: [
       { term: "Current Assets", formula: "Cash, receivables, inventory (liquid within 1 year)" },
       { term: "Non-Current Assets", formula: "Property, plant, equipment, intangibles" },

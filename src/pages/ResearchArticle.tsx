@@ -180,7 +180,7 @@ export default function ResearchArticle() {
 
         {/* Dek */}
         {article.excerpt && (
-          <p className="mt-3 text-lg text-muted-foreground italic leading-relaxed">{article.excerpt}</p>
+          <p className="mt-3 text-lg text-muted-foreground italic leading-relaxed font-serif">{article.excerpt}</p>
         )}
 
         {/* Byline */}
@@ -222,7 +222,7 @@ export default function ResearchArticle() {
         )}
 
         {/* Body */}
-        <div className="mt-10 prose prose-slate dark:prose-invert max-w-none">
+        <div className="mt-10 prose prose-slate dark:prose-invert max-w-none font-serif prose-headings:font-sans">
           <ReactMarkdown>{article.content}</ReactMarkdown>
         </div>
 

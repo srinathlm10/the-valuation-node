@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Navigate, Outlet } from "react-router-dom";
 import { lazy, Suspense } from "react";
+import { ThemeProvider } from "next-themes";
 import type { RouteRecord } from "vite-react-ssg";
 import { RESEARCH_ARTICLES } from "@/data/research.generated";
 import { AuthProvider } from "@/contexts/AuthContext";
@@ -86,17 +87,19 @@ const PageLoader = () => (
 // Components resolve during both client render and static prerender.
 function RootLayout() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <AuthProvider>
-          <Suspense fallback={<PageLoader />}>
-            <Outlet />
-          </Suspense>
-        </AuthProvider>
-      </TooltipProvider>
-    </QueryClientProvider>
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <AuthProvider>
+            <Suspense fallback={<PageLoader />}>
+              <Outlet />
+            </Suspense>
+          </AuthProvider>
+        </TooltipProvider>
+      </QueryClientProvider>
+    </ThemeProvider>
   );
 }
 

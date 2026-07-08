@@ -259,7 +259,7 @@ export function SpotRedFlagsLesson() {
           )}
         </div>
         <div className="h-1.5 bg-muted rounded-full overflow-hidden">
-          <div className="h-full bg-blue-600 transition-all duration-300 rounded-full" style={{ width: `${((caseIdx + 1) / total) * 100}%` }} />
+          <div className="h-full bg-primary transition-all duration-300 rounded-full" style={{ width: `${((caseIdx + 1) / total) * 100}%` }} />
         </div>
       </div>
 
@@ -286,7 +286,7 @@ export function SpotRedFlagsLesson() {
                 className={cn(
                   "rounded-xl border-2 p-4 transition-all",
                   !showResult && "cursor-pointer",
-                  !showResult && isSel && "border-blue-400 bg-blue-50/40 dark:bg-blue-950/20",
+                  !showResult && isSel && "border-primary/60 bg-primary/5",
                   !showResult && !isSel && "hover:border-muted-foreground/30",
                   showResult && sig.isRedFlag && "border-red-300 bg-red-50/40 dark:bg-red-950/20",
                   showResult && !sig.isRedFlag && "border-emerald-200 bg-emerald-50/30 dark:bg-emerald-950/10"
@@ -298,7 +298,7 @@ export function SpotRedFlagsLesson() {
                     <span
                       className={cn(
                         "mt-0.5 h-5 w-5 shrink-0 rounded border flex items-center justify-center",
-                        isSel ? "bg-blue-600 border-blue-600 text-white" : "border-muted-foreground/40"
+                        isSel ? "bg-primary border-primary text-primary-foreground" : "border-muted-foreground/40"
                       )}
                     >
                       {isSel && <Check className="h-3.5 w-3.5" />}
@@ -374,9 +374,9 @@ export function SpotRedFlagsLesson() {
         {/* Completion */}
         {allRevealed && (
           <div className="mt-8 space-y-6">
-            <div className="p-6 rounded-xl border-2 border-blue-200 dark:border-blue-800 bg-blue-50/40 dark:bg-blue-950/20 text-center">
+            <div className="p-6 rounded-xl border-2 border-primary/25 bg-primary/5 text-center">
               <p className="text-sm text-muted-foreground">Across all three cases you caught</p>
-              <p className="text-4xl font-bold text-blue-700 dark:text-blue-400 mt-1">
+              <p className="text-4xl font-bold text-primary mt-1">
                 {scoreData.caught}/{scoreData.totalFlags}
               </p>
               <p className="mt-2 text-sm text-muted-foreground">
@@ -396,13 +396,13 @@ export function SpotRedFlagsLesson() {
             <div className="p-5 rounded-xl border">
               <h3 className="font-semibold mb-4">Go deeper</h3>
               <div className="space-y-3 text-sm">
-                <Link to="/learn/foundations/accounting/quality-of-earnings" className="flex items-center gap-2 text-blue-600 hover:underline">
+                <Link to="/learn/foundations/accounting/quality-of-earnings" className="flex items-center gap-2 text-primary hover:underline">
                   <ChevronRight className="h-4 w-4 shrink-0" /> Quality of Earnings, Foundations
                 </Link>
-                <Link to="/learn/foundations/credit-analysis/altman-z-score" className="flex items-center gap-2 text-blue-600 hover:underline">
+                <Link to="/learn/foundations/credit-analysis/altman-z-score" className="flex items-center gap-2 text-primary hover:underline">
                   <ChevronRight className="h-4 w-4 shrink-0" /> Altman Z-Score and Distress Models, Foundations
                 </Link>
-                <Link to="/learn/foundations/accounting/reading-a-cash-flow-statement" className="flex items-center gap-2 text-blue-600 hover:underline">
+                <Link to="/learn/foundations/accounting/reading-a-cash-flow-statement" className="flex items-center gap-2 text-primary hover:underline">
                   <ChevronRight className="h-4 w-4 shrink-0" /> Reading a Cash Flow Statement, Foundations
                 </Link>
               </div>

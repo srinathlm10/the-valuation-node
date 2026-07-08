@@ -14,6 +14,7 @@ import { cn } from "@/lib/utils";
 import { calculateDcf } from "@/lib/dcf";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { LEARN_COMPANIES, type LearnCompany } from "@/lib/learnDcfCompanies";
+import { CHART_PRIMARY, CHART_NEUTRAL, CHART_MUTED_FILL, chartTooltipStyle, chartTick } from "@/lib/chartTheme";
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -142,7 +143,7 @@ function ModelSidebar({ step, company, revenueGrowth, operatingMargin, taxRate, 
           )}
 
           {step >= 8 && result && (
-            <div className="border-t pt-2.5 flex justify-between font-bold text-blue-700 dark:text-blue-400">
+            <div className="border-t pt-2.5 flex justify-between font-bold text-primary">
               <span>Value / Share</span>
               <span>{fmtShare(result.equityValuePerShare)}</span>
             </div>
@@ -359,22 +360,22 @@ export function BuildADcfLesson() {
 
             <div className="mt-6">
               <p className="text-sm font-medium mb-3">Historical revenue (₹ Cr)</p>
-              <ResponsiveContainer width="100%" height={200}>
+              <ResponsiveContainer width="100%" height={200} className="text-muted-foreground">
                 <BarChart data={company.historicalRevenue} barSize={48}>
-                  <XAxis dataKey="fy" tick={{ fontSize: 12 }} />
+                  <XAxis dataKey="fy" tick={{ ...chartTick, fontSize: 12 }} />
                   <YAxis
                     tickFormatter={v => `₹${(v / 1000).toFixed(0)}K`}
-                    tick={{ fontSize: 11 }}
+                    tick={chartTick}
                     width={52}
                   />
-                  <Tooltip formatter={(v: number) => [fmtCr(v), "Revenue"]} />
-                  <Bar dataKey="revenue" fill="#2563eb" radius={[4, 4, 0, 0]} />
+                  <Tooltip contentStyle={chartTooltipStyle} formatter={(v: number) => [fmtCr(v), "Revenue"]} />
+                  <Bar dataKey="revenue" fill={CHART_PRIMARY} radius={[4, 4, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
 
-            <div className="mt-4 p-4 rounded-lg bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800">
-              <p className="text-sm text-blue-800 dark:text-blue-200">
+            <div className="mt-4 p-4 rounded-lg bg-primary/5 border border-primary/25">
+              <p className="text-sm text-primary">
                 <strong>Why this matters:</strong> The base revenue is our starting point. Every cash flow we forecast builds from this number. The historical trend also tells us whether the business has been growing steadily or erratically - context you'll use when you set the growth rate in the next step.
               </p>
             </div>
@@ -404,7 +405,7 @@ export function BuildADcfLesson() {
             <div className="mt-6">
               <div className="flex items-center justify-between mb-3">
                 <label className="text-sm font-medium">Your revenue growth forecast</label>
-                <span className="text-xl font-bold text-blue-600">{fmtPct(revenueGrowth)}</span>
+                <span className="text-xl font-bold text-primary">{fmtPct(revenueGrowth)}</span>
               </div>
               <Slider
                 min={0}
@@ -421,21 +422,21 @@ export function BuildADcfLesson() {
 
             <div className="mt-6">
               <p className="text-sm font-medium mb-3">Revenue projection vs history (₹ Cr)</p>
-              <ResponsiveContainer width="100%" height={230}>
+              <ResponsiveContainer width="100%" height={230} className="text-muted-foreground">
                 <LineChart data={revenueChartData}>
-                  <XAxis dataKey="fy" tick={{ fontSize: 11 }} />
+                  <XAxis dataKey="fy" tick={chartTick} />
                   <YAxis
                     tickFormatter={v => `₹${(v / 1000).toFixed(0)}K`}
-                    tick={{ fontSize: 11 }}
+                    tick={chartTick}
                     width={52}
                   />
-                  <Tooltip formatter={(v: number) => [fmtCr(v), ""]} />
+                  <Tooltip contentStyle={chartTooltipStyle} formatter={(v: number) => [fmtCr(v), ""]} />
                   <Legend
                     formatter={v => (v === "historical" ? "Historical" : "Forecast")}
                   />
                   <Line
                     dataKey="historical"
-                    stroke="#64748b"
+                    stroke={CHART_NEUTRAL}
                     strokeWidth={2}
                     dot={{ r: 4 }}
                     connectNulls={false}
@@ -443,7 +444,7 @@ export function BuildADcfLesson() {
                   />
                   <Line
                     dataKey="forecast"
-                    stroke="#2563eb"
+                    stroke={CHART_PRIMARY}
                     strokeWidth={2}
                     strokeDasharray="5 3"
                     dot={{ r: 4 }}
@@ -482,7 +483,7 @@ export function BuildADcfLesson() {
             <div className="mt-6">
               <div className="flex items-center justify-between mb-3">
                 <label className="text-sm font-medium">Your margin assumption</label>
-                <span className="text-xl font-bold text-blue-600">{fmtPct(operatingMargin)}</span>
+                <span className="text-xl font-bold text-primary">{fmtPct(operatingMargin)}</span>
               </div>
               <Slider
                 min={0.02}
@@ -499,24 +500,24 @@ export function BuildADcfLesson() {
 
             <div className="mt-6">
               <p className="text-sm font-medium mb-3">Revenue vs Operating Profit - Forecast (₹ Cr)</p>
-              <ResponsiveContainer width="100%" height={230}>
+              <ResponsiveContainer width="100%" height={230} className="text-muted-foreground">
                 <BarChart data={marginChartData} barGap={4}>
-                  <XAxis dataKey="fy" tick={{ fontSize: 11 }} />
+                  <XAxis dataKey="fy" tick={chartTick} />
                   <YAxis
                     tickFormatter={v => `₹${(v / 1000).toFixed(0)}K`}
-                    tick={{ fontSize: 11 }}
+                    tick={chartTick}
                     width={52}
                   />
-                  <Tooltip formatter={(v: number) => [fmtCr(v), ""]} />
+                  <Tooltip contentStyle={chartTooltipStyle} formatter={(v: number) => [fmtCr(v), ""]} />
                   <Legend />
-                  <Bar dataKey="revenue" name="Revenue" fill="#cbd5e1" radius={[4, 4, 0, 0]} />
-                  <Bar dataKey="operatingProfit" name="Operating Profit (EBIT)" fill="#2563eb" radius={[4, 4, 0, 0]} />
+                  <Bar dataKey="revenue" name="Revenue" fill={CHART_MUTED_FILL} radius={[4, 4, 0, 0]} />
+                  <Bar dataKey="operatingProfit" name="Operating Profit (EBIT)" fill={CHART_PRIMARY} radius={[4, 4, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
 
-            <div className="mt-4 p-4 rounded-lg bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800">
-              <p className="text-sm text-blue-800 dark:text-blue-200">
+            <div className="mt-4 p-4 rounded-lg bg-primary/5 border border-primary/25">
+              <p className="text-sm text-primary">
                 <strong>Why this matters:</strong> Margin expansion is where value gets created. A business growing at 15% with expanding margins is worth far more than one growing at 15% with shrinking margins. This is why analysts track quarterly EBIT margins so closely.
               </p>
             </div>
@@ -541,7 +542,7 @@ export function BuildADcfLesson() {
             <div className="mt-6">
               <div className="flex items-center justify-between mb-3">
                 <label className="text-sm font-medium">Effective tax rate</label>
-                <span className="text-xl font-bold text-blue-600">{fmtPct(taxRate)}</span>
+                <span className="text-xl font-bold text-primary">{fmtPct(taxRate)}</span>
               </div>
               <Slider
                 min={0.1}
@@ -584,7 +585,7 @@ export function BuildADcfLesson() {
                     <tr className="font-medium">
                       <td className="text-left py-2">NOPAT</td>
                       {result.yearlyData.map(y => (
-                        <td key={y.year} className="py-2 pl-4 text-blue-700 dark:text-blue-400">
+                        <td key={y.year} className="py-2 pl-4 text-primary">
                           {fmtCr(y.nopat)}
                         </td>
                       ))}
@@ -594,8 +595,8 @@ export function BuildADcfLesson() {
               </div>
             )}
 
-            <div className="mt-4 p-4 rounded-lg bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800">
-              <p className="text-sm text-blue-800 dark:text-blue-200">
+            <div className="mt-4 p-4 rounded-lg bg-primary/5 border border-primary/25">
+              <p className="text-sm text-primary">
                 <strong>Why this matters:</strong> By using NOPAT rather than net profit, we strip out the effect of how the company is financed (how much debt it uses). This lets us value the business itself, independent of its capital structure. We add the financing effect back at the end by subtracting net debt from enterprise value.
               </p>
             </div>
@@ -656,7 +657,7 @@ export function BuildADcfLesson() {
                     <tr className="font-medium">
                       <td className="text-left py-2">Free Cash Flow</td>
                       {result.yearlyData.map(y => (
-                        <td key={y.year} className="py-2 pl-4 text-blue-700 dark:text-blue-400">
+                        <td key={y.year} className="py-2 pl-4 text-primary">
                           {fmtCr(y.fcf)}
                         </td>
                       ))}
@@ -691,7 +692,7 @@ export function BuildADcfLesson() {
                 <p className="text-xs text-muted-foreground">Low risk (FMCG, utilities)</p>
                 <p className="font-bold mt-1">9–11%</p>
               </div>
-              <div className="p-3 rounded-lg border border-blue-200 bg-blue-50/50 dark:bg-blue-950/20">
+              <div className="p-3 rounded-lg border border-primary/25 bg-primary/5">
                 <p className="text-xs text-muted-foreground">Medium risk (industrials)</p>
                 <p className="font-bold mt-1">11–13%</p>
               </div>
@@ -704,7 +705,7 @@ export function BuildADcfLesson() {
             <div className="mt-6">
               <div className="flex items-center justify-between mb-3">
                 <label className="text-sm font-medium">Your WACC</label>
-                <span className="text-xl font-bold text-blue-600">{fmtPct(wacc)}</span>
+                <span className="text-xl font-bold text-primary">{fmtPct(wacc)}</span>
               </div>
               <Slider
                 min={0.06}
@@ -758,7 +759,7 @@ export function BuildADcfLesson() {
                     <tr className="font-medium">
                       <td className="text-left py-2">Present Value</td>
                       {result.yearlyData.map(y => (
-                        <td key={y.year} className="py-2 pl-4 text-blue-700 dark:text-blue-400">
+                        <td key={y.year} className="py-2 pl-4 text-primary">
                           {fmtCr(y.pv)}
                         </td>
                       ))}
@@ -772,8 +773,8 @@ export function BuildADcfLesson() {
               </div>
             )}
 
-            <div className="mt-4 p-4 rounded-lg bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800">
-              <p className="text-sm text-blue-800 dark:text-blue-200">
+            <div className="mt-4 p-4 rounded-lg bg-primary/5 border border-primary/25">
+              <p className="text-sm text-primary">
                 <strong>Why this matters:</strong> The discount rate is brutally powerful. Dropping WACC from 13% to 11% on the same set of cash flows can raise the valuation by 30–40%. This is why interest rate cuts are bullish for equities: lower rates mean lower discount rates, which mechanically lifts all DCF valuations.
               </p>
             </div>
@@ -799,7 +800,7 @@ export function BuildADcfLesson() {
             <div className="mt-6">
               <div className="flex items-center justify-between mb-3">
                 <label className="text-sm font-medium">Terminal growth rate</label>
-                <span className="text-xl font-bold text-blue-600">{fmtPct(terminalGrowth)}</span>
+                <span className="text-xl font-bold text-primary">{fmtPct(terminalGrowth)}</span>
               </div>
               <Slider
                 min={0.02}
@@ -846,7 +847,7 @@ export function BuildADcfLesson() {
                   <p className="text-xs text-muted-foreground mb-2">Enterprise value breakdown</p>
                   <div className="h-8 rounded-full overflow-hidden flex text-xs font-medium">
                     <div
-                      className="bg-blue-600 h-full flex items-center justify-center text-white"
+                      className="bg-primary h-full flex items-center justify-center text-white"
                       style={{ width: `${(1 - result.terminalValuePct) * 100}%` }}
                     >
                       FCFs {fmtPct(1 - result.terminalValuePct, 0)}
@@ -896,9 +897,9 @@ export function BuildADcfLesson() {
 
             {result ? (
               <>
-                <div className="mt-6 p-6 rounded-xl border-2 border-blue-200 dark:border-blue-800 bg-blue-50/40 dark:bg-blue-950/20 text-center">
+                <div className="mt-6 p-6 rounded-xl border-2 border-primary/25 bg-primary/5 text-center">
                   <p className="text-sm text-muted-foreground">Your DCF value per share</p>
-                  <p className="text-5xl font-bold text-blue-700 dark:text-blue-400 mt-2">
+                  <p className="text-5xl font-bold text-primary mt-2">
                     {fmtShare(result.equityValuePerShare)}
                   </p>
                   {company.currentPrice > 0 && upside !== null && (
@@ -952,7 +953,7 @@ export function BuildADcfLesson() {
                           : fmtCr(company.netDebt)}
                       </span>
                     </div>
-                    <div className="flex justify-between py-2.5 font-bold text-blue-700 dark:text-blue-400">
+                    <div className="flex justify-between py-2.5 font-bold text-primary">
                       <span>Equity Value per Share</span>
                       <span>{fmtShare(result.equityValuePerShare)}</span>
                     </div>
@@ -975,28 +976,28 @@ export function BuildADcfLesson() {
                   <div className="space-y-3 text-sm">
                     <Link
                       to="/learn/foundations/valuation/dcf-theory-and-mechanics"
-                      className="flex items-center gap-2 text-blue-600 hover:underline"
+                      className="flex items-center gap-2 text-primary hover:underline"
                     >
                       <ChevronRight className="h-4 w-4 shrink-0" />
                       DCF Theory and Mechanics - Foundations
                     </Link>
                     <Link
                       to="/learn/foundations/valuation/common-dcf-mistakes"
-                      className="flex items-center gap-2 text-blue-600 hover:underline"
+                      className="flex items-center gap-2 text-primary hover:underline"
                     >
                       <ChevronRight className="h-4 w-4 shrink-0" />
                       Common DCF Mistakes - Foundations
                     </Link>
                     <Link
                       to="/tools/dcf-sensitivity"
-                      className="flex items-center gap-2 text-blue-600 hover:underline"
+                      className="flex items-center gap-2 text-primary hover:underline"
                     >
                       <ChevronRight className="h-4 w-4 shrink-0" />
                       DCF Sensitivity Calculator - run scenarios across WACC and TGR
                     </Link>
                     <Link
                       to="/research"
-                      className="flex items-center gap-2 text-blue-600 hover:underline"
+                      className="flex items-center gap-2 text-primary hover:underline"
                     >
                       <ChevronRight className="h-4 w-4 shrink-0" />
                       Research - see DCF used in real company analysis
@@ -1058,7 +1059,7 @@ export function BuildADcfLesson() {
         </div>
         <div className="h-1.5 bg-muted rounded-full overflow-hidden">
           <div
-            className="h-full bg-blue-600 transition-all duration-300 rounded-full"
+            className="h-full bg-primary transition-all duration-300 rounded-full"
             style={{ width: `${(step / TOTAL_STEPS) * 100}%` }}
           />
         </div>

@@ -17,6 +17,7 @@ import {
   type FinancialCompany,
   type DerivedFinancials,
 } from "@/lib/learnFinancials";
+import { CHART_PRIMARY, CHART_COMPARISON, chartTooltipStyle, chartTick } from "@/lib/chartTheme";
 
 type Dir = "higher" | "lower";
 
@@ -219,7 +220,7 @@ export function CompareCompaniesLesson() {
         disabled={answered}
         className={cn(
           "flex-1 text-left p-4 rounded-xl border-2 transition-all",
-          !answered && "hover:border-blue-400 hover:bg-blue-50/40 dark:hover:bg-blue-950/20 cursor-pointer",
+          !answered && "hover:border-primary/60 hover:bg-primary/5 cursor-pointer",
           answered && isCorrect && "border-emerald-400 bg-emerald-50/50 dark:bg-emerald-950/20",
           answered && isPicked && !isCorrect && "border-red-400 bg-red-50/50 dark:bg-red-950/20",
           answered && !isPicked && !isCorrect && "opacity-60"
@@ -268,7 +269,7 @@ export function CompareCompaniesLesson() {
           </span>
         </div>
         <div className="h-1.5 bg-muted rounded-full overflow-hidden">
-          <div className="h-full bg-blue-600 transition-all duration-300 rounded-full" style={{ width: `${((idx + 1) / total) * 100}%` }} />
+          <div className="h-full bg-primary transition-all duration-300 rounded-full" style={{ width: `${((idx + 1) / total) * 100}%` }} />
         </div>
       </div>
 
@@ -282,8 +283,8 @@ export function CompareCompaniesLesson() {
         </div>
 
         {answered && (
-          <div className="mt-4 p-4 rounded-lg bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800">
-            <p className="text-sm text-blue-900 dark:text-blue-100">
+          <div className="mt-4 p-4 rounded-lg bg-primary/5 border border-primary/25">
+            <p className="text-sm text-foreground">
               <strong>
                 {(correctSide === "a" ? a.name : b.name)} wins this round ({dim.fmt(correctSide === "a" ? va : vb)} vs{" "}
                 {dim.fmt(correctSide === "a" ? vb : va)}).
@@ -304,10 +305,10 @@ export function CompareCompaniesLesson() {
         {/* Completion */}
         {done && (
           <div className="mt-8 space-y-6">
-            <div className="p-6 rounded-xl border-2 border-blue-200 dark:border-blue-800 bg-blue-50/40 dark:bg-blue-950/20 text-center">
-              <Trophy className="h-6 w-6 mx-auto text-blue-600" />
+            <div className="p-6 rounded-xl border-2 border-primary/25 bg-primary/5 text-center">
+              <Trophy className="h-6 w-6 mx-auto text-primary" />
               <p className="mt-2 text-sm text-muted-foreground">You called</p>
-              <p className="text-4xl font-bold text-blue-700 dark:text-blue-400 mt-1">
+              <p className="text-4xl font-bold text-primary mt-1">
                 {score}/{total}
               </p>
               <p className="mt-2 text-sm text-muted-foreground">rounds correctly</p>
@@ -317,14 +318,14 @@ export function CompareCompaniesLesson() {
             <div>
               <p className="text-sm font-medium mb-2">Full profile (100 = stronger of the two on each axis)</p>
               <div className="rounded-xl border p-4">
-                <ResponsiveContainer width="100%" height={300}>
+                <ResponsiveContainer width="100%" height={300} className="text-muted-foreground">
                   <RadarChart data={radarData} outerRadius="70%">
                     <PolarGrid />
-                    <PolarAngleAxis dataKey="dimension" tick={{ fontSize: 11 }} />
-                    <Radar name={a.ticker} dataKey={a.ticker} stroke="#2563eb" fill="#2563eb" fillOpacity={0.25} />
-                    <Radar name={b.ticker} dataKey={b.ticker} stroke="#f59e0b" fill="#f59e0b" fillOpacity={0.25} />
+                    <PolarAngleAxis dataKey="dimension" tick={chartTick} />
+                    <Radar name={a.ticker} dataKey={a.ticker} stroke={CHART_PRIMARY} fill={CHART_PRIMARY} fillOpacity={0.25} />
+                    <Radar name={b.ticker} dataKey={b.ticker} stroke={CHART_COMPARISON} fill={CHART_COMPARISON} fillOpacity={0.25} />
                     <Legend />
-                    <Tooltip />
+                    <Tooltip contentStyle={chartTooltipStyle} />
                   </RadarChart>
                 </ResponsiveContainer>
               </div>
@@ -349,13 +350,13 @@ export function CompareCompaniesLesson() {
             <div className="p-5 rounded-xl border">
               <h3 className="font-semibold mb-4">Go deeper</h3>
               <div className="space-y-3 text-sm">
-                <Link to="/learn/foundations/valuation/relative-valuation" className="flex items-center gap-2 text-blue-600 hover:underline">
+                <Link to="/learn/foundations/valuation/relative-valuation" className="flex items-center gap-2 text-primary hover:underline">
                   <ChevronRight className="h-4 w-4 shrink-0" /> Relative Valuation, Foundations
                 </Link>
-                <Link to="/learn/foundations/financial-statement-analysis/dupont-decomposition" className="flex items-center gap-2 text-blue-600 hover:underline">
+                <Link to="/learn/foundations/financial-statement-analysis/dupont-decomposition" className="flex items-center gap-2 text-primary hover:underline">
                   <ChevronRight className="h-4 w-4 shrink-0" /> DuPont Decomposition, Foundations
                 </Link>
-                <Link to="/learn/by-doing/spot-the-red-flags" className="flex items-center gap-2 text-blue-600 hover:underline">
+                <Link to="/learn/by-doing/spot-the-red-flags" className="flex items-center gap-2 text-primary hover:underline">
                   <ChevronRight className="h-4 w-4 shrink-0" /> Next: Spot the Red Flags
                 </Link>
               </div>

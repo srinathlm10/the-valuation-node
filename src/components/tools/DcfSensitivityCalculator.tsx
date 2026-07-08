@@ -173,12 +173,12 @@ function SensitivityHeatmap({
                   return (
                     <td
                       key={ci}
-                      className={`py-1 px-2 text-center font-mono tabular-nums rounded${
+                      className={`py-1 px-2 text-center font-mono tabular-nums rounded${val !== null ? " text-slate-900" : " text-muted-foreground"}${
                         isBase ? " outline outline-2 outline-primary outline-offset-1" : ""
                       }`}
                       style={{
                         backgroundColor:
-                          val !== null ? heatColor(val, min, max) : "#f5f5f5",
+                          val !== null ? heatColor(val, min, max) : "hsl(var(--muted))",
                       }}
                       title={
                         val !== null
