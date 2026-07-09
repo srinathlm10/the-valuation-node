@@ -101,6 +101,82 @@ export default {
         heading: ["Inter", "system-ui", "sans-serif"],
         mono: ["JetBrains Mono", "ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
       },
+      // Central prose styling for ALL markdown-rendered content (articles,
+      // Foundations, glossary). Token-based colors flip with dark mode; do not
+      // restyle prose per component.
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: "70ch",
+            lineHeight: "1.7",
+            color: "hsl(var(--foreground) / 0.88)",
+            a: {
+              color: "hsl(var(--primary))",
+              textDecoration: "underline",
+              textUnderlineOffset: "3px",
+              textDecorationColor: "hsl(var(--primary) / 0.35)",
+              fontWeight: "500",
+              "&:hover": { textDecorationColor: "hsl(var(--primary))" },
+            },
+            "h1, h2, h3, h4": {
+              fontFamily: "Inter, system-ui, sans-serif",
+              fontWeight: "600",
+              letterSpacing: "-0.015em",
+              color: "hsl(var(--foreground))",
+            },
+            h2: { marginTop: "2em", marginBottom: "0.75em" },
+            h3: { marginTop: "1.6em", marginBottom: "0.6em" },
+            strong: { color: "hsl(var(--foreground))", fontWeight: "600" },
+            blockquote: {
+              fontStyle: "italic",
+              fontWeight: "400",
+              color: "hsl(var(--muted-foreground))",
+              borderLeftColor: "hsl(var(--primary) / 0.4)",
+              quotes: "none",
+            },
+            code: {
+              backgroundColor: "hsl(var(--muted))",
+              color: "hsl(var(--foreground))",
+              borderRadius: "0.3rem",
+              padding: "0.15em 0.35em",
+              fontWeight: "500",
+              fontSize: "0.875em",
+            },
+            "code::before": { content: "none" },
+            "code::after": { content: "none" },
+            pre: {
+              backgroundColor: "hsl(217 27% 12%)",
+              color: "hsl(40 15% 90%)",
+              borderRadius: "0.6rem",
+              border: "1px solid hsl(217 18% 22%)",
+              padding: "1rem 1.25rem",
+            },
+            "pre code": {
+              backgroundColor: "transparent",
+              color: "inherit",
+              padding: "0",
+              fontWeight: "400",
+            },
+            table: { fontSize: "0.9em", lineHeight: "1.5" },
+            "thead th": {
+              color: "hsl(var(--foreground))",
+              fontWeight: "600",
+              borderBottomColor: "hsl(var(--border))",
+            },
+            "tbody td": { fontVariantNumeric: "tabular-nums" },
+            "tbody tr": { borderBottomColor: "hsl(var(--border))" },
+            hr: { borderColor: "hsl(var(--border))" },
+            li: { marginTop: "0.35em", marginBottom: "0.35em" },
+            "ul > li::marker": { color: "hsl(var(--primary) / 0.6)" },
+            "ol > li::marker": { color: "hsl(var(--muted-foreground))" },
+          },
+        },
+        invert: {
+          css: {
+            color: "hsl(var(--foreground) / 0.9)",
+          },
+        },
+      },
       boxShadow: {
         // Soft, slate-tinted elevation scale (centralised; overrides defaults)
         sm: "0 1px 2px 0 hsl(220 25% 15% / 0.05)",
@@ -145,5 +221,5 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 } satisfies Config;

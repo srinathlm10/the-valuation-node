@@ -4,25 +4,10 @@ import { Layout } from "@/components/layout/Layout";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { FOUNDATIONS_TREE } from "./Foundations";
 import { FOUNDATIONS_CONTENT } from "@/data/foundationsContent";
-import { useState } from "react";
-import { ChevronDown, ChevronUp } from "lucide-react";
-import ReactMarkdown from "react-markdown";
-
-function Collapsible({ title, children }: { title: string; children: React.ReactNode }) {
-  const [open, setOpen] = useState(false);
-  return (
-    <div className="border rounded-lg overflow-hidden mt-6">
-      <button
-        className="w-full flex items-center justify-between px-4 py-3 text-sm font-medium bg-muted/30 hover:bg-muted/50 transition-colors"
-        onClick={() => setOpen(!open)}
-      >
-        {title}
-        {open ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
-      </button>
-      {open && <div className="px-4 py-4">{children}</div>}
-    </div>
-  );
-}
+import { X } from "lucide-react";
+import { Prose } from "@/components/content/Prose";
+import { Callout } from "@/components/content/Callout";
+import { CollapsibleSection } from "@/components/content/CollapsibleSection";
 
 export default function FoundationsLeaf() {
   const { section, topic } = useParams<{ section: string; topic: string }>();
@@ -105,9 +90,9 @@ export default function FoundationsLeaf() {
 
             {/* Prerequisites */}
             {content.prerequisites.length > 0 && (
-              <div className="mt-6 rounded-lg bg-muted/30 border p-4">
-                <p className="text-sm font-medium">Before reading this, you should be comfortable with:</p>
-                <ul className="mt-2 text-sm text-muted-foreground list-disc list-inside space-y-1">
+              <Callout variant="note" title="Before you read this" className="mt-6">
+                <p>You should be comfortable with:</p>
+                <ul className="mt-2 list-disc list-inside space-y-1">
                   {content.prerequisites.map((p) => (
                     <li key={p.href}>
                       <Link to={p.href} className="underline underline-offset-2 hover:text-foreground">
@@ -116,44 +101,37 @@ export default function FoundationsLeaf() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </Callout>
             )}
 
             {/* Intuition */}
             <section className="mt-10">
               <h2 className="text-xl font-semibold">Intuition</h2>
-              <div className="mt-3 prose prose-slate dark:prose-invert max-w-none text-muted-foreground font-serif prose-headings:font-sans">
-                <ReactMarkdown>{content.intuition}</ReactMarkdown>
-              </div>
+              <Prose className="mt-3">{content.intuition}</Prose>
             </section>
 
             {/* Mechanics */}
             <section className="mt-10">
               <h2 className="text-xl font-semibold">Mechanics</h2>
-              <div className="mt-3 prose prose-slate dark:prose-invert max-w-none font-serif prose-headings:font-sans">
-                <ReactMarkdown>{content.mechanics}</ReactMarkdown>
-              </div>
+              <Prose className="mt-3">{content.mechanics}</Prose>
             </section>
 
             {/* Deep Dive */}
-            <Collapsible title="Show advanced details">
-              <div className="prose prose-sm prose-slate dark:prose-invert max-w-none text-muted-foreground font-serif prose-headings:font-sans">
-                <ReactMarkdown>{content.deepDive}</ReactMarkdown>
-              </div>
-            </Collapsible>
+            <CollapsibleSection title="Show advanced details" className="mt-6">
+              <Prose size="sm">{content.deepDive}</Prose>
+            </CollapsibleSection>
 
             {/* Common Mistakes */}
-            <div className="mt-8 rounded-xl bg-red-50/50 dark:bg-red-900/10 border border-red-200 dark:border-red-800 p-6">
-              <h2 className="font-semibold text-red-800 dark:text-red-200">Common mistakes</h2>
-              <ul className="mt-3 space-y-2">
+            <Callout variant="danger" title="Common mistakes" titleAs="h2" className="mt-8">
+              <ul className="space-y-2.5">
                 {content.commonMistakes.map((mistake, i) => (
-                  <li key={i} className="text-sm text-muted-foreground flex gap-2">
-                    <span className="mt-0.5 shrink-0 text-red-400">✗</span>
+                  <li key={i} className="flex gap-2.5">
+                    <X className="mt-0.5 h-4 w-4 shrink-0 text-red-400" aria-hidden="true" />
                     <span>{mistake}</span>
                   </li>
                 ))}
               </ul>
-            </div>
+            </Callout>
 
             {/* See it applied */}
             <div className="mt-8 rounded-lg border p-4">

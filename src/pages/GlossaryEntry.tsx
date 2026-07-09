@@ -4,6 +4,8 @@ import { Layout } from "@/components/layout/Layout";
 import { useQuery } from "@tanstack/react-query";
 import { contentService } from "@/services/contentService";
 import { useMemo } from "react";
+import { Prose } from "@/components/content/Prose";
+import { Callout } from "@/components/content/Callout";
 
 function toSlug(term: string) {
   return term.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
@@ -76,15 +78,13 @@ export default function GlossaryEntry() {
 
         {/* Definition */}
         {def.definition && (
-          <div className="mt-6 prose prose-slate dark:prose-invert max-w-none">
-            <p>{def.definition}</p>
-          </div>
+          <Prose className="mt-6">{def.definition}</Prose>
         )}
 
         {/* Formula */}
         {def.formula && (
-          <div className="mt-6 rounded-lg bg-muted/30 border p-4">
-            <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">
+          <div className="mt-6 rounded-lg border border-primary/25 bg-primary/5 p-4">
+            <p className="text-xs font-semibold uppercase tracking-wider text-primary mb-2">
               Formula
             </p>
             <p className="font-mono text-sm">{def.formula}</p>
@@ -95,7 +95,7 @@ export default function GlossaryEntry() {
         {def.whyItMatters && (
           <section className="mt-8">
             <h2 className="text-lg font-semibold">Why it matters</h2>
-            <p className="mt-2 text-muted-foreground">{def.whyItMatters}</p>
+            <p className="mt-2 text-muted-foreground leading-relaxed font-serif">{def.whyItMatters}</p>
           </section>
         )}
 
@@ -103,9 +103,9 @@ export default function GlossaryEntry() {
         {def.example && (
           <section className="mt-8">
             <h2 className="text-lg font-semibold">Indian example</h2>
-            <div className="mt-2 rounded-lg border bg-muted/20 p-4">
-              <p className="text-sm text-muted-foreground">{def.example}</p>
-            </div>
+            <Callout variant="info" className="mt-2">
+              <p className="font-serif">{def.example}</p>
+            </Callout>
           </section>
         )}
 
@@ -137,11 +137,6 @@ export default function GlossaryEntry() {
           </p>
         </div>
 
-        {/* Last reviewed */}
-        <p className="mt-8 text-xs text-muted-foreground">
-          {/* TODO: Last reviewed date */}
-          Last reviewed: -
-        </p>
       </article>
     </Layout>
   );

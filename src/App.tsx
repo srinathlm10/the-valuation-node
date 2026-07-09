@@ -27,12 +27,11 @@ const ResetPassword = lazy(() => import("./pages/ResetPassword"));
 // Main pages
 const Index = lazy(() => import("./pages/Index"));
 const Research = lazy(() => import("./pages/Research"));
-const ResearchArticle = lazy(() => import("./pages/ResearchArticle"));
+// ResearchArticle and FoundationsLeaf load via route-level lazy in the routes below.
 
 // Learn section
 const LearnIndex = lazy(() => import("./pages/LearnIndex"));
 const Foundations = lazy(() => import("./pages/Foundations"));
-const FoundationsLeaf = lazy(() => import("./pages/FoundationsLeaf"));
 const LearnByDoing = lazy(() => import("./pages/LearnByDoing"));
 const LearnByDoingModule = lazy(() => import("./pages/LearnByDoingModule"));
 const Glossary = lazy(() => import("./pages/Glossary"));
@@ -119,7 +118,10 @@ export const routes: RouteRecord[] = [
       { path: "research", Component: Research },
       {
         path: "research/:slug",
-        Component: ResearchArticle,
+        // Route-level lazy (not React.lazy): required for dynamic routes that
+        // prerender many paths; vite-react-ssg's asset collector cannot handle
+        // an already-initialised React.lazy component.
+        lazy: async () => ({ Component: (await import("./pages/ResearchArticle")).default }),
         // Prerender an article only if it has a real publish date AND is not
         // hidden at build time. Drafts (no date) and hidden articles produce no
         // static HTML, so nothing leaks; they still resolve client-side and show
@@ -143,7 +145,22 @@ export const routes: RouteRecord[] = [
       { path: "learn", Component: LearnIndex },
       { path: "learn/foundations", Component: Foundations },
       { path: "learn/foundations/:section", Component: Foundations },
-      { path: "learn/foundations/:section/:topic", Component: FoundationsLeaf },
+      {
+        path: "learn/foundations/:section/:topic",
+        // Route-level lazy for the same reason as research/:slug above.
+        lazy: async () => ({ Component: (await import("./pages/FoundationsLeaf")).default }),
+        // Prerender every published Foundations topic so the full content and
+        // meta tags are in the static HTML for crawlers. Dynamic import keeps
+        // the Foundations chunk lazy on the client (this only runs at build).
+        getStaticPaths: async () => {
+          const { FOUNDATIONS_TREE } = await import("./pages/Foundations");
+          return FOUNDATIONS_TREE.flatMap((section) =>
+            section.topics
+              .filter((t) => t.published)
+              .map((t) => `learn/foundations/${section.section}/${t.slug}`)
+          );
+        },
+      },
       { path: "learn/by-doing", Component: LearnByDoing },
       { path: "learn/by-doing/build-a-dcf", Component: BuildADcfPage },
       { path: "learn/by-doing/read-an-income-statement", Component: ReadIncomeStatementPage },

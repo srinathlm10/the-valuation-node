@@ -2,15 +2,17 @@ import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
-import ReactMarkdown from "react-markdown";
 import { useState, useMemo } from "react";
-import { ChevronDown, ChevronUp, Copy, Check, ArrowLeft, Download, Github, Eye, EyeOff, Loader2 } from "lucide-react";
+import { Copy, Check, ArrowLeft, Download, Github, Eye, EyeOff, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { RESEARCH_ARTICLES } from "@/data/research.generated";
 import type { ResearchArticleData } from "@/data/researchTypes";
 import { useHiddenSlugs, useToggleHidden } from "@/lib/articleVisibility";
 import { useIsAdmin } from "@/contexts/AuthContext";
 import { ContinueReading } from "@/components/research/ContinueReading";
+import { Prose } from "@/components/content/Prose";
+import { Callout } from "@/components/content/Callout";
+import { CollapsibleSection } from "@/components/content/CollapsibleSection";
 
 function fmtDate(d?: string) {
   if (!d) return null;
@@ -37,22 +39,6 @@ function CitationBlock({ article }: { article: ResearchArticleData }) {
           {copied ? <Check className="h-4 w-4 text-emerald-500" /> : <Copy className="h-4 w-4" />}
         </button>
       </div>
-    </div>
-  );
-}
-
-function Collapsible({ title, children, defaultOpen = false }: { title: string; children: React.ReactNode; defaultOpen?: boolean }) {
-  const [open, setOpen] = useState(defaultOpen);
-  return (
-    <div className="border rounded-lg overflow-hidden">
-      <button
-        className="w-full flex items-center justify-between px-4 py-3 text-sm font-medium bg-muted/30 hover:bg-muted/50 transition-colors"
-        onClick={() => setOpen(!open)}
-      >
-        {title}
-        {open ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
-      </button>
-      {open && <div className="px-4 py-3">{children}</div>}
     </div>
   );
 }
@@ -197,13 +183,11 @@ export default function ResearchArticle() {
           </div>
         </div>
 
-        {/* Methodology box */}
+        {/* Methodology callout */}
         {article.methodologySummary && (
-          <div className="mt-8">
-            <Collapsible title="Methodology" defaultOpen>
-              <p className="text-sm text-muted-foreground">{article.methodologySummary}</p>
-            </Collapsible>
-          </div>
+          <Callout variant="methodology" title="Methodology" titleAs="h2" className="mt-8">
+            <p>{article.methodologySummary}</p>
+          </Callout>
         )}
 
         {/* Key takeaways */}
@@ -222,9 +206,7 @@ export default function ResearchArticle() {
         )}
 
         {/* Body */}
-        <div className="mt-10 prose prose-slate dark:prose-invert max-w-none font-serif prose-headings:font-sans">
-          <ReactMarkdown>{article.content}</ReactMarkdown>
-        </div>
+        <Prose className="mt-10">{article.content}</Prose>
 
         {/* Downloads */}
         {(article.modelDownloadUrl || article.githubUrl) && (
@@ -248,12 +230,9 @@ export default function ResearchArticle() {
 
         {/* Where I might be wrong */}
         {article.whereIMightBeWrong && (
-          <div className="mt-10 rounded-xl border-2 border-amber-200 dark:border-amber-800 bg-amber-50/50 dark:bg-amber-900/10 p-6">
-            <h2 className="font-semibold text-amber-800 dark:text-amber-200 mb-3">Where I might be wrong</h2>
-            <div className="prose prose-sm prose-slate dark:prose-invert max-w-none text-muted-foreground">
-              <ReactMarkdown>{article.whereIMightBeWrong}</ReactMarkdown>
-            </div>
-          </div>
+          <Callout variant="warning" title="Where I might be wrong" titleAs="h2" className="mt-10">
+            <Prose size="sm" serif={false}>{article.whereIMightBeWrong}</Prose>
+          </Callout>
         )}
 
         {/* Citation */}
@@ -265,7 +244,7 @@ export default function ResearchArticle() {
         {/* Update log */}
         {Array.isArray(article.updateLog) && article.updateLog.length > 0 && (
           <div className="mt-8">
-            <Collapsible title="Update log">
+            <CollapsibleSection title="Update log">
               <ul className="text-sm text-muted-foreground space-y-2">
                 {article.updateLog.map((entry, i) => (
                   <li key={i}>
@@ -273,7 +252,7 @@ export default function ResearchArticle() {
                   </li>
                 ))}
               </ul>
-            </Collapsible>
+            </CollapsibleSection>
           </div>
         )}
 
