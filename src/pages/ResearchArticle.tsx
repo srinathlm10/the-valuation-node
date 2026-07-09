@@ -160,7 +160,9 @@ export default function ResearchArticle() {
 
       <div className="container py-14 max-w-3xl xl:max-w-6xl xl:grid xl:grid-cols-[minmax(0,1fr)_230px] xl:gap-12">
       <article className="min-w-0 w-full max-w-3xl mx-auto xl:mx-0">
-        <Link to="/research" className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground mb-8">
+        {/* Back link: block-level (flex, not inline-flex) so the category
+            badge below never shares its line. */}
+        <Link to="/research" className="flex w-fit items-center gap-1 text-sm text-muted-foreground hover:text-foreground mb-8">
           <ArrowLeft className="h-3.5 w-3.5" /> Research
         </Link>
 
@@ -168,7 +170,11 @@ export default function ResearchArticle() {
 
         {/* Category */}
         {article.category && (
-          <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{article.category}</span>
+          <div>
+            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold uppercase tracking-wide bg-primary/10 text-primary">
+              {article.category}
+            </span>
+          </div>
         )}
 
         {/* Title */}
