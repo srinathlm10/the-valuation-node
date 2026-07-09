@@ -25,6 +25,13 @@ import {
   BookOpen,
   MousePointerClick,
   Library,
+  PiggyBank,
+  Droplets,
+  Gavel,
+  ChartPie,
+  Receipt,
+  GraduationCap,
+  Tag,
   type LucideIcon,
 } from "lucide-react";
 
@@ -60,3 +67,24 @@ export const LEARN_SECTION_ICONS: Record<string, LucideIcon> = {
   "/learn/by-doing": MousePointerClick,
   "/learn/glossary": Library,
 };
+
+/** One icon per Glossary category (keys = category names in the definitions data). */
+export const GLOSSARY_CATEGORY_ICONS: Record<string, LucideIcon> = {
+  "Investment Planning": PiggyBank,
+  "Profitability Ratios": TrendingUp,
+  "Valuation Ratios": Scale,
+  "Liquidity Ratios": Droplets,
+  "Solvency Ratios": ShieldCheck,
+  "Efficiency Ratios": Gauge,
+  "Technical Analysis": ChartCandlestick,
+  "Regulatory Compliance": Gavel,
+  "Risk & Portfolio": ChartPie,
+  "Taxation": Receipt,
+  "Fundamentals": BookOpen,
+  "Mutual Funds": Layers,
+  "Indices": ChartLine,
+  "Basics of Stock Market": GraduationCap,
+};
+
+/** Fallback for categories without an assignment. */
+export const GLOSSARY_FALLBACK_ICON: LucideIcon = Tag;

@@ -7,6 +7,12 @@ import { useQuery } from "@tanstack/react-query";
 import { contentService } from "@/services/contentService";
 import { Search, SearchX } from "lucide-react";
 import { EmptyState } from "@/components/content/EmptyState";
+import { GLOSSARY_CATEGORY_ICONS, GLOSSARY_FALLBACK_ICON } from "@/lib/siteIcons";
+
+function CategoryIcon({ category }: { category?: string }) {
+  const Icon = (category && GLOSSARY_CATEGORY_ICONS[category]) || GLOSSARY_FALLBACK_ICON;
+  return <Icon className="mt-1 h-4 w-4 shrink-0 text-primary/60" aria-hidden="true" />;
+}
 import { cn } from "@/lib/utils";
 
 const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
@@ -117,17 +123,20 @@ export default function Glossary() {
               <div key={def.id} className="py-4">
                 <Link
                   to={`/learn/glossary/${toSlug(def.term)}`}
-                  className="font-medium hover:underline"
+                  className="group flex items-start gap-2.5 font-medium"
                 >
+                  <CategoryIcon category={def.category} />
+                  <span className="group-hover:underline">
                   {def.term}
                   {def.fullName && def.fullName !== def.term && (
                     <span className="ml-2 text-sm font-normal text-muted-foreground">
                       {def.fullName}
                     </span>
                   )}
+                  </span>
                 </Link>
                 {def.definition && (
-                  <p className="mt-1 text-sm text-muted-foreground line-clamp-2">
+                  <p className="mt-1 pl-[26px] text-sm text-muted-foreground line-clamp-2">
                     {def.definition}
                   </p>
                 )}

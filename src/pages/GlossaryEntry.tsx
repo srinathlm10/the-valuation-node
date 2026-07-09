@@ -6,6 +6,12 @@ import { contentService } from "@/services/contentService";
 import { useMemo } from "react";
 import { Prose } from "@/components/content/Prose";
 import { Callout } from "@/components/content/Callout";
+import { GLOSSARY_CATEGORY_ICONS, GLOSSARY_FALLBACK_ICON } from "@/lib/siteIcons";
+
+function CategoryIcon({ category }: { category?: string }) {
+  const Icon = (category && GLOSSARY_CATEGORY_ICONS[category]) || GLOSSARY_FALLBACK_ICON;
+  return <Icon className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />;
+}
 
 function toSlug(term: string) {
   return term.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
@@ -71,7 +77,8 @@ export default function GlossaryEntry() {
           <p className="mt-1 text-lg text-muted-foreground">{def.fullName}</p>
         )}
         {def.category && (
-          <span className="mt-2 inline-block text-xs font-medium uppercase tracking-wider text-muted-foreground">
+          <span className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-2.5 py-1 text-xs font-medium uppercase tracking-wider text-primary">
+            <CategoryIcon category={def.category} />
             {def.category}
           </span>
         )}

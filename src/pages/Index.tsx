@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { RESEARCH_ARTICLES } from "@/data/research.generated";
 import { useHiddenSlugs } from "@/lib/articleVisibility";
+import { Reveal } from "@/components/content/Reveal";
 
 export default function Index() {
   const { data: hidden } = useHiddenSlugs();
@@ -46,6 +47,28 @@ export default function Index() {
       {/* Hero */}
       <section className="border-b relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--primary)/0.08),transparent_65%)] pointer-events-none" />
+        {/* Node-graph motif: the brand mark, kept faint and decorative */}
+        <svg
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-8 top-1/2 hidden -translate-y-1/2 lg:block text-primary"
+          width="420"
+          height="360"
+          viewBox="0 0 420 360"
+          fill="none"
+        >
+          <g opacity="0.13">
+            <line x1="70" y1="290" x2="180" y2="180" stroke="currentColor" strokeWidth="1.5" />
+            <line x1="180" y1="180" x2="310" y2="230" stroke="currentColor" strokeWidth="1.5" />
+            <line x1="180" y1="180" x2="250" y2="70" stroke="currentColor" strokeWidth="1.5" />
+            <line x1="250" y1="70" x2="360" y2="120" stroke="currentColor" strokeWidth="1.5" />
+            <line x1="70" y1="290" x2="250" y2="70" stroke="currentColor" strokeWidth="1" />
+            <circle cx="70" cy="290" r="10" fill="currentColor" />
+            <circle cx="180" cy="180" r="14" fill="currentColor" />
+            <circle cx="310" cy="230" r="8" fill="currentColor" />
+            <circle cx="250" cy="70" r="11" fill="currentColor" />
+            <circle cx="360" cy="120" r="7" fill="currentColor" />
+          </g>
+        </svg>
         <div className="container relative py-24 md:py-32 max-w-3xl">
           <div className="flex items-center gap-3 mb-6">
             <div className="h-px w-10 bg-primary shrink-0" />
@@ -79,6 +102,7 @@ export default function Index() {
             Featured research
           </h2>
           {featured ? (
+            <Reveal>
             <article className="rounded-2xl border overflow-hidden bg-card shadow-sm hover:shadow-md transition-shadow">
               {/* Show a cover only when the article has its own image (not the site-wide default). */}
               {featured.ogImage && featured.ogImage !== "/og-image.png" && (
@@ -133,6 +157,7 @@ export default function Index() {
                 </div>
               </div>
             </article>
+            </Reveal>
           ) : (
             <div className="rounded-2xl border border-dashed p-12 text-center">
               <p className="text-muted-foreground">Coming soon, first research piece</p>
@@ -156,6 +181,7 @@ export default function Index() {
                 All research <ArrowRight className="h-3.5 w-3.5" />
               </Link>
             </div>
+            <Reveal>
             <div className="grid gap-4 md:grid-cols-3">
               {recent.map((article) => (
                 <Link
@@ -188,6 +214,7 @@ export default function Index() {
                 </Link>
               ))}
             </div>
+            </Reveal>
           </div>
         </section>
       )}

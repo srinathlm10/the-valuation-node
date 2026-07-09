@@ -45,6 +45,8 @@ interface CalloutProps {
   title?: string;
   /** Render the title as a real heading to keep the document outline intact. */
   titleAs?: "p" | "h2" | "h3";
+  /** Anchor id on the title (for tables of contents). */
+  id?: string;
   children: ReactNode;
   className?: string;
 }
@@ -54,14 +56,14 @@ interface CalloutProps {
  * might be wrong", common mistakes, prerequisites, examples. One component,
  * one look per meaning; never hand-roll tinted boxes on content pages.
  */
-export function Callout({ variant = "note", title, titleAs = "p", children, className }: CalloutProps) {
+export function Callout({ variant = "note", title, titleAs = "p", id, children, className }: CalloutProps) {
   const v = VARIANTS[variant];
   const Icon = v.icon;
   const TitleTag = titleAs;
   return (
     <aside role="note" aria-label={title} className={cn("rounded-xl p-5", v.box, className)}>
       {title && (
-        <TitleTag className={cn("flex items-center gap-2 font-semibold text-sm mb-2.5", v.title)}>
+        <TitleTag id={id} className={cn("flex items-center gap-2 font-semibold text-sm mb-2.5", v.title)}>
           <Icon className="h-4 w-4 shrink-0" aria-hidden="true" />
           {title}
         </TitleTag>

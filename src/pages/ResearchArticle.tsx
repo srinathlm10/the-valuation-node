@@ -13,6 +13,9 @@ import { ContinueReading } from "@/components/research/ContinueReading";
 import { Prose } from "@/components/content/Prose";
 import { Callout } from "@/components/content/Callout";
 import { CollapsibleSection } from "@/components/content/CollapsibleSection";
+import { ReadingProgress } from "@/components/content/ReadingProgress";
+import { TableOfContents, tocFromMarkdown } from "@/components/content/TableOfContents";
+import { slugify } from "@/components/content/Prose";
 
 function fmtDate(d?: string) {
   if (!d) return null;
@@ -115,6 +118,7 @@ export default function ResearchArticle() {
     );
   }
 
+  const toc = tocFromMarkdown(article.content, slugify);
   const publishedDate = fmtDate(article.publishedAt);
   // Social scrapers need an absolute og:image URL.
   const ogImageAbs = article.ogImage
@@ -152,7 +156,10 @@ export default function ResearchArticle() {
         })}</script>
       </Helmet>
 
-      <article className="container max-w-3xl py-14">
+      <ReadingProgress />
+
+      <div className="container py-14 max-w-3xl xl:max-w-6xl xl:grid xl:grid-cols-[minmax(0,1fr)_230px] xl:gap-12">
+      <article className="min-w-0 w-full max-w-3xl mx-auto xl:mx-0">
         <Link to="/research" className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground mb-8">
           <ArrowLeft className="h-3.5 w-3.5" /> Research
         </Link>
@@ -293,6 +300,15 @@ export default function ResearchArticle() {
           tags={article.tags}
         />
       </article>
+
+      {toc.length >= 3 && (
+        <aside className="hidden xl:block">
+          <div className="sticky top-24">
+            <TableOfContents items={toc} />
+          </div>
+        </aside>
+      )}
+      </div>
     </Layout>
   );
 }

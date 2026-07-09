@@ -4,6 +4,10 @@ import { Layout } from "@/components/layout/Layout";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { Mail, Linkedin } from "lucide-react";
 
+// Set to "/author-headshot.jpg" once a square photo is added to /public.
+// Until then the initials avatar renders as the fallback.
+const AUTHOR_PHOTO: string | null = null;
+
 export default function AboutAuthor() {
   return (
     <Layout>
@@ -33,10 +37,22 @@ export default function AboutAuthor() {
       </nav>
 
       <div className="container max-w-3xl py-12">
-        {/* Author avatar */}
-        <div className="w-20 h-20 rounded-full bg-primary flex items-center justify-center mb-6 shadow-md">
-          <span className="text-xl font-bold text-primary-foreground tracking-tight select-none">SG</span>
-        </div>
+        {/* Headshot slot */}
+        {AUTHOR_PHOTO ? (
+          <img
+            src={AUTHOR_PHOTO}
+            alt="Srinath Gajji, founder of The Valuation Node"
+            width={112}
+            height={112}
+            loading="lazy"
+            decoding="async"
+            className="w-28 h-28 rounded-full object-cover mb-6 shadow-md border"
+          />
+        ) : (
+          <div className="w-28 h-28 rounded-full bg-primary flex items-center justify-center mb-6 shadow-md">
+            <span className="text-2xl font-bold text-primary-foreground tracking-tight select-none">SG</span>
+          </div>
+        )}
 
         <h1 className="text-3xl font-bold tracking-tight">Srinath Gajji</h1>
         <p className="mt-1 text-muted-foreground">
@@ -44,7 +60,7 @@ export default function AboutAuthor() {
         </p>
 
         {/* Bio */}
-        <div className="mt-6 prose prose-slate dark:prose-invert max-w-none">
+        <div className="mt-6 prose prose-slate dark:prose-invert max-w-none font-serif prose-headings:font-sans">
           {/* TODO: Author bio, 400-600 words. Srinath to fill. */}
           <p className="text-muted-foreground italic">
             [Author bio - 400-600 words. Srinath to fill.]

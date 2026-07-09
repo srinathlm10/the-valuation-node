@@ -5,10 +5,18 @@ import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { FOUNDATIONS_TREE } from "./Foundations";
 import { FOUNDATIONS_CONTENT } from "@/data/foundationsContent";
 import { FOUNDATIONS_SECTION_ICONS } from "@/lib/siteIcons";
+
+const TOPIC_TOC = [
+  { id: "intuition", label: "Intuition" },
+  { id: "mechanics", label: "Mechanics" },
+  { id: "common-mistakes", label: "Common mistakes" },
+];
 import { X } from "lucide-react";
 import { Prose } from "@/components/content/Prose";
 import { Callout } from "@/components/content/Callout";
 import { CollapsibleSection } from "@/components/content/CollapsibleSection";
+import { ReadingProgress } from "@/components/content/ReadingProgress";
+import { TableOfContents } from "@/components/content/TableOfContents";
 
 export default function FoundationsLeaf() {
   const { section, topic } = useParams<{ section: string; topic: string }>();
@@ -66,7 +74,10 @@ export default function FoundationsLeaf() {
         </ol>
       </nav>
 
-      <article className="container max-w-3xl py-12">
+      <ReadingProgress />
+
+      <div className="container py-12 max-w-3xl xl:max-w-6xl xl:grid xl:grid-cols-[minmax(0,1fr)_230px] xl:gap-12">
+      <article className="min-w-0 w-full max-w-3xl mx-auto xl:mx-0">
         <span className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-muted-foreground">
           {SectionGlyph && <SectionGlyph className="h-3.5 w-3.5 text-primary" aria-hidden="true" />}
           Foundations · {sectionData.label}
@@ -109,13 +120,13 @@ export default function FoundationsLeaf() {
 
             {/* Intuition */}
             <section className="mt-10">
-              <h2 className="text-xl font-semibold">Intuition</h2>
+              <h2 id="intuition" className="text-xl font-semibold">Intuition</h2>
               <Prose className="mt-3">{content.intuition}</Prose>
             </section>
 
             {/* Mechanics */}
             <section className="mt-10">
-              <h2 className="text-xl font-semibold">Mechanics</h2>
+              <h2 id="mechanics" className="text-xl font-semibold">Mechanics</h2>
               <Prose className="mt-3">{content.mechanics}</Prose>
             </section>
 
@@ -125,7 +136,7 @@ export default function FoundationsLeaf() {
             </CollapsibleSection>
 
             {/* Common Mistakes */}
-            <Callout variant="danger" title="Common mistakes" titleAs="h2" className="mt-8">
+            <Callout variant="danger" title="Common mistakes" titleAs="h2" id="common-mistakes" className="mt-8">
               <ul className="space-y-2.5">
                 {content.commonMistakes.map((mistake, i) => (
                   <li key={i} className="flex gap-2.5">
@@ -170,6 +181,15 @@ export default function FoundationsLeaf() {
           </>
         )}
       </article>
+
+      {!isPlaceholder && (
+        <aside className="hidden xl:block">
+          <div className="sticky top-24">
+            <TableOfContents items={TOPIC_TOC} />
+          </div>
+        </aside>
+      )}
+      </div>
     </Layout>
   );
 }
