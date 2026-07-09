@@ -5,6 +5,13 @@ import { Layout } from "@/components/layout/Layout";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { FOUNDATIONS_SECTION_ICONS } from "@/lib/siteIcons";
+
+function SectionIcon({ section }: { section: string }) {
+  const Icon = FOUNDATIONS_SECTION_ICONS[section];
+  if (!Icon) return null;
+  return <Icon className="h-4 w-4 shrink-0 text-primary/70" aria-hidden="true" />;
+}
 
 // Full topic tree
 export const FOUNDATIONS_TREE = [
@@ -142,7 +149,10 @@ function Sidebar({ activeSection }: { activeSection?: string }) {
             )}
             onClick={() => toggle(group.section)}
           >
-            {group.label}
+            <span className="flex items-center gap-2.5">
+              <SectionIcon section={group.section} />
+              {group.label}
+            </span>
             {openSections.has(group.section) ? (
               <ChevronDown className="h-3.5 w-3.5" />
             ) : (

@@ -4,6 +4,7 @@ import { Layout } from "@/components/layout/Layout";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { FOUNDATIONS_TREE } from "./Foundations";
 import { FOUNDATIONS_CONTENT } from "@/data/foundationsContent";
+import { FOUNDATIONS_SECTION_ICONS } from "@/lib/siteIcons";
 import { X } from "lucide-react";
 import { Prose } from "@/components/content/Prose";
 import { Callout } from "@/components/content/Callout";
@@ -29,6 +30,7 @@ export default function FoundationsLeaf() {
   }
 
   const content = FOUNDATIONS_CONTENT[topic!];
+  const SectionGlyph = FOUNDATIONS_SECTION_ICONS[sectionData.section];
   const isPlaceholder = !topicMeta.published || !content;
 
   return (
@@ -65,7 +67,8 @@ export default function FoundationsLeaf() {
       </nav>
 
       <article className="container max-w-3xl py-12">
-        <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+        <span className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-muted-foreground">
+          {SectionGlyph && <SectionGlyph className="h-3.5 w-3.5 text-primary" aria-hidden="true" />}
           Foundations · {sectionData.label}
         </span>
         <h1 className="mt-2 text-3xl font-bold tracking-tight">{topicMeta.label}</h1>

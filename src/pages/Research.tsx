@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
-import { ArrowRight, EyeOff } from "lucide-react";
+import { ArrowRight, EyeOff, FileSearch } from "lucide-react";
+import { EmptyState } from "@/components/content/EmptyState";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { RESEARCH_ARTICLES } from "@/data/research.generated";
@@ -78,8 +79,12 @@ export default function Research() {
         {/* Articles */}
         <div className="mt-10 divide-y">
           {pageArticles.length === 0 ? (
-            <div className="py-16 text-center space-y-4">
-              <p className="text-muted-foreground">No articles yet in this category.</p>
+            <div className="py-10 space-y-8">
+              <EmptyState
+                icon={FileSearch}
+                title="No articles in this category yet"
+                description="New research is added steadily. Subscribe below to hear when the next piece lands."
+              />
               <NewsletterSignup />
             </div>
           ) : (

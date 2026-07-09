@@ -5,7 +5,8 @@ import { Layout } from "@/components/layout/Layout";
 import { Input } from "@/components/ui/input";
 import { useQuery } from "@tanstack/react-query";
 import { contentService } from "@/services/contentService";
-import { Search } from "lucide-react";
+import { Search, SearchX } from "lucide-react";
+import { EmptyState } from "@/components/content/EmptyState";
 import { cn } from "@/lib/utils";
 
 const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
@@ -106,7 +107,11 @@ export default function Glossary() {
           {isLoading ? (
             <div className="py-12 text-center text-muted-foreground text-sm">Loading…</div>
           ) : filtered.length === 0 ? (
-            <div className="py-12 text-center text-muted-foreground text-sm">No terms found.</div>
+            <EmptyState
+              icon={SearchX}
+              title="No matching terms"
+              description="Try a different spelling, or browse by letter."
+            />
           ) : (
             filtered.map((def: any) => (
               <div key={def.id} className="py-4">

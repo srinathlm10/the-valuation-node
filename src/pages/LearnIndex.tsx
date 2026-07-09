@@ -3,6 +3,17 @@ import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { ArrowRight } from "lucide-react";
+import { LEARN_SECTION_ICONS } from "@/lib/siteIcons";
+
+function SectionCardIcon({ href }: { href: string }) {
+  const Icon = LEARN_SECTION_ICONS[href];
+  if (!Icon) return null;
+  return (
+    <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
+      <Icon className="h-5 w-5 text-primary" aria-hidden="true" />
+    </span>
+  );
+}
 
 const sections = [
   {
@@ -67,7 +78,8 @@ export default function LearnIndex() {
               to={s.href}
               className="group rounded-xl border bg-muted/20 p-6 hover:bg-muted/40 transition-colors"
             >
-              <h2 className="font-semibold text-lg group-hover:underline">{s.title}</h2>
+              <SectionCardIcon href={s.href} />
+              <h2 className="mt-4 font-semibold text-lg group-hover:underline">{s.title}</h2>
               <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{s.description}</p>
               <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-foreground">
                 Explore <ArrowRight className="h-3.5 w-3.5" />

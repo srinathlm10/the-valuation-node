@@ -97,7 +97,10 @@ export default function ResearchArticle() {
           <link rel="canonical" href={`https://valuationnode.com/research/${article.slug}`} />
         </Helmet>
         <div className="container max-w-2xl py-24 text-center">
-          <h1 className="text-2xl font-bold tracking-tight">This article is temporarily unavailable</h1>
+          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
+            <EyeOff className="h-6 w-6 text-primary" aria-hidden="true" />
+          </div>
+          <h1 className="mt-4 text-2xl font-bold tracking-tight">This article is temporarily unavailable</h1>
           <p className="mt-3 text-muted-foreground">
             It may be under revision. Please check back shortly, or browse other research in the meantime.
           </p>

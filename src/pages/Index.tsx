@@ -86,6 +86,8 @@ export default function Index() {
                   <img
                     src={featured.ogImage}
                     alt={featured.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover"
                   />
                 </div>

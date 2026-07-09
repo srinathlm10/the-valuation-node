@@ -2,12 +2,22 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
 import { Calculator } from "lucide-react";
+import { TOOL_ICONS } from "@/lib/siteIcons";
+
+function ToolIcon({ slug }: { slug: string }) {
+  const Icon = TOOL_ICONS[slug] ?? Calculator;
+  return (
+    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+      <Icon className="h-4 w-4 text-primary" aria-hidden="true" />
+    </span>
+  );
+}
 
 const toolGroups = [
   {
     label: "Valuation",
     tools: [
-      { slug: "dcf-sensitivity", label: "DCF Sensitivity Calculator", comingSoon: true },
+      { slug: "dcf-sensitivity", label: "DCF Sensitivity Calculator" },
       { slug: "cagr", label: "CAGR Calculator" },
     ],
   },
@@ -60,7 +70,7 @@ export default function Tools() {
                   <div key={tool.slug} className="rounded-lg border bg-muted/10 p-4">
                     <div className="flex items-center justify-between gap-2">
                       <div className="flex items-center gap-3">
-                        <Calculator className="h-4 w-4 text-muted-foreground" />
+                        <ToolIcon slug={tool.slug} />
                         {tool.comingSoon ? (
                           <span className="text-sm font-medium text-muted-foreground">
                             {tool.label}

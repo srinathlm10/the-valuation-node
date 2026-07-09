@@ -50,6 +50,8 @@ export function Header() {
           <img
             src="/logo.png"
             alt="The Valuation Node"
+            width={36}
+            height={36}
             className="h-9 w-9 object-contain"
           />
           <span className="font-bold text-foreground tracking-tight text-lg">

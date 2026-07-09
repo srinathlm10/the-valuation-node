@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
 import { GlobalSearch } from "@/components/search/GlobalSearch";
+import { Compass } from "lucide-react";
 
 export default function NotFound() {
   return (
@@ -11,7 +12,10 @@ export default function NotFound() {
       </Helmet>
 
       <div className="container max-w-xl py-24 text-center space-y-6">
-        <p className="text-6xl font-bold text-muted-foreground/30">404</p>
+        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
+          <Compass className="h-6 w-6 text-primary" aria-hidden="true" />
+        </div>
+        <p className="text-5xl font-bold text-muted-foreground/30">404</p>
         <h1 className="text-2xl font-bold">Page not found</h1>
         <p className="text-muted-foreground">
           The page you're looking for doesn't exist or has moved.
