@@ -1,9 +1,17 @@
 import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
-import { FutureValueCalculator, SIPCalculator } from "@/components/calculators/FormulaCalculators";
-import { ChevronDown, ChevronUp } from "lucide-react";
-import { useState } from "react";
+import {
+  FutureValueCalculator,
+  SIPCalculator,
+  CAGRCalculator,
+  EMICalculator,
+  PresentValueCalculator,
+  CompoundInterestCalculator,
+  RuleOf72Calculator,
+  InflationAdjustedReturnCalculator,
+} from "@/components/calculators/FormulaCalculators";
+import { CollapsibleSection } from "@/components/content/CollapsibleSection";
 
 const TOOL_META: Record<string, {
   label: string;
@@ -56,52 +64,31 @@ const TOOL_META: Record<string, {
   },
   emi: {
     label: "EMI Calculator",
-    description: "Calculate the Equated Monthly Instalment (EMI) for a loan.",
-    howToUse: "Enter the loan principal, annual interest rate, and tenure in months. The calculator shows the monthly EMI, total interest paid, and total amount payable.",
-    mathExplainer: "EMI = P × r × (1+r)ⁿ / ((1+r)ⁿ − 1), where P is principal, r is monthly interest rate, and n is the number of months.",
+    description: "Calculate the Equated Monthly Instalment (EMI) for a home, car, or personal loan, plus the total interest you will pay over the tenure.",
+    howToUse: "Enter the loan principal, the annual interest rate, and the tenure. The calculator shows the monthly EMI, the total interest paid over the life of the loan, and the total amount payable.\n\nTwo things are worth noticing as you move the sliders. First, tenure cuts both ways: a longer tenure lowers the monthly EMI but sharply increases the total interest paid, so the cheapest-feeling loan is often the most expensive one. Second, EMIs are front-loaded: in the early years most of each instalment is interest, not principal, which is why prepaying early in the tenure saves far more interest than prepaying late.\n\nTypical Indian lending rates differ by loan type: home loans are usually the cheapest (they are secured), followed by car loans, with personal loans and credit card debt the most expensive. Always compare the total interest figure, not just the EMI, when choosing between offers.",
+    mathExplainer: "EMI = P × r × (1+r)ⁿ / ((1+r)ⁿ − 1), where P is principal, r is the monthly interest rate (annual rate ÷ 12), and n is the number of months.\n\nTotal amount payable = EMI × n. Total interest = EMI × n − P.",
     foundationsLink: { href: "/learn/foundations/corporate-finance/cost-of-capital", label: "Cost of Capital" },
   },
   "inflation-adjusted-returns": {
     label: "Inflation-Adjusted Returns Calculator",
-    description: "See what a nominal return actually means after adjusting for inflation.",
-    howToUse: "Enter the nominal return and the inflation rate. The real return tells you the purchasing power gain, which is what matters for long-term wealth creation.",
-    mathExplainer: "Real Return ≈ (1 + Nominal Return) / (1 + Inflation Rate) − 1. This is the Fisher equation.",
+    description: "See what a nominal return actually means after inflation, the real growth in your purchasing power.",
+    howToUse: "Enter the nominal return your investment earns and the inflation rate you expect. The calculator shows the real return: the growth in what your money can actually buy.\n\nThis distinction matters more than most investors realise. A fixed deposit earning 7% while inflation runs at 6% grows your purchasing power by barely 1% a year; after tax on the interest, the real return can even turn negative. That is the quiet way conservative portfolios lose wealth over decades.\n\nNote that the real return is not simply the nominal return minus inflation. The correct formula divides rather than subtracts, and the gap between the two widens as rates rise. For India, CPI inflation has historically averaged in the mid single digits, which is a reasonable starting assumption for long-horizon planning.",
+    mathExplainer: "Real Return = (1 + Nominal Return) / (1 + Inflation Rate) − 1. This is the Fisher equation.\n\nThe common shortcut (nominal minus inflation) overstates the real return. Example: 12% nominal with 6% inflation gives a true real return of 1.12/1.06 − 1 = 5.66%, not 6%.",
     foundationsLink: { href: "/learn/foundations/markets-and-instruments/debt-markets-and-yield-curves", label: "Debt Markets and Yield Curves" },
   },
 };
 
-function MathExplainer({ content }: { content: string }) {
-  const [open, setOpen] = useState(false);
-  return (
-    <div className="mt-6 border rounded-lg overflow-hidden">
-      <button
-        className="w-full flex items-center justify-between px-4 py-3 text-sm font-medium bg-muted/30 hover:bg-muted/50 transition-colors"
-        onClick={() => setOpen(!open)}
-      >
-        What the math is doing
-        {open ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
-      </button>
-      {open && (
-        <div className="px-4 py-4 text-sm text-muted-foreground font-mono whitespace-pre-wrap">
-          {content}
-        </div>
-      )}
-    </div>
-  );
-}
-
-// Placeholder calculator for tools without a dedicated component yet
-function PlaceholderCalculator({ label }: { label: string }) {
-  return (
-    <div className="rounded-xl border border-dashed border-border p-10 text-center">
-      <p className="text-muted-foreground font-medium">{label}</p>
-      <p className="mt-2 text-sm text-muted-foreground">
-        {/* TODO: Implement calculator UI for this tool */}
-        Calculator UI coming soon.
-      </p>
-    </div>
-  );
-}
+// Every tool slug maps to its live calculator component.
+const TOOL_COMPONENTS: Record<string, React.ComponentType> = {
+  sip: SIPCalculator,
+  "future-value": FutureValueCalculator,
+  "present-value": PresentValueCalculator,
+  cagr: CAGRCalculator,
+  "compound-interest": CompoundInterestCalculator,
+  "rule-of-72": RuleOf72Calculator,
+  emi: EMICalculator,
+  "inflation-adjusted-returns": InflationAdjustedReturnCalculator,
+};
 
 export default function ToolPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -118,11 +105,7 @@ export default function ToolPage() {
     );
   }
 
-  const renderCalculator = () => {
-    if (slug === "sip") return <SIPCalculator onExplain={() => {}} />;
-    if (slug === "future-value") return <FutureValueCalculator onExplain={() => {}} />;
-    return <PlaceholderCalculator label={meta.label} />;
-  };
+  const CalculatorComponent = slug ? TOOL_COMPONENTS[slug] : undefined;
 
   return (
     <Layout>
@@ -140,7 +123,11 @@ export default function ToolPage() {
         <p className="mt-3 text-muted-foreground">{meta.description}</p>
 
         {/* Calculator */}
-        <div className="mt-8">{renderCalculator()}</div>
+        {CalculatorComponent && (
+          <div className="mt-8">
+            <CalculatorComponent />
+          </div>
+        )}
 
         {/* How to use */}
         <section className="mt-10">
@@ -151,7 +138,11 @@ export default function ToolPage() {
         </section>
 
         {/* Math explainer */}
-        <MathExplainer content={meta.mathExplainer} />
+        <CollapsibleSection title="What the math is doing" className="mt-6">
+          <p className="text-sm text-muted-foreground font-mono whitespace-pre-wrap">
+            {meta.mathExplainer}
+          </p>
+        </CollapsibleSection>
 
         {/* See it used in */}
         <div className="mt-6 rounded-lg border p-4">

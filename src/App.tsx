@@ -42,7 +42,7 @@ const ArticleView = lazy(() => import("./pages/ArticleView"));
 
 // Tools
 const Tools = lazy(() => import("./pages/Tools"));
-const ToolPage = lazy(() => import("./pages/ToolPage"));
+// ToolPage loads via route-level lazy in the routes below.
 const DcfSensitivityPage = lazy(() => import("./pages/DcfSensitivityPage"));
 const BuildADcfPage = lazy(() => import("./pages/BuildADcfPage"));
 const ReadIncomeStatementPage = lazy(() => import("./pages/ReadIncomeStatementPage"));
@@ -181,7 +181,22 @@ export const routes: RouteRecord[] = [
       // Tools
       { path: "tools", Component: Tools },
       { path: "tools/dcf-sensitivity", Component: DcfSensitivityPage },
-      { path: "tools/:slug", Component: ToolPage },
+      {
+        path: "tools/:slug",
+        // Route-level lazy (same collectAssets constraint as research/foundations)
+        // + prerender all 8 calculator pages with their meta and calculator UI.
+        lazy: async () => ({ Component: (await import("./pages/ToolPage")).default }),
+        getStaticPaths: () => [
+          "tools/sip",
+          "tools/future-value",
+          "tools/present-value",
+          "tools/cagr",
+          "tools/compound-interest",
+          "tools/rule-of-72",
+          "tools/emi",
+          "tools/inflation-adjusted-returns",
+        ],
+      },
       { path: "calculators", element: <Navigate to="/tools" replace /> },
 
       // Markets
