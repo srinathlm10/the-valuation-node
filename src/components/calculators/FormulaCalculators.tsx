@@ -70,10 +70,10 @@ export function FutureValueCalculator() {
       <CardHeader className="gradient-slate">
         <div className="flex items-center justify-between">
           <div>
-            <CardTitle className="text-lg text-hero-heading">Future Value Calculator</CardTitle>
-            <CardDescription className="text-hero-subtext">FV = PV × (1 + r)^n</CardDescription>
+            <CardTitle className="text-lg text-slate-50">Future Value Calculator</CardTitle>
+            <CardDescription className="text-slate-300">FV = PV × (1 + r)^n</CardDescription>
           </div>
-          <Calculator className="h-8 w-8 text-hero-subtext" />
+          <Calculator className="h-8 w-8 text-slate-300" />
         </div>
       </CardHeader>
       <CardContent className="pt-6 space-y-6">
@@ -136,10 +136,10 @@ export function SIPCalculator() {
       <CardHeader className="gradient-slate">
         <div className="flex items-center justify-between">
           <div>
-            <CardTitle className="text-lg text-hero-heading">SIP Calculator</CardTitle>
-            <CardDescription className="text-hero-subtext">Systematic Investment Plan Returns</CardDescription>
+            <CardTitle className="text-lg text-slate-50">SIP Calculator</CardTitle>
+            <CardDescription className="text-slate-300">Systematic Investment Plan Returns</CardDescription>
           </div>
-          <Calculator className="h-8 w-8 text-hero-subtext" />
+          <Calculator className="h-8 w-8 text-slate-300" />
         </div>
       </CardHeader>
       <CardContent className="pt-6 space-y-6">
@@ -199,10 +199,10 @@ export function CAGRCalculator() {
       <CardHeader className="gradient-slate">
         <div className="flex items-center justify-between">
           <div>
-            <CardTitle className="text-lg text-hero-heading">CAGR Calculator</CardTitle>
-            <CardDescription className="text-hero-subtext">Compound Annual Growth Rate</CardDescription>
+            <CardTitle className="text-lg text-slate-50">CAGR Calculator</CardTitle>
+            <CardDescription className="text-slate-300">Compound Annual Growth Rate</CardDescription>
           </div>
-          <Calculator className="h-8 w-8 text-hero-subtext" />
+          <Calculator className="h-8 w-8 text-slate-300" />
         </div>
       </CardHeader>
       <CardContent className="pt-6 space-y-6">
@@ -262,10 +262,10 @@ export function EMICalculator() {
       <CardHeader className="gradient-slate">
         <div className="flex items-center justify-between">
           <div>
-            <CardTitle className="text-lg text-hero-heading">EMI Calculator</CardTitle>
-            <CardDescription className="text-hero-subtext">Equated Monthly Installment</CardDescription>
+            <CardTitle className="text-lg text-slate-50">EMI Calculator</CardTitle>
+            <CardDescription className="text-slate-300">Equated Monthly Installment</CardDescription>
           </div>
-          <Calculator className="h-8 w-8 text-hero-subtext" />
+          <Calculator className="h-8 w-8 text-slate-300" />
         </div>
       </CardHeader>
       <CardContent className="pt-6 space-y-6">
@@ -325,10 +325,10 @@ export function PresentValueCalculator() {
       <CardHeader className="gradient-slate">
         <div className="flex items-center justify-between">
           <div>
-            <CardTitle className="text-lg text-hero-heading">Present Value Calculator</CardTitle>
-            <CardDescription className="text-hero-subtext">PV = FV / (1 + r)^n</CardDescription>
+            <CardTitle className="text-lg text-slate-50">Present Value Calculator</CardTitle>
+            <CardDescription className="text-slate-300">PV = FV / (1 + r)^n</CardDescription>
           </div>
-          <Calculator className="h-8 w-8 text-hero-subtext" />
+          <Calculator className="h-8 w-8 text-slate-300" />
         </div>
       </CardHeader>
       <CardContent className="pt-6 space-y-6">
@@ -389,10 +389,10 @@ export function CompoundInterestCalculator() {
       <CardHeader className="gradient-slate">
         <div className="flex items-center justify-between">
           <div>
-            <CardTitle className="text-lg text-hero-heading">Compound Interest</CardTitle>
-            <CardDescription className="text-hero-subtext">A = P(1 + r/n)^(nt)</CardDescription>
+            <CardTitle className="text-lg text-slate-50">Compound Interest</CardTitle>
+            <CardDescription className="text-slate-300">A = P(1 + r/n)^(nt)</CardDescription>
           </div>
-          <Calculator className="h-8 w-8 text-hero-subtext" />
+          <Calculator className="h-8 w-8 text-slate-300" />
         </div>
       </CardHeader>
       <CardContent className="pt-6 space-y-6">
@@ -447,10 +447,10 @@ export function RuleOf72Calculator() {
       <CardHeader className="gradient-slate">
         <div className="flex items-center justify-between">
           <div>
-            <CardTitle className="text-lg text-hero-heading">Rule of 72</CardTitle>
-            <CardDescription className="text-hero-subtext">Time to Double = 72 / Rate</CardDescription>
+            <CardTitle className="text-lg text-slate-50">Rule of 72</CardTitle>
+            <CardDescription className="text-slate-300">Time to Double = 72 / Rate</CardDescription>
           </div>
-          <Calculator className="h-8 w-8 text-hero-subtext" />
+          <Calculator className="h-8 w-8 text-slate-300" />
         </div>
       </CardHeader>
       <CardContent className="pt-6 space-y-6">
@@ -493,10 +493,10 @@ export function InflationAdjustedReturnCalculator() {
       <CardHeader className="gradient-slate">
         <div className="flex items-center justify-between">
           <div>
-            <CardTitle className="text-lg text-hero-heading">Real Return Calculator</CardTitle>
-            <CardDescription className="text-hero-subtext">Inflation-Adjusted Return</CardDescription>
+            <CardTitle className="text-lg text-slate-50">Real Return Calculator</CardTitle>
+            <CardDescription className="text-slate-300">Inflation-Adjusted Return</CardDescription>
           </div>
-          <Calculator className="h-8 w-8 text-hero-subtext" />
+          <Calculator className="h-8 w-8 text-slate-300" />
         </div>
       </CardHeader>
       <CardContent className="pt-6 space-y-6">

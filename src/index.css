@@ -206,7 +206,10 @@
 
 @layer components {
   .gradient-slate {
-    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--slate-900)) 100%);
+    /* Always-dark brand surface (deep teal to slate), fixed on purpose so it
+       does NOT flip with the theme: any text placed on it must be light in
+       both modes (text-slate-50 / text-slate-300). */
+    background: linear-gradient(135deg, hsl(188 60% 22%) 0%, hsl(218 26% 15%) 100%);
   }
 
   .gradient-navy {

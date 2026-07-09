@@ -847,13 +847,13 @@ export function BuildADcfLesson() {
                   <p className="text-xs text-muted-foreground mb-2">Enterprise value breakdown</p>
                   <div className="h-8 rounded-full overflow-hidden flex text-xs font-medium">
                     <div
-                      className="bg-primary h-full flex items-center justify-center text-white"
+                      className="bg-primary h-full flex items-center justify-center text-primary-foreground"
                       style={{ width: `${(1 - result.terminalValuePct) * 100}%` }}
                     >
                       FCFs {fmtPct(1 - result.terminalValuePct, 0)}
                     </div>
                     <div
-                      className="bg-slate-400 h-full flex items-center justify-center text-white"
+                      className="bg-slate-500 h-full flex items-center justify-center text-white"
                       style={{ width: `${result.terminalValuePct * 100}%` }}
                     >
                       TV {fmtPct(result.terminalValuePct, 0)}

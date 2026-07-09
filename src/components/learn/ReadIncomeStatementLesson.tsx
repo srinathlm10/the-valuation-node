@@ -159,13 +159,14 @@ function MarginLadder({ company }: { company: FinancialCompany }) {
           <span className="w-24 shrink-0 text-muted-foreground">{r.label}</span>
           <div className="flex-1 h-6 bg-muted/40 rounded overflow-hidden">
             <div
-              className={cn("h-full rounded flex items-center justify-end pr-2 text-[11px] text-white font-medium transition-all", r.color)}
+              className={cn("h-full rounded transition-all", r.color)}
               style={{ width: `${Math.max((r.value / company.revenue) * 100, 6)}%` }}
-            >
-              {fmtPct(r.value / company.revenue, 0)}
-            </div>
+            />
           </div>
-          <span className="w-24 shrink-0 text-right tabular-nums">{fmtCr(r.value)}</span>
+          <span className="w-24 sm:w-36 shrink-0 text-right tabular-nums">
+            {fmtCr(r.value)}
+            <span className="hidden sm:inline text-muted-foreground"> · {fmtPct(r.value / company.revenue, 0)}</span>
+          </span>
         </div>
       ))}
     </div>
