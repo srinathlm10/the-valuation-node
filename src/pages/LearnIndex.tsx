@@ -32,7 +32,7 @@ const sections = [
     title: "Glossary",
     href: "/learn/glossary",
     description:
-      "500+ definitions, each with a formula, a real Indian example, and links to relevant Foundations pages and research.",
+      "170+ definitions, each with a formula, a real Indian example, and links to relevant Foundations pages and research.",
   },
 ];
 

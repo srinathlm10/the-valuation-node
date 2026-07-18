@@ -61,9 +61,21 @@ export default function AboutAuthor() {
 
         {/* Bio */}
         <div className="mt-6 prose prose-slate dark:prose-invert max-w-none font-serif prose-headings:font-sans">
-          {/* TODO: Author bio, 400-600 words. Srinath to fill. */}
-          <p className="text-muted-foreground italic">
-            [Author bio - 400-600 words. Srinath to fill.]
+          <p>
+            I am Srinath Gajji, the founder and sole author of The Valuation Node. I am an
+            MBA candidate at NIT Rourkela, and I write about Indian markets from first
+            principles: valuation, credit, and the accounting that sits underneath both.
+          </p>
+          <p>
+            This site is how I learn in public. Every Foundations topic, calculator, and
+            research note here is something I needed to understand properly myself, written
+            up so the next person can get there faster. The rule I hold myself to is simple:
+            state the assumptions, show the math, cite the source, and say plainly where I
+            might be wrong.
+          </p>
+          <p>
+            Nothing on this site is investment advice. If you spot an error, I want to know
+            about it; the fastest way to reach me is by email below.
           </p>
         </div>
 
@@ -89,10 +101,9 @@ export default function AboutAuthor() {
         <section className="mt-10">
           <h2 className="font-semibold">Currently working on</h2>
           <ul className="mt-3 text-sm text-muted-foreground list-disc list-inside space-y-1">
-            {/* TODO: Srinath to fill in 2-3 current projects */}
-            <li>[Current project 1 - Srinath to fill]</li>
-            <li>[Current project 2 - Srinath to fill]</li>
-            <li>[Current project 3 - Srinath to fill]</li>
+            <li>Expanding the research library with verified real-company case studies</li>
+            <li>Deepening Foundations topics with more worked Indian examples</li>
+            <li>Growing the glossary and cross-linking it through every page</li>
           </ul>
         </section>
 

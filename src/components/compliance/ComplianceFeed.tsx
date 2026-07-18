@@ -1,7 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Bot, ChevronRight, Calendar } from "lucide-react";
+import { Calendar } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface Circular {
@@ -11,23 +10,17 @@ interface Circular {
   category: string;
   date: string;
   summary: string;
-  botSummary: string;
+  botSummary?: string;
   tags: string[];
 }
 
-interface CircularCardProps {
-  circular: Circular;
-  onBotSummary: (circular: Circular) => void;
-  onViewDetails: (circular: Circular) => void;
-}
+const sourceColors: Record<Circular["source"], string> = {
+  SEBI: "badge-sebi",
+  NSE: "badge-nse",
+  BSE: "badge-bse",
+};
 
-export function CircularCard({ circular, onBotSummary, onViewDetails }: CircularCardProps) {
-  const sourceColors = {
-    SEBI: "badge-sebi",
-    NSE: "badge-nse",
-    BSE: "badge-bse",
-  };
-
+export function CircularCard({ circular }: { circular: Circular }) {
   return (
     <Card className="card-interactive group">
       <CardHeader className="pb-3">
@@ -49,59 +42,25 @@ export function CircularCard({ circular, onBotSummary, onViewDetails }: Circular
             })}
           </div>
         </div>
-        <CardTitle className="text-base font-semibold leading-tight line-clamp-2 text-foreground group-hover:text-emerald transition-colors">
+        <CardTitle className="text-base font-semibold leading-tight text-foreground">
           {circular.title}
         </CardTitle>
       </CardHeader>
       <CardContent className="pt-0">
-        <CardDescription className="text-sm line-clamp-2 mb-4">
-          {circular.summary}
-        </CardDescription>
-        <div className="flex flex-wrap gap-1 mb-4">
+        <CardDescription className="text-sm mb-4">{circular.summary}</CardDescription>
+        <div className="flex flex-wrap gap-1">
           {circular.tags.map((tag) => (
             <Badge key={tag} variant="secondary" className="text-xs">
               {tag}
             </Badge>
           ))}
         </div>
-        <div className="flex items-center justify-between gap-2">
-          <Button
-            variant="outline"
-            size="sm"
-            className="gap-1.5 text-xs"
-            onClick={(e) => {
-              e.stopPropagation();
-              onBotSummary(circular);
-            }}
-          >
-            <Bot className="h-3.5 w-3.5" />
-            Bot Summary
-          </Button>
-          <Button
-            variant="ghost"
-            size="sm"
-            className="gap-1 text-xs text-muted-foreground hover:text-foreground"
-            onClick={(e) => {
-              e.stopPropagation();
-              onViewDetails(circular);
-            }}
-          >
-            Read Full
-            <ChevronRight className="h-3.5 w-3.5" />
-          </Button>
-        </div>
       </CardContent>
     </Card>
   );
 }
 
-interface ComplianceFeedProps {
-  circulars?: Circular[];
-  onBotSummary?: (circular: Circular) => void;
-  onViewDetails?: (circular: Circular) => void;
-}
-
-export function ComplianceFeed({ circulars = [], onBotSummary = () => {}, onViewDetails = () => {} }: ComplianceFeedProps) {
+export function ComplianceFeed({ circulars = [] }: { circulars?: Circular[] }) {
   if (circulars.length === 0) {
     return (
       <div className="rounded-xl border border-dashed p-10 text-center text-sm text-muted-foreground">
@@ -113,12 +72,7 @@ export function ComplianceFeed({ circulars = [], onBotSummary = () => {}, onView
   return (
     <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
       {circulars.map((circular) => (
-        <CircularCard
-          key={circular.id}
-          circular={circular}
-          onBotSummary={onBotSummary}
-          onViewDetails={onViewDetails}
-        />
+        <CircularCard key={circular.id} circular={circular} />
       ))}
     </div>
   );

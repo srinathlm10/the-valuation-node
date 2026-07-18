@@ -20,8 +20,10 @@ const SECTION_TO_GLOSSARY_CATEGORIES: Record<string, string[]> = {
     "Solvency Ratios",
     "Efficiency Ratios",
   ],
-  "credit-analysis": ["Solvency Ratios"],
-  "markets-and-instruments": ["Basics of Stock Market", "Indices", "Technical Analysis", "Mutual Funds"],
+  "credit-analysis": ["Solvency Ratios", "Credit & Debt"],
+  "markets-and-instruments": ["Basics of Stock Market", "Indices", "Technical Analysis", "Mutual Funds", "Macroeconomics"],
+  "esg-and-sustainable-finance": ["ESG & Governance"],
+  "fintech-and-digital-finance": ["Fintech"],
 };
 
 export interface GlossaryTermLink {
@@ -55,6 +57,10 @@ export const GLOSSARY_CATEGORY_TO_TOPIC: Record<string, { href: string; label: s
   "Indices": { href: "/learn/foundations/markets-and-instruments/equities", label: "Equities (NSE, BSE, IPO Process)" },
   "Basics of Stock Market": { href: "/learn/foundations/markets-and-instruments/equities", label: "Equities (NSE, BSE, IPO Process)" },
   "Regulatory Compliance": { href: "/learn/foundations/markets-and-instruments/equities", label: "Equities (NSE, BSE, IPO Process)" },
+  "Credit & Debt": { href: "/learn/foundations/credit-analysis/bond-pricing-and-yields", label: "Bond Pricing and Yields" },
+  "Macroeconomics": { href: "/learn/foundations/markets-and-instruments/debt-markets-and-yield-curves", label: "Debt Markets and Yield Curves" },
+  "ESG & Governance": { href: "/learn/foundations/esg-and-sustainable-finance/esg-fundamentals", label: "ESG Fundamentals" },
+  "Fintech": { href: "/learn/foundations/fintech-and-digital-finance/payments-landscape", label: "Payments Landscape" },
 };
 
 // ── Foundations section -> best-fitting research category ───────────────────
@@ -87,6 +93,10 @@ export const TOOL_DIRECTORY: ToolEntry[] = [
   { slug: "rule-of-72", label: "Rule of 72", group: "Investment Planning" },
   { slug: "emi", label: "EMI Calculator", group: "Loans" },
   { slug: "inflation-adjusted-returns", label: "Inflation-Adjusted Returns Calculator", group: "Risk" },
+  { slug: "wacc", label: "WACC Calculator", group: "Valuation" },
+  { slug: "step-up-sip", label: "Step-Up SIP Calculator", group: "Investment Planning" },
+  { slug: "goal-sip", label: "Goal SIP Calculator", group: "Investment Planning" },
+  { slug: "loan-prepayment", label: "Loan Prepayment Calculator", group: "Loans" },
 ];
 
 /** Sibling tools: same group first, then the rest in directory order. */

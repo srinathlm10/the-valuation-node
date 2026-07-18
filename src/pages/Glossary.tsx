@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
 import { Input } from "@/components/ui/input";
-import { useQuery } from "@tanstack/react-query";
-import { contentService } from "@/services/contentService";
+import { GLOSSARY } from "@/lib/glossary";
 import { Search, SearchX } from "lucide-react";
 import { EmptyState } from "@/components/content/EmptyState";
 import { GLOSSARY_CATEGORY_ICONS, GLOSSARY_FALLBACK_ICON } from "@/lib/siteIcons";
@@ -25,10 +24,8 @@ export default function Glossary() {
   const [search, setSearch] = useState("");
   const [jumpLetter, setJumpLetter] = useState("");
 
-  const { data: definitions = [], isLoading } = useQuery({
-    queryKey: ["definitions"],
-    queryFn: contentService.getDefinitions,
-  });
+  const definitions = GLOSSARY;
+  const isLoading = false;
 
   const filtered = useMemo(() => {
     let items = definitions as any[];
@@ -55,7 +52,7 @@ export default function Glossary() {
         <title>Glossary - The Valuation Node</title>
         <meta
           name="description"
-          content="500+ finance definitions, each with a formula, a real Indian example, and links to Foundations pages."
+          content="170+ finance definitions, each with a formula, a real Indian example, and links to Foundations pages."
         />
         <link rel="canonical" href="https://valuationnode.com/learn/glossary" />
       </Helmet>

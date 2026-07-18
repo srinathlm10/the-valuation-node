@@ -35,7 +35,7 @@ const Foundations = lazy(() => import("./pages/Foundations"));
 const LearnByDoing = lazy(() => import("./pages/LearnByDoing"));
 const LearnByDoingModule = lazy(() => import("./pages/LearnByDoingModule"));
 const Glossary = lazy(() => import("./pages/Glossary"));
-const GlossaryEntry = lazy(() => import("./pages/GlossaryEntry"));
+// GlossaryEntry loads via route-level lazy in the routes below.
 
 // Legacy learn routes (kept for backward-compat; redirected below)
 const ArticleView = lazy(() => import("./pages/ArticleView"));
@@ -169,7 +169,16 @@ export const routes: RouteRecord[] = [
       { path: "learn/by-doing/spot-the-red-flags", Component: SpotRedFlagsPage },
       { path: "learn/by-doing/:slug", Component: LearnByDoingModule },
       { path: "learn/glossary", Component: Glossary },
-      { path: "learn/glossary/:termSlug", Component: GlossaryEntry },
+      {
+        path: "learn/glossary/:termSlug",
+        lazy: async () => ({ Component: (await import("./pages/GlossaryEntry")).default }),
+        // Prerender every glossary term (local data) so each definition ships
+        // as static HTML with its DefinedTerm structured data.
+        getStaticPaths: async () => {
+          const { GLOSSARY, termSlug } = await import("@/lib/glossary");
+          return GLOSSARY.map((d) => `learn/glossary/${termSlug(d.term)}`);
+        },
+      },
 
       // Legacy learn redirects
       { path: "learn/wiki", element: <Navigate to="/learn/glossary" replace /> },
@@ -195,6 +204,10 @@ export const routes: RouteRecord[] = [
           "tools/rule-of-72",
           "tools/emi",
           "tools/inflation-adjusted-returns",
+          "tools/step-up-sip",
+          "tools/goal-sip",
+          "tools/loan-prepayment",
+          "tools/wacc",
         ],
       },
       { path: "calculators", element: <Navigate to="/tools" replace /> },

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
 import { ComplianceFeed } from "@/components/compliance/ComplianceFeed";
+import CIRCULARS from "@/data/circulars.json";
 
 export default function MarketsCompliance() {
   return (
@@ -38,7 +39,7 @@ export default function MarketsCompliance() {
           </p>
         </div>
 
-        <ComplianceFeed />
+        <ComplianceFeed circulars={CIRCULARS as never} />
       </div>
     </Layout>
   );

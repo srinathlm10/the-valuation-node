@@ -27,6 +27,10 @@ import {
   Library,
   PiggyBank,
   Droplets,
+  Target,
+  ChartBarIncreasing,
+  Banknote,
+  ScrollText,
   Gavel,
   ChartPie,
   Receipt,
@@ -59,6 +63,10 @@ export const TOOL_ICONS: Record<string, LucideIcon> = {
   "rule-of-72": Timer,
   "emi": CreditCard,
   "inflation-adjusted-returns": Gauge,
+  "step-up-sip": ChartBarIncreasing,
+  "goal-sip": Target,
+  "loan-prepayment": Banknote,
+  "wacc": Scale,
 };
 
 /** One icon per Learn section card. */
@@ -84,6 +92,10 @@ export const GLOSSARY_CATEGORY_ICONS: Record<string, LucideIcon> = {
   "Mutual Funds": Layers,
   "Indices": ChartLine,
   "Basics of Stock Market": GraduationCap,
+  "Credit & Debt": ScrollText,
+  "Macroeconomics": Landmark,
+  "ESG & Governance": Leaf,
+  "Fintech": Smartphone,
 };
 
 /** Fallback for categories without an assignment. */

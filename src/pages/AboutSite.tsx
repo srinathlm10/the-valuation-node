@@ -35,13 +35,18 @@ export default function AboutSite() {
         <h1 className="text-3xl font-bold tracking-tight">About this site</h1>
 
         {/* Mission */}
-        <div className="mt-6 prose prose-slate dark:prose-invert max-w-none">
-          {/* TODO: Two-paragraph mission statement. Srinath to fill. */}
-          <p className="text-muted-foreground italic">
-            [Mission statement - paragraph 1. Srinath to fill.]
+        <div className="mt-6 prose prose-slate dark:prose-invert max-w-none font-serif prose-headings:font-sans">
+          <p>
+            The Valuation Node exists to make serious financial analysis of Indian markets
+            readable, checkable, and free. Most market commentary asks for trust; this site
+            tries to earn it instead, by stating every assumption, citing primary sources,
+            and publishing the reasoning alongside the conclusion.
           </p>
-          <p className="text-muted-foreground italic">
-            [Mission statement - paragraph 2. Srinath to fill.]
+          <p>
+            The site has two halves that feed each other. The learning library builds the
+            concepts, from reading an income statement to building a DCF, and the research
+            applies them to real situations. Every research piece links back to the concepts
+            it uses, so a reader can always trace an argument down to first principles.
           </p>
         </div>
 

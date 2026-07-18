@@ -19,6 +19,7 @@ const toolGroups = [
     tools: [
       { slug: "dcf-sensitivity", label: "DCF Sensitivity Calculator" },
       { slug: "cagr", label: "CAGR Calculator" },
+      { slug: "wacc", label: "WACC Calculator" },
     ],
   },
   {
@@ -29,11 +30,16 @@ const toolGroups = [
       { slug: "present-value", label: "Present Value Calculator" },
       { slug: "compound-interest", label: "Compound Interest Calculator" },
       { slug: "rule-of-72", label: "Rule of 72" },
+      { slug: "step-up-sip", label: "Step-Up SIP Calculator" },
+      { slug: "goal-sip", label: "Goal SIP Calculator" },
     ],
   },
   {
     label: "Loans",
-    tools: [{ slug: "emi", label: "EMI Calculator" }],
+    tools: [
+      { slug: "emi", label: "EMI Calculator" },
+      { slug: "loan-prepayment", label: "Loan Prepayment Calculator" },
+    ],
   },
   {
     label: "Risk",

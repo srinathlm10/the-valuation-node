@@ -224,8 +224,8 @@ export default function Foundations() {
               worked examples with real Indian company data.
             </p>
             <p className="mt-3 text-sm text-muted-foreground">
-              Select a topic from the sidebar. Pages marked "Soon" are placeholders - content is
-              added as it's written.
+              Select a topic from the sidebar. Every topic covers intuition, mechanics, common
+              mistakes, and an advanced deep dive, with new topics added as they are written.
             </p>
 
             <div className="mt-10 lg:hidden">

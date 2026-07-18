@@ -74,6 +74,17 @@ function readResearchArticles(hiddenSlugs) {
   return entries;
 }
 
+function readGlossaryTerms() {
+  const p = join(ROOT, "src", "data", "definitions.json");
+  if (!existsSync(p)) return [];
+  const defs = JSON.parse(readFileSync(p, "utf8"));
+  return defs.map((d) => ({
+    path: "/learn/glossary/" + String(d.term).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""),
+    priority: "0.5",
+    changefreq: "monthly",
+  }));
+}
+
 const routes = [
   // ── Core ─────────────────────────────────────────────────────────────
   { path: "/",                        priority: "1.0", changefreq: "weekly"  },
@@ -178,6 +189,10 @@ const routes = [
   { path: "/tools/rule-of-72",                        priority: "0.7", changefreq: "monthly" },
   { path: "/tools/emi",                               priority: "0.7", changefreq: "monthly" },
   { path: "/tools/inflation-adjusted-returns",        priority: "0.7", changefreq: "monthly" },
+  { path: "/tools/step-up-sip",                       priority: "0.7", changefreq: "monthly" },
+  { path: "/tools/goal-sip",                          priority: "0.7", changefreq: "monthly" },
+  { path: "/tools/loan-prepayment",                   priority: "0.7", changefreq: "monthly" },
+  { path: "/tools/wacc",                              priority: "0.7", changefreq: "monthly" },
 
   // ── Markets ───────────────────────────────────────────────────────────
   { path: "/markets",             priority: "0.7", changefreq: "weekly"  },
@@ -194,7 +209,8 @@ const routes = [
 async function main() {
   const hiddenSlugs = await fetchHiddenSlugs();
   const researchRoutes = readResearchArticles(hiddenSlugs);
-  const allRoutes = [...routes, ...researchRoutes];
+  const glossaryRoutes = readGlossaryTerms();
+  const allRoutes = [...routes, ...researchRoutes, ...glossaryRoutes];
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -211,7 +227,7 @@ ${allRoutes
   writeFileSync(outPath, sitemap, "utf-8");
   console.log(
     `sitemap.xml written, ${allRoutes.length} URLs ` +
-      `(${routes.length} static + ${researchRoutes.length} research)`
+      `(${routes.length} static + ${researchRoutes.length} research + ${glossaryRoutes.length} glossary)`
   );
 }
 

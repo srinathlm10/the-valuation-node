@@ -1,9 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
-import { useQuery } from "@tanstack/react-query";
-import { contentService } from "@/services/contentService";
-import { useMemo } from "react";
+import { findTerm } from "@/lib/glossary";
 import { Prose } from "@/components/content/Prose";
 import { Callout } from "@/components/content/Callout";
 import { GLOSSARY_CATEGORY_ICONS, GLOSSARY_FALLBACK_ICON } from "@/lib/siteIcons";
@@ -22,15 +20,7 @@ function toSlug(term: string) {
 export default function GlossaryEntry() {
   const { termSlug } = useParams<{ termSlug: string }>();
 
-  const { data: definitions = [] } = useQuery({
-    queryKey: ["definitions"],
-    queryFn: contentService.getDefinitions,
-  });
-
-  const def = useMemo(
-    () => (definitions as any[]).find((d: any) => toSlug(d.term) === termSlug),
-    [definitions, termSlug]
-  );
+  const def = findTerm(termSlug ?? "");
 
   if (!def) {
     return (

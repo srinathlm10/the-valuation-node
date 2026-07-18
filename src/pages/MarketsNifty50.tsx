@@ -23,7 +23,7 @@ export default function MarketsNifty50() {
         <title>Nifty 50 - Markets - The Valuation Node</title>
         <meta
           name="description"
-          content="Fundamental data for all 50 Nifty 50 constituents - P/E, P/B, dividend yield, market cap."
+          content="Fundamental data for Nifty 50 constituents: P/E, P/B, dividend yield, market cap. Coverage is expanding."
         />
         <link rel="canonical" href="https://valuationnode.com/markets/nifty50" />
       </Helmet>

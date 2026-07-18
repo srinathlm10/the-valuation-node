@@ -23,6 +23,7 @@ const part3: Record<string, FoundationContent> = {
   },
 
   "debt-markets-and-yield-curves": {
+    tryItHref: "/tools/inflation-adjusted-returns",
     readingTime: "10 min read",
     lastReviewed: "July 2025",
     prerequisites: [

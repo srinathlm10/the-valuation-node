@@ -10,6 +10,10 @@ import {
   CompoundInterestCalculator,
   RuleOf72Calculator,
   InflationAdjustedReturnCalculator,
+  StepUpSIPCalculator,
+  GoalSIPCalculator,
+  LoanPrepaymentCalculator,
+  WACCCalculator,
 } from "@/components/calculators/FormulaCalculators";
 import { CollapsibleSection } from "@/components/content/CollapsibleSection";
 import { ContinueReading } from "@/components/research/ContinueReading";
@@ -79,6 +83,34 @@ const TOOL_META: Record<string, {
     mathExplainer: "Real Return = (1 + Nominal Return) / (1 + Inflation Rate) − 1. This is the Fisher equation.\n\nThe common shortcut (nominal minus inflation) overstates the real return. Example: 12% nominal with 6% inflation gives a true real return of 1.12/1.06 − 1 = 5.66%, not 6%.",
     foundationsLink: { href: "/learn/foundations/markets-and-instruments/debt-markets-and-yield-curves", label: "Debt Markets and Yield Curves" },
   },
+  "step-up-sip": {
+    label: "Step-Up SIP Calculator",
+    description: "Project a SIP where the monthly amount increases every year, the way a salary does.",
+    howToUse: "Enter your starting monthly investment, the percentage by which you will raise it each year, the expected annual return, and the duration. The calculator compounds each month and steps the contribution up every 12 months.\n\nA step-up is the most realistic way to plan a SIP, because incomes grow. Even a modest 10% annual increase changes the outcome dramatically over long periods; the comparison row shows exactly how much more you end with versus keeping the SIP fixed.\n\nMost Indian fund platforms support automatic annual step-ups, so the plan you model here can be set up once and left alone.",
+    mathExplainer: "Each month: balance = (balance + contribution) x (1 + r), where r is the monthly return. Every 12 months the contribution is multiplied by (1 + step-up rate). The fixed-SIP comparison uses the standard annuity formula with the starting contribution.",
+    foundationsLink: { href: "/learn/foundations/corporate-finance/time-value-of-money", label: "Time Value of Money" },
+  },
+  "goal-sip": {
+    label: "Goal SIP Calculator",
+    description: "Work backwards from a target corpus to the monthly SIP required to reach it.",
+    howToUse: "Enter the corpus you want, the years available, and the return you expect. The calculator inverts the SIP formula to tell you the monthly investment required.\n\nUse it for concrete goals: a child's education, a house down payment, retirement. Two cautions make the answer honest. First, state the target in future rupees: a goal 15 years away should be inflated before it is entered, and the Inflation-Adjusted Returns tool helps with that. Second, revisit the plan yearly; if returns disappoint, the required SIP rises the longer you wait.",
+    mathExplainer: "Required SIP = T x r / (((1+r)^n - 1) x (1+r)), where T is the target corpus, r is the monthly return, and n is the number of months. This is the SIP future-value formula solved for the payment.",
+    foundationsLink: { href: "/learn/foundations/corporate-finance/time-value-of-money", label: "Time Value of Money" },
+  },
+  "loan-prepayment": {
+    label: "Loan Prepayment Calculator",
+    description: "See how much interest and time a regular extra payment knocks off a loan.",
+    howToUse: "Enter your loan details and the extra amount you can pay each month on top of the EMI. The calculator re-runs the amortisation schedule and shows how much earlier the loan closes and how much interest you avoid.\n\nPrepayment is powerful because EMIs are front-loaded: early instalments are mostly interest, so every extra rupee paid early cancels many rupees of future interest. The same extra payment made in year 15 of a 20-year loan saves far less than in year 2.\n\nFor floating-rate loans to individuals, RBI rules bar banks from charging prepayment penalties, so home-loan prepayment is usually free. Check the terms on fixed-rate and business loans.",
+    mathExplainer: "The schedule is simulated month by month: interest = balance x r, then balance falls by (EMI - interest + extra). The loan closes when the balance reaches zero. Savings are the difference in months and in total interest versus the no-prepayment schedule.",
+    foundationsLink: { href: "/learn/foundations/corporate-finance/cost-of-capital", label: "Cost of Capital" },
+  },
+  "wacc": {
+    label: "WACC Calculator",
+    description: "Compute the weighted average cost of capital from equity and debt weights, their costs, and the tax rate.",
+    howToUse: "Enter the market value of equity and debt, the cost of each, and the tax rate. The calculator weights the two costs by their share of total capital, using the after-tax cost of debt because interest is tax-deductible.\n\nFor Indian listed companies, cost of equity typically lands between 12% and 16% when built with CAPM (10-year G-sec yield plus beta times the equity risk premium), and cost of debt sits near the company's actual borrowing rate. The result is the discount rate a DCF uses, so small changes matter: test a range rather than trusting one number.",
+    mathExplainer: "WACC = (E/V) x Re + (D/V) x Rd x (1 - t), where E and D are market values of equity and debt, V = E + D, Re is cost of equity, Rd is pre-tax cost of debt, and t is the tax rate.",
+    foundationsLink: { href: "/learn/foundations/corporate-finance/cost-of-capital", label: "Cost of Capital" },
+  },
 };
 
 // Every tool slug maps to its live calculator component.
@@ -91,6 +123,10 @@ const TOOL_COMPONENTS: Record<string, React.ComponentType> = {
   "rule-of-72": RuleOf72Calculator,
   emi: EMICalculator,
   "inflation-adjusted-returns": InflationAdjustedReturnCalculator,
+  "step-up-sip": StepUpSIPCalculator,
+  "goal-sip": GoalSIPCalculator,
+  "loan-prepayment": LoanPrepaymentCalculator,
+  "wacc": WACCCalculator,
 };
 
 export default function ToolPage() {

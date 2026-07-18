@@ -1757,5 +1757,736 @@
       "Cut-off Price",
       "Book Building"
     ]
+  },
+  {
+    "id": "ev-sales",
+    "term": "EV/Sales",
+    "fullName": "Enterprise Value to Sales",
+    "category": "Valuation Ratios",
+    "definition": "A multiple comparing firm value to revenue. Used when earnings are negative or temporarily depressed, since revenue is harder to manipulate than profit.",
+    "formula": "EV/Sales = Enterprise Value / Annual Revenue",
+    "whyItMatters": "It is often the only usable multiple for loss-making growth companies, but it says nothing about profitability, so it must be paired with a view on future margins.",
+    "example": "A fast-growing company with losses may be compared with peers on EV/Sales while its margins mature.",
+    "relatedTerms": [
+      "EV/EBITDA",
+      "Enterprise Value"
+    ]
+  },
+  {
+    "id": "fcf-yield",
+    "term": "FCF Yield",
+    "fullName": "Free Cash Flow Yield",
+    "category": "Valuation Ratios",
+    "definition": "Free cash flow per share divided by the share price, or firm-level free cash flow divided by market cap. It shows the cash return the business generates on its current price.",
+    "formula": "FCF Yield = Free Cash Flow / Market Cap",
+    "whyItMatters": "Earnings are an opinion; free cash flow is closer to fact. A healthy FCF yield indicates the valuation is supported by actual cash generation, not just accounting profit.",
+    "example": "A company generating 500 crore of free cash flow on a 10,000 crore market cap offers a 5% FCF yield, comparable to a bond coupon but with growth potential.",
+    "relatedTerms": [
+      "Free Cash Flow",
+      "Earnings Yield"
+    ]
+  },
+  {
+    "id": "earnings-yield",
+    "term": "Earnings Yield",
+    "fullName": "Earnings Yield",
+    "category": "Valuation Ratios",
+    "definition": "The inverse of the P/E ratio: earnings per share divided by price. It expresses valuation as a percentage return, making stocks directly comparable with bond yields.",
+    "formula": "Earnings Yield = EPS / Price = 1 / (P/E)",
+    "whyItMatters": "Comparing the earnings yield of an index with the 10-year G-sec yield is a classic gauge of whether equities are cheap or expensive relative to bonds.",
+    "example": "A market P/E of 20 means a 5% earnings yield; if government bonds pay 7%, equities need growth to justify the gap.",
+    "relatedTerms": [
+      "P/E Ratio",
+      "Bond Yield"
+    ]
+  },
+  {
+    "id": "dividend-payout-ratio",
+    "term": "Dividend Payout Ratio",
+    "fullName": "Dividend Payout Ratio",
+    "category": "Valuation Ratios",
+    "definition": "The share of net profit paid out as dividends. The remainder, the retention ratio, is reinvested in the business.",
+    "formula": "Payout Ratio = Dividends Paid / Net Profit",
+    "whyItMatters": "A high payout signals limited reinvestment opportunities or shareholder-friendly policy; a low payout should be justified by high returns on the retained capital.",
+    "example": "Mature consumer companies often pay out more than half their profits, while fast-growing firms retain almost everything to fund expansion.",
+    "relatedTerms": [
+      "Dividend Yield",
+      "ROE"
+    ]
+  },
+  {
+    "id": "terminal-value",
+    "term": "Terminal Value",
+    "fullName": "Terminal Value (TV)",
+    "category": "Valuation Ratios",
+    "definition": "The value of all cash flows beyond the explicit forecast period in a DCF, usually estimated with the Gordon growth formula. It typically accounts for the majority of a DCF's total value.",
+    "formula": "TV = FCF x (1 + g) / (WACC - g)",
+    "whyItMatters": "Because terminal value often makes up 60 to 80% of a DCF, small changes in the terminal growth rate or discount rate swing the whole valuation. It deserves more scrutiny than the near-year forecasts.",
+    "example": "In a 5-year DCF with WACC of 12% and terminal growth of 5%, the terminal value routinely dwarfs the present value of the five forecast years combined.",
+    "relatedTerms": [
+      "WACC",
+      "Free Cash Flow"
+    ]
+  },
+  {
+    "id": "margin-of-safety",
+    "term": "Margin of Safety",
+    "fullName": "Margin of Safety",
+    "category": "Valuation Ratios",
+    "definition": "The gap between a stock's estimated intrinsic value and its market price. Buying below intrinsic value creates a cushion against errors in the estimate.",
+    "formula": "Margin of Safety = (Intrinsic Value - Price) / Intrinsic Value",
+    "whyItMatters": "Every valuation is uncertain. The margin of safety is the discipline that admits this: it demands a discount large enough that being somewhat wrong still leaves an acceptable outcome.",
+    "example": "An analyst who values a stock at 100 but only buys below 70 is applying a 30% margin of safety.",
+    "relatedTerms": [
+      "Intrinsic Value",
+      "P/E Ratio"
+    ]
+  },
+  {
+    "id": "book-value-per-share",
+    "term": "Book Value per Share",
+    "fullName": "Book Value per Share (BVPS)",
+    "category": "Valuation Ratios",
+    "definition": "Shareholders' equity divided by the number of shares outstanding. It is the accounting net worth attributable to each share.",
+    "formula": "BVPS = Total Shareholders' Equity / Shares Outstanding",
+    "whyItMatters": "It anchors the P/B ratio and matters most for banks and financial companies, whose assets are largely financial and carried near market value.",
+    "example": "A bank trading at twice its book value per share is priced at a P/B of 2, which the market justifies only if its return on equity is strong.",
+    "relatedTerms": [
+      "P/B Ratio",
+      "ROE"
+    ]
+  },
+  {
+    "id": "roic",
+    "term": "ROIC",
+    "fullName": "Return on Invested Capital",
+    "category": "Profitability Ratios",
+    "definition": "After-tax operating profit divided by the total capital invested in the business, both debt and equity. It measures how well the company converts all its capital into operating profit.",
+    "formula": "ROIC = NOPAT / (Total Debt + Equity - Cash)",
+    "whyItMatters": "Value is created only when ROIC exceeds the cost of capital. A company growing with ROIC below WACC destroys value with every rupee it reinvests.",
+    "example": "A business earning 18% ROIC against an 11% WACC creates value as it grows; the same growth at 8% ROIC would destroy it.",
+    "relatedTerms": [
+      "NOPAT",
+      "WACC",
+      "ROE"
+    ]
+  },
+  {
+    "id": "nopat",
+    "term": "NOPAT",
+    "fullName": "Net Operating Profit After Tax",
+    "category": "Profitability Ratios",
+    "definition": "Operating profit (EBIT) with tax removed, before any financing effects. It is the profit the business generates for all capital providers.",
+    "formula": "NOPAT = EBIT x (1 - Tax Rate)",
+    "whyItMatters": "NOPAT separates business performance from financing choices, which is why DCF models and ROIC calculations start from it rather than from net profit.",
+    "example": "A firm with EBIT of 200 crore and a 25% tax rate has NOPAT of 150 crore, regardless of how much debt it carries.",
+    "relatedTerms": [
+      "EBIT",
+      "ROIC",
+      "Free Cash Flow"
+    ]
+  },
+  {
+    "id": "operating-leverage",
+    "term": "Operating Leverage",
+    "fullName": "Operating Leverage",
+    "category": "Profitability Ratios",
+    "definition": "The sensitivity of operating profit to changes in revenue, driven by the share of fixed costs. High fixed costs mean small revenue changes produce large profit swings.",
+    "formula": "Degree of Operating Leverage = % Change in EBIT / % Change in Revenue",
+    "whyItMatters": "It explains why cyclical, capital-heavy businesses see profits collapse in downturns and surge in recoveries, and why their earnings deserve a lower multiple.",
+    "example": "A hotel with mostly fixed costs sees profit double when occupancy rises modestly, and vanish when it falls.",
+    "relatedTerms": [
+      "EBIT",
+      "Financial Leverage"
+    ]
+  },
+  {
+    "id": "gross-margin",
+    "term": "Gross Margin",
+    "fullName": "Gross Profit Margin",
+    "category": "Profitability Ratios",
+    "definition": "Gross profit as a percentage of revenue: what remains after direct production costs, before operating expenses.",
+    "formula": "Gross Margin = (Revenue - COGS) / Revenue",
+    "whyItMatters": "It is the purest read on pricing power and input-cost pressure. Falling gross margins usually reach the bottom line eventually, whatever management says about cost control below the line.",
+    "example": "A branded goods company holding a 55% gross margin through an input-cost spike is demonstrating real pricing power.",
+    "relatedTerms": [
+      "Operating Margin",
+      "Net Profit Margin"
+    ]
+  },
+  {
+    "id": "operating-margin",
+    "term": "Operating Margin",
+    "fullName": "Operating Profit Margin (EBIT Margin)",
+    "category": "Profitability Ratios",
+    "definition": "Operating profit (EBIT) as a percentage of revenue. It captures the profitability of the core business after all operating costs but before interest and tax.",
+    "formula": "Operating Margin = EBIT / Revenue",
+    "whyItMatters": "It is the margin most comparable across companies in a sector, since it excludes financing structure. Durable margin expansion is one of the strongest drivers of shareholder value.",
+    "example": "An IT services firm improving operating margin from 20% to 24% adds roughly a fifth to its operating profit without any revenue growth.",
+    "relatedTerms": [
+      "Gross Margin",
+      "EBIT"
+    ]
+  },
+  {
+    "id": "yield-to-maturity",
+    "term": "Yield to Maturity",
+    "fullName": "Yield to Maturity (YTM)",
+    "category": "Credit & Debt",
+    "definition": "The single discount rate at which a bond's future coupons and principal repayment equal its current market price. It is the total annualised return from holding the bond to maturity.",
+    "formula": "Price = Sum of [Coupon / (1+YTM)^t] + Face Value / (1+YTM)^n",
+    "whyItMatters": "YTM is the bond market's price tag. Comparing a corporate bond's YTM with the government yield of the same maturity reveals the credit spread the market demands.",
+    "example": "A bond bought below face value yields more than its coupon rate, because the price gain to maturity adds to the return.",
+    "relatedTerms": [
+      "Coupon Rate",
+      "Credit Spread",
+      "Duration"
+    ]
+  },
+  {
+    "id": "credit-spread",
+    "term": "Credit Spread",
+    "fullName": "Credit Spread",
+    "category": "Credit & Debt",
+    "definition": "The extra yield a corporate bond pays over a government bond of the same maturity, compensating for default risk and lower liquidity.",
+    "formula": "Credit Spread = Corporate Bond Yield - G-Sec Yield (same maturity)",
+    "whyItMatters": "Spreads are a live market vote on credit risk. Widening spreads warn of stress long before rating agencies act.",
+    "example": "If a 5-year corporate bond yields 9% while the 5-year G-sec yields 7%, the credit spread is 200 basis points.",
+    "relatedTerms": [
+      "Yield to Maturity",
+      "Credit Rating"
+    ]
+  },
+  {
+    "id": "credit-rating",
+    "term": "Credit Rating",
+    "fullName": "Credit Rating",
+    "category": "Credit & Debt",
+    "definition": "An agency's opinion of a borrower's ability to repay, expressed on a letter scale from AAA (highest safety) down to D (default). In India the major agencies are CRISIL, ICRA, and CARE.",
+    "formula": "",
+    "whyItMatters": "Ratings gate access to capital: many institutional investors can only hold investment-grade paper, so a downgrade below BBB- can force selling and sharply raise borrowing costs.",
+    "example": "A downgrade from AA to A typically raises a company's cost of new borrowing and can trigger covenants on existing loans.",
+    "relatedTerms": [
+      "Credit Spread",
+      "Covenant"
+    ]
+  },
+  {
+    "id": "dscr",
+    "term": "DSCR",
+    "fullName": "Debt Service Coverage Ratio",
+    "category": "Credit & Debt",
+    "definition": "Cash available for debt service divided by scheduled principal and interest payments. It measures whether operations generate enough cash to meet debt obligations as they fall due.",
+    "formula": "DSCR = (EBITDA - Tax) / (Interest + Principal Repayments)",
+    "whyItMatters": "Lenders live by this ratio. A DSCR below 1 means the borrower cannot service debt from operations and must refinance, sell assets, or default.",
+    "example": "Project finance lenders often require a minimum DSCR of 1.2 to 1.3 before sanctioning infrastructure loans.",
+    "relatedTerms": [
+      "Interest Coverage",
+      "EBITDA"
+    ]
+  },
+  {
+    "id": "coupon-rate",
+    "term": "Coupon Rate",
+    "fullName": "Coupon Rate",
+    "category": "Credit & Debt",
+    "definition": "The fixed annual interest a bond pays as a percentage of its face value. It is set at issue and does not change with the market price.",
+    "formula": "Annual Coupon = Coupon Rate x Face Value",
+    "whyItMatters": "Confusing coupon with yield is a common error: a bond's return depends on the price paid, not just the coupon printed on it.",
+    "example": "A 7% coupon bond with 100 face value pays 7 per year even if the bond trades at 95, where its yield is higher than 7%.",
+    "relatedTerms": [
+      "Yield to Maturity",
+      "Face Value"
+    ]
+  },
+  {
+    "id": "duration",
+    "term": "Duration",
+    "fullName": "Duration (Bond)",
+    "category": "Credit & Debt",
+    "definition": "A measure of a bond's price sensitivity to interest-rate changes, expressed in years. Longer duration means bigger price swings when yields move.",
+    "formula": "Price Change (%) = -Modified Duration x Yield Change (%)",
+    "whyItMatters": "Duration is the primary risk dial in fixed income. Investors expecting rate cuts extend duration; those fearing hikes shorten it.",
+    "example": "A bond fund with a duration of 6 loses roughly 6% of its value if yields rise by one percentage point.",
+    "relatedTerms": [
+      "Yield to Maturity",
+      "Bond Price"
+    ]
+  },
+  {
+    "id": "npa",
+    "term": "NPA",
+    "fullName": "Non-Performing Asset",
+    "category": "Credit & Debt",
+    "definition": "A loan on which interest or principal has remained overdue for more than 90 days. Banks must classify such loans separately and provide against expected losses.",
+    "formula": "Gross NPA Ratio = Gross NPAs / Total Advances",
+    "whyItMatters": "NPA ratios are the headline health metric for banks. Rising NPAs eat capital through provisions and constrain new lending.",
+    "example": "A bank with a gross NPA ratio of 4% and provisions covering 70% of them is in far better shape than one with the same NPAs and thin coverage.",
+    "relatedTerms": [
+      "Credit Rating",
+      "Provision Coverage"
+    ]
+  },
+  {
+    "id": "covenant",
+    "term": "Covenant",
+    "fullName": "Debt Covenant",
+    "category": "Credit & Debt",
+    "definition": "A condition attached to a loan or bond that the borrower must maintain, such as a maximum leverage ratio or minimum coverage ratio. Breaching one can trigger penalties or immediate repayment.",
+    "formula": "",
+    "whyItMatters": "Covenants are the early-warning tripwires of credit. Reading them tells you how much room a stressed borrower actually has before lenders take control.",
+    "example": "A covenant capping net debt at 3x EBITDA forces a company to deleverage or seek waivers when earnings fall.",
+    "relatedTerms": [
+      "Credit Rating",
+      "DSCR"
+    ]
+  },
+  {
+    "id": "promoter-pledge",
+    "term": "Promoter Pledge",
+    "fullName": "Promoter Share Pledging",
+    "category": "Credit & Debt",
+    "definition": "Promoters borrowing against their own shareholding by pledging shares as collateral. Disclosed quarterly in Indian shareholding patterns.",
+    "formula": "Pledge Ratio = Pledged Promoter Shares / Total Promoter Shares",
+    "whyItMatters": "High pledging is a fragility signal: a falling share price can trigger margin calls, forced selling by lenders, and a self-reinforcing crash, sometimes ending in loss of promoter control.",
+    "example": "Several Indian mid-caps have seen sharp collapses when lenders invoked pledged shares after price declines.",
+    "relatedTerms": [
+      "Covenant",
+      "Credit Rating"
+    ]
+  },
+  {
+    "id": "working-capital-cycle",
+    "term": "Working Capital Cycle",
+    "fullName": "Cash Conversion Cycle",
+    "category": "Credit & Debt",
+    "definition": "The number of days cash stays locked in operations: inventory days plus receivable days minus payable days.",
+    "formula": "Cycle = Inventory Days + Receivable Days - Payable Days",
+    "whyItMatters": "A lengthening cycle silently consumes cash even when profits look fine, and is a classic early sign of channel stuffing or weakening customers.",
+    "example": "A negative cycle, as in some retailers who sell for cash before paying suppliers, means growth generates cash instead of consuming it.",
+    "relatedTerms": [
+      "Receivable Days",
+      "Inventory Turnover"
+    ]
+  },
+  {
+    "id": "bonus-issue",
+    "term": "Bonus Issue",
+    "fullName": "Bonus Share Issue",
+    "category": "Basics of Stock Market",
+    "definition": "Free additional shares given to existing shareholders in proportion to their holding, capitalising reserves. No cash changes hands and total value is unchanged.",
+    "formula": "",
+    "whyItMatters": "A 1:1 bonus doubles share count and halves the price. It improves liquidity and signals confidence, but creates no economic value by itself.",
+    "example": "After a 1:2 bonus, a holder of 100 shares owns 150, with the price adjusting proportionately.",
+    "relatedTerms": [
+      "Stock Split",
+      "Rights Issue"
+    ]
+  },
+  {
+    "id": "rights-issue",
+    "term": "Rights Issue",
+    "fullName": "Rights Issue",
+    "category": "Basics of Stock Market",
+    "definition": "An offer to existing shareholders to buy new shares, usually below the market price, in proportion to their holding. It raises fresh capital for the company.",
+    "formula": "",
+    "whyItMatters": "Unlike a bonus, a rights issue brings in cash and dilutes those who do not subscribe. Why the company needs the money matters more than the discount offered.",
+    "example": "A leveraged company may use a rights issue to repay debt, transferring the balance-sheet repair cost to shareholders.",
+    "relatedTerms": [
+      "Bonus Issue",
+      "Dilution"
+    ]
+  },
+  {
+    "id": "buyback",
+    "term": "Buyback",
+    "fullName": "Share Buyback",
+    "category": "Basics of Stock Market",
+    "definition": "A company repurchasing its own shares, through a tender offer or open-market purchases, reducing share count. In India buybacks are governed by SEBI regulations.",
+    "formula": "",
+    "whyItMatters": "Buybacks raise EPS mechanically and return cash tax-efficiently, but they create value only when shares are repurchased below intrinsic value.",
+    "example": "Large Indian IT companies have regularly used tender-offer buybacks to return surplus cash.",
+    "relatedTerms": [
+      "EPS",
+      "Dividend Payout Ratio"
+    ]
+  },
+  {
+    "id": "stock-split",
+    "term": "Stock Split",
+    "fullName": "Stock Split",
+    "category": "Basics of Stock Market",
+    "definition": "Dividing each share into several shares of lower face value. Count rises, price falls proportionately, and value is unchanged.",
+    "formula": "",
+    "whyItMatters": "Splits improve affordability and liquidity for retail investors; they are cosmetic in economic terms, and treating them as value events is a beginner error.",
+    "example": "A 10-rupee face value share split into five 2-rupee shares turns one 5,000-rupee share into five 1,000-rupee shares.",
+    "relatedTerms": [
+      "Face Value",
+      "Bonus Issue"
+    ]
+  },
+  {
+    "id": "fpi",
+    "term": "FPI",
+    "fullName": "Foreign Portfolio Investor",
+    "category": "Basics of Stock Market",
+    "definition": "Overseas institutions and funds registered with SEBI to invest in Indian listed securities. Their daily buy and sell figures are published by the exchanges.",
+    "formula": "",
+    "whyItMatters": "FPI flows are a major driver of short-term Indian market direction and of the rupee; sustained selling often coincides with corrections.",
+    "example": "Heavy FPI outflows during global risk-off episodes have historically pressured both the Nifty and the rupee together.",
+    "relatedTerms": [
+      "DII",
+      "Free Float"
+    ]
+  },
+  {
+    "id": "dii",
+    "term": "DII",
+    "fullName": "Domestic Institutional Investor",
+    "category": "Basics of Stock Market",
+    "definition": "Indian institutions such as mutual funds, insurers, and pension funds investing in domestic markets. Their flows are reported daily alongside FPI numbers.",
+    "formula": "",
+    "whyItMatters": "Steady SIP-driven DII buying has repeatedly cushioned Indian markets during foreign selling, changing the market's character over the past decade.",
+    "example": "In several recent corrections, DII purchases absorbed most of the FPI outflows within weeks.",
+    "relatedTerms": [
+      "FPI",
+      "SIP"
+    ]
+  },
+  {
+    "id": "repo-rate",
+    "term": "Repo Rate",
+    "fullName": "Repurchase Rate",
+    "category": "Macroeconomics",
+    "definition": "The rate at which the RBI lends overnight funds to banks against government securities. It is the primary policy rate set by the Monetary Policy Committee.",
+    "formula": "",
+    "whyItMatters": "The repo rate anchors the entire interest-rate structure: loan EMIs, deposit rates, bond yields, and ultimately equity discount rates all move with it.",
+    "example": "A cut in the repo rate typically lowers new home-loan rates within weeks, since floating loans are benchmarked to it.",
+    "relatedTerms": [
+      "Reverse Repo Rate",
+      "CRR"
+    ]
+  },
+  {
+    "id": "reverse-repo-rate",
+    "term": "Reverse Repo Rate",
+    "fullName": "Reverse Repurchase Rate",
+    "category": "Macroeconomics",
+    "definition": "The rate at which banks park surplus funds with the RBI. Together with the repo rate it forms the corridor within which overnight market rates move.",
+    "formula": "",
+    "whyItMatters": "It sets the floor for short-term rates: no bank lends to the market below what the RBI pays risk-free.",
+    "example": "When liquidity is abundant, overnight rates drift toward the reverse repo floor.",
+    "relatedTerms": [
+      "Repo Rate",
+      "SLR"
+    ]
+  },
+  {
+    "id": "cpi-inflation",
+    "term": "CPI Inflation",
+    "fullName": "Consumer Price Index Inflation",
+    "category": "Macroeconomics",
+    "definition": "The rate of change in the prices of a consumption basket of goods and services. India's monetary policy targets CPI inflation at 4%, within a 2 to 6% band.",
+    "formula": "Inflation = (CPI now - CPI year ago) / CPI year ago",
+    "whyItMatters": "CPI drives RBI policy and erodes real returns. Every nominal return must be judged against it to know what purchasing power actually grew.",
+    "example": "A 7% fixed deposit against 6% CPI inflation leaves a real return of barely 1% before tax.",
+    "relatedTerms": [
+      "Repo Rate",
+      "Real Return"
+    ]
+  },
+  {
+    "id": "wpi",
+    "term": "WPI",
+    "fullName": "Wholesale Price Index",
+    "category": "Macroeconomics",
+    "definition": "An index of prices at the wholesale level, weighted toward manufactured goods and commodities. It often diverges from CPI, which tracks consumer prices.",
+    "formula": "",
+    "whyItMatters": "WPI is a useful early read on input-cost pressure for manufacturers: rising WPI with flat CPI squeezes corporate margins.",
+    "example": "A commodity price surge can push WPI sharply higher while CPI stays contained, warning of margin pressure in results to come.",
+    "relatedTerms": [
+      "CPI Inflation",
+      "Gross Margin"
+    ]
+  },
+  {
+    "id": "gdp-growth",
+    "term": "GDP Growth",
+    "fullName": "Gross Domestic Product Growth",
+    "category": "Macroeconomics",
+    "definition": "The rate of change in the total value of goods and services produced in the economy, reported quarterly in real (inflation-adjusted) terms.",
+    "formula": "",
+    "whyItMatters": "Long-run corporate earnings growth cannot durably exceed nominal GDP growth, which is why terminal growth rates in DCF models are capped near it.",
+    "example": "With real growth around 6 to 7% and inflation around 4 to 5%, Indian nominal GDP growth of 10 to 12% sets a ceiling for sustainable aggregate profit growth.",
+    "relatedTerms": [
+      "CPI Inflation",
+      "Terminal Value"
+    ]
+  },
+  {
+    "id": "fiscal-deficit",
+    "term": "Fiscal Deficit",
+    "fullName": "Fiscal Deficit",
+    "category": "Macroeconomics",
+    "definition": "The gap between government spending and its revenues, financed by borrowing. Expressed as a percentage of GDP in the Union Budget.",
+    "formula": "Fiscal Deficit = Total Expenditure - Total Receipts (excluding borrowings)",
+    "whyItMatters": "Larger deficits mean more government bond supply, which pressures yields upward and can crowd out private borrowing.",
+    "example": "A slippage in the deficit target announced in the Budget typically pushes G-sec yields higher the same day.",
+    "relatedTerms": [
+      "Bond Yield",
+      "Repo Rate"
+    ]
+  },
+  {
+    "id": "current-account-deficit",
+    "term": "Current Account Deficit",
+    "fullName": "Current Account Deficit (CAD)",
+    "category": "Macroeconomics",
+    "definition": "The shortfall between a country's foreign earnings (exports, remittances) and foreign spending (imports). A persistent CAD must be financed by foreign capital inflows.",
+    "formula": "CAD = Imports of Goods and Services - Exports - Net Transfers",
+    "whyItMatters": "A widening CAD makes the rupee vulnerable whenever foreign flows reverse, which feeds into imported inflation and rate policy.",
+    "example": "Oil price spikes widen India's CAD, since crude is the largest import, and often coincide with rupee weakness.",
+    "relatedTerms": [
+      "FPI",
+      "CPI Inflation"
+    ]
+  },
+  {
+    "id": "crr",
+    "term": "CRR",
+    "fullName": "Cash Reserve Ratio",
+    "category": "Macroeconomics",
+    "definition": "The share of deposits banks must hold as cash with the RBI, earning no interest. Changing it directly adds or drains banking-system liquidity.",
+    "formula": "Required Reserve = CRR x Net Demand and Time Liabilities",
+    "whyItMatters": "A CRR cut releases lendable funds instantly, making it a powerful liquidity tool distinct from the price signal of the repo rate.",
+    "example": "A half-point CRR cut releases tens of thousands of crores of lendable liquidity into the banking system.",
+    "relatedTerms": [
+      "SLR",
+      "Repo Rate"
+    ]
+  },
+  {
+    "id": "slr",
+    "term": "SLR",
+    "fullName": "Statutory Liquidity Ratio",
+    "category": "Macroeconomics",
+    "definition": "The share of deposits banks must invest in approved securities, chiefly government bonds. It ensures bank liquidity and a captive market for government debt.",
+    "formula": "",
+    "whyItMatters": "SLR shapes structural demand for G-secs and constrains how much of a bank's balance sheet is free for commercial lending.",
+    "example": "Banks holding G-secs beyond the SLR requirement have room to sell bonds and expand lending when credit demand picks up.",
+    "relatedTerms": [
+      "CRR",
+      "Repo Rate"
+    ]
+  },
+  {
+    "id": "basis-point",
+    "term": "Basis Point",
+    "fullName": "Basis Point (bps)",
+    "category": "Macroeconomics",
+    "definition": "One hundredth of a percentage point. Interest rates, yields, spreads, and expense ratios are quoted in basis points to avoid ambiguity.",
+    "formula": "100 bps = 1.00%",
+    "whyItMatters": "Saying a rate rose 'by 1%' is ambiguous; saying it rose 100 bps is not. Small basis-point differences compound into large money over time and size.",
+    "example": "A 25 bps repo rate cut lowers the policy rate from 6.50% to 6.25%.",
+    "relatedTerms": [
+      "Repo Rate",
+      "Credit Spread"
+    ]
+  },
+  {
+    "id": "esg-score",
+    "term": "ESG Score",
+    "fullName": "ESG Score / Rating",
+    "category": "ESG & Governance",
+    "definition": "A third-party assessment of a company's environmental, social, and governance practices. Different providers use different methodologies, and their scores often disagree.",
+    "formula": "",
+    "whyItMatters": "Scores are inputs, not verdicts: the same company can rank well with one agency and poorly with another. What matters is whether the underlying factor changes cash flows or risk.",
+    "example": "A company may score high on disclosure-heavy metrics while carrying real governance risk that only reading the annual report reveals.",
+    "relatedTerms": [
+      "BRSR",
+      "Corporate Governance"
+    ]
+  },
+  {
+    "id": "brsr",
+    "term": "BRSR",
+    "fullName": "Business Responsibility and Sustainability Report",
+    "category": "ESG & Governance",
+    "definition": "SEBI's mandatory sustainability disclosure format for the top 1,000 listed Indian companies, covering environmental, social, and governance metrics.",
+    "formula": "",
+    "whyItMatters": "BRSR standardises Indian ESG data, and its assured 'Core' subset is becoming the reliable baseline for comparing companies' sustainability claims.",
+    "example": "Emissions intensity disclosed in BRSR lets an analyst compare two cement makers on carbon per tonne rather than on marketing claims.",
+    "relatedTerms": [
+      "ESG Score",
+      "Carbon Footprint"
+    ]
+  },
+  {
+    "id": "related-party-transaction",
+    "term": "Related-Party Transaction",
+    "fullName": "Related-Party Transaction (RPT)",
+    "category": "ESG & Governance",
+    "definition": "A deal between the company and parties connected to it, such as promoter entities or subsidiaries. Disclosed in the annual report and subject to audit-committee approval.",
+    "formula": "",
+    "whyItMatters": "RPTs are the most common channel for value leakage from minority shareholders. Large or frequent RPTs with promoter entities deserve line-by-line scrutiny.",
+    "example": "Sales to a promoter-owned distributor at favourable prices can inflate reported revenue while shifting real profit outside the listed entity.",
+    "relatedTerms": [
+      "Corporate Governance",
+      "Promoter Holding"
+    ]
+  },
+  {
+    "id": "independent-director",
+    "term": "Independent Director",
+    "fullName": "Independent Director",
+    "category": "ESG & Governance",
+    "definition": "A board member with no material relationship to the company or its promoters, meant to protect minority shareholders. Listing rules mandate minimum independent representation.",
+    "formula": "",
+    "whyItMatters": "Board independence is the structural check on promoter power. Sudden independent-director resignations are among the strongest governance warning signals.",
+    "example": "Multiple independent directors resigning within months, without clear reasons, has preceded several Indian corporate blowups.",
+    "relatedTerms": [
+      "Corporate Governance",
+      "Related-Party Transaction"
+    ]
+  },
+  {
+    "id": "promoter-holding",
+    "term": "Promoter Holding",
+    "fullName": "Promoter Shareholding",
+    "category": "ESG & Governance",
+    "definition": "The percentage of shares held by the founders or controlling group, disclosed quarterly. Changes in it are closely watched.",
+    "formula": "",
+    "whyItMatters": "Rising promoter stakes signal confidence; sustained selling or heavy pledging signals the opposite. It also determines free float and index weight.",
+    "example": "A promoter steadily buying in open market purchases is putting personal capital behind the business.",
+    "relatedTerms": [
+      "Promoter Pledge",
+      "Free Float"
+    ]
+  },
+  {
+    "id": "greenwashing",
+    "term": "Greenwashing",
+    "fullName": "Greenwashing",
+    "category": "ESG & Governance",
+    "definition": "Overstating or misrepresenting environmental credentials, in marketing, labels, or disclosures, without matching substance.",
+    "formula": "",
+    "whyItMatters": "As money chases sustainability, the incentive to appear green exceeds the incentive to be green. Cross-checking claims against audited numbers is the analyst's defence.",
+    "example": "A 'net zero' pledge with no interim targets, capex plan, or verified baseline is a slogan, not a strategy.",
+    "relatedTerms": [
+      "ESG Score",
+      "BRSR"
+    ]
+  },
+  {
+    "id": "upi",
+    "term": "UPI",
+    "fullName": "Unified Payments Interface",
+    "category": "Fintech",
+    "definition": "India's real-time, interoperable bank-to-bank payment system operated by NPCI. It lets any app move money instantly between accounts using simple identifiers.",
+    "formula": "",
+    "whyItMatters": "UPI rewired Indian payments, displacing cash and card economics, and is the rails on which much of Indian fintech is built.",
+    "example": "A single QR code at a tea stall accepts payment from dozens of competing apps, all settling through UPI.",
+    "relatedTerms": [
+      "NPCI",
+      "Payment Aggregator"
+    ]
+  },
+  {
+    "id": "cbdc",
+    "term": "CBDC",
+    "fullName": "Central Bank Digital Currency (Digital Rupee)",
+    "category": "Fintech",
+    "definition": "A digital form of sovereign currency issued by the RBI, piloted as the e-rupee in retail and wholesale segments. Unlike cryptocurrency, it is central-bank money.",
+    "formula": "",
+    "whyItMatters": "CBDC digitises cash itself: settlement is final, no bank deposit intermediates it, and its design choices will shape payments and monetary policy for decades.",
+    "example": "The retail e-rupee pilot lets users pay from a digital wallet holding central-bank money rather than a bank balance.",
+    "relatedTerms": [
+      "UPI",
+      "Blockchain"
+    ]
+  },
+  {
+    "id": "p2p-lending",
+    "term": "P2P Lending",
+    "fullName": "Peer-to-Peer Lending",
+    "category": "Fintech",
+    "definition": "Platforms that match individual lenders directly with borrowers, regulated in India as NBFC-P2P entities with caps on exposure per lender and borrower.",
+    "formula": "",
+    "whyItMatters": "P2P offers higher yields with correspondingly higher default risk, and no deposit insurance. RBI caps exist precisely because retail lenders underestimate that risk.",
+    "example": "A lender spreading small amounts across many P2P borrowers is running a mini credit portfolio, with all the attendant losses.",
+    "relatedTerms": [
+      "Account Aggregator",
+      "NPA"
+    ]
+  },
+  {
+    "id": "payment-aggregator",
+    "term": "Payment Aggregator",
+    "fullName": "Payment Aggregator (PA)",
+    "category": "Fintech",
+    "definition": "A licensed intermediary that lets merchants accept many payment methods without direct bank integrations, holding funds briefly in escrow during settlement.",
+    "formula": "",
+    "whyItMatters": "PAs are the plumbing of online commerce; RBI licensing, escrow rules, and settlement timelines determine merchant cash flow and customer protection.",
+    "example": "An online store integrating one aggregator can accept UPI, cards, and netbanking without separate arrangements with each bank.",
+    "relatedTerms": [
+      "UPI",
+      "KYC"
+    ]
+  },
+  {
+    "id": "kyc",
+    "term": "KYC",
+    "fullName": "Know Your Customer",
+    "category": "Fintech",
+    "definition": "The mandatory identity-verification process for financial accounts, using documents such as PAN and Aadhaar, increasingly completed digitally through video or Aadhaar-based flows.",
+    "formula": "",
+    "whyItMatters": "KYC is the gateway to every financial product; digital KYC collapsed onboarding from days to minutes and made low-value accounts economical to serve.",
+    "example": "Opening a demat or mutual fund account today typically requires a one-time digital KYC rather than branch paperwork.",
+    "relatedTerms": [
+      "Account Aggregator",
+      "UPI"
+    ]
+  },
+  {
+    "id": "xirr",
+    "term": "XIRR",
+    "fullName": "Extended Internal Rate of Return",
+    "category": "Investment Planning",
+    "definition": "The annualised return of a series of cash flows on irregular dates, solved so their present values sum to zero. It is the correct return measure for SIPs and staggered investments.",
+    "formula": "Sum of [CF_t / (1 + XIRR)^(days/365)] = 0",
+    "whyItMatters": "Point-to-point returns mislead when money entered at different times. XIRR weighs each rupee by how long it was actually invested, which is why fund statements report it.",
+    "example": "A SIP whose recent instalments faced a market dip can show a low XIRR even when the fund's long-term CAGR looks strong.",
+    "relatedTerms": [
+      "CAGR",
+      "SIP"
+    ]
+  },
+  {
+    "id": "asset-allocation",
+    "term": "Asset Allocation",
+    "fullName": "Asset Allocation",
+    "category": "Investment Planning",
+    "definition": "The split of a portfolio across asset classes such as equity, debt, and gold. It is set by goals, horizon, and risk tolerance rather than market views.",
+    "formula": "",
+    "whyItMatters": "Allocation, not fund selection, explains most of a portfolio's long-run risk and return. Getting the split right matters more than picking winners.",
+    "example": "A 70/30 equity-debt split behaves very differently in a crash from a 30/70 split, whatever funds fill each bucket.",
+    "relatedTerms": [
+      "Rebalancing",
+      "SIP"
+    ]
+  },
+  {
+    "id": "rebalancing",
+    "term": "Rebalancing",
+    "fullName": "Portfolio Rebalancing",
+    "category": "Investment Planning",
+    "definition": "Periodically restoring a portfolio to its target allocation by trimming what has grown and adding to what has lagged.",
+    "formula": "",
+    "whyItMatters": "Rebalancing enforces buy-low, sell-high mechanically and keeps risk from drifting upward after long rallies.",
+    "example": "After a strong equity year pushes a 60/40 portfolio to 70/30, rebalancing books equity gains into debt.",
+    "relatedTerms": [
+      "Asset Allocation",
+      "XIRR"
+    ]
   }
 ]

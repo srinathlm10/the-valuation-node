@@ -147,6 +147,7 @@ const part1: Record<string, FoundationContent> = {
   },
 
   "cost-of-capital": {
+    tryItHref: "/tools/wacc",
     readingTime: "11 min read",
     lastReviewed: "July 2025",
     prerequisites: [
@@ -164,6 +165,7 @@ const part1: Record<string, FoundationContent> = {
   },
 
   "capital-structure": {
+    tryItHref: "/tools/wacc",
     readingTime: "9 min read",
     lastReviewed: "July 2025",
     prerequisites: [
