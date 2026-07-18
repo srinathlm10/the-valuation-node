@@ -12,6 +12,9 @@ import {
   InflationAdjustedReturnCalculator,
 } from "@/components/calculators/FormulaCalculators";
 import { CollapsibleSection } from "@/components/content/CollapsibleSection";
+import { ContinueReading } from "@/components/research/ContinueReading";
+import { getRelatedTools } from "@/lib/relatedContent";
+import { TOOL_ICONS } from "@/lib/siteIcons";
 
 const TOOL_META: Record<string, {
   label: string;
@@ -144,13 +147,8 @@ export default function ToolPage() {
           </p>
         </CollapsibleSection>
 
-        {/* See it used in */}
-        <div className="mt-6 rounded-lg border p-4">
-          <h2 className="text-sm font-semibold">See it used in</h2>
-          <p className="mt-1 text-sm text-muted-foreground">
-            Links to research articles using this tool will appear here.
-          </p>
-        </div>
+        {/* Related research */}
+        <ContinueReading heading="From the research" tags={[meta.label]} className="mt-8" />
 
         {/* Learn the concept */}
         {meta.foundationsLink && (
@@ -164,6 +162,32 @@ export default function ToolPage() {
             </Link>
           </div>
         )}
+
+        {/* More tools */}
+        <section className="mt-8">
+          <h2 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-3">
+            More tools
+          </h2>
+          <div className="grid gap-3 sm:grid-cols-3">
+            {getRelatedTools(slug ?? "").map((t) => {
+              const Icon = TOOL_ICONS[t.slug];
+              return (
+                <Link
+                  key={t.slug}
+                  to={`/tools/${t.slug}`}
+                  className="group flex items-center gap-2.5 rounded-xl border bg-card p-3.5 hover:border-primary/30 hover:shadow-md transition-all"
+                >
+                  {Icon && (
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                      <Icon className="h-4 w-4 text-primary" aria-hidden="true" />
+                    </span>
+                  )}
+                  <span className="text-sm font-medium leading-snug group-hover:underline">{t.label}</span>
+                </Link>
+              );
+            })}
+          </div>
+        </section>
       </div>
     </Layout>
   );

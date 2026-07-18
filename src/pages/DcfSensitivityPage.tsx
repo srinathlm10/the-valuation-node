@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
+import { ContinueReading } from "@/components/research/ContinueReading";
 import { DcfSensitivityCalculator } from "@/components/tools/DcfSensitivityCalculator";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 
@@ -130,13 +131,8 @@ export default function DcfSensitivityPage() {
           </div>
         </div>
 
-        {/* See it used in research */}
-        <div className="mt-4 rounded-lg border p-4">
-          <p className="text-sm font-semibold">See it used in research</p>
-          <p className="mt-1 text-sm text-muted-foreground">
-            Links to research articles using this DCF model will appear here once published.
-          </p>
-        </div>
+        {/* Related research */}
+        <ContinueReading heading="From the research" tags={["DCF", "valuation"]} className="mt-6" />
 
         {/* Newsletter */}
         <div className="mt-12 max-w-md">

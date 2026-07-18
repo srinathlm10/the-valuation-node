@@ -17,6 +17,9 @@ import { Callout } from "@/components/content/Callout";
 import { CollapsibleSection } from "@/components/content/CollapsibleSection";
 import { ReadingProgress } from "@/components/content/ReadingProgress";
 import { TableOfContents } from "@/components/content/TableOfContents";
+import { ContinueReading } from "@/components/research/ContinueReading";
+import { RelatedTopics } from "@/components/learn/RelatedTopics";
+import { getGlossaryTermsForSection, ARTICLE_CATEGORY_BY_SECTION } from "@/lib/relatedContent";
 
 export default function FoundationsLeaf() {
   const { section, topic } = useParams<{ section: string; topic: string }>();
@@ -39,6 +42,7 @@ export default function FoundationsLeaf() {
 
   const content = FOUNDATIONS_CONTENT[topic!];
   const SectionGlyph = FOUNDATIONS_SECTION_ICONS[sectionData.section];
+  const keyTerms = getGlossaryTermsForSection(sectionData.section, 6);
   const isPlaceholder = !topicMeta.published || !content;
 
   return (
@@ -147,13 +151,13 @@ export default function FoundationsLeaf() {
               </ul>
             </Callout>
 
-            {/* See it applied */}
-            <div className="mt-8 rounded-lg border p-4">
-              <h2 className="text-sm font-semibold">See it applied</h2>
-              <p className="mt-1 text-sm text-muted-foreground">
-                Applications will be linked here as research is published.
-              </p>
-            </div>
+            {/* Related research */}
+            <ContinueReading
+              heading="From the research"
+              category={ARTICLE_CATEGORY_BY_SECTION[sectionData.section]}
+              tags={[topicMeta.label]}
+              className="mt-10"
+            />
 
             {/* Try it yourself */}
             {content.tryItHref ? (
@@ -174,6 +178,28 @@ export default function FoundationsLeaf() {
                 </p>
               </div>
             )}
+
+            {/* Key glossary terms */}
+            {keyTerms.length > 0 && (
+              <section className="mt-8">
+                <h2 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-3">
+                  Key glossary terms
+                </h2>
+                <div className="flex flex-wrap gap-2">
+                  {keyTerms.map((t) => (
+                    <Link
+                      key={t.slug}
+                      to={`/learn/glossary/${t.slug}`}
+                      className="px-3 py-1 rounded-full border text-sm text-muted-foreground hover:text-foreground hover:border-primary/50 transition-colors"
+                    >
+                      {t.term}
+                    </Link>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            <RelatedTopics section={sectionData.section} topic={topicMeta.slug} className="mt-10" />
 
             <div className="mt-10">
               <NewsletterSignup />

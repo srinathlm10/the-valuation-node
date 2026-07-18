@@ -7,6 +7,8 @@ import { useMemo } from "react";
 import { Prose } from "@/components/content/Prose";
 import { Callout } from "@/components/content/Callout";
 import { GLOSSARY_CATEGORY_ICONS, GLOSSARY_FALLBACK_ICON } from "@/lib/siteIcons";
+import { ContinueReading } from "@/components/research/ContinueReading";
+import { GLOSSARY_CATEGORY_TO_TOPIC } from "@/lib/relatedContent";
 
 function CategoryIcon({ category }: { category?: string }) {
   const Icon = (category && GLOSSARY_CATEGORY_ICONS[category]) || GLOSSARY_FALLBACK_ICON;
@@ -136,13 +138,25 @@ export default function GlossaryEntry() {
           </section>
         )}
 
-        {/* See it applied */}
-        <div className="mt-8 rounded-lg border p-4">
-          <h2 className="text-sm font-semibold">See it applied</h2>
-          <p className="mt-1 text-sm text-muted-foreground">
-            Applications will be linked here as research is published.
-          </p>
-        </div>
+        {/* Learn the concept */}
+        {def.category && GLOSSARY_CATEGORY_TO_TOPIC[def.category] && (
+          <div className="mt-8 rounded-lg border p-4">
+            <h2 className="text-sm font-semibold">Learn the concept</h2>
+            <Link
+              to={GLOSSARY_CATEGORY_TO_TOPIC[def.category].href}
+              className="mt-1 text-sm text-foreground hover:underline inline-block"
+            >
+              {GLOSSARY_CATEGORY_TO_TOPIC[def.category].label} →
+            </Link>
+          </div>
+        )}
+
+        {/* Related research */}
+        <ContinueReading
+          heading="From the research"
+          tags={[def.term, def.category].filter(Boolean) as string[]}
+          className="mt-10"
+        />
 
       </article>
     </Layout>
