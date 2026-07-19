@@ -7,7 +7,7 @@ export default function SpotRedFlagsPage() {
   return (
     <Layout>
       <Helmet>
-        <title>Spot the Red Flags - Learn-by-Doing - The Valuation Node</title>
+        <title>Spot the Red Flags - The Valuation Node</title>
         <meta
           name="description"
           content="Work through realistic case studies and identify the warning signs of financial distress and poor earnings quality, before they blow up."

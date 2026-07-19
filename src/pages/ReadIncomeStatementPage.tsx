@@ -7,7 +7,7 @@ export default function ReadIncomeStatementPage() {
   return (
     <Layout>
       <Helmet>
-        <title>Read an Income Statement, Line by Line - Learn-by-Doing - The Valuation Node</title>
+        <title>Read an Income Statement, Line by Line - The Valuation Node</title>
         <meta
           name="description"
           content="Walk through a real Indian company's P&L one line at a time. Understand what each number means and how revenue becomes net profit."

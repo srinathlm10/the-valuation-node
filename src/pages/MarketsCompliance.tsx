@@ -11,7 +11,7 @@ export default function MarketsCompliance() {
         <title>Compliance - Markets - The Valuation Node</title>
         <meta
           name="description"
-          content="SEBI, NSE, and BSE regulatory circulars. Updated monthly."
+          content="SEBI, NSE, and BSE regulatory circulars summarised in plain language for Indian market participants. Updated monthly."
         />
         <link rel="canonical" href="https://valuationnode.com/markets/compliance" />
       </Helmet>

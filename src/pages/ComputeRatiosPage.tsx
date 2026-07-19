@@ -7,7 +7,7 @@ export default function ComputeRatiosPage() {
   return (
     <Layout>
       <Helmet>
-        <title>Compute Ratios from Raw Statements - Learn-by-Doing - The Valuation Node</title>
+        <title>Compute Ratios from Raw Statements - The Valuation Node</title>
         <meta
           name="description"
           content="Pull numbers from real financial statements and compute the ratios analysts use every day. Type your answers and get instant feedback."

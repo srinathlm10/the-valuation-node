@@ -9,6 +9,13 @@ import { componentTagger } from "lovable-tagger";
 // per-article pages via getStaticPaths), learn, tools, markets, about, is
 // prerendered to static HTML with baked meta tags.
 const NO_PRERENDER_EXACT = new Set([
+  "/calculators",
+  "/stocks",
+  "/compliance",
+  "/learn/wiki",
+  "/learn/basics",
+  "/learn/fundamental-analysis",
+  "/learn/technical-analysis",
   "/login",
   "/signup",
   "/admin-login",

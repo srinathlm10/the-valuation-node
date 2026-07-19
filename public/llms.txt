@@ -22,12 +22,20 @@ Free structured curriculum for Indian market analysis:
 URL: https://valuationnode.com/learn
 
 ## Tools
-Free financial calculators for Indian investors (SIP, DCF sensitivity, CAGR, EMI, present value).
+13 free financial calculators for Indian investors: SIP, step-up SIP, goal SIP, DCF sensitivity,
+WACC, CAGR, future and present value, compound interest, rule of 72, EMI, loan prepayment,
+and inflation-adjusted returns.
 URL: https://valuationnode.com/tools
 
 ## Glossary
-Searchable glossary of Indian market and financial terms.
+Searchable glossary of 170+ Indian market and finance terms, each with a definition, formula
+where applicable, why it matters, and an example.
 URL: https://valuationnode.com/learn/glossary
+
+## Learn-by-Doing
+Five interactive modules: build a DCF step by step, read an income statement line by line,
+compute ratios from raw statements, compare two companies, and spot financial red flags.
+URL: https://valuationnode.com/learn/by-doing
 
 ## Markets
 Nifty 50 company reference data and SEBI compliance calendar.

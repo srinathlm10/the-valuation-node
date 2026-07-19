@@ -7,6 +7,7 @@ import { Callout } from "@/components/content/Callout";
 import { GLOSSARY_CATEGORY_ICONS, GLOSSARY_FALLBACK_ICON } from "@/lib/siteIcons";
 import { ContinueReading } from "@/components/research/ContinueReading";
 import { GLOSSARY_CATEGORY_TO_TOPIC } from "@/lib/relatedContent";
+import { breadcrumbLd } from "@/lib/seo";
 
 function CategoryIcon({ category }: { category?: string }) {
   const Icon = (category && GLOSSARY_CATEGORY_ICONS[category]) || GLOSSARY_FALLBACK_ICON;
@@ -41,9 +42,19 @@ export default function GlossaryEntry() {
         <title>{def.term} - Glossary - The Valuation Node</title>
         <meta
           name="description"
-          content={def.definition ? def.definition.slice(0, 160) : `Definition of ${def.term}`}
+          content={(() => {
+            const base = def.definition || `Definition of ${def.term}`;
+            const full = base.length < 90 && def.whyItMatters ? base + " " + def.whyItMatters : base;
+            return full.length > 158 ? full.slice(0, 152).replace(/\s+\S*$/, "") + "..." : full;
+          })()}
         />
         <link rel="canonical" href={`https://valuationnode.com/learn/glossary/${termSlug}`} />
+        <meta property="og:url" content={`https://valuationnode.com/learn/glossary/${termSlug}`} />
+        <script type="application/ld+json">{JSON.stringify(breadcrumbLd([
+          { name: "Learn", path: "/learn" },
+          { name: "Glossary", path: "/learn/glossary" },
+          { name: def.term, path: `/learn/glossary/${termSlug}` },
+        ]))}</script>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "DefinedTerm",

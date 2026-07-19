@@ -8,5 +8,11 @@ Disallow: /dashboard
 Disallow: /settings
 Disallow: /auth/callback
 Disallow: /migration
+Disallow: /login
+Disallow: /signup
+Disallow: /admin-login
+Disallow: /forgot-password
+Disallow: /reset-password
+Disallow: /community
 
 Sitemap: https://valuationnode.com/sitemap.xml

@@ -36,6 +36,42 @@
     Cache-Control = "public, max-age=86400"
     Content-Type = "text/plain; charset=utf-8"
 
+# ── Legacy paths: real 301 redirects for SEO (must precede the fallback) ───
+[[redirects]]
+  from = "/calculators"
+  to = "/tools"
+  status = 301
+
+[[redirects]]
+  from = "/stocks"
+  to = "/markets/nifty50"
+  status = 301
+
+[[redirects]]
+  from = "/compliance"
+  to = "/markets/compliance"
+  status = 301
+
+[[redirects]]
+  from = "/learn/wiki"
+  to = "/learn/glossary"
+  status = 301
+
+[[redirects]]
+  from = "/learn/basics"
+  to = "/learn/foundations"
+  status = 301
+
+[[redirects]]
+  from = "/learn/fundamental-analysis"
+  to = "/learn/foundations/valuation"
+  status = 301
+
+[[redirects]]
+  from = "/learn/technical-analysis"
+  to = "/learn/foundations/markets-and-instruments/technical-analysis-primer"
+  status = 301
+
 # ── SPA fallback (handled by _redirects; kept here as failsafe) ────────────
 [[redirects]]
   from = "/*"

@@ -20,6 +20,7 @@ import { TableOfContents } from "@/components/content/TableOfContents";
 import { ContinueReading } from "@/components/research/ContinueReading";
 import { RelatedTopics } from "@/components/learn/RelatedTopics";
 import { getGlossaryTermsForSection, ARTICLE_CATEGORY_BY_SECTION } from "@/lib/relatedContent";
+import { breadcrumbLd, metaFromMarkdown } from "@/lib/seo";
 
 export default function FoundationsLeaf() {
   const { section, topic } = useParams<{ section: string; topic: string }>();
@@ -48,22 +49,33 @@ export default function FoundationsLeaf() {
   return (
     <Layout>
       <Helmet>
-        <title>{topicMeta.label} - Foundations - The Valuation Node</title>
+        <title>{topicMeta.label} - The Valuation Node</title>
         <meta
           name="description"
-          content={`Learn ${topicMeta.label} from first principles, with Indian context and worked examples.`}
+          content={metaFromMarkdown(content?.intuition, `Learn ${topicMeta.label} from first principles, with Indian context and worked examples.`)}
         />
         <link
           rel="canonical"
           href={`https://valuationnode.com/learn/foundations/${section}/${topic}`}
         />
+        <meta property="og:url" content={`https://valuationnode.com/learn/foundations/${section}/${topic}`} />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "LearningResource",
           name: topicMeta.label,
+          description: metaFromMarkdown(content?.intuition, topicMeta.label),
+          inLanguage: "en-IN",
+          learningResourceType: "Reading",
           author: { "@type": "Person", name: "Srinath Gajji" },
           provider: { "@type": "Organization", name: "The Valuation Node" },
+          url: `https://valuationnode.com/learn/foundations/${section}/${topic}`,
         })}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbLd([
+          { name: "Learn", path: "/learn" },
+          { name: "Foundations", path: "/learn/foundations" },
+          { name: sectionData.label, path: `/learn/foundations/${section}` },
+          { name: topicMeta.label, path: `/learn/foundations/${section}/${topic}` },
+        ]))}</script>
       </Helmet>
 
       <nav aria-label="Breadcrumb" className="border-b">

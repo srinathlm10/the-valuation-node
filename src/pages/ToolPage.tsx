@@ -19,6 +19,7 @@ import { CollapsibleSection } from "@/components/content/CollapsibleSection";
 import { ContinueReading } from "@/components/research/ContinueReading";
 import { getRelatedTools } from "@/lib/relatedContent";
 import { TOOL_ICONS } from "@/lib/siteIcons";
+import { breadcrumbLd } from "@/lib/seo";
 
 const TOOL_META: Record<string, {
   label: string;
@@ -57,7 +58,7 @@ const TOOL_META: Record<string, {
   },
   "compound-interest": {
     label: "Compound Interest Calculator",
-    description: "Calculate interest that compounds over time at a given frequency.",
+    description: "Calculate how money grows when interest compounds monthly, quarterly, or annually over time.",
     howToUse: "Enter the principal, annual interest rate, compounding frequency (monthly, quarterly, annually), and number of years.",
     mathExplainer: "A = P × (1 + r/n)^(nt), where P is principal, r is annual rate, n is compounding frequency per year, and t is years.",
     foundationsLink: { href: "/learn/foundations/corporate-finance/time-value-of-money", label: "Time Value of Money" },
@@ -149,9 +150,24 @@ export default function ToolPage() {
   return (
     <Layout>
       <Helmet>
-        <title>{meta.label} - Tools - The Valuation Node</title>
+        <title>{meta.label} - The Valuation Node</title>
         <meta name="description" content={meta.description} />
         <link rel="canonical" href={`https://valuationnode.com/tools/${slug}`} />
+        <meta property="og:url" content={`https://valuationnode.com/tools/${slug}`} />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          name: meta.label,
+          description: meta.description,
+          applicationCategory: "FinanceApplication",
+          operatingSystem: "Web",
+          offers: { "@type": "Offer", price: "0", priceCurrency: "INR" },
+          url: `https://valuationnode.com/tools/${slug}`,
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbLd([
+          { name: "Tools", path: "/tools" },
+          { name: meta.label, path: `/tools/${slug}` },
+        ]))}</script>
       </Helmet>
 
       <div className="container max-w-3xl py-14">

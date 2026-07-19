@@ -7,7 +7,7 @@ export default function CompareCompaniesPage() {
   return (
     <Layout>
       <Helmet>
-        <title>Compare Two Companies Side by Side - Learn-by-Doing - The Valuation Node</title>
+        <title>Compare Two Companies Side by Side - The Valuation Node</title>
         <meta
           name="description"
           content="Use a structured framework to compare two Indian companies in the same sector, growth, margins, returns, leverage, and valuation."

@@ -16,6 +16,7 @@ import { CollapsibleSection } from "@/components/content/CollapsibleSection";
 import { ReadingProgress } from "@/components/content/ReadingProgress";
 import { TableOfContents, tocFromMarkdown } from "@/components/content/TableOfContents";
 import { slugify } from "@/components/content/Prose";
+import { breadcrumbLd, PUBLISHER } from "@/lib/seo";
 
 function fmtDate(d?: string) {
   if (!d) return null;
@@ -150,10 +151,14 @@ export default function ResearchArticle() {
           datePublished: article.publishedAt,
           dateModified: article.updatedAt || article.publishedAt,
           image: ogImageAbs,
-          author: { "@type": "Person", name: article.author || "Srinath Gajji" },
-          publisher: { "@type": "Organization", name: "The Valuation Node" },
+          author: { "@type": "Person", name: article.author || "Srinath Gajji", url: "https://valuationnode.com/about/author" },
+          publisher: PUBLISHER,
           mainEntityOfPage: article.canonical || `https://valuationnode.com/research/${article.slug}`,
         })}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbLd([
+          { name: "Research", path: "/research" },
+          { name: article.title, path: `/research/${article.slug}` },
+        ]))}</script>
       </Helmet>
 
       <ReadingProgress />

@@ -7,7 +7,7 @@ export default function BuildADcfPage() {
   return (
     <Layout>
       <Helmet>
-        <title>Build a DCF, Step by Step - Learn-by-Doing - The Valuation Node</title>
+        <title>Build a DCF, Step by Step - The Valuation Node</title>
         <meta
           name="description"
           content="Build a complete discounted cash flow model for a real Indian company, one step at a time. Learn what each assumption means and how it affects the final valuation."

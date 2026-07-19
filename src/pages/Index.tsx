@@ -24,7 +24,7 @@ export default function Index() {
   return (
     <Layout>
       <Helmet>
-        <title>The Valuation Node: Indian Market Research, Valuations & Learning</title>
+        <title>The Valuation Node: Indian Market Research & Learning</title>
         <meta
           name="description"
           content="Research and learning on Indian markets, by Srinath Gajji. Original valuations, credit analysis, and a public learning library."
