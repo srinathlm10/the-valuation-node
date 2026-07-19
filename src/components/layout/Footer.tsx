@@ -28,7 +28,7 @@ export function Footer() {
               Independent research and learning on Indian markets.
             </p>
             <p className="mt-5 text-xs text-muted-foreground">
-              © 2026 Srinath Gajji
+              © 2026 Gajji Srinath
             </p>
           </div>
 

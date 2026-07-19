@@ -66,7 +66,7 @@ export default function FoundationsLeaf() {
           description: metaFromMarkdown(content?.intuition, topicMeta.label),
           inLanguage: "en-IN",
           learningResourceType: "Reading",
-          author: { "@type": "Person", name: "Srinath Gajji" },
+          author: { "@type": "Person", name: "Gajji Srinath" },
           provider: { "@type": "Organization", name: "The Valuation Node" },
           url: `https://valuationnode.com/learn/foundations/${section}/${topic}`,
         })}</script>

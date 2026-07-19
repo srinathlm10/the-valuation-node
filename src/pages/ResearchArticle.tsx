@@ -151,7 +151,7 @@ export default function ResearchArticle() {
           datePublished: article.publishedAt,
           dateModified: article.updatedAt || article.publishedAt,
           image: ogImageAbs,
-          author: { "@type": "Person", name: article.author || "Srinath Gajji", url: "https://valuationnode.com/about/author" },
+          author: { "@type": "Person", name: article.author || "Gajji Srinath", url: "https://valuationnode.com/about/author" },
           publisher: PUBLISHER,
           mainEntityOfPage: article.canonical || `https://valuationnode.com/research/${article.slug}`,
         })}</script>
@@ -196,7 +196,7 @@ export default function ResearchArticle() {
             <span className="text-xs text-muted-foreground">SG</span>
           </div>
           <div>
-            <p className="text-sm font-medium">{article.author || "Srinath Gajji"}, Founder, The Valuation Node</p>
+            <p className="text-sm font-medium">{article.author || "Gajji Srinath"}, Founder, The Valuation Node</p>
             <div className="flex items-center gap-3 mt-0.5 text-xs text-muted-foreground">
               {publishedDate && <time dateTime={article.publishedAt}>{publishedDate}</time>}
               {article.readingTime && <span>{article.readingTime} min read</span>}
@@ -288,7 +288,7 @@ export default function ResearchArticle() {
             <span className="text-xs text-muted-foreground">SG</span>
           </div>
           <div>
-            <p className="font-semibold">Srinath Gajji</p>
+            <p className="font-semibold">Gajji Srinath</p>
             <p className="text-sm text-muted-foreground mt-1">
               Founder of The Valuation Node. MBA candidate at NIT Rourkela.
             </p>

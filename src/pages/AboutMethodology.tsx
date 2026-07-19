@@ -37,7 +37,7 @@ export default function AboutMethodology() {
         <title>Methodology - The Valuation Node</title>
         <meta
           name="description"
-          content="How Srinath Gajji approaches financial analysis - DCF, WACC, data sources, and more."
+          content="How Gajji Srinath approaches financial analysis - DCF, WACC, data sources, and more."
         />
         <link rel="canonical" href="https://valuationnode.com/about/methodology" />
       </Helmet>

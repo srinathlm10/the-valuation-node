@@ -5,7 +5,7 @@ category: "Valuation"
 tags: ["cash flow statement", "earnings quality", "free cash flow", "financial analysis"]
 metaTitle: "What Three Years of Cash Flow Reveal That One Year Hides | Valuation Node"
 metaDescription: "A single year of cash flow is a snapshot. Three years is a story. Learn what the trend reveals about earnings quality, funding, and sustainability."
-author: "Srinath Gajji"
+author: "Gajji Srinath"
 publishDate: "2026-03-19"
 lastReviewed: "2026-03-19"
 readingTime: 6

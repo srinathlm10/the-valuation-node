@@ -51,7 +51,7 @@ const svg = `<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http:/
 
   <!-- Author + domain -->
   <text x="80" y="590" font-family="Arial, Helvetica, sans-serif" font-size="19"
-        fill="#55606E">Srinath Gajji</text>
+        fill="#55606E">Gajji Srinath</text>
   <text x="1120" y="590" font-family="Arial, Helvetica, sans-serif" font-size="19"
         fill="#55606E" text-anchor="end">valuationnode.com</text>
 

@@ -27,20 +27,20 @@ export default function Index() {
         <title>The Valuation Node: Indian Market Research & Learning</title>
         <meta
           name="description"
-          content="Research and learning on Indian markets, by Srinath Gajji. Original valuations, credit analysis, and a public learning library."
+          content="Research and learning on Indian markets, by Gajji Srinath. Original valuations, credit analysis, and a public learning library."
         />
         <link rel="canonical" href="https://valuationnode.com/" />
         <meta property="og:title" content="The Valuation Node: Indian Market Research & Learning" />
         <meta property="og:description" content="Original valuation and credit analysis of Indian companies, plus a free learning library covering accounting, valuation, ESG, and fintech." />
         <meta property="og:url" content="https://valuationnode.com/" />
         <meta name="twitter:title" content="The Valuation Node: Indian Market Research & Learning" />
-        <meta name="twitter:description" content="Original valuations, credit analysis, and a free learning library on Indian markets. By Srinath Gajji." />
+        <meta name="twitter:description" content="Original valuations, credit analysis, and a free learning library on Indian markets. By Gajji Srinath." />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Organization",
           name: "The Valuation Node",
           url: "https://valuationnode.com",
-          description: "Indian markets research and learning by Srinath Gajji.",
+          description: "Indian markets research and learning by Gajji Srinath.",
         })}</script>
       </Helmet>
 
@@ -80,7 +80,7 @@ export default function Index() {
             Research and learning<br className="hidden sm:block" /> on Indian markets.
           </h1>
           <p className="mt-6 text-xl text-muted-foreground max-w-lg leading-relaxed">
-            Original valuation and credit analysis, plus a public learning library, by Srinath Gajji.
+            Original valuation and credit analysis, plus a public learning library, by Gajji Srinath.
           </p>
           <div className="mt-10 flex flex-wrap gap-3">
             <Button asChild size="lg" className="rounded-full px-8">
@@ -286,7 +286,7 @@ export default function Index() {
               <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center mb-5 shadow-md">
                 <span className="text-base font-bold text-primary-foreground tracking-tight select-none">SG</span>
               </div>
-              <h2 className="text-xl font-bold">Srinath Gajji</h2>
+              <h2 className="text-xl font-bold">Gajji Srinath</h2>
               <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
                 Founder of The Valuation Node. MBA candidate at NIT Rourkela, writing about
                 Indian markets from first principles.

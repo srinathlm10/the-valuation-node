@@ -10,7 +10,7 @@ ogImage: /og-image.png
 publishedAt: 2026-07-01
 updatedAt: 2026-07-06
 readingTime: 5
-author: Srinath Gajji
+author: Gajji Srinath
 methodologySummary: Every published analysis states its assumptions up front, works from primary sources, and ends with an explicit account of what could make the conclusion wrong.
 keyTakeaways:
   - Assumptions are stated before conclusions, never buried inside them.

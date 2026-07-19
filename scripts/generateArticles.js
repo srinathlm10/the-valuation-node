@@ -56,7 +56,7 @@ function readArticles() {
       publishedAt: toDateStr(data.publishedAt ?? data.publishDate),
       updatedAt: toDateStr(data.updatedAt ?? data.lastReviewed),
       readingTime: typeof data.readingTime === "number" ? data.readingTime : undefined,
-      author: data.author || "Srinath Gajji",
+      author: data.author || "Gajji Srinath",
       methodologySummary: data.methodologySummary,
       whereIMightBeWrong: data.whereIMightBeWrong,
       citationFormat: data.citationFormat,

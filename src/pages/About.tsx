@@ -7,7 +7,7 @@ const subpages = [
   {
     href: "/about/author",
     title: "Author",
-    description: "About Srinath Gajji, background, what he's working on, and how to reach him.",
+    description: "About Gajji Srinath, background, what he's working on, and how to reach him.",
   },
   {
     href: "/about/site",
@@ -28,13 +28,13 @@ export default function About() {
         <title>About - The Valuation Node</title>
         <meta
           name="description"
-          content="About The Valuation Node - Indian markets research and learning by Srinath Gajji."
+          content="About The Valuation Node - Indian markets research and learning by Gajji Srinath."
         />
         <link rel="canonical" href="https://valuationnode.com/about" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Person",
-          name: "Srinath Gajji",
+          name: "Gajji Srinath",
           jobTitle: "Founder, The Valuation Node",
           affiliation: { "@type": "Organization", name: "NIT Rourkela" },
           url: "https://valuationnode.com/about/author",

@@ -43,7 +43,7 @@ export default function LearnIndex() {
         <title>Learn - The Valuation Node</title>
         <meta
           name="description"
-          content="Finance concepts, from foundations to applied analysis, explained from first principles. A public learning library by Srinath Gajji."
+          content="Finance concepts, from foundations to applied analysis, explained from first principles. A public learning library by Gajji Srinath."
         />
         <link rel="canonical" href="https://valuationnode.com/learn" />
       </Helmet>

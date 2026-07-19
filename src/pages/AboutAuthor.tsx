@@ -12,16 +12,16 @@ export default function AboutAuthor() {
   return (
     <Layout>
       <Helmet>
-        <title>Srinath Gajji - The Valuation Node</title>
+        <title>Gajji Srinath - The Valuation Node</title>
         <meta
           name="description"
-          content="About Srinath Gajji, Founder of The Valuation Node, MBA candidate at NIT Rourkela."
+          content="About Gajji Srinath, Founder of The Valuation Node, MBA candidate at NIT Rourkela."
         />
         <link rel="canonical" href="https://valuationnode.com/about/author" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Person",
-          name: "Srinath Gajji",
+          name: "Gajji Srinath",
           jobTitle: "Founder and Editor, The Valuation Node | MBA Candidate, NIT Rourkela",
           email: "srinath@valuationnode.com",
           url: "https://valuationnode.com/about/author",
@@ -41,7 +41,7 @@ export default function AboutAuthor() {
         {AUTHOR_PHOTO ? (
           <img
             src={AUTHOR_PHOTO}
-            alt="Srinath Gajji, founder of The Valuation Node"
+            alt="Gajji Srinath, founder of The Valuation Node"
             width={112}
             height={112}
             loading="lazy"
@@ -54,7 +54,7 @@ export default function AboutAuthor() {
           </div>
         )}
 
-        <h1 className="text-3xl font-bold tracking-tight">Srinath Gajji</h1>
+        <h1 className="text-3xl font-bold tracking-tight">Gajji Srinath</h1>
         <p className="mt-1 text-muted-foreground">
           Founder and Editor, The Valuation Node | MBA Candidate, NIT Rourkela
         </p>
@@ -62,7 +62,7 @@ export default function AboutAuthor() {
         {/* Bio */}
         <div className="mt-6 prose prose-slate dark:prose-invert max-w-none font-serif prose-headings:font-sans">
           <p>
-            I am Srinath Gajji, the founder and sole author of The Valuation Node. I am an
+            I am Gajji Srinath, the founder and sole author of The Valuation Node. I am an
             MBA candidate at NIT Rourkela, and I write about Indian markets from first
             principles: valuation, credit, and the accounting that sits underneath both.
           </p>

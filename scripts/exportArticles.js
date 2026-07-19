@@ -78,7 +78,7 @@ function toFrontmatter(a) {
     publishedAt: a.published_at || a.created_at || null,
     updatedAt: a.updated_at || a.published_at || a.created_at || null,
     readingTime: a.reading_time ?? null,
-    author: a.author || "Srinath Gajji",
+    author: a.author || "Gajji Srinath",
     isResearch: a.is_research ?? true,
   };
   // Optional rich fields, only include when present.
