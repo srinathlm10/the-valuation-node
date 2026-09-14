@@ -85,6 +85,19 @@ function readGlossaryTerms() {
   }));
 }
 
+// Ratio Analysis entries come from the slug lines of src/data/ratioAnalysis.ts
+// (a TS module, so read it as text rather than importing it here).
+function readRatioSlugs() {
+  const p = join(ROOT, "src", "data", "ratioAnalysis.ts");
+  if (!existsSync(p)) return [];
+  const src = readFileSync(p, "utf8");
+  return [...src.matchAll(/^\s*slug:\s*"([a-z0-9-]+)"/gm)].map((m) => ({
+    path: "/learn/ratio-analysis/" + m[1],
+    priority: "0.7",
+    changefreq: "monthly",
+  }));
+}
+
 const routes = [
   // ── Core ─────────────────────────────────────────────────────────────
   { path: "/",                        priority: "1.0", changefreq: "weekly"  },
@@ -175,6 +188,9 @@ const routes = [
   { path: "/learn/by-doing/compare-two-companies",            priority: "0.6", changefreq: "monthly" },
   { path: "/learn/by-doing/spot-the-red-flags",               priority: "0.6", changefreq: "monthly" },
 
+  // Ratio Analysis hub (entries appended dynamically below)
+  { path: "/learn/ratio-analysis",   priority: "0.8", changefreq: "weekly"  },
+
   // Glossary index (entries are dynamic, not listed here)
   { path: "/learn/glossary",          priority: "0.8", changefreq: "weekly"  },
 
@@ -210,7 +226,8 @@ async function main() {
   const hiddenSlugs = await fetchHiddenSlugs();
   const researchRoutes = readResearchArticles(hiddenSlugs);
   const glossaryRoutes = readGlossaryTerms();
-  const allRoutes = [...routes, ...researchRoutes, ...glossaryRoutes];
+  const ratioRoutes = readRatioSlugs();
+  const allRoutes = [...routes, ...researchRoutes, ...ratioRoutes, ...glossaryRoutes];
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -227,7 +244,7 @@ ${allRoutes
   writeFileSync(outPath, sitemap, "utf-8");
   console.log(
     `sitemap.xml written, ${allRoutes.length} URLs ` +
-      `(${routes.length} static + ${researchRoutes.length} research + ${glossaryRoutes.length} glossary)`
+      `(${routes.length} static + ${researchRoutes.length} research + ${ratioRoutes.length} ratios + ${glossaryRoutes.length} glossary)`
   );
 }
 

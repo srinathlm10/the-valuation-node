@@ -2488,5 +2488,91 @@
       "Asset Allocation",
       "XIRR"
     ]
+  },
+  {
+    "id": "casa-ratio",
+    "term": "CASA Ratio",
+    "fullName": "Current Account and Savings Account Ratio",
+    "category": "Credit & Debt",
+    "definition": "The share of a bank's total deposits held in current and savings accounts. Current accounts pay no interest and savings accounts pay roughly 3 to 4 percent, so a high CASA ratio means the bank funds its loans with cheap money.",
+    "formula": "CASA (%) = (Current Account + Savings Account Deposits) / Total Deposits x 100",
+    "whyItMatters": "A bank funded by fixed deposits at 7 percent and lending at 11 to 12 percent earns about 4 percent. One funded by savings at 4 percent and lending at 12 percent earns 8 percent. Always read CASA together with cost of funds, because a bank can inflate CASA by paying high savings rates.",
+    "example": "HDFC Bank's CASA ratio is about 42 percent, Axis Bank about 44 percent, and Kotak Mahindra about 52 percent. IDFC First pays 6.5 to 7 percent on savings precisely because its CASA ratio is low.",
+    "relatedTerms": [
+      "Cost of Funds",
+      "Net Interest Margin",
+      "NPA"
+    ]
+  },
+  {
+    "id": "cost-of-funds",
+    "term": "Cost of Funds",
+    "fullName": "Cost of Liabilities",
+    "category": "Credit & Debt",
+    "definition": "The blended average interest a bank pays across all its deposits and borrowings: current accounts at 0 percent, savings at about 3 percent, fixed deposits at about 6.5 percent, and other funding.",
+    "formula": "Cost of Funds (%) = Total Interest Paid / Average Interest-Bearing Liabilities x 100",
+    "whyItMatters": "It is the check on a flattering CASA ratio. A high CASA bought with high savings rates shows up as a higher cost of funds, and only the two together tell you whether the bank's money is genuinely cheap.",
+    "example": "HDFC Bank's cost of funds is about 4.88 percent. Kotak Mahindra's CASA ratio is higher than HDFC Bank's, yet HDFC Bank's cost of funds is lower, because Kotak paid more interest to gather that CASA.",
+    "relatedTerms": [
+      "CASA Ratio",
+      "Net Interest Margin"
+    ]
+  },
+  {
+    "id": "net-interest-margin",
+    "term": "Net Interest Margin",
+    "fullName": "NIM",
+    "category": "Credit & Debt",
+    "definition": "Interest a bank earns on its loans and investments minus the interest it pays on deposits and borrowings, expressed as a percentage of its interest-earning assets. It accounts for funds the bank could not lend out.",
+    "formula": "NIM (%) = (Interest Earned - Interest Paid) / Average Interest-Earning Assets x 100",
+    "whyItMatters": "NIM is the core profitability measure of a lender. The simple spread between lending and deposit rates overstates it, because some deposits must sit as reserves with the RBI and never earn.",
+    "example": "Five depositors bring in Rs 500 at 5 percent, costing Rs 25. Only Rs 400 can be lent at 12 percent, earning Rs 48. Net interest income is Rs 23. HDFC Bank's NIM is about 4 percent.",
+    "relatedTerms": [
+      "CASA Ratio",
+      "Cost of Funds",
+      "ROA"
+    ]
+  },
+  {
+    "id": "capital-adequacy-ratio",
+    "term": "Capital Adequacy Ratio",
+    "fullName": "CAR",
+    "category": "Credit & Debt",
+    "definition": "A bank's capital measured against its risk-weighted assets. It shows how much cushion the bank has to absorb loan losses and how much further lending it can support.",
+    "formula": "CAR (%) = (Tier 1 Capital + Tier 2 Capital) / Risk-Weighted Assets x 100",
+    "whyItMatters": "A loan that goes bad destroys capital and lowers CAR, which in turn caps loan growth. Around 17 percent and above is very good; around 12 percent or below is a danger sign. Banks keep CAR healthy by controlling NPAs and attracting deposits.",
+    "example": "Kotak Mahindra and HDFC Bank run CAR of about 17 percent plus, with strong advances growth to match. South Indian Bank's weaker CAR corresponded with visibly slower loan growth.",
+    "relatedTerms": [
+      "NPA",
+      "CASA Ratio"
+    ]
+  },
+  {
+    "id": "provisions",
+    "term": "Provisions",
+    "fullName": "Loan Loss Provisions",
+    "category": "Credit & Debt",
+    "definition": "Money a bank sets aside from its income against loans it doubts will be repaid. Provisions are charged to the profit and loss statement before profit is struck.",
+    "formula": "Provisions as % of Interest Income = Provisions / Interest Income x 100",
+    "whyItMatters": "In a common-size comparison of banks, provisions per Rs 100 of interest income are the single biggest line that separates good lenders from weak ones, because they reveal lending habits directly.",
+    "example": "HDFC Bank sets aside about Rs 10 of provisions per Rs 100 of interest income. Axis Bank has shown about Rs 30, which is why its net profit per Rs 100 of interest income was far lower.",
+    "relatedTerms": [
+      "NPA",
+      "Capital Adequacy Ratio"
+    ]
+  },
+  {
+    "id": "cash-flow-from-operations",
+    "term": "Cash Flow from Operations",
+    "fullName": "CFO, Operating Cash Flow",
+    "category": "Fundamentals",
+    "definition": "The cash a company actually received from its core business of selling goods and services during the year, after paying its operating costs. It excludes investing and financing flows.",
+    "formula": "CFO to PAT = Sum of 5 years' Cash Flow from Operations / Sum of 5 years' Net Profit",
+    "whyItMatters": "Accounting books profit at the moment of sale, not payment. Comparing five years of operating cash flow with five years of net profit is the simplest anti-fraud check: the ratio should be above 1, or at least above 0.8.",
+    "example": "Godrej Consumer's five-year operating cash flow of about Rs 4,750 to 4,800 crore sat within a few percent of its five-year net profit of about Rs 4,900 crore. Lovable reported about Rs 50 crore of profit but only about Rs 21 crore of operating cash flow.",
+    "relatedTerms": [
+      "FCF Yield",
+      "EPS"
+    ]
   }
 ]

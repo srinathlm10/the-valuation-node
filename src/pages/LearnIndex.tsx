@@ -29,6 +29,12 @@ const sections = [
       "Interactive lessons that teach finance through actual practice with real company data. Work through a DCF, read a financial statement, compute ratios.",
   },
   {
+    title: "Ratio Analysis",
+    href: "/learn/ratio-analysis",
+    description:
+      "26 financial ratios, each with a plain definition, the formula on its own line, what a good number looks like, and a worked example from an Indian company. Valuation, profitability, leverage, efficiency, cash flow, and banking.",
+  },
+  {
     title: "Glossary",
     href: "/learn/glossary",
     description:
@@ -64,14 +70,15 @@ export default function LearnIndex() {
           </p>
           <p>
             The library is built and maintained by a single author and grows steadily. It is meant
-            to be read in any order, start from a definition in the Glossary, work through a
-            Foundations topic, or jump straight into a Learn-by-Doing exercise. Wherever a concept
+            to be read in any order, start from a definition in the Glossary, look up a formula in
+            Ratio Analysis, work through a Foundations topic, or jump straight into a Learn-by-Doing
+            exercise. Wherever a concept
             appears in the original research on this site, it is linked back to the relevant Learn
             page.
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        <div className="mt-12 grid gap-6 md:grid-cols-2">
           {sections.map((s) => (
             <Link
               key={s.href}

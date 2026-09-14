@@ -36,6 +36,8 @@ import {
   Receipt,
   GraduationCap,
   Tag,
+  Percent,
+  Waves,
   type LucideIcon,
 } from "lucide-react";
 
@@ -74,6 +76,17 @@ export const LEARN_SECTION_ICONS: Record<string, LucideIcon> = {
   "/learn/foundations": BookOpen,
   "/learn/by-doing": MousePointerClick,
   "/learn/glossary": Library,
+  "/learn/ratio-analysis": Percent,
+};
+
+/** One icon per Ratio Analysis group (keys = group ids in ratioAnalysis.ts). */
+export const RATIO_GROUP_ICONS: Record<string, LucideIcon> = {
+  "size-and-price": Scale,
+  "profitability-and-returns": TrendingUp,
+  "leverage-and-liquidity": ShieldCheck,
+  "efficiency": Gauge,
+  "cash-flow": Waves,
+  "banking": Landmark,
 };
 
 /** One icon per Glossary category (keys = category names in the definitions data). */

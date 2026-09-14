@@ -36,6 +36,8 @@ const Foundations = lazy(() => import("./pages/Foundations"));
 const LearnByDoing = lazy(() => import("./pages/LearnByDoing"));
 const LearnByDoingModule = lazy(() => import("./pages/LearnByDoingModule"));
 const Glossary = lazy(() => import("./pages/Glossary"));
+const RatioAnalysis = lazy(() => import("./pages/RatioAnalysis"));
+// RatioAnalysisEntry loads via route-level lazy in the routes below.
 // GlossaryEntry loads via route-level lazy in the routes below.
 
 // Legacy learn routes (kept for backward-compat; redirected below)
@@ -179,6 +181,17 @@ export const routes: RouteRecord[] = [
         getStaticPaths: async () => {
           const { GLOSSARY, termSlug } = await import("@/lib/glossary");
           return GLOSSARY.map((d) => `learn/glossary/${termSlug(d.term)}`);
+        },
+      },
+
+      // Ratio Analysis reference (hub + one page per ratio, all prerendered)
+      { path: "learn/ratio-analysis", Component: RatioAnalysis },
+      {
+        path: "learn/ratio-analysis/:slug",
+        lazy: async () => ({ Component: (await import("./pages/RatioAnalysisEntry")).default }),
+        getStaticPaths: async () => {
+          const { RATIOS } = await import("@/data/ratioAnalysis");
+          return RATIOS.map((r) => `learn/ratio-analysis/${r.slug}`);
         },
       },
 
