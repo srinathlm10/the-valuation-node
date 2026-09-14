@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Navigate, Outlet } from "react-router-dom";
+import { ScrollToTop } from "@/components/layout/ScrollToTop";
 import { lazy, Suspense } from "react";
 import { ThemeProvider } from "next-themes";
 import type { RouteRecord } from "vite-react-ssg";
@@ -91,6 +92,7 @@ function RootLayout() {
         <TooltipProvider>
           <Toaster />
           <Sonner />
+          <ScrollToTop />
           <AuthProvider>
             <Suspense fallback={<PageLoader />}>
               <Outlet />
