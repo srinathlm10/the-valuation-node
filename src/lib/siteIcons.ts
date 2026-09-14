@@ -38,6 +38,7 @@ import {
   Tag,
   Percent,
   Waves,
+  Users,
   type LucideIcon,
 } from "lucide-react";
 
@@ -87,6 +88,7 @@ export const RATIO_GROUP_ICONS: Record<string, LucideIcon> = {
   "efficiency": Gauge,
   "cash-flow": Waves,
   "banking": Landmark,
+  "growth-and-shareholding": Users,
 };
 
 /** One icon per Glossary category (keys = category names in the definitions data). */

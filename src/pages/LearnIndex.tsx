@@ -4,6 +4,7 @@ import { Layout } from "@/components/layout/Layout";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { ArrowRight } from "lucide-react";
 import { LEARN_SECTION_ICONS } from "@/lib/siteIcons";
+import { RATIOS } from "@/data/ratioAnalysis";
 
 function SectionCardIcon({ href }: { href: string }) {
   const Icon = LEARN_SECTION_ICONS[href];
@@ -32,7 +33,7 @@ const sections = [
     title: "Ratio Analysis",
     href: "/learn/ratio-analysis",
     description:
-      "26 financial ratios, each with a plain definition, the formula on its own line, what a good number looks like, and a worked example from an Indian company. Valuation, profitability, leverage, efficiency, cash flow, and banking.",
+      `${RATIOS.length} financial ratios, each with a plain definition, the formula on its own line, what a good number looks like, and a worked example. Valuation, profitability, leverage, efficiency, cash flow, banking, growth, and shareholding.`,
   },
   {
     title: "Glossary",

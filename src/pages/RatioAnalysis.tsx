@@ -68,7 +68,7 @@ export default function RatioAnalysis() {
   }, [search]);
 
   const description =
-    "Financial ratio analysis reference for Indian markets: definitions, formulas, benchmarks, and worked examples for 26 ratios across valuation, profitability, leverage, efficiency, cash flow, and banking.";
+    "Financial ratio analysis reference for Indian markets: definitions, formulas, benchmarks, and worked examples for " + RATIOS.length + " ratios across valuation, profitability, leverage, efficiency, cash flow, banking, and growth.";
 
   return (
     <Layout>
@@ -113,8 +113,8 @@ export default function RatioAnalysis() {
         <h1 className="text-3xl font-bold tracking-tight">Ratio Analysis</h1>
         <p className="mt-3 max-w-3xl text-lg text-muted-foreground">
           Every financial ratio an analyst reaches for, with its definition, its formula on one
-          clearly labelled line, what a good number looks like, and a worked example from an
-          Indian company.
+          clearly labelled line, what a good number looks like, and a worked example, drawn from
+          Indian companies wherever the source notes provide the figures.
         </p>
 
         <div className="prose prose-slate dark:prose-invert mt-8 max-w-3xl">

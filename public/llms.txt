@@ -28,9 +28,10 @@ and inflation-adjusted returns.
 URL: https://valuationnode.com/tools
 
 ## Ratio Analysis
-Reference of 26 financial ratios for Indian markets, each with a definition, its formula,
-benchmarks, a worked Indian company example, and where the ratio misleads. Covers valuation,
-profitability, leverage, efficiency, cash flow checks, and banking ratios (CASA, NIM, NPA, CAR).
+Reference of 49 financial ratios for Indian markets, each with a definition, its formula,
+benchmarks, a worked example, and where the ratio misleads. Covers valuation multiples,
+profitability and returns, leverage and liquidity, efficiency, cash flow checks, banking
+ratios (CASA, NIM, NPA, CAR, PCR, cost to income), growth, and shareholding pattern.
 URL: https://valuationnode.com/learn/ratio-analysis
 
 ## Glossary

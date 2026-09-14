@@ -571,6 +571,42 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://valuationnode.com/learn/ratio-analysis/price-to-sales</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/learn/ratio-analysis/ev-to-ebitda</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/learn/ratio-analysis/ev-to-sales</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/learn/ratio-analysis/earnings-yield</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/learn/ratio-analysis/fcf-yield</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/learn/ratio-analysis/dividend-yield</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://valuationnode.com/learn/ratio-analysis/net-profit-margin</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
@@ -584,6 +620,36 @@
   </url>
   <url>
     <loc>https://valuationnode.com/learn/ratio-analysis/return-on-capital-employed</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/learn/ratio-analysis/gross-margin</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/learn/ratio-analysis/operating-margin</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/learn/ratio-analysis/ebitda-margin</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/learn/ratio-analysis/return-on-assets</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/learn/ratio-analysis/dividend-payout-ratio</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -607,6 +673,18 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://valuationnode.com/learn/ratio-analysis/current-ratio</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/learn/ratio-analysis/net-debt-to-ebitda</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://valuationnode.com/learn/ratio-analysis/asset-turnover</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
@@ -625,6 +703,18 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://valuationnode.com/learn/ratio-analysis/working-capital-days</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/learn/ratio-analysis/fixed-asset-turnover</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://valuationnode.com/learn/ratio-analysis/cfo-to-pat</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
@@ -632,6 +722,12 @@
   </url>
   <url>
     <loc>https://valuationnode.com/learn/ratio-analysis/free-cash-flow</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/learn/ratio-analysis/cash-flow-per-share</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -680,6 +776,48 @@
   </url>
   <url>
     <loc>https://valuationnode.com/learn/ratio-analysis/common-size-analysis-banks</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/learn/ratio-analysis/gross-npa</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/learn/ratio-analysis/provision-coverage-ratio</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/learn/ratio-analysis/cost-to-income-ratio</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/learn/ratio-analysis/credit-deposit-ratio</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/learn/ratio-analysis/sales-growth</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/learn/ratio-analysis/profit-growth</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/learn/ratio-analysis/promoter-holding</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
