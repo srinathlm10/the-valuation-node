@@ -49,14 +49,28 @@ export function Header() {
         <Link to="/" className="shrink-0 flex items-center gap-2 group">
           <img
             src="/logo.png"
-            alt="The Valuation Node"
+            alt=""
             width={36}
             height={36}
             className="h-9 w-9 object-contain"
+            aria-hidden="true"
           />
-          <span className="font-bold text-foreground tracking-tight text-lg">
-            The Valuation Node
-          </span>
+          {/* Wordmark: navy on light surfaces, off-white on dark. Both are in the
+              DOM and toggled with CSS so the prerendered HTML matches on hydration. */}
+          <img
+            src="/logo-wordmark.png"
+            alt="The Valuation Node"
+            width={173}
+            height={26}
+            className="h-[26px] w-auto dark:hidden"
+          />
+          <img
+            src="/logo-wordmark-dark.png"
+            alt="The Valuation Node"
+            width={173}
+            height={26}
+            className="hidden h-[26px] w-auto dark:block"
+          />
         </Link>
 
         {/* Desktop nav */}
@@ -151,8 +165,9 @@ export function Header() {
             </SheetTrigger>
             <SheetContent side="right" className="w-[280px] p-6">
               <SheetTitle className="text-left font-bold mb-6 flex items-center gap-2">
-                <img src="/logo.png" alt="" className="h-8 w-8 object-contain" aria-hidden="true" />
-                The Valuation Node
+                <img src="/logo.png" alt="" width={32} height={32} className="h-8 w-8 object-contain" aria-hidden="true" />
+                <img src="/logo-wordmark.png" alt="The Valuation Node" width={147} height={22} className="h-[22px] w-auto dark:hidden" />
+                <img src="/logo-wordmark-dark.png" alt="The Valuation Node" width={147} height={22} className="hidden h-[22px] w-auto dark:block" />
               </SheetTitle>
               <nav className="flex flex-col gap-2">
                 {navItems.map((item) => (

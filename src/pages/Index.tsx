@@ -41,6 +41,13 @@ export default function Index() {
           name: "The Valuation Node",
           url: "https://valuationnode.com",
           description: "Indian markets research and learning by Gajji Srinath.",
+          logo: {
+            "@type": "ImageObject",
+            url: "https://valuationnode.com/logo.png",
+            width: 512,
+            height: 512,
+          },
+          sameAs: ["https://www.linkedin.com/in/gajji-srinath/"],
         })}</script>
       </Helmet>
 

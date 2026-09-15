@@ -11,6 +11,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "export:articles": "node scripts/exportArticles.js",
+    "assets:brand": "node scripts/generateBrandAssets.js",
     "test": "vitest run",
     "test:watch": "vitest"
   },

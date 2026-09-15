@@ -29,6 +29,8 @@ export const PUBLISHER = {
   logo: {
     "@type": "ImageObject",
     url: BASE + "/logo.png",
+    width: 512,
+    height: 512,
   },
 };
 

@@ -2,12 +2,13 @@
 // sharp is already a devDependency, no new package needed.
 
 import sharp from "sharp";
-import { writeFileSync } from "fs";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const outPath = resolve(__dirname, "../public/og-image.png");
+const markPath = resolve(__dirname, "../public/logo.png");
+const GREEN = "#26A259"; // the green in the logo mark and wordmark
 
 // SVG template, deep slate brand background with teal accent, no external font dependency
 const svg = `<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
@@ -23,12 +24,12 @@ const svg = `<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http:/
   <rect width="1200" height="630" fill="url(#dots)"/>
 
   <!-- Top accent bar -->
-  <rect x="0" y="0" width="1200" height="5" fill="#45AEB2"/>
+  <rect x="0" y="0" width="1200" height="5" fill="${GREEN}"/>
 
   <!-- Left content column -->
 
   <!-- Tag label -->
-  <rect x="80" y="140" width="8" height="48" fill="#45AEB2" rx="2"/>
+  <rect x="80" y="140" width="8" height="48" fill="${GREEN}" rx="2"/>
   <text x="106" y="176" font-family="Georgia, 'Times New Roman', serif" font-size="22"
         font-weight="normal" fill="#9AA5B1" letter-spacing="3">RESEARCH · ANALYSIS · LEARNING</text>
 
@@ -36,14 +37,14 @@ const svg = `<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http:/
   <text x="80" y="270" font-family="Georgia, 'Times New Roman', serif" font-size="72"
         font-weight="bold" fill="#EDEAE4">The Valuation</text>
   <text x="80" y="355" font-family="Georgia, 'Times New Roman', serif" font-size="72"
-        font-weight="bold" fill="#EDEAE4">Node</text>
+        font-weight="bold" fill="${GREEN}">Node</text>
 
   <!-- Subtitle -->
   <text x="80" y="430" font-family="Arial, Helvetica, sans-serif" font-size="28"
         fill="#8A93A3">Indian markets, from first principles.</text>
 
   <!-- Divider -->
-  <rect x="80" y="475" width="80" height="3" fill="#45AEB2" rx="1"/>
+  <rect x="80" y="475" width="80" height="3" fill="${GREEN}" rx="1"/>
 
   <!-- Topics row -->
   <text x="80" y="530" font-family="Arial, Helvetica, sans-serif" font-size="20"
@@ -56,12 +57,17 @@ const svg = `<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http:/
         fill="#55606E" text-anchor="end">valuationnode.com</text>
 
   <!-- Bottom accent bar -->
-  <rect x="0" y="625" width="1200" height="5" fill="#45AEB2"/>
+  <rect x="0" y="625" width="1200" height="5" fill="${GREEN}"/>
 </svg>`;
 
 const buffer = Buffer.from(svg);
 
+// Logo mark on the right, vertically centred in the content band.
+const MARK = 300;
+const markBuffer = await sharp(markPath).resize(MARK, MARK, { fit: "contain", background: { r: 0, g: 0, b: 0, alpha: 0 } }).toBuffer();
+
 sharp(buffer)
+  .composite([{ input: markBuffer, left: 1200 - 80 - MARK, top: Math.round((630 - MARK) / 2) - 20 }])
   .png({ quality: 95 })
   .toFile(outPath)
   .then(() => console.log(`og-image.png written (${outPath})`))

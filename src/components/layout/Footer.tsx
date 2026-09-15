@@ -21,8 +21,9 @@ export function Footer() {
           {/* Column 1: Wordmark */}
           <div>
             <Link to="/" className="font-bold text-foreground text-base tracking-tight flex items-center gap-2">
-              <img src="/logo.png" alt="" className="h-8 w-8 object-contain" aria-hidden="true" />
-              The Valuation Node
+              <img src="/logo.png" alt="" width={32} height={32} className="h-8 w-8 object-contain" aria-hidden="true" />
+              <img src="/logo-wordmark.png" alt="The Valuation Node" width={147} height={22} className="h-[22px] w-auto dark:hidden" />
+              <img src="/logo-wordmark-dark.png" alt="The Valuation Node" width={147} height={22} className="hidden h-[22px] w-auto dark:block" />
             </Link>
             <p className="mt-2.5 text-sm text-muted-foreground leading-relaxed">
               Independent research and learning on Indian markets.
