@@ -7,7 +7,8 @@ import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const outPath = resolve(__dirname, "../public/og-image.png");
-const markPath = resolve(__dirname, "../public/logo.png");
+// The dark-surface variant (white V, green leaf): the plain mark is navy on a navy card.
+const markPath = resolve(__dirname, "../public/logo-on-dark.png");
 const GREEN = "#26A259"; // the green in the logo mark and wordmark
 
 // SVG template, deep slate brand background with teal accent, no external font dependency

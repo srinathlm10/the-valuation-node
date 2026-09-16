@@ -8,7 +8,9 @@
 //   images/text_logo.png   wordmark "THE VALUATION NODE" on white
 //
 // Outputs (public/):
-//   logo.png                 512x512 transparent mark (header, footer, JSON-LD)
+//   logo.png                 512x512 transparent mark (light surfaces, JSON-LD)
+//   logo-on-dark.png         512x512 mark for navy/dark surfaces: navy V -> white, leaf green kept
+//   logo-circle.png          512x512 mark on a white disc (alternative for dark surfaces)
 //   apple-touch-icon.png     180x180 mark on white
 //   favicon-32.png, favicon-logo.png (64), favicon.ico (16+32+48, PNG-in-ICO)
 //   logo-wordmark.png        wordmark, transparent, navy + green (light theme)
@@ -43,6 +45,28 @@ async function mark(size, { onWhite = false, pad = 0 } = {}) {
     })
     .png({ compressionLevel: 9 })
     .toBuffer();
+}
+
+// The mark for navy/dark surfaces: every non-green pixel (the navy V) becomes
+// white, alpha untouched so anti-aliased edges stay smooth; the leaf keeps its green.
+async function markOnDark(size) {
+  const base = await mark(size, { pad: 0.02 });
+  const { data, info } = await sharp(base).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
+  for (let i = 0; i < data.length; i += 4) {
+    if (data[i + 3] === 0) continue;
+    const r = data[i], g = data[i + 1], b = data[i + 2];
+    const isGreen = g > r + 40 && g > b + 20;
+    if (!isGreen) { data[i] = 255; data[i + 1] = 255; data[i + 2] = 255; }
+  }
+  return sharp(data, { raw: { width: info.width, height: info.height, channels: 4 } }).png({ compressionLevel: 9 }).toBuffer();
+}
+
+// The original mark centred on a white disc (for dark surfaces, alternative style).
+async function markInCircle(size) {
+  const inner = Math.round(size * 0.72);
+  const m = await sharp(await mark(inner, { pad: 0.04 })).toBuffer();
+  const disc = Buffer.from(`<svg width="${size}" height="${size}"><circle cx="${size / 2}" cy="${size / 2}" r="${size / 2}" fill="#ffffff"/></svg>`);
+  return sharp(disc).composite([{ input: m, left: Math.round((size - inner) / 2), top: Math.round((size - inner) / 2) }]).png({ compressionLevel: 9 }).toBuffer();
 }
 
 // Wrap PNG buffers into a single .ico (PNG-in-ICO, supported by all current browsers).
@@ -111,6 +135,8 @@ async function write(name, buf) {
 }
 
 await write("logo.png", await mark(512, { pad: 0.02 }));
+await write("logo-on-dark.png", await markOnDark(512));
+await write("logo-circle.png", await markInCircle(512));
 await write("apple-touch-icon.png", await mark(180, { onWhite: true, pad: 0.1 }));
 await write("favicon-32.png", await mark(32, { pad: 0.03 }));
 await write("favicon-logo.png", await mark(64, { pad: 0.03 }));

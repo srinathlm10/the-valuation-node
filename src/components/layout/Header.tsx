@@ -58,7 +58,7 @@ export function Header() {
 
   const logoInner = (
     <>
-      <img src="/logo.png" alt="" width={36} height={36} className="h-9 w-9 object-contain" aria-hidden="true" />
+      <img src="/logo-on-dark.png" alt="" width={36} height={36} className="h-9 w-9 object-contain" aria-hidden="true" />
       <img src="/logo-wordmark-dark.png" alt="The Valuation Node" width={173} height={26} className="h-[26px] w-auto" />
     </>
   );
@@ -131,7 +131,7 @@ export function Header() {
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] overflow-y-auto bg-[var(--primary-dark)] p-6 text-white [&>button]:text-white">
               <SheetTitle className="mb-6 flex items-center gap-2 text-left">
-                <img src="/logo.png" alt="" width={32} height={32} className="h-8 w-8 object-contain" aria-hidden="true" />
+                <img src="/logo-on-dark.png" alt="" width={32} height={32} className="h-8 w-8 object-contain" aria-hidden="true" />
                 <img src="/logo-wordmark-dark.png" alt="The Valuation Node" width={147} height={22} className="h-[22px] w-auto" />
               </SheetTitle>
               <ul className="flex flex-col gap-1" aria-label="Mobile">
