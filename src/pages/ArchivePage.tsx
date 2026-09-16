@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { Layout } from "@/components/layout/Layout";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { Seo } from "@/components/seo/Seo";
 import { Prose } from "@/components/content/Prose";
 import { Callout } from "@/components/content/Callout";
@@ -31,6 +32,7 @@ export function ArchiveIndex() {
         noindex
         jsonLd={[breadcrumbLd([{ name: "Archive", path: paths.archive() }])]}
       />
+      <Breadcrumbs items={[{ name: "Archive", path: paths.archive() }]} />
       <div className="container max-w-5xl py-14">
         <h1 className="text-3xl font-bold tracking-tight">Archive</h1>
         <p className="mt-3 max-w-3xl text-lg text-muted-foreground">
@@ -107,6 +109,7 @@ export function ArchiveArticle() {
   const meta = archiveMeta(article);
   const path = paths.archiveArticle(article.id);
   const category = LEGACY_CATEGORIES.find((c) => c.id === article.category);
+  const crumbs = [{ name: "Archive", path: paths.archive() }, { name: article.title, path }];
 
   return (
     <Layout>
@@ -115,17 +118,9 @@ export function ArchiveArticle() {
         path={path}
         type="article"
         noindex
-        jsonLd={[
-          breadcrumbLd([{ name: "Archive", path: paths.archive() }, { name: article.title, path }]),
-        ]}
+        jsonLd={[breadcrumbLd(crumbs)]}
       />
-      <nav aria-label="Breadcrumb" className="border-b">
-        <ol className="container flex max-w-3xl flex-wrap items-center gap-2 py-3 text-sm text-muted-foreground">
-          <li><Link to={paths.archive()} className="hover:text-foreground">Archive</Link></li>
-          <li>/</li>
-          <li className="font-medium text-foreground">{article.title}</li>
-        </ol>
-      </nav>
+      <Breadcrumbs items={crumbs} />
       <article className="container max-w-3xl py-12">
         <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
           Archive{category ? ` · ${category.name}` : ""} · {article.difficulty}

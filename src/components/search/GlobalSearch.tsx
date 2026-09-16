@@ -43,7 +43,12 @@ function score(item: ContentItem, q: string): number {
   return 0;
 }
 
-export function GlobalSearch() {
+/**
+ * SearchOverlay: the magnifier icon in the nav expands into a search dialog
+ * (cmdk). `variant="bar"` renders the wide search field used on landing
+ * pages and the 404 page. GlobalSearch is kept as an alias for old imports.
+ */
+export function SearchOverlay({ variant = "bar" }: { variant?: "icon" | "bar" } = {}) {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
@@ -83,9 +88,21 @@ export function GlobalSearch() {
 
   return (
     <>
+      {variant === "icon" ? (
+        <button
+          type="button"
+          onClick={() => setOpen(true)}
+          className="inline-flex h-10 w-10 items-center justify-center rounded-full text-[#d1d5db] transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+          aria-label="Search the site"
+          aria-haspopup="dialog"
+          aria-expanded={open}
+        >
+          <Search className="h-[18px] w-[18px]" />
+        </button>
+      ) : (
       <button
         onClick={() => setOpen(true)}
-        className="flex h-10 w-full items-center justify-between rounded-lg border border-input bg-background px-4 py-2 text-sm text-muted-foreground ring-offset-background transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:w-64 lg:w-80"
+        className="flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-4 py-2 text-sm text-muted-foreground ring-offset-background transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:w-64 lg:w-80"
         aria-label="Search the site"
       >
         <div className="flex items-center gap-2">
@@ -96,6 +113,7 @@ export function GlobalSearch() {
           <span className="text-xs">⌘</span>K
         </kbd>
       </button>
+      )}
 
       <CommandDialog open={open} onOpenChange={setOpen}>
         <Command className="rounded-lg border shadow-md" shouldFilter={false}>
@@ -129,3 +147,5 @@ export function GlobalSearch() {
     </>
   );
 }
+
+export const GlobalSearch = SearchOverlay;

@@ -5,11 +5,12 @@ export default {
   content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
   prefix: "",
   theme: {
+    // Prototype .container: max-width 1200px, padding 0 2rem, centred
     container: {
       center: true,
-      padding: "2rem",
+      padding: { DEFAULT: "1rem", sm: "2rem" },
       screens: {
-        "2xl": "1400px",
+        "2xl": "1200px",
       },
     },
     extend: {
@@ -22,6 +23,19 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+        },
+        // Prototype brand colours and tag pills (see src/index.css)
+        brand: {
+          navy: "hsl(var(--brand-navy))",
+          "navy-hover": "hsl(var(--brand-navy-hover))",
+          green: "hsl(var(--brand-green))",
+          "green-foreground": "hsl(var(--brand-green-foreground))",
+        },
+        tag: {
+          DEFAULT: "hsl(var(--tag))",
+          foreground: "hsl(var(--tag-foreground))",
+          esg: "hsl(var(--tag-esg))",
+          "esg-foreground": "hsl(var(--tag-esg-foreground))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -93,12 +107,13 @@ export default {
       },
       fontFamily: {
         // UI, navigation, headings: modern sans
-        sans: ["Inter", "system-ui", "-apple-system", "Segoe UI", "sans-serif"],
-        // Article and Foundations body: refined reading serif
-        serif: ["Source Serif 4", "Georgia", "Cambria", "serif"],
+        // Prototype --font-main: Segoe UI, Roboto, Helvetica, Arial, sans-serif
+        sans: ["Segoe UI", "Roboto", "Helvetica", "Arial", "sans-serif"],
+        // Prototype --font-serif: Merriweather, Georgia, serif (headlines, article body)
+        serif: ["Merriweather", "Georgia", "serif"],
         // Legacy aliases kept so existing font-display/font-heading classes resolve
-        display: ["Inter", "system-ui", "sans-serif"],
-        heading: ["Inter", "system-ui", "sans-serif"],
+        display: ["Segoe UI", "Roboto", "Helvetica", "Arial", "sans-serif"],
+        heading: ["Segoe UI", "Roboto", "Helvetica", "Arial", "sans-serif"],
         mono: ["JetBrains Mono", "ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
       },
       // Central prose styling for ALL markdown-rendered content (articles,
@@ -119,7 +134,7 @@ export default {
               "&:hover": { textDecorationColor: "hsl(var(--primary))" },
             },
             "h1, h2, h3, h4": {
-              fontFamily: "Inter, system-ui, sans-serif",
+              fontFamily: "Segoe UI, Roboto, Helvetica, Arial, sans-serif",
               fontWeight: "600",
               letterSpacing: "-0.015em",
               color: "hsl(var(--foreground))",

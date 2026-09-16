@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { Seo } from "@/components/seo/Seo";
 import { ContentList } from "@/components/content/ContentList";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
@@ -38,6 +39,9 @@ export default function SectionLanding({ section }: { section: SectionId }) {
   const summary = subsection ? subsection.description : sec.description;
   const hasContent = items.length > 0;
   const liveSubs = sec.subsections.filter((s) => landingHasContent(section, s.id));
+  const crumbs = subsection
+    ? [{ name: sec.label, path: sec.path }, { name: subsection.label, path }]
+    : [{ name: sec.label, path: sec.path }];
 
   return (
     <Layout>
@@ -46,30 +50,9 @@ export default function SectionLanding({ section }: { section: SectionId }) {
         path={path}
         titleTag={subsection ? `${subsection.label} - ${sec.label} - The Valuation Node` : `${sec.label} - The Valuation Node`}
         noindex={!hasContent}
-        jsonLd={[
-          breadcrumbLd(
-            subsection
-              ? [{ name: sec.label, path: sec.path }, { name: subsection.label, path }]
-              : [{ name: sec.label, path: sec.path }]
-          ),
-        ]}
+        jsonLd={[breadcrumbLd(crumbs)]}
       />
-
-      <nav aria-label="Breadcrumb" className="border-b">
-        <ol className="container flex max-w-5xl flex-wrap items-center gap-2 py-3 text-sm text-muted-foreground">
-          <li><Link to="/" className="hover:text-foreground">Home</Link></li>
-          <li>/</li>
-          {subsection ? (
-            <>
-              <li><Link to={sec.path} className="hover:text-foreground">{sec.label}</Link></li>
-              <li>/</li>
-              <li className="font-medium text-foreground">{subsection.label}</li>
-            </>
-          ) : (
-            <li className="font-medium text-foreground">{sec.label}</li>
-          )}
-        </ol>
-      </nav>
+      <Breadcrumbs items={crumbs} />
 
       <div className="container max-w-5xl py-14">
         <h1 className="text-3xl font-bold tracking-tight">{title}</h1>

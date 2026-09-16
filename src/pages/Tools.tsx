@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { Seo } from "@/components/seo/Seo";
 import { staticMeta } from "@/lib/contentModel";
 import { Calculator, Clock } from "lucide-react";
@@ -71,14 +72,7 @@ export default function Tools() {
         titleTag="Calculators and Interactive Lessons - The Valuation Node"
         jsonLd={[breadcrumbLd([{ name: "The Vault", path: paths.vault() }, { name: "Model Templates & Interactive", path: paths.interactive() }])]}
       />
-
-      <nav aria-label="Breadcrumb" className="border-b">
-        <ol className="container flex max-w-3xl items-center gap-2 py-3 text-sm text-muted-foreground">
-          <li><Link to={paths.vault()} className="hover:text-foreground">The Vault</Link></li>
-          <li>/</li>
-          <li className="font-medium text-foreground">Model Templates & Interactive</li>
-        </ol>
-      </nav>
+      <Breadcrumbs items={[{ name: "The Vault", path: paths.vault() }, { name: "Model Templates & Interactive", path: paths.interactive() }]} />
 
       <div className="container max-w-3xl py-14">
         <h1 className="text-3xl font-bold tracking-tight">Model Templates & Interactive</h1>

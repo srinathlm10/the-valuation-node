@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { Seo } from "@/components/seo/Seo";
 import { Prose } from "@/components/content/Prose";
 import { staticMeta } from "@/lib/contentModel";
@@ -134,21 +135,16 @@ export default function AboutLegal() {
   }
 
   const path = paths.aboutPage(entry.slug);
+  const crumbs = [{ name: "About", path: paths.about() }, { name: entry.title, path }];
 
   return (
     <Layout>
       <Seo
         meta={staticMeta({ title: entry.title, slug: entry.slug, section: "about", subsection: entry.slug, summary: entry.summary, updatedDate: entry.updated })}
         path={path}
-        jsonLd={[breadcrumbLd([{ name: "About", path: paths.about() }, { name: entry.title, path }])]}
+        jsonLd={[breadcrumbLd(crumbs)]}
       />
-      <nav aria-label="Breadcrumb" className="border-b">
-        <ol className="container flex max-w-3xl items-center gap-2 py-3 text-sm text-muted-foreground">
-          <li><Link to={paths.about()} className="hover:text-foreground">About</Link></li>
-          <li>/</li>
-          <li className="font-medium text-foreground">{entry.title}</li>
-        </ol>
-      </nav>
+      <Breadcrumbs items={crumbs} />
       <article className="container max-w-3xl py-12">
         <h1 className="text-3xl font-bold tracking-tight">{entry.title}</h1>
         <p className="mt-2 text-sm text-muted-foreground">Last updated {new Date(entry.updated).toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" })}</p>

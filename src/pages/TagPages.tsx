@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { Seo } from "@/components/seo/Seo";
 import { ContentList } from "@/components/content/ContentList";
 import { EmptyState } from "@/components/content/EmptyState";
@@ -26,6 +27,7 @@ export function TagsIndex() {
         titleTag="Topics - The Valuation Node"
         jsonLd={[breadcrumbLd([{ name: "Topics", path: paths.tags() }])]}
       />
+      <Breadcrumbs items={[{ name: "Topics", path: paths.tags() }]} />
       <div className="container max-w-5xl py-14">
         <h1 className="text-3xl font-bold tracking-tight">Topics</h1>
         <p className="mt-3 max-w-3xl text-lg text-muted-foreground">
@@ -99,13 +101,7 @@ export function TagPage() {
         titleTag={`${label}: all pages - The Valuation Node`}
         jsonLd={[breadcrumbLd([{ name: "Topics", path: paths.tags() }, { name: label, path }])]}
       />
-      <nav aria-label="Breadcrumb" className="border-b">
-        <ol className="container flex max-w-5xl items-center gap-2 py-3 text-sm text-muted-foreground">
-          <li><Link to={paths.tags()} className="hover:text-foreground">Topics</Link></li>
-          <li>/</li>
-          <li className="font-medium text-foreground">{label}</li>
-        </ol>
-      </nav>
+      <Breadcrumbs items={[{ name: "Topics", path: paths.tags() }, { name: label, path }]} />
       <div className="container max-w-5xl py-14">
         <h1 className="text-3xl font-bold tracking-tight">{label}</h1>
         <p className="mt-3 text-lg text-muted-foreground">{items.length} pages carry this tag.</p>

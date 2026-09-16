@@ -3,141 +3,178 @@
 @tailwind utilities;
 
 /* The Valuation Node design tokens.
-   One neutral foundation, one accent. Light mode: warm paper with deep slate
-   ink. Dark mode: deep slate with warm off-white text. Accent: deep teal, used
-   deliberately. All colors are HSL triplets consumed via hsl(var(--token)).
-   Change palette HERE, never per component.
+   Source of truth: financial_blog_prototype (1).html. Its CSS variables are
+   mapped onto the shadcn/Tailwind token names the components already consume:
+
+     --primary-dark  #0a192f  ->  --primary / --brand-navy   (nav, headings, buttons)
+     --accent-green  #10b981  ->  --brand-green              (logo span, ESG tags)
+     --bg-light      #f8f9fa  ->  --background
+     --text-main     #1f2937  ->  --foreground
+     --text-muted    #6b7280  ->  --muted-foreground
+     --border-color  #e5e7eb  ->  --border
+     tag pill        #e0f2fe / #0369a1  ->  --tag / --tag-foreground
+     esg tag pill    #d1fae5 / #047857  ->  --tag-esg / --tag-esg-foreground
+
+   The prototype is light-only; the dark theme below is derived from the same
+   palette (owner decision: keep the dark-mode toggle). All colors are HSL
+   triplets consumed via hsl(var(--token)). Change palette HERE, never per
+   component.
 */
 
 @layer base {
   :root {
     color-scheme: light;
 
-    /* Neutral foundation: warm off-white paper, deep slate ink */
-    --background: 42 30% 98%;
-    --foreground: 220 25% 13%;
+    /* Prototype: --bg-light #f8f9fa, --text-main #1f2937 */
+    --background: 210 17% 98%;
+    --foreground: 215 28% 17%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 25% 13%;
+    --card-foreground: 215 28% 17%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 25% 13%;
+    --popover-foreground: 215 28% 17%;
 
-    /* The single brand accent: deep teal */
-    --primary: 188 65% 26%;
-    --primary-foreground: 42 30% 98%;
+    /* Prototype: --primary-dark #0a192f (deep navy) */
+    --primary: 216 65% 11%;
+    --primary-foreground: 0 0% 100%;
+    --brand-navy: 216 65% 11%;
+    --brand-navy-hover: 214 57% 23%; /* prototype .newsletter-btn:hover #1a365d */
 
-    --secondary: 42 20% 94%;
-    --secondary-foreground: 220 25% 13%;
+    /* Prototype: --accent-green #10b981 (ESG green) */
+    --brand-green: 160 84% 39%;
+    --brand-green-foreground: 0 0% 100%;
 
-    --muted: 42 18% 94%;
-    --muted-foreground: 220 12% 42%;
+    --secondary: 210 17% 95%;
+    --secondary-foreground: 215 28% 17%;
 
-    /* Pale teal wash for hover states */
-    --accent: 188 30% 93%;
-    --accent-foreground: 188 60% 16%;
+    /* Prototype: --text-muted #6b7280 */
+    --muted: 210 17% 95%;
+    --muted-foreground: 220 9% 46%;
+
+    /* Subtle navy wash for hover states */
+    --accent: 216 33% 95%;
+    --accent-foreground: 216 65% 11%;
 
     --destructive: 0 72% 45%;
-    --destructive-foreground: 42 30% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 42 15% 88%;
-    --input: 42 15% 86%;
-    --ring: 188 65% 30%;
+    /* Prototype: --border-color #e5e7eb */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 216 65% 11%;
 
-    --radius: 0.75rem;
+    /* Prototype tags: .tag #e0f2fe/#0369a1, .tag.esg #d1fae5/#047857 */
+    --tag: 204 94% 94%;
+    --tag-foreground: 201 96% 32%;
+    --tag-esg: 152 81% 92%;
+    --tag-esg-foreground: 161 94% 24%;
+
+    /* Prototype cards are square; pills stay round via explicit classes */
+    --radius: 0.25rem;
 
     /* Legacy named tokens kept for existing components; values retuned */
-    --slate-950: 220 25% 10%;
-    --slate-900: 218 26% 15%;
-    --slate-800: 218 24% 21%;
-    --slate-500: 218 14% 56%;
-    --slate-50: 42 30% 98%;
+    --slate-950: 216 65% 8%;
+    --slate-900: 216 65% 11%;
+    --slate-800: 216 40% 20%;
+    --slate-500: 220 9% 46%;
+    --slate-50: 210 17% 98%;
 
-    --emerald: 152 45% 36%;
-    --emerald-light: 152 42% 45%;
-    --emerald-dark: 152 48% 28%;
+    --emerald: 160 84% 39%;
+    --emerald-light: 160 70% 45%;
+    --emerald-dark: 161 94% 24%;
 
     --amber: 38 90% 44%;
     --amber-light: 38 90% 55%;
     --rose: 350 65% 48%;
     --rose-light: 350 70% 60%;
 
-    /* Chart palette: teal first, then clearly-distinguishable series colors */
-    --chart-1: 188 55% 34%;
-    --chart-2: 35 85% 50%;
-    --chart-3: 218 14% 56%;
-    --chart-4: 152 45% 38%;
+    /* Chart palette: navy first, green second, then distinguishable series */
+    --chart-1: 216 65% 22%;
+    --chart-2: 160 84% 39%;
+    --chart-3: 220 9% 46%;
+    --chart-4: 35 85% 50%;
     --chart-5: 265 35% 56%;
 
-    --hero-heading: 220 25% 13%;
-    --hero-subtext: 220 12% 42%;
+    --hero-heading: 215 28% 17%;
+    --hero-subtext: 220 9% 46%;
 
-    --sidebar-background: 218 26% 13%;
-    --sidebar-foreground: 42 25% 96%;
-    --sidebar-primary: 188 55% 38%;
+    --sidebar-background: 216 65% 11%;
+    --sidebar-foreground: 210 17% 98%;
+    --sidebar-primary: 160 84% 39%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 218 24% 20%;
-    --sidebar-accent-foreground: 42 25% 96%;
-    --sidebar-border: 218 24% 20%;
-    --sidebar-ring: 188 55% 45%;
+    --sidebar-accent: 216 40% 18%;
+    --sidebar-accent-foreground: 210 17% 98%;
+    --sidebar-border: 216 40% 18%;
+    --sidebar-ring: 160 84% 45%;
   }
 
   .dark {
     color-scheme: dark;
 
-    /* Deep slate, deliberately not pure black */
-    --background: 217 30% 9%;
-    --foreground: 40 15% 90%;
+    /* Derived: the navy pushed to a page background, off-white ink */
+    --background: 217 45% 7%;
+    --foreground: 220 13% 91%;
 
-    --card: 217 27% 12%;
-    --card-foreground: 40 15% 90%;
+    --card: 217 40% 11%;
+    --card-foreground: 220 13% 91%;
 
-    --popover: 217 27% 12%;
-    --popover-foreground: 40 15% 90%;
+    --popover: 217 40% 11%;
+    --popover-foreground: 220 13% 91%;
 
-    /* Brighter teal so the accent holds contrast on dark slate */
-    --primary: 182 45% 55%;
-    --primary-foreground: 217 33% 10%;
+    /* Navy is invisible on a navy page, so primary inverts to the ink colour */
+    --primary: 220 13% 91%;
+    --primary-foreground: 216 65% 11%;
+    --brand-navy: 216 65% 11%;
+    --brand-navy-hover: 214 57% 23%;
 
-    --secondary: 217 22% 17%;
-    --secondary-foreground: 40 15% 90%;
+    --brand-green: 160 70% 45%;
+    --brand-green-foreground: 216 65% 8%;
 
-    --muted: 217 22% 16%;
-    --muted-foreground: 217 12% 68%;
+    --secondary: 217 33% 16%;
+    --secondary-foreground: 220 13% 91%;
 
-    --accent: 184 28% 20%;
-    --accent-foreground: 182 35% 80%;
+    --muted: 217 33% 15%;
+    --muted-foreground: 220 9% 65%;
+
+    --accent: 217 33% 18%;
+    --accent-foreground: 220 13% 91%;
 
     --destructive: 0 60% 50%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 217 18% 22%;
-    --input: 217 18% 24%;
-    --ring: 182 45% 55%;
+    --border: 217 28% 20%;
+    --input: 217 28% 22%;
+    --ring: 160 70% 45%;
 
-    --slate-950: 217 30% 7%;
-    --slate-900: 217 27% 12%;
-    --slate-800: 217 24% 18%;
-    --slate-500: 217 12% 60%;
-    --slate-50: 40 15% 92%;
+    --tag: 204 60% 18%;
+    --tag-foreground: 204 90% 78%;
+    --tag-esg: 158 45% 16%;
+    --tag-esg-foreground: 152 60% 72%;
 
-    --emerald: 152 40% 48%;
-    --emerald-light: 152 40% 58%;
-    --emerald-dark: 152 42% 38%;
+    --slate-950: 217 45% 5%;
+    --slate-900: 217 40% 11%;
+    --slate-800: 217 33% 18%;
+    --slate-500: 220 9% 60%;
+    --slate-50: 220 13% 93%;
+
+    --emerald: 160 70% 45%;
+    --emerald-light: 160 65% 55%;
+    --emerald-dark: 160 70% 35%;
 
     --amber: 38 85% 58%;
     --amber-light: 38 85% 68%;
     --rose: 350 65% 62%;
     --rose-light: 350 70% 72%;
 
-    --chart-1: 182 45% 52%;
-    --chart-2: 35 85% 60%;
-    --chart-3: 217 12% 62%;
-    --chart-4: 152 40% 52%;
+    --chart-1: 214 60% 62%;
+    --chart-2: 160 70% 50%;
+    --chart-3: 220 9% 62%;
+    --chart-4: 35 85% 60%;
     --chart-5: 265 40% 68%;
 
-    --hero-heading: 40 15% 92%;
-    --hero-subtext: 217 12% 68%;
+    --hero-heading: 220 13% 93%;
+    --hero-subtext: 220 9% 65%;
 
     --sidebar-background: 217 30% 8%;
     --sidebar-foreground: 40 15% 90%;

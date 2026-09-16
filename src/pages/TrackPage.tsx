@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { Seo } from "@/components/seo/Seo";
 import { ContentList } from "@/components/content/ContentList";
 import { staticMeta } from "@/lib/contentModel";
@@ -18,6 +19,11 @@ export default function TrackPage({ trackId }: { trackId: string }) {
   const idx = TRACKS.findIndex((t) => t.id === trackId);
   const prev = idx > 0 ? TRACKS[idx - 1] : undefined;
   const next = idx < TRACKS.length - 1 ? TRACKS[idx + 1] : undefined;
+  const crumbs = [
+    { name: "The Vault", path: paths.vault() },
+    { name: "Concept Guides", path: paths.guides() },
+    { name: track.label, path },
+  ];
 
   return (
     <Layout>
@@ -25,23 +31,9 @@ export default function TrackPage({ trackId }: { trackId: string }) {
         meta={staticMeta({ title: `${track.label} Guides`, slug: trackId, section: "vault", subsection: "guides", summary: track.description })}
         path={path}
         titleTag={`${track.label}: Concept Guides - The Valuation Node`}
-        jsonLd={[
-          breadcrumbLd([
-            { name: "The Vault", path: paths.vault() },
-            { name: "Concept Guides", path: paths.guides() },
-            { name: track.label, path },
-          ]),
-        ]}
+        jsonLd={[breadcrumbLd(crumbs)]}
       />
-      <nav aria-label="Breadcrumb" className="border-b">
-        <ol className="container flex max-w-5xl flex-wrap items-center gap-2 py-3 text-sm text-muted-foreground">
-          <li><Link to={paths.vault()} className="hover:text-foreground">The Vault</Link></li>
-          <li>/</li>
-          <li><Link to={paths.guides()} className="hover:text-foreground">Concept Guides</Link></li>
-          <li>/</li>
-          <li className="font-medium text-foreground">{track.label}</li>
-        </ol>
-      </nav>
+      <Breadcrumbs items={crumbs} />
       <div className="container max-w-5xl py-14">
         <div className="flex items-start gap-3">
           {Icon && (

@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { Seo } from "@/components/seo/Seo";
 import { Callout } from "@/components/content/Callout";
 import { staticMeta } from "@/lib/contentModel";
@@ -26,6 +27,12 @@ export default function CoursePage({ slug }: { slug: (typeof COURSES)[number]["s
     navigate(`${paths.glossary()}?q=${encodeURIComponent(topic)}`);
   };
   const Body = slug === "fundamental-analysis-course" ? FundamentalAnalysisContent : TechnicalAnalysisContent;
+  const crumbs = [
+    { name: "The Vault", path: paths.vault() },
+    { name: "Concept Guides", path: paths.guides() },
+    ...(track ? [{ name: track.label, path: paths.track(track.id) }] : []),
+    { name: course.title, path },
+  ];
 
   return (
     <Layout>
@@ -39,30 +46,9 @@ export default function CoursePage({ slug }: { slug: (typeof COURSES)[number]["s
           summary: course.summary,
         })}
         path={path}
-        jsonLd={[
-          breadcrumbLd([
-            { name: "The Vault", path: paths.vault() },
-            { name: "Concept Guides", path: paths.guides() },
-            ...(track ? [{ name: track.label, path: paths.track(track.id) }] : []),
-            { name: course.title, path },
-          ]),
-        ]}
+        jsonLd={[breadcrumbLd(crumbs)]}
       />
-      <nav aria-label="Breadcrumb" className="border-b">
-        <ol className="container flex max-w-5xl flex-wrap items-center gap-2 py-3 text-sm text-muted-foreground">
-          <li><Link to={paths.vault()} className="hover:text-foreground">The Vault</Link></li>
-          <li>/</li>
-          <li><Link to={paths.guides()} className="hover:text-foreground">Concept Guides</Link></li>
-          {track && (
-            <>
-              <li>/</li>
-              <li><Link to={paths.track(track.id)} className="hover:text-foreground">{track.label}</Link></li>
-            </>
-          )}
-          <li>/</li>
-          <li className="font-medium text-foreground">{course.title}</li>
-        </ol>
-      </nav>
+      <Breadcrumbs items={crumbs} />
       <div className="container max-w-5xl py-12">
         <h1 className="text-3xl font-bold tracking-tight">{course.title}</h1>
         <p className="mt-3 max-w-3xl text-lg text-muted-foreground">{course.summary}</p>

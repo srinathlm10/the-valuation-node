@@ -5,9 +5,14 @@ import { Label } from "@/components/ui/label";
 
 interface Props {
   source?: string;
+  /** "card": boxed block with its own heading. "sidebar": bare form for the prototype's Weekly Briefing sidebar section (the sidebar supplies the heading). */
+  variant?: "card" | "sidebar";
+  /** Heading element for the card variant, so the page outline stays in order. */
+  headingLevel?: "h2" | "h3";
 }
 
-export function NewsletterSignup({ source = "site" }: Props) {
+export function NewsletterSignup({ source = "site", variant = "card", headingLevel = "h2" }: Props) {
+  const Heading = headingLevel;
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "already" | "error">(
@@ -64,9 +69,11 @@ export function NewsletterSignup({ source = "site" }: Props) {
     }
   };
 
+  const boxCls = variant === "sidebar" ? "" : "rounded-md border border-border bg-card p-6";
+
   if (status === "success") {
     return (
-      <div className="rounded-xl border border-border bg-muted/30 p-6 text-center">
+      <div className={`${boxCls} text-center`}>
         <p className="font-semibold text-foreground">You're subscribed.</p>
         <p className="mt-1 text-sm text-muted-foreground">
           Thank you. You'll hear from me roughly once a month.
@@ -77,7 +84,7 @@ export function NewsletterSignup({ source = "site" }: Props) {
 
   if (status === "already") {
     return (
-      <div className="rounded-xl border border-border bg-muted/30 p-6 text-center">
+      <div className={`${boxCls} text-center`}>
         <p className="font-semibold text-foreground">Already subscribed.</p>
         <p className="mt-1 text-sm text-muted-foreground">
           That email is already on the list. You're all set.
@@ -86,9 +93,38 @@ export function NewsletterSignup({ source = "site" }: Props) {
     );
   }
 
+  if (variant === "sidebar") {
+    // Prototype .newsletter-*: text, full-width square input, navy button.
+    return (
+      <form onSubmit={handleSubmit} className="space-y-2">
+        <p className="mb-4 text-sm text-muted-foreground">
+          Curated insights on valuation, ESG, and Indian markets, roughly once a month. No spam, no upsells.
+        </p>
+        <label htmlFor={`newsletter-email-${source}`} className="sr-only">Email address</label>
+        <input
+          id={`newsletter-email-${source}`}
+          type="email"
+          placeholder="Your email address"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+          className="w-full border border-border bg-background px-3 py-3 text-sm text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        />
+        {status === "error" && <p className="text-sm text-destructive">{errorMsg}</p>}
+        <button
+          type="submit"
+          disabled={status === "loading"}
+          className="w-full bg-brand-navy px-3 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-navy-hover disabled:opacity-60"
+        >
+          {status === "loading" ? "Subscribing…" : "Subscribe"}
+        </button>
+      </form>
+    );
+  }
+
   return (
-    <div className="rounded-xl border border-border bg-muted/30 p-6">
-      <h3 className="font-semibold text-foreground">Stay in the loop</h3>
+    <div className={boxCls}>
+      <Heading className="font-semibold text-foreground">Stay in the loop</Heading>
       <p className="mt-1 mb-4 text-sm text-muted-foreground">
         Roughly one email per month. No spam, no upsells.
       </p>
