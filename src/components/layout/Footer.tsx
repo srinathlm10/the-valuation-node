@@ -70,7 +70,7 @@ export function Footer() {
           {/* Brand, social, newsletter */}
           <div className="md:col-span-2 lg:col-span-1">
             <Link to="/" className="flex items-center gap-2">
-              <img src="/logo-on-dark.png" alt="" width={32} height={32} className="h-8 w-8 object-contain" aria-hidden="true" />
+              <img src="/logo-circle.png" alt="" width={32} height={32} className="h-8 w-8 object-contain" aria-hidden="true" />
               <img src="/logo-wordmark-dark.png" alt="The Valuation Node" width={147} height={22} className="h-[22px] w-auto" />
             </Link>
             <p className="mt-3 text-sm leading-relaxed">Independent research and learning on Indian markets.</p>
