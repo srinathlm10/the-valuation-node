@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Search, SearchX } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { Seo } from "@/components/seo/Seo";
 import { staticMeta } from "@/lib/contentModel";
 import { Input } from "@/components/ui/input";
@@ -101,14 +102,7 @@ export default function RatioAnalysis() {
           },
         ]}
       />
-
-      <nav aria-label="Breadcrumb" className="border-b">
-        <ol className="container flex max-w-5xl items-center gap-2 py-3 text-sm text-muted-foreground">
-          <li><Link to="/vault" className="hover:text-foreground">The Vault</Link></li>
-          <li>/</li>
-          <li className="font-medium text-foreground">Key Formulas & Ratios</li>
-        </ol>
-      </nav>
+      <Breadcrumbs items={[{ name: "The Vault", path: "/vault" }, { name: "Key Formulas & Ratios", path: "/vault/formulas" }]} />
 
       <div className="container max-w-5xl py-14">
         <h1 className="text-3xl font-bold tracking-tight">Ratio Analysis</h1>

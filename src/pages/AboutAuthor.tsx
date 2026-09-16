@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { Seo } from "@/components/seo/Seo";
 import { staticMeta } from "@/lib/contentModel";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
@@ -33,14 +34,7 @@ export default function AboutAuthor() {
         },
         ]}
       />
-
-      <nav className="border-b">
-        <ol className="container max-w-3xl py-3 flex items-center gap-2 text-sm text-muted-foreground">
-          <li><Link to="/about" className="hover:text-foreground">About</Link></li>
-          <li>/</li>
-          <li className="text-foreground font-medium">Author</li>
-        </ol>
-      </nav>
+      <Breadcrumbs items={[{ name: "About", path: "/about" }, { name: "About the Author", path: "/about/author" }]} />
 
       <div className="container max-w-3xl py-12">
         {/* Headshot slot */}

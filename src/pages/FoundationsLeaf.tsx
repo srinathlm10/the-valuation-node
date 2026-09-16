@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { Seo } from "@/components/seo/Seo";
 import { guideMetaFor, staticMeta, summarise } from "@/lib/contentModel";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
@@ -90,18 +91,7 @@ export default function FoundationsLeaf() {
           ]),
         ]}
       />
-
-      <nav aria-label="Breadcrumb" className="border-b">
-        <ol className="container max-w-3xl py-3 flex items-center gap-2 text-sm text-muted-foreground">
-          <li><Link to={paths.vault()} className="hover:text-foreground">The Vault</Link></li>
-          <li>/</li>
-          <li><Link to={paths.guides()} className="hover:text-foreground">Concept Guides</Link></li>
-          <li>/</li>
-          <li><Link to={paths.track(section!)} className="hover:text-foreground">{trackLabel}</Link></li>
-          <li>/</li>
-          <li className="text-foreground font-medium">{topicMeta.label}</li>
-        </ol>
-      </nav>
+      <Breadcrumbs items={[{ name: "The Vault", path: paths.vault() }, { name: "Concept Guides", path: paths.guides() }, { name: trackLabel, path: paths.track(section!) }, { name: topicMeta.label, path: pagePath }]} />
 
       <ReadingProgress />
 

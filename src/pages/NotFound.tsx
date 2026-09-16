@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { GlobalSearch } from "@/components/search/GlobalSearch";
 import { Compass } from "lucide-react";
 
@@ -11,6 +12,7 @@ export default function NotFound() {
         <title>Page not found - The Valuation Node</title>
         <meta name="robots" content="noindex" />
       </Helmet>
+      <Breadcrumbs items={[{ name: "Page not found", path: "/404" }]} />
 
       <div className="container max-w-xl py-24 text-center space-y-6">
         <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">

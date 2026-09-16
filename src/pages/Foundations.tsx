@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { Seo } from "@/components/seo/Seo";
 import { staticMeta } from "@/lib/contentModel";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
@@ -99,6 +100,7 @@ export default function Foundations() {
         titleTag="Concept Guides: Finance from First Principles - The Valuation Node"
         jsonLd={[breadcrumbLd([{ name: "The Vault", path: "/vault" }, { name: "Concept Guides", path: "/vault/guides" }])]}
       />
+      <Breadcrumbs items={[{ name: "The Vault", path: "/vault" }, { name: "Concept Guides", path: "/vault/guides" }]} />
 
       <div className="container py-14">
         <div className="flex gap-12">
@@ -114,12 +116,6 @@ export default function Foundations() {
 
           {/* Main */}
           <div className="flex-1 max-w-2xl">
-            <Link
-              to="/vault"
-              className="text-sm text-muted-foreground hover:text-foreground mb-6 inline-block"
-            >
-              ← The Vault
-            </Link>
             <h1 className="text-3xl font-bold tracking-tight">Concept Guides</h1>
             <p className="mt-3 text-muted-foreground">
               Finance concepts from first principles. Each topic covers intuition, mechanics, and

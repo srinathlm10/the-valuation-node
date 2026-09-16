@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { Seo } from "@/components/seo/Seo";
 import { staticMeta } from "@/lib/contentModel";
 import { ArrowRight } from "lucide-react";
@@ -60,6 +61,7 @@ export default function About() {
         },
         ]}
       />
+      <Breadcrumbs items={[{ name: "About", path: "/about" }]} />
 
       <div className="container max-w-3xl py-14">
         <h1 className="text-3xl font-bold tracking-tight">About</h1>

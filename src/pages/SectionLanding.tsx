@@ -3,7 +3,7 @@ import { Layout } from "@/components/layout/Layout";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { Seo } from "@/components/seo/Seo";
 import { ContentList } from "@/components/content/ContentList";
-import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
+import { Sidebar } from "@/components/layout/Sidebar";
 import { EmptyState } from "@/components/content/EmptyState";
 import { staticMeta } from "@/lib/contentModel";
 import { landingItems, landingHasContent } from "@/lib/contentIndex";
@@ -54,8 +54,9 @@ export default function SectionLanding({ section }: { section: SectionId }) {
       />
       <Breadcrumbs items={crumbs} />
 
-      <div className="container max-w-5xl py-14">
-        <h1 className="text-3xl font-bold tracking-tight">{title}</h1>
+      <div className="container my-8 grid gap-10 lg:grid-cols-[2.3fr_1fr]">
+      <div className="min-w-0 py-6">
+        <h1 className="font-serif text-3xl font-bold tracking-tight">{title}</h1>
         <p className="mt-3 max-w-3xl text-lg text-muted-foreground">{summary}</p>
 
         {liveSubs.length > 0 && (
@@ -79,7 +80,7 @@ export default function SectionLanding({ section }: { section: SectionId }) {
         )}
 
         {hasContent ? (
-          <ContentList items={items} className="mt-10" />
+          <ContentList items={items} className="mt-10" headingLevel="h2" />
         ) : (
           <EmptyState
             icon={Inbox}
@@ -90,9 +91,8 @@ export default function SectionLanding({ section }: { section: SectionId }) {
           />
         )}
 
-        <div className="mt-16" id="newsletter">
-          <NewsletterSignup />
-        </div>
+      </div>
+      <Sidebar />
       </div>
     </Layout>
   );

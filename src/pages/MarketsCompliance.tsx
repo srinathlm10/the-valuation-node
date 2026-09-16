@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { Seo } from "@/components/seo/Seo";
 import { staticMeta } from "@/lib/contentModel";
 import { ComplianceFeed } from "@/components/compliance/ComplianceFeed";
@@ -19,15 +20,9 @@ export default function MarketsCompliance() {
         path="/news/policy-regulation/compliance-calendar"
         titleTag="SEBI, NSE, BSE Compliance Calendar - The Valuation Node"
       />
+      <Breadcrumbs items={[{ name: "News & Trends", path: "/news" }, { name: "Policy & Regulation", path: "/news/policy-regulation" }, { name: "Compliance Calendar", path: "/news/policy-regulation/compliance-calendar" }]} />
 
       <div className="container py-14">
-        <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
-          <Link to="/news" className="hover:text-foreground">News & Trends</Link>
-          <span>/</span>
-          <Link to="/news/policy-regulation" className="hover:text-foreground">Policy & Regulation</Link>
-          <span>/</span>
-          <span className="text-foreground font-medium">Compliance Calendar</span>
-        </nav>
 
         <div className="mb-6">
           <h1 className="text-3xl font-bold tracking-tight">Compliance Calendar</h1>
@@ -45,6 +40,7 @@ export default function MarketsCompliance() {
           </p>
         </div>
 
+        <h2 className="sr-only">Circulars</h2>
         <ComplianceFeed circulars={CIRCULARS as never} />
       </div>
     </Layout>

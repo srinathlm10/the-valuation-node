@@ -4,6 +4,8 @@ import { Layout } from "@/components/layout/Layout";
 import { Seo } from "@/components/seo/Seo";
 import { staticMeta } from "@/lib/contentModel";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
+import { Sidebar } from "@/components/layout/Sidebar";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { ArrowRight, EyeOff, FileSearch } from "lucide-react";
 import { EmptyState } from "@/components/content/EmptyState";
 import { Button } from "@/components/ui/button";
@@ -76,8 +78,16 @@ export default function Research() {
         ]}
       />
 
-      <div className="container max-w-4xl py-14">
-        <h1 className="text-3xl font-bold tracking-tight">{subsection ? subsection.label : "Insights & Analysis"}</h1>
+      <Breadcrumbs
+        items={
+          subsection
+            ? [{ name: section.label, path: section.path }, { name: subsection.label, path }]
+            : [{ name: section.label, path: section.path }]
+        }
+      />
+      <div className="container my-8 grid gap-10 lg:grid-cols-[2.3fr_1fr]">
+      <div className="min-w-0 py-6">
+        <h1 className="font-serif text-3xl font-bold tracking-tight">{subsection ? subsection.label : "Insights & Analysis"}</h1>
         <p className="mt-3 text-muted-foreground max-w-xl leading-relaxed">
           {subsection
             ? subsection.description
@@ -204,6 +214,8 @@ export default function Research() {
             </Button>
           </div>
         )}
+      </div>
+      <Sidebar />
       </div>
     </Layout>
   );

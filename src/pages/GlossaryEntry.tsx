@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { Seo } from "@/components/seo/Seo";
 import { glossaryMeta } from "@/lib/contentModel";
 import { findTerm, findByName, siblingsOf } from "@/lib/glossary";
@@ -58,16 +59,7 @@ export default function GlossaryEntry() {
           },
         ]}
       />
-
-      <nav aria-label="Breadcrumb" className="border-b">
-        <ol className="container max-w-3xl py-3 flex items-center gap-2 text-sm text-muted-foreground">
-          <li><Link to="/vault" className="hover:text-foreground">The Vault</Link></li>
-          <li>/</li>
-          <li><Link to="/vault/glossary" className="hover:text-foreground">Glossary</Link></li>
-          <li>/</li>
-          <li className="text-foreground font-medium">{def.term}</li>
-        </ol>
-      </nav>
+      <Breadcrumbs items={[{ name: "The Vault", path: "/vault" }, { name: "Glossary", path: "/vault/glossary" }, { name: def.term, path }]} />
 
       <article className="container max-w-3xl py-12">
         <h1 className="text-3xl font-bold tracking-tight">{def.term}</h1>

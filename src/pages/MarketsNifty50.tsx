@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { Layout } from "@/components/layout/Layout";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { Seo } from "@/components/seo/Seo";
 import { staticMeta } from "@/lib/contentModel";
 import { StockScreener, type Stock } from "@/components/stocks/StockScreener";
@@ -98,15 +99,9 @@ export default function MarketsNifty50() {
           ]),
         ]}
       />
+      <Breadcrumbs items={[{ name: "News & Trends", path: paths.news() }, { name: "Indian Economy", path: paths.newsSub("indian-economy") }, { name: "Nifty 50 Fundamentals", path }]} />
 
       <div className="container py-14">
-        <nav aria-label="Breadcrumb" className="mb-6 flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
-          <Link to={paths.news()} className="hover:text-foreground">News & Trends</Link>
-          <span>/</span>
-          <Link to={paths.newsSub("indian-economy")} className="hover:text-foreground">Indian Economy</Link>
-          <span>/</span>
-          <span className="font-medium text-foreground">Nifty 50</span>
-        </nav>
 
         <div className="mb-6 flex flex-wrap items-start justify-between gap-4">
           <div>

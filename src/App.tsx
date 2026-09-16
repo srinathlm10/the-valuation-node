@@ -198,6 +198,10 @@ export const routes: RouteRecord[] = [
         getStaticPaths: () => staticPathsFor("/vault/interactive", 3),
       },
 
+      // ── Search and Start here ─────────────────────────────────────────
+      { path: "search", lazy: async () => ({ Component: (await import("./pages/SearchPage")).default }) },
+      { path: "start-here", lazy: async () => ({ Component: (await import("./pages/StartHere")).default }) },
+
       // ── Topics (tags) ─────────────────────────────────────────────────
       { path: "tags", Component: TagsIndex },
       {

@@ -25,6 +25,8 @@ export function siteRoutes(): SiteRoute[] {
   const add = (r: SiteRoute) => out.push(r);
 
   add({ path: "/", priority: "1.0", changefreq: "weekly", index: true });
+  add({ path: "/start-here", priority: "0.8", changefreq: "monthly", index: true });
+  add({ path: "/search", priority: "0.1", changefreq: "yearly", index: false });
 
   // Section and sub-section landings
   for (const s of SECTIONS) {

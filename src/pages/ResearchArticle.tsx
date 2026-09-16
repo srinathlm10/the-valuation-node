@@ -1,6 +1,7 @@
 import { useParams, Link, Navigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { Seo } from "@/components/seo/Seo";
 import { researchMeta } from "@/lib/contentModel";
 import { paths, researchPath } from "@/lib/routes";
@@ -132,6 +133,15 @@ export default function ResearchArticle() {
 
   const toc = tocFromMarkdown(article.content, slugify);
   const meta = researchMeta(article);
+  const wordCount = article.content.split(/\s+/).filter(Boolean).length;
+  const showToc = wordCount > 1200 && toc.length >= 3;
+  const subLabel = article.subsection ? getSubsection("analysis", article.subsection)?.label ?? article.subsection : undefined;
+  const crumbs = [
+    { name: "Insights & Analysis", path: paths.analysis() },
+    ...(article.subsection ? [{ name: subLabel!, path: paths.analysisSub(article.subsection) }] : []),
+    { name: article.title, path: canonicalPath! },
+  ];
+  const updatedDate = article.updatedAt && article.updatedAt !== article.publishedAt ? fmtDate(article.updatedAt) : null;
   const publishedDate = fmtDate(article.publishedAt);
   // Social scrapers need an absolute og:image URL.
   const ogImageAbs = article.ogImage
@@ -163,37 +173,31 @@ export default function ResearchArticle() {
             publisher: PUBLISHER,
             mainEntityOfPage: article.canonical || `https://valuationnode.com${canonicalPath}`,
           },
-          breadcrumbLd([
-            { name: "Insights & Analysis", path: paths.analysis() },
-            ...(article.subsection ? [{ name: getSubsection("analysis", article.subsection)?.label ?? article.subsection, path: paths.analysisSub(article.subsection) }] : []),
-            { name: article.title, path: canonicalPath! },
-          ]),
+          breadcrumbLd(crumbs),
         ]}
       />
 
+      <Breadcrumbs items={crumbs} />
       <ReadingProgress />
 
       <div className="container py-14 max-w-3xl xl:max-w-6xl xl:grid xl:grid-cols-[minmax(0,1fr)_230px] xl:gap-12">
       <article className="min-w-0 w-full max-w-3xl mx-auto xl:mx-0">
-        {/* Back link: block-level (flex, not inline-flex) so the category
-            badge below never shares its line. */}
-        <Link to={paths.analysis()} className="flex w-fit items-center gap-1 text-sm text-muted-foreground hover:text-foreground mb-8">
-          <ArrowLeft className="h-3.5 w-3.5" /> Insights & Analysis
-        </Link>
-
         {isAdmin && <AdminBar article={article} isHidden={isHidden} />}
 
-        {/* Category */}
-        {article.category && (
+        {/* Sub-section pill (prototype .tag) */}
+        {subLabel && (
           <div>
-            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold uppercase tracking-wide bg-primary/10 text-primary">
-              {article.category}
-            </span>
+            <Link
+              to={paths.analysisSub(article.subsection!)}
+              className="inline-block rounded-full bg-tag px-3 py-1 text-xs font-bold uppercase tracking-wide text-tag-foreground"
+            >
+              {subLabel}
+            </Link>
           </div>
         )}
 
         {/* Title */}
-        <h1 className="mt-2 text-3xl font-bold tracking-tight leading-tight">{article.title}</h1>
+        <h1 className="mt-3 font-serif text-3xl font-bold leading-tight md:text-[2.25rem] md:leading-[1.2]">{article.title}</h1>
 
         {/* Dek */}
         {article.excerpt && (
@@ -207,33 +211,41 @@ export default function ResearchArticle() {
           </div>
           <div>
             <p className="text-sm font-medium">{article.author || "Gajji Srinath"}, Founder, The Valuation Node</p>
-            <div className="flex items-center gap-3 mt-0.5 text-xs text-muted-foreground">
-              {publishedDate && <time dateTime={article.publishedAt}>{publishedDate}</time>}
+            <div className="mt-0.5 flex flex-wrap items-center gap-x-3 gap-y-0.5 text-xs text-muted-foreground">
+              {publishedDate && <span>Published <time dateTime={article.publishedAt}>{publishedDate}</time></span>}
+              {updatedDate && <span>Updated <time dateTime={article.updatedAt}>{updatedDate}</time></span>}
               {article.readingTime && <span>{article.readingTime} min read</span>}
             </div>
           </div>
         </div>
+
+        {/* Key takeaways box */}
+        {article.keyTakeaways && article.keyTakeaways.length > 0 ? (
+          <div className="mt-8 border-l-4 border-brand-green bg-card p-5">
+            <h2 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">Key takeaways</h2>
+            <ul className="mt-3 space-y-2">
+              {article.keyTakeaways.map((k, i) => (
+                <li key={i} className="flex gap-2 text-sm">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand-green" />
+                  <span>{k}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : (
+          article.excerpt && (
+            <div className="mt-8 border-l-4 border-brand-green bg-card p-5">
+              <h2 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">Key takeaway</h2>
+              <p className="mt-2 text-sm">{article.excerpt}</p>
+            </div>
+          )
+        )}
 
         {/* Methodology callout */}
         {article.methodologySummary && (
           <Callout variant="methodology" title="Methodology" titleAs="h2" className="mt-8">
             <p>{article.methodologySummary}</p>
           </Callout>
-        )}
-
-        {/* Key takeaways */}
-        {article.keyTakeaways && article.keyTakeaways.length > 0 && (
-          <div className="mt-8 rounded-xl border bg-muted/20 p-5">
-            <h2 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">Key takeaways</h2>
-            <ul className="mt-3 space-y-2">
-              {article.keyTakeaways.map((k, i) => (
-                <li key={i} className="flex gap-2 text-sm text-muted-foreground">
-                  <Check className="h-4 w-4 shrink-0 mt-0.5 text-emerald-500" />
-                  <span>{k}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
         )}
 
         {/* Body */}
@@ -266,11 +278,27 @@ export default function ResearchArticle() {
           </Callout>
         )}
 
+        {/* Sources */}
+        <div className="mt-10">
+          <h2 className="mb-3 text-sm font-semibold">Sources</h2>
+          <p className="text-sm text-muted-foreground">
+            {article.methodologySummary
+              ? "Figures and claims come from the sources named in the text and in the methodology note above: company filings, exchange disclosures, and rating agency reports, as cited."
+              : "Figures and claims come from the sources named in the text: company filings, exchange disclosures, and rating agency reports, as cited."}{" "}
+            See the <Link to={paths.aboutPage("philosophy")} className="underline">editorial philosophy</Link> for how sources are chosen.
+          </p>
+        </div>
+
         {/* Citation */}
         <div className="mt-10">
           <h2 className="text-sm font-semibold mb-3">Cite this article</h2>
           <CitationBlock article={article} />
         </div>
+
+        <p className="mt-8 border-t pt-4 text-xs text-muted-foreground">
+          Educational analysis, not investment advice. The author may hold positions in securities discussed; where relevant, this is stated above. See the{" "}
+          <Link to={paths.aboutPage("disclaimer")} className="underline">disclaimer</Link>.
+        </p>
 
         {/* Update log */}
         {Array.isArray(article.updateLog) && article.updateLog.length > 0 && (
@@ -316,13 +344,15 @@ export default function ResearchArticle() {
         {/* Continue reading */}
         <ContinueReading
           className="mt-14"
+          heading="Related"
+          limit={3}
           currentSlug={article.slug}
           category={article.category}
-          tags={article.tags}
+          tags={[...(article.tags ?? []), ...(article.keywords ?? [])]}
         />
       </article>
 
-      {toc.length >= 3 && (
+      {showToc && (
         <aside className="hidden xl:block">
           <div className="sticky top-24">
             <TableOfContents items={toc} />

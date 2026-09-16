@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { Seo } from "@/components/seo/Seo";
 import { interactiveMeta } from "@/lib/contentModel";
 import { TOOL_META } from "@/data/tools";
@@ -82,18 +83,23 @@ export default function ToolPage() {
         ]}
       />
 
+      <Breadcrumbs
+        items={[
+          { name: "The Vault", path: "/vault" },
+          { name: "Interactive", path: "/vault/interactive" },
+          { name: meta.label, path: pagePath },
+        ]}
+      />
       <div className="container max-w-3xl py-14">
-        <Link to="/vault/interactive" className="text-sm text-muted-foreground hover:text-foreground mb-6 inline-block">
-          ← Tools
-        </Link>
         <h1 className="text-3xl font-bold tracking-tight">{meta.label}</h1>
         <p className="mt-3 text-muted-foreground">{meta.description}</p>
 
-        {/* Calculator */}
+        {/* Calculator (the card inside uses h3, so this h2 keeps the outline in order) */}
         {CalculatorComponent && (
-          <div className="mt-8">
+          <section className="mt-8" aria-labelledby="calculator-heading">
+            <h2 id="calculator-heading" className="sr-only">Calculator</h2>
             <CalculatorComponent />
-          </div>
+          </section>
         )}
 
         {/* How to use */}

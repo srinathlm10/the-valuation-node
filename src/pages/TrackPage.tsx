@@ -47,7 +47,7 @@ export default function TrackPage({ trackId }: { trackId: string }) {
             <p className="mt-2 text-sm text-muted-foreground">{items.length} guides. Read in order, or jump to what you need.</p>
           </div>
         </div>
-        <ContentList items={items} showTags={false} className="mt-10" />
+        <ContentList items={items} showTags={false} className="mt-10" headingLevel="h2" />
         <nav aria-label="Other tracks" className="mt-12 grid gap-3 border-t pt-6 sm:grid-cols-2">
           {prev ? (
             <Link to={paths.track(prev.id)} className="rounded-lg border p-4 transition-colors hover:bg-muted/40">

@@ -1,27 +1,64 @@
 import { useMemo } from "react";
 import { Link } from "react-router-dom";
+import { ArrowRight, Search } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
 import { Seo } from "@/components/seo/Seo";
+import { Sidebar } from "@/components/layout/Sidebar";
+import { ArticleCard } from "@/components/content/ArticleCard";
 import { staticMeta } from "@/lib/contentModel";
-import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
-import { RESEARCH_ARTICLES } from "@/data/research.generated";
-import { researchPath } from "@/lib/routes";
+import { CONTENT_INDEX, landingItems, latestItems, publishedItems, type ContentItem } from "@/lib/contentIndex";
 import { useHiddenSlugs } from "@/lib/articleVisibility";
-import { Reveal } from "@/components/content/Reveal";
+import { getSection } from "@/lib/taxonomy";
+import { paths } from "@/lib/routes";
+import { GLOSSARY } from "@/lib/glossary";
+import { RATIOS } from "@/data/ratioAnalysis";
+
+/**
+ * Home page, from the prototype: a 70/30 grid (2.3fr / 1fr, 2.5rem gap; one
+ * column below 900px). Main column: hero lead story, then a two-column news
+ * grid. Sidebar: Latest Updates, Trending Topics, Weekly Briefing. Below the
+ * grid: one block of three cards per content section, a Start Here block, and
+ * a Vault promo with glossary search. Card budget: 1 hero + 4 grid + 3 x 2
+ * section blocks = 11 (target 10 to 14).
+ */
+
+const CARD_BUDGET = { hero: 1, grid: 4, perSection: 3 };
+
+const START_HERE = [
+  { label: "New to markets?", href: "/vault/guides/reading-an-income-statement", text: "Read an income statement, then a balance sheet, then link the two." },
+  { label: "Want to value a company?", href: "/vault/guides/dcf-theory-and-mechanics", text: "DCF theory first, then build one step by step on real numbers." },
+  { label: "Checking a stock quickly?", href: "/vault/formulas", text: "Forty-nine ratios with the formula, the benchmark, and where each one lies." },
+  { label: "Analysing a bank?", href: "/vault/guides/sector-specific-valuation", text: "Why banks break the usual rules, and the ratio set that replaces them." },
+];
 
 export default function Index() {
   const { data: hidden } = useHiddenSlugs();
-  // Articles come from Git (newest first); hidden ones never appear here.
-  const researchArticles = useMemo(
-    () => RESEARCH_ARTICLES.filter((a) => a.status !== "draft" && !(hidden?.has(a.slug) ?? false)).slice(0, 4),
+
+  // Articles first (newest), then other dated content; hidden slugs never appear.
+  const articles = useMemo(
+    () =>
+      publishedItems()
+        .filter((i) => i.kind === "article" && !(hidden?.has(i.meta.slug) ?? false))
+        .sort((a, b) => (b.meta.publishDate ?? "").localeCompare(a.meta.publishDate ?? "")),
     [hidden]
   );
-  const featured = researchArticles[0];
-  const recent = researchArticles.slice(1, 4);
+  const hero: ContentItem | undefined = articles[0];
+  const gridPool = [...articles.slice(1), ...latestItems(20).filter((i) => i.kind !== "article")];
+  const grid = gridPool.filter((i) => i.path !== hero?.path).slice(0, CARD_BUDGET.grid);
+  const usedPaths = new Set([hero?.path, ...grid.map((g) => g.path)]);
 
-  const latestResearchHref = featured ? researchPath(featured.slug, featured.subsection) : "/analysis";
+  const sectionBlocks = (["analysis", "esg", "news"] as const)
+    .map((id) => ({
+      section: getSection(id),
+      items: landingItems(id)
+        .filter((i) => !usedPaths.has(i.path) && !(hidden?.has(i.meta.slug) ?? false))
+        .slice(0, CARD_BUDGET.perSection),
+    }))
+    .filter((b) => b.items.length > 0)
+    .slice(0, 2);
+
+  const latest = latestItems(5).filter((i) => !(hidden?.has(i.meta.slug) ?? false));
+  const guideCount = CONTENT_INDEX.filter((i) => i.kind === "guide").length;
 
   return (
     <Layout>
@@ -30,291 +67,131 @@ export default function Index() {
           title: "The Valuation Node: Indian Market Research & Learning",
           slug: "home",
           section: "analysis",
-          summary: "Original valuation and credit analysis of Indian companies, plus a free learning library covering accounting, valuation, ESG, and fintech.",
+          summary:
+            "Original valuation and credit analysis of Indian companies, plus a free reference library: glossary, formulas, concept guides, and interactive tools. By Gajji Srinath.",
         })}
         path="/"
         titleTag="The Valuation Node: Indian Market Research & Learning"
-        description="Research and learning on Indian markets, by Gajji Srinath. Original valuations, credit analysis, and a public learning library."
+        description="Research and learning on Indian markets, by Gajji Srinath. Original valuations, credit analysis, ESG, and a free reference library."
         jsonLd={[
           {
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          name: "The Valuation Node",
-          url: "https://valuationnode.com",
-          description: "Indian markets research and learning by Gajji Srinath.",
-          logo: {
-            "@type": "ImageObject",
-            url: "https://valuationnode.com/logo.png",
-            width: 512,
-            height: 512,
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "The Valuation Node",
+            url: "https://valuationnode.com",
+            description: "Indian markets research and learning by Gajji Srinath.",
+            logo: { "@type": "ImageObject", url: "https://valuationnode.com/logo.png", width: 512, height: 512 },
+            sameAs: ["https://www.linkedin.com/in/gajji-srinath/"],
           },
-          sameAs: ["https://www.linkedin.com/in/gajji-srinath/"],
-        },
         ]}
       />
 
-      {/* Hero */}
-      <section className="border-b relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--primary)/0.08),transparent_65%)] pointer-events-none" />
-        {/* Node-graph motif: the brand mark, kept faint and decorative */}
-        <svg
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-8 top-1/2 hidden -translate-y-1/2 lg:block text-primary"
-          width="420"
-          height="360"
-          viewBox="0 0 420 360"
-          fill="none"
-        >
-          <g opacity="0.13">
-            <line x1="70" y1="290" x2="180" y2="180" stroke="currentColor" strokeWidth="1.5" />
-            <line x1="180" y1="180" x2="310" y2="230" stroke="currentColor" strokeWidth="1.5" />
-            <line x1="180" y1="180" x2="250" y2="70" stroke="currentColor" strokeWidth="1.5" />
-            <line x1="250" y1="70" x2="360" y2="120" stroke="currentColor" strokeWidth="1.5" />
-            <line x1="70" y1="290" x2="250" y2="70" stroke="currentColor" strokeWidth="1" />
-            <circle cx="70" cy="290" r="10" fill="currentColor" />
-            <circle cx="180" cy="180" r="14" fill="currentColor" />
-            <circle cx="310" cy="230" r="8" fill="currentColor" />
-            <circle cx="250" cy="70" r="11" fill="currentColor" />
-            <circle cx="360" cy="120" r="7" fill="currentColor" />
-          </g>
-        </svg>
-        <div className="container relative py-24 md:py-32 max-w-3xl">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="h-px w-10 bg-primary shrink-0" />
-            <p className="text-xs font-semibold text-primary tracking-[0.15em] uppercase">
-              The Valuation Node
-            </p>
-          </div>
-          <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-foreground leading-[1.08]">
-            Research and learning<br className="hidden sm:block" /> on Indian markets.
-          </h1>
-          <p className="mt-6 text-xl text-muted-foreground max-w-lg leading-relaxed">
-            Original valuation and credit analysis, plus a public learning library, by Gajji Srinath.
-          </p>
-          <div className="mt-10 flex flex-wrap gap-3">
-            <Button asChild size="lg" className="rounded-full px-8">
-              <Link to={latestResearchHref}>
-                Latest research <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="rounded-full px-8">
-              <Link to="/vault">Learning library</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
+      <h1 className="sr-only">The Valuation Node: Indian market research and learning</h1>
 
-      {/* Featured article */}
-      <section className="border-b">
-        <div className="container py-16 max-w-3xl">
-          <h2 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-8">
-            Featured research
-          </h2>
-          {featured ? (
-            <Reveal>
-            <article className="rounded-2xl border overflow-hidden bg-card shadow-sm hover:shadow-md transition-shadow">
-              {/* Show a cover only when the article has its own image (not the site-wide default). */}
-              {featured.ogImage && featured.ogImage !== "/og-image.png" && (
-                <div className="aspect-[21/9] overflow-hidden bg-muted">
-                  <img
-                    src={featured.ogImage}
-                    alt={featured.title}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              )}
-              <div className="p-6 md:p-8">
-                {featured.category && (
-                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold uppercase tracking-wide bg-primary/10 text-primary">
-                    {featured.category}
-                  </span>
-                )}
-                <h2 className="mt-3 text-2xl font-bold leading-snug">
-                  <Link to={researchPath(featured.slug, featured.subsection)} className="hover:underline">
-                    {featured.title}
-                  </Link>
-                </h2>
-                {featured.excerpt && (
-                  <p className="mt-3 text-muted-foreground leading-relaxed">{featured.excerpt}</p>
-                )}
-                <div className="mt-6 flex items-center justify-between flex-wrap gap-3">
-                  <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                    {featured.publishedAt && (
-                      <time dateTime={featured.publishedAt}>
-                        {new Date(featured.publishedAt).toLocaleDateString("en-IN", {
-                          day: "numeric",
-                          month: "long",
-                          year: "numeric",
-                        })}
-                      </time>
-                    )}
-                    {featured.readingTime && (
-                      <>
-                        <span className="text-border">·</span>
-                        <span>{featured.readingTime} min read</span>
-                      </>
-                    )}
-                  </div>
-                  <Link
-                    to={researchPath(featured.slug, featured.subsection)}
-                    className="text-sm font-medium text-foreground hover:underline inline-flex items-center gap-1.5"
-                  >
-                    Read article <ArrowRight className="h-3.5 w-3.5" />
-                  </Link>
-                </div>
+      {/* Prototype .container: 2.3fr / 1fr grid */}
+      <div className="container my-8 grid gap-10 lg:grid-cols-[2.3fr_1fr]">
+        <div className="flex min-w-0 flex-col gap-8">
+          {hero && <ArticleCard item={hero} variant="hero" headingLevel="h2" />}
+
+          {grid.length > 0 && (
+            <section aria-labelledby="home-latest-heading">
+              <h2 id="home-latest-heading" className="sr-only">Latest from the site</h2>
+              <div className="grid gap-6 md:grid-cols-2">
+                {grid.map((item) => (
+                  <ArticleCard key={item.path} item={item} headingLevel="h3" />
+                ))}
               </div>
-            </article>
-            </Reveal>
-          ) : (
-            <div className="rounded-2xl border border-dashed p-12 text-center">
-              <p className="text-muted-foreground">Coming soon, first research piece</p>
-            </div>
+            </section>
           )}
         </div>
-      </section>
 
-      {/* Recent research */}
-      {recent.length > 0 && (
-        <section className="border-b">
-          <div className="container py-16 max-w-4xl">
-            <div className="flex items-center justify-between mb-8">
-              <h2 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                Recent research
-              </h2>
-              <Link
-                to="/analysis"
-                className="text-sm text-muted-foreground hover:text-foreground inline-flex items-center gap-1"
-              >
-                All research <ArrowRight className="h-3.5 w-3.5" />
-              </Link>
-            </div>
-            <Reveal>
-            <div className="grid gap-4 md:grid-cols-3">
-              {recent.map((article) => (
-                <Link
-                  key={article.slug}
-                  to={researchPath(article.slug, article.subsection)}
-                  className="group block rounded-xl border bg-card p-5 hover:shadow-md hover:border-primary/30 transition-all"
-                >
-                  {article.category && (
-                    <span className="text-xs font-semibold uppercase tracking-wider text-primary">
-                      {article.category}
-                    </span>
-                  )}
-                  <h3 className="mt-2 font-semibold leading-snug group-hover:underline">
-                    {article.title}
-                  </h3>
-                  {article.excerpt && (
-                    <p className="mt-2 text-xs text-muted-foreground line-clamp-2 leading-relaxed">
-                      {article.excerpt}
-                    </p>
-                  )}
-                  {article.publishedAt && (
-                    <p className="mt-3 text-xs text-muted-foreground">
-                      {new Date(article.publishedAt).toLocaleDateString("en-IN", {
-                        month: "short",
-                        day: "numeric",
-                        year: "numeric",
-                      })}
-                    </p>
-                  )}
-                </Link>
-              ))}
-            </div>
-            </Reveal>
-          </div>
-        </section>
-      )}
+        <Sidebar latest={latest} />
+      </div>
 
-      {/* Featured learning */}
-      <section className="border-b">
-        <div className="container py-16 max-w-4xl">
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-              From the learning library
+      {/* Per-section blocks */}
+      {sectionBlocks.map(({ section, items }) => (
+        <section key={section.id} className="container mt-14" aria-labelledby={`home-${section.id}-heading`}>
+          <div className="mb-6 flex items-end justify-between gap-4 border-b-2 border-primary pb-2">
+            <h2 id={`home-${section.id}-heading`} className="text-[1.1rem] font-semibold uppercase tracking-[1px]">
+              {section.label}
             </h2>
-            <Link
-              to="/vault"
-              className="text-sm text-muted-foreground hover:text-foreground inline-flex items-center gap-1"
-            >
-              Explore the library <ArrowRight className="h-3.5 w-3.5" />
+            <Link to={section.path} className="text-sm font-semibold uppercase tracking-[0.5px] text-primary hover:underline">
+              All {section.label} →
             </Link>
           </div>
-          <div className="grid gap-4 md:grid-cols-3">
-            {/* Flagship card */}
-            <div className="md:col-span-2 rounded-xl border border-primary/20 bg-primary/5 p-6 hover:shadow-md transition-shadow">
-              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold uppercase tracking-wide bg-primary/10 text-primary">
-                Foundations · Valuation
-              </span>
-              <h3 className="mt-3 text-xl font-bold leading-snug">
-                <Link
-                  to="/vault/guides/dcf-theory-and-mechanics"
-                  className="hover:underline"
-                >
-                  DCF: Theory and Mechanics
-                </Link>
-              </h3>
-              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                From first principles to a working DCF model. Intuition, mechanics, and common
-                mistakes, with real Indian company numbers.
-              </p>
-            </div>
-            {/* Small cards */}
-            <div className="flex flex-col gap-4">
-              {[
-                { label: "Accounting", title: "Reading an Income Statement", href: "/vault/guides/reading-an-income-statement" },
-                { label: "Credit Analysis", title: "Credit Risk Fundamentals", href: "/vault/guides/credit-risk-fundamentals" },
-                { label: "Learn-by-Doing", title: "Build a DCF, Step by Step", href: "/vault/interactive/build-a-dcf" },
-              ].map((item) => (
-                <Link
-                  key={item.href}
-                  to={item.href}
-                  className="group rounded-lg border bg-card p-4 hover:border-primary/30 hover:shadow-sm transition-all"
-                >
-                  <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                    {item.label}
-                  </span>
-                  <p className="mt-1.5 text-sm font-medium leading-snug group-hover:underline">
-                    {item.title}
-                  </p>
-                </Link>
-              ))}
-            </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {items.map((item) => (
+              <ArticleCard key={item.path} item={item} headingLevel="h3" />
+            ))}
           </div>
+        </section>
+      ))}
+
+      {/* Start here */}
+      <section className="container mt-14" aria-labelledby="home-start-heading">
+        <div className="border border-border bg-card p-6 md:p-8">
+          <h2 id="home-start-heading" className="text-[1.1rem] font-semibold uppercase tracking-[1px]">Start here</h2>
+          <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
+            Four paths through the library, depending on what you came for.
+          </p>
+          <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {START_HERE.map((s) => (
+              <li key={s.href} className="relative border border-border p-4 transition-colors hover:bg-accent">
+                <h3 className="text-sm font-semibold">
+                  <Link to={s.href} className="after:absolute after:inset-0 after:content-['']">
+                    {s.label}
+                  </Link>
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.text}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
-      {/* About + Newsletter */}
-      <section id="newsletter">
-        <div className="container py-16 max-w-4xl">
-          <div className="grid gap-12 md:grid-cols-2">
-            {/* Author */}
-            <div>
-              <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center mb-5 shadow-md">
-                <span className="text-base font-bold text-primary-foreground tracking-tight select-none">SG</span>
-              </div>
-              <h2 className="text-xl font-bold">Gajji Srinath</h2>
-              <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                Founder of The Valuation Node. MBA candidate at NIT Rourkela, writing about
-                Indian markets from first principles.
-              </p>
-              <Link
-                to="/about"
-                className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:underline"
-              >
-                More about the site <ArrowRight className="h-3.5 w-3.5" />
-              </Link>
-            </div>
-
-            {/* Newsletter */}
-            <div>
-              <NewsletterSignup />
+      {/* Vault promo with glossary search */}
+      <section className="container my-14" aria-labelledby="home-vault-heading">
+        <div className="grid gap-8 bg-brand-navy p-8 text-white md:grid-cols-[1.4fr_1fr] md:p-10">
+          <div>
+            <h2 id="home-vault-heading" className="font-serif text-2xl leading-tight md:text-3xl">
+              The Vault: <span className="text-brand-green">{GLOSSARY.length}</span> definitions,{" "}
+              <span className="text-brand-green">{RATIOS.length}</span> formulas,{" "}
+              <span className="text-brand-green">{guideCount}</span> concept guides.
+            </h2>
+            <p className="mt-3 max-w-xl text-[#d1d5db]">
+              Every term with a formula and an Indian example. Every ratio with its benchmark and where it
+              misleads. Every guide from first principles.
+            </p>
+            <div className="mt-5 flex flex-wrap gap-3 text-sm font-semibold uppercase tracking-[0.5px]">
+              <Link to={paths.glossary()} className="text-white hover:text-brand-green">Glossary →</Link>
+              <Link to={paths.formulas()} className="text-white hover:text-brand-green">Formulas →</Link>
+              <Link to={paths.guides()} className="text-white hover:text-brand-green">Guides →</Link>
+              <Link to={paths.interactive()} className="text-white hover:text-brand-green">Interactive →</Link>
             </div>
           </div>
+          <form action={paths.glossary()} method="get" role="search" className="self-center">
+            <label htmlFor="home-glossary-q" className="mb-2 block text-xs font-semibold uppercase tracking-[1px] text-[#d1d5db]">
+              Look up a term
+            </label>
+            <div className="flex">
+              <input
+                id="home-glossary-q"
+                name="q"
+                type="search"
+                placeholder="e.g. ROCE, CASA, free cash flow"
+                className="w-full border border-white/20 bg-white/10 px-3 py-3 text-sm text-white placeholder:text-white/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green"
+              />
+              <button type="submit" className="bg-brand-green px-4 text-white hover:opacity-90" aria-label="Search the glossary">
+                <Search className="h-4 w-4" />
+              </button>
+            </div>
+          </form>
         </div>
       </section>
+
+      <p className="sr-only">
+        <Link to={paths.analysis()}>Browse all analysis <ArrowRight className="inline h-3 w-3" /></Link>
+      </p>
     </Layout>
   );
 }

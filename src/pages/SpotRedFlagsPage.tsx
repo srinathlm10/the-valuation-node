@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { Seo } from "@/components/seo/Seo";
 import { interactiveMeta } from "@/lib/contentModel";
 import { breadcrumbLd } from "@/lib/seo";
@@ -31,16 +32,7 @@ export default function SpotRedFlagsPage() {
           ]),
         ]}
       />
-
-      <nav className="border-b">
-        <ol className="container max-w-5xl py-3 flex items-center gap-2 text-sm text-muted-foreground">
-          <li><Link to="/vault" className="hover:text-foreground">Learn</Link></li>
-          <li>/</li>
-          <li><Link to="/vault/interactive" className="hover:text-foreground">Learn-by-Doing</Link></li>
-          <li>/</li>
-          <li className="text-foreground font-medium">Spot the Red Flags</li>
-        </ol>
-      </nav>
+      <Breadcrumbs items={[{ name: "The Vault", path: "/vault" }, { name: "Interactive", path: "/vault/interactive" }, { name: "Spot the Red Flags", path: "/vault/interactive/spot-the-red-flags" }]} />
 
       <div className="container max-w-5xl py-10">
         <div className="mb-8">

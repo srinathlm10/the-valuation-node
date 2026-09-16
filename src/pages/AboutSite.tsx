@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { Seo } from "@/components/seo/Seo";
 import { staticMeta } from "@/lib/contentModel";
 
@@ -26,14 +27,7 @@ export default function AboutSite() {
         path="/about/site"
         titleTag="About this site - The Valuation Node"
       />
-
-      <nav className="border-b">
-        <ol className="container max-w-3xl py-3 flex items-center gap-2 text-sm text-muted-foreground">
-          <li><Link to="/about" className="hover:text-foreground">About</Link></li>
-          <li>/</li>
-          <li className="text-foreground font-medium">About this site</li>
-        </ol>
-      </nav>
+      <Breadcrumbs items={[{ name: "About", path: "/about" }, { name: "About the Site", path: "/about/site" }]} />
 
       <div className="container max-w-3xl py-12">
         <h1 className="text-3xl font-bold tracking-tight">About this site</h1>

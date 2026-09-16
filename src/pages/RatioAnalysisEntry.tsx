@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { ArrowLeft, ArrowRight, SearchX } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { Seo } from "@/components/seo/Seo";
 import { ratioMeta } from "@/lib/contentModel";
 import { Prose } from "@/components/content/Prose";
@@ -74,16 +75,7 @@ export default function RatioAnalysisEntry() {
           },
         ]}
       />
-
-      <nav aria-label="Breadcrumb" className="border-b">
-        <ol className="container flex max-w-3xl flex-wrap items-center gap-2 py-3 text-sm text-muted-foreground">
-          <li><Link to="/vault" className="hover:text-foreground">The Vault</Link></li>
-          <li>/</li>
-          <li><Link to="/vault/formulas" className="hover:text-foreground">Key Formulas & Ratios</Link></li>
-          <li>/</li>
-          <li className="font-medium text-foreground">{ratio.name}</li>
-        </ol>
-      </nav>
+      <Breadcrumbs items={[{ name: "The Vault", path: "/vault" }, { name: "Key Formulas & Ratios", path: "/vault/formulas" }, { name: ratio.name, path }]} />
 
       <article className="container max-w-3xl py-12">
         <Link

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { Seo } from "@/components/seo/Seo";
 import { staticMeta } from "@/lib/contentModel";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
@@ -58,6 +59,7 @@ export default function LearnIndex() {
         path="/vault"
         titleTag="The Vault: Glossary, Formulas, Guides, Tools - The Valuation Node"
       />
+      <Breadcrumbs items={[{ name: "The Vault", path: "/vault" }]} />
 
       <div className="container max-w-3xl py-14">
         <h1 className="text-3xl font-bold tracking-tight">The Vault</h1>

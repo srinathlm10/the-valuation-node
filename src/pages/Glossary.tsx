@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { Seo } from "@/components/seo/Seo";
 import { staticMeta } from "@/lib/contentModel";
 import { Input } from "@/components/ui/input";
@@ -59,11 +60,9 @@ export default function Glossary() {
         titleTag="Financial Glossary - The Valuation Node"
         jsonLd={[breadcrumbLd([{ name: "The Vault", path: "/vault" }, { name: "Financial Glossary", path: "/vault/glossary" }])]}
       />
+      <Breadcrumbs items={[{ name: "The Vault", path: "/vault" }, { name: "Financial Glossary", path: "/vault/glossary" }]} />
 
       <div className="container max-w-4xl py-14">
-        <Link to="/vault" className="text-sm text-muted-foreground hover:text-foreground mb-6 inline-block">
-          ← The Vault
-        </Link>
         <h1 className="text-3xl font-bold tracking-tight">Financial Glossary</h1>
         <p className="mt-3 text-muted-foreground">
           Finance terms, defined. Each entry includes a formula where applicable and a real Indian
