@@ -69,7 +69,7 @@ export function NewsletterSignup({ source = "site", variant = "card", headingLev
     }
   };
 
-  const boxCls = variant === "sidebar" ? "" : "rounded-md border border-border bg-card p-6";
+  const boxCls = variant === "sidebar" ? "newsletter-text" : "rounded-md border border-border bg-card p-6";
 
   if (status === "success") {
     return (
@@ -94,31 +94,30 @@ export function NewsletterSignup({ source = "site", variant = "card", headingLev
   }
 
   if (variant === "sidebar") {
-    // Prototype .newsletter-*: text, full-width square input, navy button.
+    // The prototype newsletter section, class for class: .newsletter-text,
+    // then a form with .newsletter-input and .newsletter-btn.
     return (
-      <form onSubmit={handleSubmit} className="space-y-2">
-        <p className="mb-4 text-sm text-muted-foreground">
-          Curated insights on valuation, ESG, and Indian markets, roughly once a month. No spam, no upsells.
+      <>
+        <p className="newsletter-text">
+          Get curated insights on valuation, ESG, and Indian market trends delivered straight to your inbox.
         </p>
-        <label htmlFor={`newsletter-email-${source}`} className="sr-only">Email address</label>
-        <input
-          id={`newsletter-email-${source}`}
-          type="email"
-          placeholder="Your email address"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          className="w-full border border-border bg-background px-3 py-3 text-sm text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-        />
-        {status === "error" && <p className="text-sm text-destructive">{errorMsg}</p>}
-        <button
-          type="submit"
-          disabled={status === "loading"}
-          className="w-full bg-brand-navy px-3 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-navy-hover disabled:opacity-60"
-        >
-          {status === "loading" ? "Subscribing…" : "Subscribe"}
-        </button>
-      </form>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor={`newsletter-email-${source}`} className="sr-only">Email address</label>
+          <input
+            id={`newsletter-email-${source}`}
+            type="email"
+            placeholder="Your email address"
+            className="newsletter-input"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          {status === "error" && <p className="mb-2 text-sm text-destructive">{errorMsg}</p>}
+          <button type="submit" className="newsletter-btn" disabled={status === "loading"}>
+            {status === "loading" ? "Subscribing…" : "Subscribe"}
+          </button>
+        </form>
+      </>
     );
   }
 

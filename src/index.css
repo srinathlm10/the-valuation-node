@@ -1,3 +1,8 @@
+/* Prototype nav + home page styles (variables and class rules extracted from
+   Documents & Readme/Instructions/financial_blog_prototype.html). Must be the
+   first statement in the file. */
+@import "./styles/prototype.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

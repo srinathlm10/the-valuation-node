@@ -89,7 +89,7 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-            <div className="mt-6" id="footer-newsletter">
+            <div className="footer-newsletter mt-6" id="footer-newsletter">
               <h2 className="mb-2 text-xs font-semibold uppercase tracking-[1px] text-white">Weekly Briefing</h2>
               <NewsletterSignup variant="sidebar" source="footer" />
             </div>

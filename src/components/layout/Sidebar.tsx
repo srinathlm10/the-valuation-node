@@ -2,19 +2,30 @@ import { Link } from "react-router-dom";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { latestItems, tagCounts, type ContentItem } from "@/lib/contentIndex";
 import { getSection, getSubsection, tagLabel } from "@/lib/taxonomy";
+import { RECENT_UPDATES } from "@/data/recentUpdates";
 import { paths } from "@/lib/routes";
 import { cn } from "@/lib/utils";
 
 /**
- * Sidebar, from the prototype's <aside class="sidebar">: three white boxed
- * sections with uppercase titles underlined in navy. In order: Latest Updates
- * (text-only items with a timestamp line), Trending Topics (tag cloud), and
- * Weekly Briefing (newsletter). Sticky on desktop; the parent grid places it
- * below the main column on mobile.
+ * Sidebar: the prototype's <aside class="sidebar"> with its three
+ * .sidebar-section boxes, class for class (src/styles/prototype.css):
+ *
+ *   Latest Updates   .recent-list > .recent-item (.recent-time + .recent-link)
+ *   Trending Topics  .tags-cloud > .tag-pill
+ *   Weekly Briefing  .newsletter-text + form (.newsletter-input, .newsletter-btn)
+ *
+ * Latest Updates merges dated research articles with the explicit Vault
+ * additions log (src/data/recentUpdates.ts), newest first.
  */
 
-function relativeTime(iso?: string): string {
-  if (!iso) return "";
+interface Recent {
+  date: string;
+  section: string;
+  title: string;
+  path: string;
+}
+
+function relativeTime(iso: string): string {
   const then = new Date(iso).getTime();
   const days = Math.floor((Date.now() - then) / 86_400_000);
   if (days <= 0) return "Today";
@@ -23,61 +34,78 @@ function relativeTime(iso?: string): string {
   return new Date(iso).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
 }
 
-function itemLabel(item: ContentItem): string {
+function itemSection(item: ContentItem): string {
   if (item.meta.section === "vault") return "The Vault";
   const sub = item.meta.subsection ? getSubsection(item.meta.section, item.meta.subsection) : undefined;
   return sub?.label ?? getSection(item.meta.section).label;
 }
 
-export function SidebarSection({ title, children, className }: { title: string; children: React.ReactNode; className?: string }) {
-  return (
-    <section className={cn("border border-border bg-card p-6", className)}>
-      <h2 className="mb-4 border-b-2 border-primary pb-2 text-[1.1rem] font-semibold uppercase tracking-[1px]">{title}</h2>
-      {children}
-    </section>
-  );
+function recentFeed(latest: ContentItem[] | undefined, count: number): Recent[] {
+  const fromContent: Recent[] = (latest ?? latestItems(count))
+    .filter((i) => i.meta.publishDate)
+    .map((i) => ({ date: i.meta.publishDate!, section: itemSection(i), title: i.meta.title, path: i.path }));
+  const fromLog: Recent[] = RECENT_UPDATES.map((u) => ({ date: u.date, section: u.section, title: `${u.label}: ${u.title}`, path: u.path }));
+  const seen = new Set<string>();
+  return [...fromContent, ...fromLog]
+    .sort((a, b) => b.date.localeCompare(a.date))
+    .filter((r) => (seen.has(r.path) ? false : (seen.add(r.path), true)))
+    .slice(0, count);
 }
 
-export function Sidebar({ latest, latestCount = 5, tagLimit = 12, className }: { latest?: ContentItem[]; latestCount?: number; tagLimit?: number; className?: string }) {
-  const items = latest ?? latestItems(latestCount);
+/** "#FinancialModeling" style label, as in the prototype tag cloud. */
+function hashtag(tag: string): string {
+  return "#" + tagLabel(tag).replace(/[^A-Za-z0-9 ]/g, "").split(/\s+/).map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join("");
+}
+
+export function Sidebar({
+  latest,
+  latestCount = 5,
+  tagLimit = 8,
+  className,
+}: {
+  latest?: ContentItem[];
+  latestCount?: number;
+  tagLimit?: number;
+  className?: string;
+}) {
+  const recent = recentFeed(latest, latestCount);
   const tags = tagCounts().slice(0, tagLimit);
 
   return (
-    <aside className={cn("flex flex-col gap-8 lg:sticky lg:top-24 lg:self-start", className)} aria-label="Sidebar">
-      <SidebarSection title="Latest Updates">
-        <ul className="divide-y divide-border">
-          {items.map((item) => (
-            <li key={item.path} className="py-4 first:pt-0 last:pb-0">
-              <span className="mb-1 block text-xs text-muted-foreground">
-                {relativeTime(item.meta.publishDate ?? item.meta.updatedDate)} · {itemLabel(item)}
+    <aside className={cn("sidebar", className)} aria-label="Sidebar">
+      {/* Recently Added */}
+      <section className="sidebar-section" aria-labelledby="sidebar-latest">
+        <h3 id="sidebar-latest" className="sidebar-title">Latest Updates</h3>
+        <ul className="recent-list">
+          {recent.map((r) => (
+            <li key={r.path} className="recent-item">
+              <span className="recent-time">
+                <time dateTime={r.date}>{relativeTime(r.date)}</time> • {r.section}
               </span>
-              <Link to={item.path} className="block text-[0.95rem] font-semibold leading-snug text-foreground hover:text-primary hover:underline">
-                {item.meta.title}
-              </Link>
+              <Link to={r.path} className="recent-link">{r.title}</Link>
             </li>
           ))}
         </ul>
-      </SidebarSection>
+      </section>
 
-      <SidebarSection title="Trending Topics">
-        <div className="flex flex-wrap gap-2">
+      {/* Trending Topics / Tags */}
+      <section className="sidebar-section" aria-labelledby="sidebar-topics">
+        <h3 id="sidebar-topics" className="sidebar-title">Trending Topics</h3>
+        <div className="tags-cloud">
           {tags.map(({ tag }) => (
-            <Link
-              key={tag}
-              to={paths.tag(tag)}
-              className="rounded border border-border bg-background px-3 py-1 text-[0.85rem] text-muted-foreground transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
-            >
-              #{tagLabel(tag).replace(/\s+/g, "")}
+            <Link key={tag} to={paths.tag(tag)} className="tag-pill">
+              {hashtag(tag)}
             </Link>
           ))}
         </div>
-      </SidebarSection>
+      </section>
 
-      <SidebarSection title="Weekly Briefing">
-        <div id="newsletter">
-          <NewsletterSignup variant="sidebar" source="sidebar" />
-        </div>
-      </SidebarSection>
+      {/* Newsletter Opt-in */}
+      <section className="sidebar-section" aria-labelledby="sidebar-newsletter" id="newsletter">
+        <h3 id="sidebar-newsletter" className="sidebar-title">Weekly Briefing</h3>
+        <NewsletterSignup variant="sidebar" source="sidebar" />
+      </section>
     </aside>
   );
 }
+

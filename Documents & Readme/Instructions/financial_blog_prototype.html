@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NITR Capital Insights</title>
+    <style>
+        /* CSS Variables for consistent theming */
+        :root {
+            --primary-dark: #0a192f; /* Deep Navy */
+            --accent-green: #10b981; /* ESG Green */
+            --bg-light: #f8f9fa;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --border-color: #e5e7eb;
+            --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            --font-serif: 'Merriweather', 'Georgia', serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* --- Navigation Bar --- */
+        nav {
+            background-color: var(--primary-dark);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: white;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--accent-green);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #d1d5db;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .search-btn {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        /* --- Main Layout --- */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 2.3fr 1fr; /* ~70/30 Split */
+            gap: 2.5rem;
+        }
+
+        /* --- Left Column: Main Content --- */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        /* Hero Article */
+        .hero-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .hero-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-img {
+            width: 100%;
+            height: 350px;
+            background-color: #cbd5e1;
+            background-image: linear-gradient(135deg, #cbd5e1 25%, #94a3b8 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .hero-content {
+            padding: 1.5rem;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #e0f2fe;
+            color: #0369a1;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        .tag.esg {
+            background-color: #d1fae5;
+            color: #047857;
+        }
+
+        .hero-title {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .hero-desc {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .read-more {
+            display: inline-block;
+            color: var(--primary-dark);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .read-more::after {
+            content: ' →';
+            transition: margin-left 0.2s;
+        }
+        
+        .hero-card:hover .read-more::after {
+            margin-left: 5px;
+        }
+
+        /* News Grid */
+        .news-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .news-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .news-img {
+            width: 100%;
+            height: 180px;
+            background-color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .news-content {
+            padding: 1.25rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-title {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            line-height: 1.3;
+            margin-bottom: 0.75rem;
+        }
+
+        .news-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        /* --- Right Column: Sidebar --- */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sidebar-section {
+            background: white;
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+        }
+
+        .sidebar-title {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid var(--primary-dark);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Recently Added Feed */
+        .recent-list {
+            list-style: none;
+        }
+
+        .recent-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .recent-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .recent-time {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 0.25rem;
+            display: block;
+        }
+
+        .recent-link {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            display: block;
+        }
+
+        .recent-link:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        /* Tags Cloud */
+        .tags-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag-pill {
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .tag-pill:hover {
+            background: var(--primary-dark);
+            color: white;
+            border-color: var(--primary-dark);
+        }
+
+        /* Newsletter */
+        .newsletter-text {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            margin-bottom: 0.5rem;
+            font-family: inherit;
+        }
+
+        .newsletter-btn {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--primary-dark);
+            color: white;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .newsletter-btn:hover {
+            background: #1a365d;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none; /* In a real app, replace with a hamburger menu */
+            }
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sticky Navigation Bar -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">NITR<span>Capital</span></a>
+            <ul class="nav-links">
+                <li><a href="#">News & Trends</a></li>
+                <li><a href="#">Insights & Analysis</a></li>
+                <li><a href="#">ESG & Sustainability</a></li>
+                <li><a href="#">The Vault</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#" style="color: white; text-decoration: none; font-size: 0.9rem;">About</a>
+                <button class="search-btn" title="Search">🔍</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Main Content Area (70%) -->
+        <main class="main-content">
+            
+            <!-- Hero Block -->
+            <a href="#" class="hero-card">
+                <div class="hero-img">
+                    [Featured High-Quality Image Placeholder]
+                </div>
+                <div class="hero-content">
+                    <span class="tag esg">ESG Strategy</span>
+                    <h1 class="hero-title">The Premium on Green: Why Impact Investing is Reshaping Corporate Valuations in 2024</h1>
+                    <p class="hero-desc">As regulatory pressures mount globally, traditional DCF models are evolving. A deep dive into how environmental and social governance metrics are being quantified by top asset managers.</p>
+                    <span class="read-more">Read Full Analysis</span>
+                </div>
+            </a>
+
+            <!-- News & Analysis Grid -->
+            <div class="news-grid">
+                
+                <!-- Card 1 -->
+                <a href="#" class="news-card">
+                    <div class="news-img">[Thumbnail Image]</div>
+                    <div class="news-content">
+                        <span class="tag">Valuation</span>
+                        <h2 class="news-title">Tech Multiples vs. Traditional Manufacturing</h2>
+                        <p class="news-desc">An analysis of current PE ratios and why legacy Indian industries might be undervalued.</p>
+                        <span class="read-more">Read More</span>
+                    </div>
+                </a>
+
+                <!-- Card 2 -->
+                <a href="#" class="news-card">
+                    <div class="news-img">[Thumbnail Image]</div>
+                    <div class="news-content">
+                        <span class="tag">Market News</span>
+                        <h2 class="news-title">RBI Holds Rates Steady Amidst Inflation Concerns</h2>
+                        <p class="news-desc">What the latest central bank policy means for domestic corporate debt restructuring.</p>
+                        <span class="read-more">Read More</span>
+                    </div>
+                </a>
+
+                <!-- Card 3 -->
+                <a href="#" class="news-card">
+                    <div class="news-img">[Thumbnail Image]</div>
+                    <div class="news-content">
+                        <span class="tag esg">Green Finance</span>
+                        <h2 class="news-title">Carbon Credits: A New Revenue Stream?</h2>
+                        <p class="news-desc">Breaking down the mechanics of the voluntary carbon market for mid-cap businesses.</p>
+                        <span class="read-more">Read More</span>
+                    </div>
+                </a>
+
+                <!-- Card 4 -->
+                <a href="#" class="news-card">
+                    <div class="news-img">[Thumbnail Image]</div>
+                    <div class="news-content">
+                        <span class="tag">Op-Ed</span>
+                        <h2 class="news-title">The Fallacy of the 'Growth at All Costs' Model</h2>
+                        <p class="news-desc">Why sustainable profitability is making a massive comeback in the startup ecosystem.</p>
+                        <span class="read-more">Read More</span>
+                    </div>
+                </a>
+
+            </div>
+        </main>
+
+        <!-- Sidebar Area (30%) -->
+        <aside class="sidebar">
+            
+            <!-- Recently Added -->
+            <section class="sidebar-section">
+                <h3 class="sidebar-title">Latest Updates</h3>
+                <ul class="recent-list">
+                    <li class="recent-item">
+                        <span class="recent-time">2 hours ago • The Vault</span>
+                        <a href="#" class="recent-link">Term Added: Weighted Average Cost of Capital (WACC)</a>
+                    </li>
+                    <li class="recent-item">
+                        <span class="recent-time">5 hours ago • Quick Take</span>
+                        <a href="#" class="recent-link">NIFTY 50 breaks resistance levels following tech earnings</a>
+                    </li>
+                    <li class="recent-item">
+                        <span class="recent-time">Yesterday • Business Strategy</span>
+                        <a href="#" class="recent-link">Blue Ocean Strategy applied to Indian FinTechs</a>
+                    </li>
+                    <li class="recent-item">
+                        <span class="recent-time">2 days ago • The Vault</span>
+                        <a href="#" class="recent-link">Formula Added: DuPont Analysis</a>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Trending Topics / Tags -->
+            <section class="sidebar-section">
+                <h3 class="sidebar-title">Trending Topics</h3>
+                <div class="tags-cloud">
+                    <a href="#" class="tag-pill">#FinancialModeling</a>
+                    <a href="#" class="tag-pill">#GreenBonds</a>
+                    <a href="#" class="tag-pill">#IndianEconomy</a>
+                    <a href="#" class="tag-pill">#PrivateEquity</a>
+                    <a href="#" class="tag-pill">#CorporateGov</a>
+                    <a href="#" class="tag-pill">#DCF</a>
+                </div>
+            </section>
+
+            <!-- Newsletter Opt-in -->
+            <section class="sidebar-section">
+                <h3 class="sidebar-title">Weekly Briefing</h3>
+                <p class="newsletter-text">Get curated insights on valuation, ESG, and market trends delivered straight to your inbox.</p>
+                <form onsubmit="event.preventDefault(); alert('Subscribed!');">
+                    <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                    <button type="submit" class="newsletter-btn">Subscribe</button>
+                </form>
+            </section>
+
+        </aside>
+    </div>
+
+</body>
+</html>

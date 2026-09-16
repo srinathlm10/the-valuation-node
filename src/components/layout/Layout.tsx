@@ -5,9 +5,11 @@ import { Footer } from "./Footer";
 
 interface LayoutProps {
   children: ReactNode;
+  /** The page supplies its own <main> (the home page renders the prototype's <main class="main-content">). */
+  bare?: boolean;
 }
 
-export function Layout({ children }: LayoutProps) {
+export function Layout({ children, bare = false }: LayoutProps) {
   return (
     <div className="flex min-h-screen flex-col">
       {/* Site-wide SEO defaults. Any page can override these via its own <Helmet>
@@ -24,7 +26,7 @@ export function Layout({ children }: LayoutProps) {
         <meta name="twitter:image" content="https://valuationnode.com/og-image.png" />
       </Helmet>
       <Header />
-      <main className="flex-1">{children}</main>
+      {bare ? <div className="flex-1">{children}</div> : <main className="flex-1">{children}</main>}
       <Footer />
     </div>
   );
