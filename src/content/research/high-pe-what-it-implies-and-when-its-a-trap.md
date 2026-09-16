@@ -3,7 +3,7 @@ title: "What a High P/E Actually Implies, and When It Is a Trap"
 slug: "high-pe-what-it-implies-and-when-its-a-trap"
 category: "Valuation"
 section: "analysis"
-subsection: "valuation-modeling"
+subsection: "financial-analysis"
 tags: ["valuation", "relative-valuation", "equities"]
 status: "published"
 keywords: ["P/E ratio", "valuation", "market expectations", "equity analysis"]

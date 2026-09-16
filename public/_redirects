@@ -5,16 +5,23 @@
 
 # ── Research -> Insights & Analysis ───────────────────────────────────────
 /research                                                   /analysis                                                                    301
-/research/how-the-valuation-node-approaches-research        /analysis/op-eds/how-the-valuation-node-approaches-research                  301
-/research/three-years-cash-flow-what-one-year-hides         /analysis/valuation-modeling/three-years-cash-flow-what-one-year-hides       301
-/research/roe-comparison-dupont-why-higher-isnt-better      /analysis/valuation-modeling/roe-comparison-dupont-why-higher-isnt-better    301
-/research/high-pe-what-it-implies-and-when-its-a-trap       /analysis/valuation-modeling/high-pe-what-it-implies-and-when-its-a-trap     301
-/research/five-red-flags-financial-statements               /analysis/valuation-modeling/five-red-flags-financial-statements             301
-/research/profitable-but-out-of-cash                        /analysis/valuation-modeling/profitable-but-out-of-cash                      301
-/research/terminal-value-dominates-valuations               /analysis/valuation-modeling/terminal-value-dominates-valuations             301
-/research/what-credit-ratings-measure-and-miss              /analysis/op-eds/what-credit-ratings-measure-and-miss                        301
+/research/how-the-valuation-node-approaches-research        /analysis/financial-analysis/how-the-valuation-node-approaches-research                  301
+/research/three-years-cash-flow-what-one-year-hides         /analysis/financial-analysis/three-years-cash-flow-what-one-year-hides       301
+/research/roe-comparison-dupont-why-higher-isnt-better      /analysis/financial-analysis/roe-comparison-dupont-why-higher-isnt-better    301
+/research/high-pe-what-it-implies-and-when-its-a-trap       /analysis/financial-analysis/high-pe-what-it-implies-and-when-its-a-trap     301
+/research/five-red-flags-financial-statements               /analysis/financial-analysis/five-red-flags-financial-statements             301
+/research/profitable-but-out-of-cash                        /analysis/financial-analysis/profitable-but-out-of-cash                      301
+/research/terminal-value-dominates-valuations               /analysis/financial-analysis/terminal-value-dominates-valuations             301
+/research/what-credit-ratings-measure-and-miss              /analysis/financial-analysis/what-credit-ratings-measure-and-miss                        301
 /research/why-banks-cannot-be-valued-like-normal-companies  /analysis/industry-analysis/why-banks-cannot-be-valued-like-normal-companies 301
-/research/*                                                 /analysis/valuation-modeling/:splat                                          301
+/research/*                                                 /analysis/financial-analysis/:splat                                          301
+# First Analysis taxonomy (live briefly on 2026-09-16) -> current sub-sections
+/analysis/valuation-modeling                                /analysis/financial-analysis                                                 301
+/analysis/valuation-modeling/*                              /analysis/financial-analysis/:splat                                          301
+/analysis/op-eds                                            /analysis                                                                    301
+/analysis/op-eds/*                                          /analysis/financial-analysis/:splat                                          301
+/analysis/business-strategy                                 /analysis                                                                    301
+/analysis/case-studies                                      /analysis/business-case-studies                                              301
 
 # ── Markets -> News & Trends ──────────────────────────────────────────────
 /markets                 /news                                              301

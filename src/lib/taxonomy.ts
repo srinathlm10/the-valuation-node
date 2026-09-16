@@ -49,10 +49,11 @@ export const SECTIONS: Section[] = [
     subsections: [
       { id: "company-analysis", label: "Company Analysis", description: "One company, read from its own statements." },
       { id: "industry-analysis", label: "Industry Analysis", description: "How a sector earns, and what breaks the usual valuation rules." },
-      { id: "valuation-modeling", label: "Valuation & Financial Modeling", description: "DCF, multiples, cash flow, and the traps inside them." },
-      { id: "business-strategy", label: "Business Strategy", description: "Moats, margins, and the choices that compound." },
-      { id: "case-studies", label: "Case Studies", description: "Worked comparisons and post-mortems." },
-      { id: "op-eds", label: "Op-Eds", description: "Positions argued, including this site's own editorial stance." },
+      { id: "market-analysis", label: "Market Analysis", description: "Indices, flows, and valuations across the market as a whole." },
+      { id: "financial-analysis", label: "Financial Analysis", description: "Statements, ratios, cash flow, and valuation, with the traps inside them." },
+      { id: "economic-analysis", label: "Economic Analysis", description: "Growth, rates, inflation, and policy, and what they do to company numbers." },
+      { id: "esg-analysis", label: "ESG Analysis", description: "ESG data and disclosures read with the same rigour as a balance sheet." },
+      { id: "business-case-studies", label: "Business Case Studies", description: "Worked comparisons and post-mortems on real businesses." },
     ],
   },
   {

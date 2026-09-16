@@ -3,7 +3,7 @@ title: "Comparing Two Companies on ROE, and Why the Higher One Is Not Always Bet
 slug: "roe-comparison-dupont-why-higher-isnt-better"
 category: "Valuation"
 section: "analysis"
-subsection: "valuation-modeling"
+subsection: "financial-analysis"
 tags: ["ratios", "profitability", "leverage"]
 status: "published"
 keywords: ["ROE", "DuPont analysis", "financial ratios", "leverage", "equity analysis"]

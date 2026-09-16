@@ -51,11 +51,11 @@ export const paths = {
 
 /** Research articles keyed by slug to their sub-section, from the generated front-matter. */
 const RESEARCH_SUBSECTION: Record<string, string> = Object.fromEntries(
-  RESEARCH_ARTICLES.map((a) => [a.slug, a.subsection ?? "valuation-modeling"])
+  RESEARCH_ARTICLES.map((a) => [a.slug, a.subsection ?? "financial-analysis"])
 );
 
 export function researchPath(slug: string, subsection?: string): string {
-  return paths.article(subsection ?? RESEARCH_SUBSECTION[slug] ?? "valuation-modeling", slug);
+  return paths.article(subsection ?? RESEARCH_SUBSECTION[slug] ?? "financial-analysis", slug);
 }
 
 const TRACK_IDS = new Set(TRACKS.map((t) => t.id));
@@ -86,6 +86,11 @@ export const LEGACY_EXACT: Record<string, string> = {
   "/news/corporate-updates": "/news/corporate-news",
   "/news/policy-regulation": "/news/economy-policy",
   "/news/policy-regulation/compliance-calendar": "/news/economy-policy/compliance-calendar",
+  // First Analysis taxonomy (live briefly on 2026-09-16) to the current one
+  "/analysis/valuation-modeling": "/analysis/financial-analysis",
+  "/analysis/op-eds": "/analysis",
+  "/analysis/business-strategy": "/analysis",
+  "/analysis/case-studies": "/analysis/business-case-studies",
   "/about/methodology": "/about/philosophy",
   "/privacy": "/about/privacy",
   "/disclaimer": "/about/disclaimer",
@@ -112,6 +117,7 @@ function rewrite(path: string): string {
 
   let m: RegExpMatchArray | null;
   if ((m = p.match(/^\/research\/([^/]+)$/))) return researchPath(m[1]);
+  if ((m = p.match(/^\/analysis\/(?:valuation-modeling|op-eds)\/([^/]+)$/))) return researchPath(m[1]);
   if ((m = p.match(/^\/learn\/glossary\/([^/]+)$/))) return paths.glossaryTerm(m[1]);
   if ((m = p.match(/^\/learn\/ratio-analysis\/([^/]+)$/))) return paths.formula(m[1]);
   if ((m = p.match(/^\/learn\/foundations\/([^/]+)\/([^/]+)$/))) return paths.guide(m[2]);

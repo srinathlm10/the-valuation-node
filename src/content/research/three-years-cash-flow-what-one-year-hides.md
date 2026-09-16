@@ -3,7 +3,7 @@ title: "What Three Years of a Cash Flow Statement Reveals That One Year Hides"
 slug: "three-years-cash-flow-what-one-year-hides"
 category: "Valuation"
 section: "analysis"
-subsection: "valuation-modeling"
+subsection: "financial-analysis"
 tags: ["cash-flow", "earnings-quality", "financial-statements"]
 status: "published"
 keywords: ["cash flow statement", "earnings quality", "free cash flow", "financial analysis"]

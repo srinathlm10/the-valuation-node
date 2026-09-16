@@ -7,9 +7,10 @@ credit analysis, ESG, fintech, and markets. All content cites sources and shows 
 No investment advice is given. No paid promotions.
 
 ## Insights & Analysis
-Original analysis of Indian companies, sectors, and valuation questions, in six sub-sections:
-company analysis, industry analysis, valuation and financial modeling, business strategy,
-case studies, and op-eds.
+Original analysis of Indian companies, sectors, and valuation questions, in seven sub-sections:
+company analysis, industry analysis, market analysis, financial analysis, economic analysis,
+ESG analysis, and business case studies. Sub-sections without published work yet are marked
+"coming soon".
 URL: https://valuationnode.com/analysis
 
 ## News & Trends

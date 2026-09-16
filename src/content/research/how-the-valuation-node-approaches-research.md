@@ -4,12 +4,12 @@ slug: how-the-valuation-node-approaches-research
 excerpt: The principles behind every analysis published here, transparency of assumptions, primary sources, and an honest account of where the analysis could be wrong.
 category: Methodology
 section: "analysis"
-subsection: "op-eds"
+subsection: "financial-analysis"
 tags: ["valuation"]
 status: "draft"
 metaTitle: How The Valuation Node Approaches Research - The Valuation Node
 metaDescription: The research method behind The Valuation Node, how assumptions are stated, how sources are chosen, and how uncertainty is disclosed in every published analysis.
-canonical: https://valuationnode.com/analysis/op-eds/how-the-valuation-node-approaches-research
+canonical: https://valuationnode.com/analysis/financial-analysis/how-the-valuation-node-approaches-research
 ogImage: /og-image.png
 publishedAt: 2026-07-01
 updatedAt: 2026-07-06
@@ -20,7 +20,7 @@ keyTakeaways:
   - Assumptions are stated before conclusions, never buried inside them.
   - Numbers come from primary filings and disclosures, not second-hand aggregators.
   - Every analysis names the conditions under which it would be wrong.
-citationFormat: 'Gajji, S. (2026). "How The Valuation Node Approaches Research." The Valuation Node. https://valuationnode.com/analysis/op-eds/how-the-valuation-node-approaches-research'
+citationFormat: 'Gajji, S. (2026). "How The Valuation Node Approaches Research." The Valuation Node. https://valuationnode.com/analysis/financial-analysis/how-the-valuation-node-approaches-research'
 ---
 
 Research is only as trustworthy as the assumptions underneath it. The aim of this note is to make those assumptions visible, so that any analysis published here can be checked, challenged, and rebuilt by a reader who disagrees.

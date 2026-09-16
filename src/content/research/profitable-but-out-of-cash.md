@@ -3,7 +3,7 @@ title: "Why a Company Can Be Profitable and Still Run Out of Cash"
 slug: "profitable-but-out-of-cash"
 category: "Valuation"
 section: "analysis"
-subsection: "valuation-modeling"
+subsection: "financial-analysis"
 tags: ["cash-flow", "liquidity", "earnings-quality"]
 status: "draft"
 keywords: ["cash flow", "working capital", "earnings quality", "financial analysis"]

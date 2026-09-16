@@ -74,7 +74,7 @@ export function researchMeta(a: ResearchArticleData): PageMeta {
     title: a.title,
     slug: a.slug,
     section: "analysis",
-    subsection: a.subsection ?? "valuation-modeling",
+    subsection: a.subsection ?? "financial-analysis",
     tags: a.tags ?? [],
     summary: a.excerpt || summarise(a.content),
     publishDate: a.publishedAt,

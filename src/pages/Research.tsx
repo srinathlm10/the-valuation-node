@@ -8,6 +8,7 @@ import { Sidebar } from "@/components/layout/Sidebar";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { ArrowRight, EyeOff, FileSearch } from "lucide-react";
 import { EmptyState } from "@/components/content/EmptyState";
+import { ComingSoonTag } from "@/components/content/ComingSoonTag";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { RESEARCH_ARTICLES } from "@/data/research.generated";
@@ -43,9 +44,13 @@ export default function Research() {
     });
   }, [sub, hidden, isAdmin]);
 
-  // Sub-sections that have at least one visible article (hidden entries hide their pill too).
-  const liveSubs = useMemo(
-    () => section.subsections.filter((s) => RESEARCH_ARTICLES.some((a) => a.subsection === s.id && a.status !== "draft" && !(hidden?.has(a.slug) ?? false))),
+  // Every sub-section is listed; one with no visible article is marked "coming soon"
+  // (drafts and hidden entries do not count).
+  const subs = useMemo(
+    () => section.subsections.map((s) => ({
+      ...s,
+      live: RESEARCH_ARTICLES.some((a) => a.subsection === s.id && a.status !== "draft" && !(hidden?.has(a.slug) ?? false)),
+    })),
     [section, hidden]
   );
   const path = sub ? paths.analysisSub(sub) : paths.analysis();
@@ -68,7 +73,7 @@ export default function Research() {
         })}
         path={path}
         titleTag={subsection ? `${subsection.label} - Insights & Analysis - The Valuation Node` : "Insights & Analysis - The Valuation Node"}
-        noindex={!!sub && !liveSubs.some((s) => s.id === sub)}
+        noindex={!!sub && !subs.some((s) => s.id === sub && s.live)}
         jsonLd={[
           breadcrumbLd(
             subsection
@@ -94,7 +99,7 @@ export default function Research() {
             : "Original analysis of Indian companies, sectors, and valuation questions. All work is authored, dated, and shows its sources."}
         </p>
 
-        {/* Sub-section filter (only sub-sections with published work) */}
+        {/* Sub-section filter (all seven; empty ones say so) */}
         <div className="mt-8 flex flex-wrap gap-2">
           <Link
             to={paths.analysis()}
@@ -108,7 +113,7 @@ export default function Research() {
           >
             All
           </Link>
-          {liveSubs.map((s) => (
+          {subs.map((s) => (
             <Link
               key={s.id}
               to={paths.analysisSub(s.id)}
@@ -121,6 +126,7 @@ export default function Research() {
               )}
             >
               {s.label}
+              {!s.live && <ComingSoonTag />}
             </Link>
           ))}
         </div>
@@ -131,8 +137,8 @@ export default function Research() {
             <div className="py-10 space-y-8">
               <EmptyState
                 icon={FileSearch}
-                title="No articles in this sub-section yet"
-                description="New research is added steadily. Subscribe below to hear when the next piece lands."
+                title="Coming soon..."
+                description={`Nothing is published in ${subsection ? subsection.label : "Insights & Analysis"} yet. Subscribe below to hear when the first piece lands.`}
               />
               <NewsletterSignup />
             </div>

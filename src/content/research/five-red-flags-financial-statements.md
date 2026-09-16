@@ -3,7 +3,7 @@ title: "Five Red Flags in a Set of Financial Statements"
 slug: "five-red-flags-financial-statements"
 category: "Valuation"
 section: "analysis"
-subsection: "valuation-modeling"
+subsection: "financial-analysis"
 tags: ["red-flags", "earnings-quality", "financial-statements"]
 status: "draft"
 keywords: ["red flags", "earnings quality", "forensic accounting", "financial analysis"]

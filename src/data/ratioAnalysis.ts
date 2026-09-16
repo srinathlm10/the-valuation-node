@@ -188,7 +188,7 @@ Colgate India shows the filtering logic. Current PE around 39 against a historic
     glossary: ["P/E Ratio"],
     goDeeper: [
       { label: "Market ratios (Foundations)", href: "/vault/guides/market-ratios" },
-      { label: "High PE: what it implies and when it is a trap (Research)", href: "/analysis/valuation-modeling/high-pe-what-it-implies-and-when-its-a-trap" },
+      { label: "High PE: what it implies and when it is a trap (Research)", href: "/analysis/financial-analysis/high-pe-what-it-implies-and-when-its-a-trap" },
     ],
   },
   {
@@ -432,7 +432,7 @@ HUL's ROE is roughly 82 percent, on equity of about ₹216 crore of share capita
     glossary: ["ROE"],
     goDeeper: [
       { label: "Profitability ratios (Foundations)", href: "/vault/guides/profitability-ratios" },
-      { label: "ROE comparison and DuPont: why higher is not better (Research)", href: "/analysis/valuation-modeling/roe-comparison-dupont-why-higher-isnt-better" },
+      { label: "ROE comparison and DuPont: why higher is not better (Research)", href: "/analysis/financial-analysis/roe-comparison-dupont-why-higher-isnt-better" },
     ],
   },
   {
@@ -731,7 +731,7 @@ The warning pattern: net margin roughly flat, asset turnover roughly flat, ROE u
     glossary: ["ROE", "Asset Turnover"],
     goDeeper: [
       { label: "DuPont decomposition (Foundations)", href: "/vault/guides/dupont-decomposition" },
-      { label: "ROE comparison and DuPont: why higher is not better (Research)", href: "/analysis/valuation-modeling/roe-comparison-dupont-why-higher-isnt-better" },
+      { label: "ROE comparison and DuPont: why higher is not better (Research)", href: "/analysis/financial-analysis/roe-comparison-dupont-why-higher-isnt-better" },
       { label: "Compute ratios from raw statements (Learn-by-Doing)", href: "/vault/interactive/compute-ratios" },
     ],
   },
@@ -801,7 +801,7 @@ Cox & Kings reported healthy profit every year until 2018 and passed the "avoid 
     glossary: ["Cash Flow from Operations"],
     goDeeper: [
       { label: "Quality of earnings (Foundations)", href: "/vault/guides/quality-of-earnings" },
-      { label: "Three years of cash flow: what one year hides (Research)", href: "/analysis/valuation-modeling/three-years-cash-flow-what-one-year-hides" },
+      { label: "Three years of cash flow: what one year hides (Research)", href: "/analysis/financial-analysis/three-years-cash-flow-what-one-year-hides" },
       { label: "Spot the red flags (Learn-by-Doing)", href: "/vault/interactive/spot-the-red-flags" },
     ],
   },

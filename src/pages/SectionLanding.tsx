@@ -9,13 +9,15 @@ import { staticMeta } from "@/lib/contentModel";
 import { landingItems, landingHasContent } from "@/lib/contentIndex";
 import { getSection, getSubsection, type SectionId } from "@/lib/taxonomy";
 import { breadcrumbLd } from "@/lib/seo";
+import { ComingSoonTag } from "@/components/content/ComingSoonTag";
 import { Inbox } from "lucide-react";
 
 /**
  * Landing page for News & Trends, Insights & Analysis, and ESG & Sustainability
  * and for each of their sub-sections. Lists the section's own pages plus any
- * tag-aggregated Concept Guides (contentIndex.landingItems). Empty landings
- * render with noindex and are hidden from the menus until they have content.
+ * tag-aggregated Concept Guides (contentIndex.landingItems). Every sub-section
+ * is listed; the ones with nothing published yet are marked "coming soon" and
+ * render a coming-soon page with noindex (owner decision, 2026-09-16).
  */
 export default function SectionLanding({ section }: { section: SectionId }) {
   const { sub } = useParams<{ sub?: string }>();
@@ -38,7 +40,7 @@ export default function SectionLanding({ section }: { section: SectionId }) {
   const title = subsection ? `${subsection.label}` : sec.label;
   const summary = subsection ? subsection.description : sec.description;
   const hasContent = items.length > 0;
-  const liveSubs = sec.subsections.filter((s) => landingHasContent(section, s.id));
+  const subs = sec.subsections.map((s) => ({ ...s, live: landingHasContent(section, s.id) }));
   const crumbs = subsection
     ? [{ name: sec.label, path: sec.path }, { name: subsection.label, path }]
     : [{ name: sec.label, path: sec.path }];
@@ -59,7 +61,7 @@ export default function SectionLanding({ section }: { section: SectionId }) {
         <h1 className="font-serif text-3xl font-bold tracking-tight">{title}</h1>
         <p className="mt-3 max-w-3xl text-lg text-muted-foreground">{summary}</p>
 
-        {liveSubs.length > 0 && (
+        {subs.length > 0 && (
           <div className="mt-8 flex flex-wrap gap-2">
             <Link
               to={sec.path}
@@ -67,13 +69,14 @@ export default function SectionLanding({ section }: { section: SectionId }) {
             >
               All
             </Link>
-            {liveSubs.map((s) => (
+            {subs.map((s) => (
               <Link
                 key={s.id}
                 to={`${sec.path}/${s.id}`}
                 className={`rounded-full border px-3 py-1.5 text-sm transition-colors ${sub === s.id ? "border-foreground text-foreground" : "text-muted-foreground hover:border-foreground hover:text-foreground"}`}
               >
                 {s.label}
+                {!s.live && <ComingSoonTag />}
               </Link>
             ))}
           </div>
@@ -84,8 +87,8 @@ export default function SectionLanding({ section }: { section: SectionId }) {
         ) : (
           <EmptyState
             icon={Inbox}
-            title="No posts here yet"
-            description="This section is part of the site map but has no published pieces so far. New work lands here as it is written."
+            title="Coming soon..."
+            description={`Nothing is published in ${title} yet. New work lands here as it is written.`}
             className="mt-10"
             action={<Link to={sec.path} className="text-sm font-medium hover:underline">Browse {sec.label}</Link>}
           />

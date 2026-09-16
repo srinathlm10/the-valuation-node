@@ -4,9 +4,10 @@ import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { SECTIONS } from "@/lib/taxonomy";
 import { landingHasContent } from "@/lib/contentIndex";
 import { paths } from "@/lib/routes";
+import { ComingSoonTag } from "@/components/content/ComingSoonTag";
 
 /**
- * Footer: a full site map by section (only sub-sections that have content),
+ * Footer: a full site map by section (empty sub-sections marked "coming soon"),
  * About and legal links, contact, social, the newsletter, and the site tour
  * link. Navy like the nav, per the prototype palette.
  */
@@ -19,7 +20,7 @@ const SOCIAL = [
   { label: "Email", href: "mailto:srinath@valuationnode.com", icon: Mail },
 ];
 
-function SitemapColumn({ title, href, links }: { title: string; href: string; links: { label: string; href: string }[] }) {
+function SitemapColumn({ title, href, links }: { title: string; href: string; links: { label: string; href: string; soon?: boolean }[] }) {
   return (
     <div>
       <h2 className="mb-3 text-xs font-semibold uppercase tracking-[1px] text-white">
@@ -30,6 +31,7 @@ function SitemapColumn({ title, href, links }: { title: string; href: string; li
           <li key={l.href}>
             <Link to={l.href} className="text-sm text-[#d1d5db] transition-colors hover:text-white">
               {l.label}
+              {l.soon && <ComingSoonTag className="text-[#d1d5db]/70" />}
             </Link>
           </li>
         ))}
@@ -49,11 +51,11 @@ export function Footer() {
               key={s.id}
               title={s.label}
               href={s.path}
-              links={
-                s.id === "vault"
-                  ? s.subsections.map((x) => ({ label: x.label, href: `${s.path}/${x.id}` }))
-                  : s.subsections.filter((x) => landingHasContent(s.id, x.id)).map((x) => ({ label: x.label, href: `${s.path}/${x.id}` }))
-              }
+              links={s.subsections.map((x) => ({
+                label: x.label,
+                href: `${s.path}/${x.id}`,
+                soon: s.id !== "vault" && !landingHasContent(s.id, x.id),
+              }))}
             />
           ))}
           <SitemapColumn

@@ -3,7 +3,7 @@ title: "How Terminal Value Quietly Dominates Most Valuations"
 slug: "terminal-value-dominates-valuations"
 category: "Valuation"
 section: "analysis"
-subsection: "valuation-modeling"
+subsection: "financial-analysis"
 tags: ["dcf", "valuation", "cost-of-capital"]
 status: "draft"
 keywords: ["DCF", "terminal value", "valuation", "discount rate"]

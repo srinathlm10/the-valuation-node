@@ -3,7 +3,7 @@ title: "What a Credit Rating Really Measures, and What It Misses"
 slug: "what-credit-ratings-measure-and-miss"
 category: "Credit"
 section: "analysis"
-subsection: "op-eds"
+subsection: "financial-analysis"
 tags: ["credit-risk", "bonds"]
 status: "draft"
 keywords: ["credit rating", "credit analysis", "default risk", "fixed income"]
