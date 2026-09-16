@@ -6,7 +6,7 @@ category: Methodology
 section: "analysis"
 subsection: "op-eds"
 tags: ["valuation"]
-status: "published"
+status: "draft"
 metaTitle: How The Valuation Node Approaches Research - The Valuation Node
 metaDescription: The research method behind The Valuation Node, how assumptions are stated, how sources are chosen, and how uncertainty is disclosed in every published analysis.
 canonical: https://valuationnode.com/analysis/op-eds/how-the-valuation-node-approaches-research

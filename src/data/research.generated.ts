@@ -22,7 +22,7 @@ export const RESEARCH_ARTICLES: ResearchArticleData[] = [
     "updatedAt": "2026-07-06",
     "readingTime": 5,
     "author": "Gajji Srinath",
-    "status": "published",
+    "status": "draft",
     "methodologySummary": "Every published analysis states its assumptions up front, works from primary sources, and ends with an explicit account of what could make the conclusion wrong.",
     "citationFormat": "Gajji, S. (2026). \"How The Valuation Node Approaches Research.\" The Valuation Node. https://valuationnode.com/analysis/op-eds/how-the-valuation-node-approaches-research",
     "keyTakeaways": [
