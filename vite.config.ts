@@ -17,6 +17,12 @@ const NO_PRERENDER_EXACT = new Set([
   "/disclaimer",
   "/terms",
   "/about/methodology",
+  "/news/global-markets",
+  "/news/indian-economy",
+  "/news/indian-economy/nifty-50",
+  "/news/corporate-updates",
+  "/news/policy-regulation",
+  "/news/policy-regulation/compliance-calendar",
   // Auth and account pages
   "/login",
   "/signup",

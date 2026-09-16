@@ -130,8 +130,8 @@ export const routes: RouteRecord[] = [
 
       // ── News & Trends ─────────────────────────────────────────────────
       { path: "news", element: <SectionLanding section="news" /> },
-      { path: "news/indian-economy/nifty-50", Component: MarketsNifty50 },
-      { path: "news/policy-regulation/compliance-calendar", Component: MarketsCompliance },
+      { path: "news/markets-news/nifty-50", Component: MarketsNifty50 },
+      { path: "news/economy-policy/compliance-calendar", Component: MarketsCompliance },
       {
         path: "news/:sub",
         lazy: sectionLandingLazy("news"),
@@ -244,6 +244,12 @@ export const routes: RouteRecord[] = [
       { path: "stocks", element: <LegacyRedirect /> },
       { path: "compliance", element: <LegacyRedirect /> },
       { path: "about/methodology", element: <LegacyRedirect /> },
+      { path: "news/global-markets", element: <LegacyRedirect /> },
+      { path: "news/indian-economy", element: <LegacyRedirect /> },
+      { path: "news/indian-economy/nifty-50", element: <LegacyRedirect /> },
+      { path: "news/corporate-updates", element: <LegacyRedirect /> },
+      { path: "news/policy-regulation", element: <LegacyRedirect /> },
+      { path: "news/policy-regulation/compliance-calendar", element: <LegacyRedirect /> },
       { path: "privacy", element: <LegacyRedirect /> },
       { path: "disclaimer", element: <LegacyRedirect /> },
       { path: "terms", element: <LegacyRedirect /> },

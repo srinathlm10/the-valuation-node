@@ -13,8 +13,8 @@ case studies, and op-eds.
 URL: https://valuationnode.com/analysis
 
 ## News & Trends
-Indian economy (Nifty 50 fundamentals), policy and regulation (SEBI, NSE, BSE compliance
-calendar), global markets, corporate updates, technology and AI.
+Business news, markets news (Nifty 50 fundamentals), economy and policy (SEBI, NSE, BSE
+compliance calendar), corporate news, ESG and sustainability news, technology and AI.
 URL: https://valuationnode.com/news
 
 ## ESG & Sustainability

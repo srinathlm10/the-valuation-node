@@ -18,7 +18,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 
-// Serves /news/indian-economy/nifty-50. The screener needs `stocks` plus two
+// Serves /news/markets-news/nifty-50. The screener needs `stocks` plus two
 // handlers; the old page rendered it with no props and crashed as soon as the
 // query resolved (audit item 8.1). Local stocks.json is rendered immediately
 // (so the static HTML carries the table) and swapped for the Supabase rows
@@ -85,7 +85,7 @@ export default function MarketsNifty50() {
           title: "Nifty 50 Fundamentals",
           slug: "nifty-50",
           section: "news",
-          subsection: "indian-economy",
+          subsection: "markets-news",
           summary:
             "Fundamental snapshot of Nifty 50 constituents: market cap, P/E, P/B, ROE, debt to equity, and dividend yield, sortable and filterable by sector.",
         })}
@@ -94,12 +94,12 @@ export default function MarketsNifty50() {
         jsonLd={[
           breadcrumbLd([
             { name: "News & Trends", path: paths.news() },
-            { name: "Indian Economy", path: paths.newsSub("indian-economy") },
+            { name: "Markets News", path: paths.newsSub("markets-news") },
             { name: "Nifty 50 Fundamentals", path },
           ]),
         ]}
       />
-      <Breadcrumbs items={[{ name: "News & Trends", path: paths.news() }, { name: "Indian Economy", path: paths.newsSub("indian-economy") }, { name: "Nifty 50 Fundamentals", path }]} />
+      <Breadcrumbs items={[{ name: "News & Trends", path: paths.news() }, { name: "Markets News", path: paths.newsSub("markets-news") }, { name: "Nifty 50 Fundamentals", path }]} />
 
       <div className="container py-14">
 

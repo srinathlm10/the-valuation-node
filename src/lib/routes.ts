@@ -18,8 +18,8 @@ export const paths = {
 
   news: () => "/news",
   newsSub: (sub: string) => `/news/${sub}`,
-  nifty50: () => "/news/indian-economy/nifty-50",
-  compliance: () => "/news/policy-regulation/compliance-calendar",
+  nifty50: () => "/news/markets-news/nifty-50",
+  compliance: () => "/news/economy-policy/compliance-calendar",
 
   analysis: () => "/analysis",
   analysisSub: (sub: string) => `/analysis/${sub}`,
@@ -79,6 +79,13 @@ export const LEGACY_EXACT: Record<string, string> = {
   "/tools": "/vault/interactive",
   "/learn/by-doing": "/vault/interactive",
   "/calculators": "/vault/interactive",
+  // First News taxonomy (live briefly on 2026-09-16) to the current one
+  "/news/global-markets": "/news/markets-news",
+  "/news/indian-economy": "/news/markets-news",
+  "/news/indian-economy/nifty-50": "/news/markets-news/nifty-50",
+  "/news/corporate-updates": "/news/corporate-news",
+  "/news/policy-regulation": "/news/economy-policy",
+  "/news/policy-regulation/compliance-calendar": "/news/economy-policy/compliance-calendar",
   "/about/methodology": "/about/philosophy",
   "/privacy": "/about/privacy",
   "/disclaimer": "/about/disclaimer",

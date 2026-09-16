@@ -15,14 +15,14 @@ export default function MarketsCompliance() {
           title: "Compliance Calendar",
           slug: "compliance-calendar",
           section: "news",
-          subsection: "policy-regulation",
+          subsection: "economy-policy",
           summary: "SEBI, NSE, and BSE regulatory circulars summarised in plain language for Indian market participants. Updated monthly.",
         })}
-        path="/news/policy-regulation/compliance-calendar"
+        path="/news/economy-policy/compliance-calendar"
         titleTag="SEBI, NSE, BSE Compliance Calendar - The Valuation Node"
-        jsonLd={[breadcrumbLd([{ name: "News & Trends", path: "/news" }, { name: "Policy & Regulation", path: "/news/policy-regulation" }, { name: "Compliance Calendar", path: "/news/policy-regulation/compliance-calendar" }])]}
+        jsonLd={[breadcrumbLd([{ name: "News & Trends", path: "/news" }, { name: "Economy & Policy", path: "/news/economy-policy" }, { name: "Compliance Calendar", path: "/news/economy-policy/compliance-calendar" }])]}
       />
-      <Breadcrumbs items={[{ name: "News & Trends", path: "/news" }, { name: "Policy & Regulation", path: "/news/policy-regulation" }, { name: "Compliance Calendar", path: "/news/policy-regulation/compliance-calendar" }]} />
+      <Breadcrumbs items={[{ name: "News & Trends", path: "/news" }, { name: "Economy & Policy", path: "/news/economy-policy" }, { name: "Compliance Calendar", path: "/news/economy-policy/compliance-calendar" }]} />
 
       <div className="container py-14">
 

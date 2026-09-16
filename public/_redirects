@@ -18,10 +18,17 @@
 
 # ── Markets -> News & Trends ──────────────────────────────────────────────
 /markets                 /news                                              301
-/markets/nifty50         /news/indian-economy/nifty-50                      301
-/markets/compliance      /news/policy-regulation/compliance-calendar        301
-/stocks                  /news/indian-economy/nifty-50                      301
-/compliance              /news/policy-regulation/compliance-calendar        301
+/markets/nifty50         /news/markets-news/nifty-50                        301
+/markets/compliance      /news/economy-policy/compliance-calendar           301
+/stocks                  /news/markets-news/nifty-50                        301
+/compliance              /news/economy-policy/compliance-calendar           301
+# First News taxonomy (live briefly on 2026-09-16) -> current sub-sections
+/news/global-markets                          /news/markets-news                        301
+/news/indian-economy                          /news/markets-news                        301
+/news/indian-economy/nifty-50                 /news/markets-news/nifty-50               301
+/news/corporate-updates                       /news/corporate-news                      301
+/news/policy-regulation                       /news/economy-policy                      301
+/news/policy-regulation/compliance-calendar   /news/economy-policy/compliance-calendar  301
 
 # ── Learn -> The Vault ────────────────────────────────────────────────────
 /learn/glossary          /vault/glossary                                    301
