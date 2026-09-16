@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Outlet } from "react-router-dom";
 import { ScrollToTop } from "@/components/layout/ScrollToTop";
+import { SiteTour } from "@/components/tour/SiteTour";
 import { lazy, Suspense } from "react";
 import { ThemeProvider } from "next-themes";
 import type { RouteRecord } from "vite-react-ssg";
@@ -85,6 +86,7 @@ function RootLayout() {
           <Toaster />
           <Sonner />
           <ScrollToTop />
+          <SiteTour />
           <AuthProvider>
             <Suspense fallback={<PageLoader />}>
               <Outlet />

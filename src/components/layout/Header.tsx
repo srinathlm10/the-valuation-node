@@ -201,7 +201,7 @@ export function Header() {
           {/* Mobile: hamburger (search icon above stays visible in the bar) */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="text-[#d1d5db] hover:bg-white/10 hover:text-white lg:hidden" aria-label="Open menu">
+              <Button id="tour-menu" variant="ghost" size="icon" className="text-[#d1d5db] hover:bg-white/10 hover:text-white lg:hidden" aria-label="Open menu">
                 <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>
