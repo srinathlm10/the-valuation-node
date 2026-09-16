@@ -1,6 +1,8 @@
 import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
+import { Seo } from "@/components/seo/Seo";
+import { researchMeta } from "@/lib/contentModel";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { useState, useMemo } from "react";
 import { Copy, Check, ArrowLeft, Download, Github, Eye, EyeOff, Loader2 } from "lucide-react";
@@ -91,8 +93,10 @@ export default function ResearchArticle() {
     );
   }
 
-  // Hidden + not admin → "temporarily unavailable" state.
-  if (isHidden && !isAdmin) {
+  // Hidden or draft + not admin → "temporarily unavailable" state. Drafts are
+  // never prerendered, so crawlers only ever see this branch (noindex).
+  const isDraft = article.status === "draft";
+  if ((isHidden || isDraft) && !isAdmin) {
     return (
       <Layout>
         <Helmet>
@@ -120,6 +124,7 @@ export default function ResearchArticle() {
   }
 
   const toc = tocFromMarkdown(article.content, slugify);
+  const meta = researchMeta(article);
   const publishedDate = fmtDate(article.publishedAt);
   // Social scrapers need an absolute og:image URL.
   const ogImageAbs = article.ogImage
@@ -130,36 +135,33 @@ export default function ResearchArticle() {
 
   return (
     <Layout>
-      <Helmet>
-        <title>{article.metaTitle || `${article.title} - The Valuation Node`}</title>
-        <meta name="description" content={article.metaDescription || article.excerpt} />
-        <meta property="og:title" content={article.metaTitle || `${article.title} - The Valuation Node`} />
-        <meta property="og:description" content={article.metaDescription || article.excerpt} />
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content={article.canonical || `https://valuationnode.com/research/${article.slug}`} />
-        {ogImageAbs && <meta property="og:image" content={ogImageAbs} />}
-        <meta name="twitter:card" content="summary_large_image" />
-        {article.publishedAt && <meta property="article:published_time" content={article.publishedAt} />}
-        {article.updatedAt && <meta property="article:modified_time" content={article.updatedAt} />}
-        <link rel="canonical" href={article.canonical || `https://valuationnode.com/research/${article.slug}`} />
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Article",
-          headline: article.title,
-          description: article.excerpt,
-          articleSection: article.category,
-          datePublished: article.publishedAt,
-          dateModified: article.updatedAt || article.publishedAt,
-          image: ogImageAbs,
-          author: { "@type": "Person", name: article.author || "Gajji Srinath", url: "https://valuationnode.com/about/author" },
-          publisher: PUBLISHER,
-          mainEntityOfPage: article.canonical || `https://valuationnode.com/research/${article.slug}`,
-        })}</script>
-        <script type="application/ld+json">{JSON.stringify(breadcrumbLd([
-          { name: "Research", path: "/research" },
-          { name: article.title, path: `/research/${article.slug}` },
-        ]))}</script>
-      </Helmet>
+      <Seo
+        meta={{ ...meta, featuredImage: ogImageAbs }}
+        path={`/research/${article.slug}`}
+        type="article"
+        titleTag={article.metaTitle || `${article.title} - The Valuation Node`}
+        description={article.metaDescription || article.excerpt}
+        jsonLd={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: article.title,
+            description: article.excerpt,
+            articleSection: article.category,
+            keywords: [...(article.tags ?? []), ...(article.keywords ?? [])].join(", ") || undefined,
+            datePublished: article.publishedAt,
+            dateModified: article.updatedAt || article.publishedAt,
+            image: ogImageAbs,
+            author: { "@type": "Person", name: article.author || "Gajji Srinath", url: "https://valuationnode.com/about/author" },
+            publisher: PUBLISHER,
+            mainEntityOfPage: article.canonical || `https://valuationnode.com/research/${article.slug}`,
+          },
+          breadcrumbLd([
+            { name: "Research", path: "/research" },
+            { name: article.title, path: `/research/${article.slug}` },
+          ]),
+        ]}
+      />
 
       <ReadingProgress />
 

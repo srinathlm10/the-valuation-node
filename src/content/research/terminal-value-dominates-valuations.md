@@ -2,7 +2,11 @@
 title: "How Terminal Value Quietly Dominates Most Valuations"
 slug: "terminal-value-dominates-valuations"
 category: "Valuation"
-tags: ["DCF", "terminal value", "valuation", "discount rate"]
+section: "analysis"
+subsection: "valuation-modeling"
+tags: ["dcf", "valuation", "cost-of-capital"]
+status: "draft"
+keywords: ["DCF", "terminal value", "valuation", "discount rate"]
 metaTitle: "How Terminal Value Dominates Your DCF | Valuation Node"
 metaDescription: "In most DCF models, the majority of the value sits in the terminal value. Learn why, what that means for reliability, and how to keep your model honest."
 author: "Gajji Srinath"

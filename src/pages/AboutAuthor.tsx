@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
+import { Seo } from "@/components/seo/Seo";
+import { staticMeta } from "@/lib/contentModel";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { Mail, Linkedin } from "lucide-react";
 
@@ -11,22 +12,27 @@ const AUTHOR_PHOTO: string | null = null;
 export default function AboutAuthor() {
   return (
     <Layout>
-      <Helmet>
-        <title>Gajji Srinath - The Valuation Node</title>
-        <meta
-          name="description"
-          content="About Gajji Srinath, Founder of The Valuation Node, MBA candidate at NIT Rourkela."
-        />
-        <link rel="canonical" href="https://valuationnode.com/about/author" />
-        <script type="application/ld+json">{JSON.stringify({
+      <Seo
+        meta={staticMeta({
+          title: "Gajji Srinath",
+          slug: "author",
+          section: "about",
+          subsection: "author",
+          summary: "About Gajji Srinath, Founder of The Valuation Node, MBA candidate at NIT Rourkela.",
+        })}
+        path="/about/author"
+        titleTag="Gajji Srinath - The Valuation Node"
+        jsonLd={[
+          {
           "@context": "https://schema.org",
           "@type": "Person",
           name: "Gajji Srinath",
           jobTitle: "Founder and Editor, The Valuation Node | MBA Candidate, NIT Rourkela",
           email: "srinath@valuationnode.com",
           url: "https://valuationnode.com/about/author",
-        })}</script>
-      </Helmet>
+        },
+        ]}
+      />
 
       <nav className="border-b">
         <ol className="container max-w-3xl py-3 flex items-center gap-2 text-sm text-muted-foreground">

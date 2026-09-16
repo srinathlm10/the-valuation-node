@@ -1,7 +1,8 @@
 import { useMemo } from "react";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
+import { Seo } from "@/components/seo/Seo";
+import { staticMeta } from "@/lib/contentModel";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -13,7 +14,7 @@ export default function Index() {
   const { data: hidden } = useHiddenSlugs();
   // Articles come from Git (newest first); hidden ones never appear here.
   const researchArticles = useMemo(
-    () => RESEARCH_ARTICLES.filter((a) => !(hidden?.has(a.slug) ?? false)).slice(0, 4),
+    () => RESEARCH_ARTICLES.filter((a) => a.status !== "draft" && !(hidden?.has(a.slug) ?? false)).slice(0, 4),
     [hidden]
   );
   const featured = researchArticles[0];
@@ -23,19 +24,18 @@ export default function Index() {
 
   return (
     <Layout>
-      <Helmet>
-        <title>The Valuation Node: Indian Market Research & Learning</title>
-        <meta
-          name="description"
-          content="Research and learning on Indian markets, by Gajji Srinath. Original valuations, credit analysis, and a public learning library."
-        />
-        <link rel="canonical" href="https://valuationnode.com/" />
-        <meta property="og:title" content="The Valuation Node: Indian Market Research & Learning" />
-        <meta property="og:description" content="Original valuation and credit analysis of Indian companies, plus a free learning library covering accounting, valuation, ESG, and fintech." />
-        <meta property="og:url" content="https://valuationnode.com/" />
-        <meta name="twitter:title" content="The Valuation Node: Indian Market Research & Learning" />
-        <meta name="twitter:description" content="Original valuations, credit analysis, and a free learning library on Indian markets. By Gajji Srinath." />
-        <script type="application/ld+json">{JSON.stringify({
+      <Seo
+        meta={staticMeta({
+          title: "The Valuation Node: Indian Market Research & Learning",
+          slug: "home",
+          section: "analysis",
+          summary: "Original valuation and credit analysis of Indian companies, plus a free learning library covering accounting, valuation, ESG, and fintech.",
+        })}
+        path="/"
+        titleTag="The Valuation Node: Indian Market Research & Learning"
+        description="Research and learning on Indian markets, by Gajji Srinath. Original valuations, credit analysis, and a public learning library."
+        jsonLd={[
+          {
           "@context": "https://schema.org",
           "@type": "Organization",
           name: "The Valuation Node",
@@ -48,8 +48,9 @@ export default function Index() {
             height: 512,
           },
           sameAs: ["https://www.linkedin.com/in/gajji-srinath/"],
-        })}</script>
-      </Helmet>
+        },
+        ]}
+      />
 
       {/* Hero */}
       <section className="border-b relative overflow-hidden">

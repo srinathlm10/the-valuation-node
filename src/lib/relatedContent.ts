@@ -35,11 +35,11 @@ export interface GlossaryTermLink {
 export function getGlossaryTermsForSection(section: string, limit = 6): GlossaryTermLink[] {
   const categories = SECTION_TO_GLOSSARY_CATEGORIES[section];
   if (!categories) return [];
-  return (definitions as Array<{ term: string; category?: string }>)
+  return (definitions as Array<{ term: string; slug: string; category?: string }>)
     .filter((d) => d.category && categories.includes(d.category))
     .sort((a, b) => a.term.localeCompare(b.term))
     .slice(0, limit)
-    .map((d) => ({ term: d.term, slug: termSlug(d.term) }));
+    .map((d) => ({ term: d.term, slug: d.slug }));
 }
 
 // ── Glossary category -> the Foundations topic that teaches it ──────────────

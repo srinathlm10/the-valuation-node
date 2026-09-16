@@ -2,7 +2,11 @@
 title: "What a Credit Rating Really Measures, and What It Misses"
 slug: "what-credit-ratings-measure-and-miss"
 category: "Credit"
-tags: ["credit rating", "credit analysis", "default risk", "fixed income"]
+section: "analysis"
+subsection: "op-eds"
+tags: ["credit-risk", "bonds"]
+status: "draft"
+keywords: ["credit rating", "credit analysis", "default risk", "fixed income"]
 metaTitle: "What Credit Ratings Really Measure (and Miss) | Valuation Node"
 metaDescription: "A credit rating is an opinion about default probability, not a grade of quality or a price signal. Learn what ratings capture, their limits, and how to use them well."
 author: "Gajji Srinath"

@@ -62,7 +62,7 @@ function readResearchArticles(hiddenSlugs) {
     const slug = data.slug || file.replace(/\.mdx?$/, "");
     const published = toDateStr(data.publishedAt ?? data.publishDate);
     const reviewed = toDateStr(data.updatedAt ?? data.lastReviewed);
-    if (!published) continue; // draft, no honest date yet
+    if (!published || data.status === "draft") continue; // draft: no honest date, or marked
     if (hiddenSlugs.has(slug)) continue; // hidden via visibility flag
     entries.push({
       path: `/research/${slug}`,
@@ -79,7 +79,7 @@ function readGlossaryTerms() {
   if (!existsSync(p)) return [];
   const defs = JSON.parse(readFileSync(p, "utf8"));
   return defs.map((d) => ({
-    path: "/learn/glossary/" + String(d.term).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""),
+    path: "/learn/glossary/" + d.slug,
     priority: "0.5",
     changefreq: "monthly",
   }));

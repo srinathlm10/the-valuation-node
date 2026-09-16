@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
 import { Layout } from "@/components/layout/Layout";
@@ -140,6 +141,10 @@ export default function Settings() {
 
     return (
         <Layout>
+          <Helmet>
+            <title>Settings - The Valuation Node</title>
+            <meta name="robots" content="noindex, nofollow" />
+          </Helmet>
             <div className="container max-w-2xl py-12">
                 <h1 className="text-3xl font-bold mb-8">Account Settings</h1>
 

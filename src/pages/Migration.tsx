@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -101,6 +102,10 @@ export default function Migration() {
 
     return (
         <div className="container py-12 flex justify-center">
+          <Helmet>
+            <title>Data migration - The Valuation Node</title>
+            <meta name="robots" content="noindex, nofollow" />
+          </Helmet>
             <Card className="w-full max-w-2xl">
                 <CardHeader>
                     <CardTitle>Database Migration Tool</CardTitle>

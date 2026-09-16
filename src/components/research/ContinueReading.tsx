@@ -53,7 +53,7 @@ export function ContinueReading({
     return RESEARCH_ARTICLES.filter(
       (a) =>
         a.slug !== currentSlug &&
-        !!a.publishedAt && // only ever suggest genuinely-published articles, never drafts
+        a.status !== "draft" && !!a.publishedAt && // only ever suggest genuinely-published articles, never drafts
         !(hidden?.has(a.slug) ?? false)
     )
       .map((a) => ({ a, s: score(a) }))

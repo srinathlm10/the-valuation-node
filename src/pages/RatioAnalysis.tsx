@@ -1,8 +1,9 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { ArrowRight, Search, SearchX } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
+import { Seo } from "@/components/seo/Seo";
+import { staticMeta } from "@/lib/contentModel";
 import { Input } from "@/components/ui/input";
 import { Callout } from "@/components/content/Callout";
 import { EmptyState } from "@/components/content/EmptyState";
@@ -68,25 +69,25 @@ export default function RatioAnalysis() {
   }, [search]);
 
   const description =
-    "Financial ratio analysis reference for Indian markets: definitions, formulas, benchmarks, and worked examples for " + RATIOS.length + " ratios across valuation, profitability, leverage, efficiency, cash flow, banking, and growth.";
+    "Definitions, formulas, benchmarks, and worked examples for " + RATIOS.length + " financial ratios across valuation, profitability, leverage, efficiency, cash flow, and banking.";
 
   return (
     <Layout>
-      <Helmet>
-        <title>Ratio Analysis: Formulas, Definitions, Indian Examples - The Valuation Node</title>
-        <meta name="description" content={description} />
-        <link rel="canonical" href={CANONICAL} />
-        <meta property="og:url" content={CANONICAL} />
-        <meta property="og:title" content="Ratio Analysis: Formulas, Definitions and Indian Examples" />
-        <meta property="og:description" content={description} />
-        <script type="application/ld+json">
-          {JSON.stringify(breadcrumbLd([
+      <Seo
+        meta={staticMeta({
+          title: "Ratio Analysis: Formulas, Definitions, Indian Examples",
+          slug: "ratio-analysis",
+          section: "vault",
+          subsection: "formulas",
+          summary: description,
+        })}
+        path="/learn/ratio-analysis"
+        jsonLd={[
+          breadcrumbLd([
             { name: "Learn", path: "/learn" },
             { name: "Ratio Analysis", path: "/learn/ratio-analysis" },
-          ]))}
-        </script>
-        <script type="application/ld+json">
-          {JSON.stringify({
+          ]),
+          {
             "@context": "https://schema.org",
             "@type": "ItemList",
             name: "Financial ratio analysis reference",
@@ -97,9 +98,9 @@ export default function RatioAnalysis() {
               name: r.name,
               url: `${CANONICAL}/${r.slug}`,
             })),
-          })}
-        </script>
-      </Helmet>
+          },
+        ]}
+      />
 
       <nav aria-label="Breadcrumb" className="border-b">
         <ol className="container flex max-w-5xl items-center gap-2 py-3 text-sm text-muted-foreground">

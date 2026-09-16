@@ -1,14 +1,15 @@
 import { Link, useParams } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { ArrowLeft, ArrowRight, SearchX } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
+import { Seo } from "@/components/seo/Seo";
+import { ratioMeta } from "@/lib/contentModel";
 import { Prose } from "@/components/content/Prose";
 import { Callout } from "@/components/content/Callout";
 import { EmptyState } from "@/components/content/EmptyState";
 import { ContinueReading } from "@/components/research/ContinueReading";
 import { RATIO_GROUPS, RATIOS, findRatio, ratiosInGroup } from "@/data/ratioAnalysis";
 import { RATIO_GROUP_ICONS } from "@/lib/siteIcons";
-import { termSlug } from "@/lib/relatedContent";
+import { findByName } from "@/lib/glossary";
 import { breadcrumbLd } from "@/lib/seo";
 
 const BASE = "https://valuationnode.com/learn/ratio-analysis";
@@ -46,31 +47,23 @@ export default function RatioAnalysisEntry() {
     .map((s) => RATIOS.find((r) => r.slug === s))
     .filter((r): r is NonNullable<typeof r> => !!r);
 
+  const path = `/learn/ratio-analysis/${ratio.slug}`;
   const url = `${BASE}/${ratio.slug}`;
-  const title = `${ratio.name}: Formula, Definition and Example`;
-  const description =
-    ratio.definition.length > 158
-      ? ratio.definition.slice(0, 152).replace(/\s+\S*$/, "") + "..."
-      : ratio.definition;
+  const meta = ratioMeta(ratio);
 
   return (
     <Layout>
-      <Helmet>
-        <title>{title} - The Valuation Node</title>
-        <meta name="description" content={description} />
-        <link rel="canonical" href={url} />
-        <meta property="og:url" content={url} />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <script type="application/ld+json">
-          {JSON.stringify(breadcrumbLd([
+      <Seo
+        meta={meta}
+        path={path}
+        titleTag={`${ratio.name}: Formula and Definition - The Valuation Node`}
+        jsonLd={[
+          breadcrumbLd([
             { name: "Learn", path: "/learn" },
             { name: "Ratio Analysis", path: "/learn/ratio-analysis" },
-            { name: ratio.name, path: `/learn/ratio-analysis/${ratio.slug}` },
-          ]))}
-        </script>
-        <script type="application/ld+json">
-          {JSON.stringify({
+            { name: ratio.name, path },
+          ]),
+          {
             "@context": "https://schema.org",
             "@type": "DefinedTerm",
             name: ratio.name,
@@ -78,9 +71,9 @@ export default function RatioAnalysisEntry() {
             description: ratio.definition,
             url,
             inDefinedTermSet: BASE,
-          })}
-        </script>
-      </Helmet>
+          },
+        ]}
+      />
 
       <nav aria-label="Breadcrumb" className="border-b">
         <ol className="container flex max-w-3xl flex-wrap items-center gap-2 py-3 text-sm text-muted-foreground">
@@ -176,13 +169,17 @@ export default function RatioAnalysisEntry() {
               <div className="rounded-lg border p-4">
                 <h2 className="text-sm font-semibold">Glossary terms</h2>
                 <ul className="mt-2 space-y-1.5">
-                  {ratio.glossary.map((t) => (
-                    <li key={t}>
-                      <Link to={`/learn/glossary/${termSlug(t)}`} className="text-sm text-foreground hover:underline">
-                        {t} →
-                      </Link>
-                    </li>
-                  ))}
+                  {ratio.glossary.map((t) => {
+                    const target = findByName(t);
+                    if (!target) return null;
+                    return (
+                      <li key={t}>
+                        <Link to={`/learn/glossary/${target.slug}`} className="text-sm text-foreground hover:underline">
+                          {t} →
+                        </Link>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             )}

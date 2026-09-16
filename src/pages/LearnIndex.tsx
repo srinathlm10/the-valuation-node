@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
+import { Seo } from "@/components/seo/Seo";
+import { staticMeta } from "@/lib/contentModel";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { ArrowRight } from "lucide-react";
 import { LEARN_SECTION_ICONS } from "@/lib/siteIcons";
@@ -46,14 +47,16 @@ const sections = [
 export default function LearnIndex() {
   return (
     <Layout>
-      <Helmet>
-        <title>Learn - The Valuation Node</title>
-        <meta
-          name="description"
-          content="Finance concepts, from foundations to applied analysis, explained from first principles. A public learning library by Gajji Srinath."
-        />
-        <link rel="canonical" href="https://valuationnode.com/learn" />
-      </Helmet>
+      <Seo
+        meta={staticMeta({
+          title: "Learn",
+          slug: "learn",
+          section: "vault",
+          summary: "Finance concepts, from foundations to applied analysis, explained from first principles. A public learning library by Gajji Srinath.",
+        })}
+        path="/learn"
+        titleTag="Learn - The Valuation Node"
+      />
 
       <div className="container max-w-3xl py-14">
         <h1 className="text-3xl font-bold tracking-tight">Learn</h1>

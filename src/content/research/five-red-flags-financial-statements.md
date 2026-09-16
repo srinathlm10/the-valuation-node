@@ -2,7 +2,11 @@
 title: "Five Red Flags in a Set of Financial Statements"
 slug: "five-red-flags-financial-statements"
 category: "Valuation"
-tags: ["red flags", "earnings quality", "forensic accounting", "financial analysis"]
+section: "analysis"
+subsection: "valuation-modeling"
+tags: ["red-flags", "earnings-quality", "financial-statements"]
+status: "draft"
+keywords: ["red flags", "earnings quality", "forensic accounting", "financial analysis"]
 metaTitle: "Five Red Flags in Financial Statements | Valuation Node"
 metaDescription: "The warning signs of trouble are usually visible in the statements before the crisis. Here are five red flags every analyst should check, and why each one matters."
 author: "Gajji Srinath"

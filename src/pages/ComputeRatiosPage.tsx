@@ -1,39 +1,36 @@
-import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import { Seo } from "@/components/seo/Seo";
+import { interactiveMeta } from "@/lib/contentModel";
+import { breadcrumbLd } from "@/lib/seo";
 import { ComputeRatiosLesson } from "@/components/learn/ComputeRatiosLesson";
 
 export default function ComputeRatiosPage() {
   return (
     <Layout>
-      <Helmet>
-        <title>Compute Ratios from Raw Statements - The Valuation Node</title>
-        <meta
-          name="description"
-          content="Pull numbers from real financial statements and compute the ratios analysts use every day. Type your answers and get instant feedback."
-        />
-        <link rel="canonical" href="https://valuationnode.com/learn/by-doing/compute-ratios" />
-        <meta property="og:title" content="Compute Ratios from Raw Statements - The Valuation Node" />
-        <meta
-          property="og:description"
-          content="An interactive drill: compute margin, ROE, current ratio, leverage, and more from raw statements, with instant validation."
-        />
-        <meta property="og:type" content="website" />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "LearningResource",
-            name: "Compute Ratios from Raw Statements",
-            description:
-              "An interactive drill where you compute financial ratios from raw statements and get instant feedback.",
-            provider: { "@type": "Organization", name: "The Valuation Node" },
-            educationalLevel: "Beginner to Intermediate",
-            learningResourceType: "Interactive Exercise",
-            teaches: ["Financial ratios", "Net margin", "ROE", "Current ratio", "Debt-to-equity", "Interest coverage"],
-            url: "https://valuationnode.com/learn/by-doing/compute-ratios",
-          })}
-        </script>
-      </Helmet>
+      <Seo
+        meta={interactiveMeta({ slug: "compute-ratios", title: "Compute Ratios from Raw Statements", description: "Pull numbers from real financial statements and compute the ratios analysts use every day. Type your answers and get instant feedback.", kind: "lesson" })}
+        path="/learn/by-doing/compute-ratios"
+        jsonLd={[
+          {
+              "@context": "https://schema.org",
+              "@type": "LearningResource",
+              name: "Compute Ratios from Raw Statements",
+              description:
+                "An interactive drill where you compute financial ratios from raw statements and get instant feedback.",
+              provider: { "@type": "Organization", name: "The Valuation Node" },
+              educationalLevel: "Beginner to Intermediate",
+              learningResourceType: "Interactive Exercise",
+              teaches: ["Financial ratios", "Net margin", "ROE", "Current ratio", "Debt-to-equity", "Interest coverage"],
+              url: "https://valuationnode.com/learn/by-doing/compute-ratios",
+            },
+          breadcrumbLd([
+            { name: "Learn", path: "/learn" },
+            { name: "Learn-by-Doing", path: "/learn/by-doing" },
+            { name: "Compute Ratios from Raw Statements", path: "/learn/by-doing/compute-ratios" },
+          ]),
+        ]}
+      />
 
       <nav className="border-b">
         <ol className="container max-w-5xl py-3 flex items-center gap-2 text-sm text-muted-foreground">

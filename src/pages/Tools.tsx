@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
+import { Seo } from "@/components/seo/Seo";
+import { staticMeta } from "@/lib/contentModel";
 import { Calculator } from "lucide-react";
 import { TOOL_ICONS } from "@/lib/siteIcons";
 
@@ -50,14 +51,17 @@ const toolGroups = [
 export default function Tools() {
   return (
     <Layout>
-      <Helmet>
-        <title>Tools - The Valuation Node</title>
-        <meta
-          name="description"
-          content="Financial calculators for SIP, CAGR, EMI, compound interest, future value, present value, and more."
-        />
-        <link rel="canonical" href="https://valuationnode.com/tools" />
-      </Helmet>
+      <Seo
+        meta={staticMeta({
+          title: "Tools",
+          slug: "tools",
+          section: "vault",
+          subsection: "interactive",
+          summary: "Financial calculators for SIP, CAGR, EMI, compound interest, future value, present value, and more.",
+        })}
+        path="/tools"
+        titleTag="Tools - The Valuation Node"
+      />
 
       <div className="container max-w-3xl py-14">
         <h1 className="text-3xl font-bold tracking-tight">Tools</h1>

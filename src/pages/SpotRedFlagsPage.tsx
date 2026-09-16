@@ -1,39 +1,36 @@
-import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import { Seo } from "@/components/seo/Seo";
+import { interactiveMeta } from "@/lib/contentModel";
+import { breadcrumbLd } from "@/lib/seo";
 import { SpotRedFlagsLesson } from "@/components/learn/SpotRedFlagsLesson";
 
 export default function SpotRedFlagsPage() {
   return (
     <Layout>
-      <Helmet>
-        <title>Spot the Red Flags - The Valuation Node</title>
-        <meta
-          name="description"
-          content="Work through realistic case studies and identify the warning signs of financial distress and poor earnings quality, before they blow up."
-        />
-        <link rel="canonical" href="https://valuationnode.com/learn/by-doing/spot-the-red-flags" />
-        <meta property="og:title" content="Spot the Red Flags - The Valuation Node" />
-        <meta
-          property="og:description"
-          content="Three case studies, a checklist of signals, and instant feedback. Learn to catch the warning signs analysts look for."
-        />
-        <meta property="og:type" content="website" />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "LearningResource",
-            name: "Spot the Red Flags",
-            description:
-              "An interactive case-study exercise for identifying warning signs of financial distress and poor earnings quality.",
-            provider: { "@type": "Organization", name: "The Valuation Node" },
-            educationalLevel: "Intermediate",
-            learningResourceType: "Interactive Exercise",
-            teaches: ["Earnings quality", "Financial distress", "Red flags", "Forensic accounting", "Governance"],
-            url: "https://valuationnode.com/learn/by-doing/spot-the-red-flags",
-          })}
-        </script>
-      </Helmet>
+      <Seo
+        meta={interactiveMeta({ slug: "spot-the-red-flags", title: "Spot the Red Flags", description: "Work through realistic case studies and identify the warning signs of financial distress and poor earnings quality, before they blow up.", kind: "lesson" })}
+        path="/learn/by-doing/spot-the-red-flags"
+        jsonLd={[
+          {
+              "@context": "https://schema.org",
+              "@type": "LearningResource",
+              name: "Spot the Red Flags",
+              description:
+                "An interactive case-study exercise for identifying warning signs of financial distress and poor earnings quality.",
+              provider: { "@type": "Organization", name: "The Valuation Node" },
+              educationalLevel: "Intermediate",
+              learningResourceType: "Interactive Exercise",
+              teaches: ["Earnings quality", "Financial distress", "Red flags", "Forensic accounting", "Governance"],
+              url: "https://valuationnode.com/learn/by-doing/spot-the-red-flags",
+            },
+          breadcrumbLd([
+            { name: "Learn", path: "/learn" },
+            { name: "Learn-by-Doing", path: "/learn/by-doing" },
+            { name: "Spot the Red Flags", path: "/learn/by-doing/spot-the-red-flags" },
+          ]),
+        ]}
+      />
 
       <nav className="border-b">
         <ol className="container max-w-5xl py-3 flex items-center gap-2 text-sm text-muted-foreground">

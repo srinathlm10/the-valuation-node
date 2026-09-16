@@ -11,8 +11,17 @@ export interface ResearchArticleData {
   slug: string;
   title: string;
   excerpt: string;
+  /** Legacy editorial category (Valuation, Credit, Sector, Methodology). Kept as data. */
   category: string;
+  /** Structural placement (see src/lib/taxonomy.ts). Always "analysis" for research. */
+  section?: "analysis";
+  subsection?: string;
+  /** Cross-cutting tags from the 40-tag list. */
   tags?: string[];
+  /** Original free-form tags, kept for search and related-article matching. */
+  keywords?: string[];
+  /** Drafts are never prerendered, listed, or indexed. */
+  status?: "published" | "draft";
 
   // SEO / social
   metaTitle?: string;

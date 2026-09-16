@@ -63,6 +63,7 @@ export default function Dashboard() {
     <Layout>
       <Helmet>
         <title>Dashboard - The Valuation Node</title>
+        <meta name="robots" content="noindex, nofollow" />
       </Helmet>
 
       <div className="container max-w-4xl py-12">

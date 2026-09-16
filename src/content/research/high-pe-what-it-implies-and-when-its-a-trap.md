@@ -2,7 +2,11 @@
 title: "What a High P/E Actually Implies, and When It Is a Trap"
 slug: "high-pe-what-it-implies-and-when-its-a-trap"
 category: "Valuation"
-tags: ["P/E ratio", "valuation", "market expectations", "equity analysis"]
+section: "analysis"
+subsection: "valuation-modeling"
+tags: ["valuation", "relative-valuation", "equities"]
+status: "published"
+keywords: ["P/E ratio", "valuation", "market expectations", "equity analysis"]
 metaTitle: "What a High P/E Really Means (and When It Is a Trap) | Valuation Node"
 metaDescription: "A high P/E is not simply 'expensive'. It is the market pricing in expectations. Learn how to read what a P/E implies, and the two traps that catch beginners."
 author: "Gajji Srinath"

@@ -47,7 +47,10 @@ function readArticles() {
       title: data.title,
       excerpt: data.excerpt || "",
       category: data.category || "Uncategorised",
+      section: "analysis",
+      subsection: data.subsection || "valuation-modeling",
       tags: Array.isArray(data.tags) ? data.tags : undefined,
+      keywords: Array.isArray(data.keywords) ? data.keywords : undefined,
       metaTitle: data.metaTitle,
       metaDescription: data.metaDescription || data.excerpt,
       canonical: data.canonical || `https://valuationnode.com/research/${slug}`,
@@ -57,6 +60,9 @@ function readArticles() {
       updatedAt: toDateStr(data.updatedAt ?? data.lastReviewed),
       readingTime: typeof data.readingTime === "number" ? data.readingTime : undefined,
       author: data.author || "Gajji Srinath",
+      // A draft is anything explicitly marked, or anything without an honest date.
+      status:
+        data.status === "draft" || !toDateStr(data.publishedAt ?? data.publishDate) ? "draft" : "published",
       methodologySummary: data.methodologySummary,
       whereIMightBeWrong: data.whereIMightBeWrong,
       citationFormat: data.citationFormat,

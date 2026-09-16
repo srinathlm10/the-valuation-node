@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
+import { Seo } from "@/components/seo/Seo";
+import { staticMeta } from "@/lib/contentModel";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -189,14 +190,17 @@ function Sidebar({ activeSection }: { activeSection?: string }) {
 export default function Foundations() {
   return (
     <Layout>
-      <Helmet>
-        <title>Foundations - The Valuation Node</title>
-        <meta
-          name="description"
-          content="Finance from first principles. Topics in accounting, valuation, credit, markets, ESG, and fintech, with Indian context."
-        />
-        <link rel="canonical" href="https://valuationnode.com/learn/foundations" />
-      </Helmet>
+      <Seo
+        meta={staticMeta({
+          title: "Foundations",
+          slug: "foundations",
+          section: "vault",
+          subsection: "guides",
+          summary: "Finance from first principles. Topics in accounting, valuation, credit, markets, ESG, and fintech, with Indian context.",
+        })}
+        path="/learn/foundations"
+        titleTag="Foundations - The Valuation Node"
+      />
 
       <div className="container py-14">
         <div className="flex gap-12">

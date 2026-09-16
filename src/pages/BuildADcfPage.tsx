@@ -1,39 +1,36 @@
-import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import { Seo } from "@/components/seo/Seo";
+import { interactiveMeta } from "@/lib/contentModel";
+import { breadcrumbLd } from "@/lib/seo";
 import { BuildADcfLesson } from "@/components/learn/BuildADcfLesson";
 
 export default function BuildADcfPage() {
   return (
     <Layout>
-      <Helmet>
-        <title>Build a DCF, Step by Step - The Valuation Node</title>
-        <meta
-          name="description"
-          content="Build a complete discounted cash flow model for a real Indian company, one step at a time. Learn what each assumption means and how it affects the final valuation."
-        />
-        <link rel="canonical" href="https://valuationnode.com/learn/by-doing/build-a-dcf" />
-        <meta property="og:title" content="Build a DCF, Step by Step - The Valuation Node" />
-        <meta
-          property="og:description"
-          content="An interactive 8-step lesson that teaches you to build a DCF model from scratch, using real Indian companies."
-        />
-        <meta property="og:type" content="website" />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "LearningResource",
-            name: "Build a DCF, Step by Step",
-            description:
-              "An interactive 8-step lesson that teaches you to build a complete discounted cash flow model using real Indian companies.",
-            provider: { "@type": "Organization", name: "The Valuation Node" },
-            educationalLevel: "Beginner to Intermediate",
-            learningResourceType: "Interactive Tutorial",
-            teaches: ["DCF valuation", "WACC", "Terminal value", "NOPAT", "Free cash flow"],
-            url: "https://valuationnode.com/learn/by-doing/build-a-dcf",
-          })}
-        </script>
-      </Helmet>
+      <Seo
+        meta={interactiveMeta({ slug: "build-a-dcf", title: "Build a DCF, Step by Step", description: "Build a complete discounted cash flow model for a real Indian company, one step at a time. Learn what each assumption means and how it affects the final valuation.", kind: "lesson" })}
+        path="/learn/by-doing/build-a-dcf"
+        jsonLd={[
+          {
+              "@context": "https://schema.org",
+              "@type": "LearningResource",
+              name: "Build a DCF, Step by Step",
+              description:
+                "An interactive 8-step lesson that teaches you to build a complete discounted cash flow model using real Indian companies.",
+              provider: { "@type": "Organization", name: "The Valuation Node" },
+              educationalLevel: "Beginner to Intermediate",
+              learningResourceType: "Interactive Tutorial",
+              teaches: ["DCF valuation", "WACC", "Terminal value", "NOPAT", "Free cash flow"],
+              url: "https://valuationnode.com/learn/by-doing/build-a-dcf",
+            },
+          breadcrumbLd([
+            { name: "Learn", path: "/learn" },
+            { name: "Learn-by-Doing", path: "/learn/by-doing" },
+            { name: "Build a DCF, Step by Step", path: "/learn/by-doing/build-a-dcf" },
+          ]),
+        ]}
+      />
 
       <nav className="border-b">
         <ol className="container max-w-5xl py-3 flex items-center gap-2 text-sm text-muted-foreground">

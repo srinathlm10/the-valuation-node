@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
+import { Seo } from "@/components/seo/Seo";
+import { staticMeta } from "@/lib/contentModel";
 
 const PRINCIPLES = [
   "I cite my sources.",
@@ -14,14 +15,17 @@ const PRINCIPLES = [
 export default function AboutSite() {
   return (
     <Layout>
-      <Helmet>
-        <title>About this site - The Valuation Node</title>
-        <meta
-          name="description"
-          content="The mission, editorial principles, and disclosure for The Valuation Node."
-        />
-        <link rel="canonical" href="https://valuationnode.com/about/site" />
-      </Helmet>
+      <Seo
+        meta={staticMeta({
+          title: "About this site",
+          slug: "site",
+          section: "about",
+          subsection: "site",
+          summary: "The mission, editorial principles, and disclosure for The Valuation Node.",
+        })}
+        path="/about/site"
+        titleTag="About this site - The Valuation Node"
+      />
 
       <nav className="border-b">
         <ol className="container max-w-3xl py-3 flex items-center gap-2 text-sm text-muted-foreground">

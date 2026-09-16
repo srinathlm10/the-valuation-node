@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
+import { Seo } from "@/components/seo/Seo";
+import { staticMeta } from "@/lib/contentModel";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 
 const SECTIONS = [
@@ -33,14 +34,17 @@ const SECTIONS = [
 export default function AboutMethodology() {
   return (
     <Layout>
-      <Helmet>
-        <title>Methodology - The Valuation Node</title>
-        <meta
-          name="description"
-          content="How Gajji Srinath approaches financial analysis - DCF, WACC, data sources, and more."
-        />
-        <link rel="canonical" href="https://valuationnode.com/about/methodology" />
-      </Helmet>
+      <Seo
+        meta={staticMeta({
+          title: "Methodology",
+          slug: "methodology",
+          section: "about",
+          subsection: "philosophy",
+          summary: "How Gajji Srinath approaches financial analysis - DCF, WACC, data sources, and more.",
+        })}
+        path="/about/methodology"
+        titleTag="Methodology - The Valuation Node"
+      />
 
       <nav className="border-b">
         <ol className="container max-w-3xl py-3 flex items-center gap-2 text-sm text-muted-foreground">

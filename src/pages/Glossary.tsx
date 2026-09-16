@@ -1,7 +1,8 @@
 import { useState, useMemo } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
+import { Seo } from "@/components/seo/Seo";
+import { staticMeta } from "@/lib/contentModel";
 import { Input } from "@/components/ui/input";
 import { GLOSSARY } from "@/lib/glossary";
 import { Search, SearchX } from "lucide-react";
@@ -15,10 +16,6 @@ function CategoryIcon({ category }: { category?: string }) {
 import { cn } from "@/lib/utils";
 
 const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-
-function toSlug(term: string) {
-  return term.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-}
 
 export default function Glossary() {
   const [params] = useSearchParams();
@@ -49,14 +46,17 @@ export default function Glossary() {
 
   return (
     <Layout>
-      <Helmet>
-        <title>Glossary - The Valuation Node</title>
-        <meta
-          name="description"
-          content="170+ finance definitions, each with a formula, a real Indian example, and links to Foundations pages."
-        />
-        <link rel="canonical" href="https://valuationnode.com/learn/glossary" />
-      </Helmet>
+      <Seo
+        meta={staticMeta({
+          title: "Glossary",
+          slug: "glossary",
+          section: "vault",
+          subsection: "glossary",
+          summary: "170+ finance definitions, each with a formula, a real Indian example, and links to Foundations pages.",
+        })}
+        path="/learn/glossary"
+        titleTag="Glossary - The Valuation Node"
+      />
 
       <div className="container max-w-4xl py-14">
         <Link to="/learn" className="text-sm text-muted-foreground hover:text-foreground mb-6 inline-block">
@@ -120,7 +120,7 @@ export default function Glossary() {
             filtered.map((def: any) => (
               <div key={def.id} className="py-4">
                 <Link
-                  to={`/learn/glossary/${toSlug(def.term)}`}
+                  to={`/learn/glossary/${def.slug}`}
                   className="group flex items-start gap-2.5 font-medium"
                 >
                   <CategoryIcon category={def.category} />

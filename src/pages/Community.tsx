@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { Layout } from "@/components/layout/Layout";
@@ -62,6 +63,10 @@ export default function Community() {
 
     return (
         <Layout>
+          <Helmet>
+            <title>Community - The Valuation Node</title>
+            <meta name="robots" content="noindex, nofollow" />
+          </Helmet>
             <div className="container py-12">
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
                     <div>

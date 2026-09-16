@@ -1,39 +1,36 @@
-import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import { Seo } from "@/components/seo/Seo";
+import { interactiveMeta } from "@/lib/contentModel";
+import { breadcrumbLd } from "@/lib/seo";
 import { ReadIncomeStatementLesson } from "@/components/learn/ReadIncomeStatementLesson";
 
 export default function ReadIncomeStatementPage() {
   return (
     <Layout>
-      <Helmet>
-        <title>Read an Income Statement, Line by Line - The Valuation Node</title>
-        <meta
-          name="description"
-          content="Walk through a real Indian company's P&L one line at a time. Understand what each number means and how revenue becomes net profit."
-        />
-        <link rel="canonical" href="https://valuationnode.com/learn/by-doing/read-an-income-statement" />
-        <meta property="og:title" content="Read an Income Statement, Line by Line - The Valuation Node" />
-        <meta
-          property="og:description"
-          content="An interactive lesson that reveals a company's income statement line by line, explaining each item as you go."
-        />
-        <meta property="og:type" content="website" />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "LearningResource",
-            name: "Read an Income Statement, Line by Line",
-            description:
-              "An interactive lesson that reveals a company's income statement line by line, explaining what each item means.",
-            provider: { "@type": "Organization", name: "The Valuation Node" },
-            educationalLevel: "Beginner",
-            learningResourceType: "Interactive Tutorial",
-            teaches: ["Income statement", "P&L", "Gross profit", "EBITDA", "Net profit", "Margins"],
-            url: "https://valuationnode.com/learn/by-doing/read-an-income-statement",
-          })}
-        </script>
-      </Helmet>
+      <Seo
+        meta={interactiveMeta({ slug: "read-an-income-statement", title: "Read an Income Statement, Line by Line", description: "Walk through a real Indian company's P&L one line at a time. Understand what each number means and how revenue becomes net profit.", kind: "lesson" })}
+        path="/learn/by-doing/read-an-income-statement"
+        jsonLd={[
+          {
+              "@context": "https://schema.org",
+              "@type": "LearningResource",
+              name: "Read an Income Statement, Line by Line",
+              description:
+                "An interactive lesson that reveals a company's income statement line by line, explaining what each item means.",
+              provider: { "@type": "Organization", name: "The Valuation Node" },
+              educationalLevel: "Beginner",
+              learningResourceType: "Interactive Tutorial",
+              teaches: ["Income statement", "P&L", "Gross profit", "EBITDA", "Net profit", "Margins"],
+              url: "https://valuationnode.com/learn/by-doing/read-an-income-statement",
+            },
+          breadcrumbLd([
+            { name: "Learn", path: "/learn" },
+            { name: "Learn-by-Doing", path: "/learn/by-doing" },
+            { name: "Read an Income Statement, Line by Line", path: "/learn/by-doing/read-an-income-statement" },
+          ]),
+        ]}
+      />
 
       <nav className="border-b">
         <ol className="container max-w-5xl py-3 flex items-center gap-2 text-sm text-muted-foreground">

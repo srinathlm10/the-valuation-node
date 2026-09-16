@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { useParams, Link } from "react-router-dom";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { Layout } from "@/components/layout/Layout";
@@ -111,6 +112,10 @@ export default function PostDetail() {
 
     return (
         <Layout>
+          <Helmet>
+            <title>Community post - The Valuation Node</title>
+            <meta name="robots" content="noindex, nofollow" />
+          </Helmet>
             <div className="container max-w-3xl py-12">
                 <Button variant="ghost" size="sm" asChild className="mb-6">
                     <Link to="/community">

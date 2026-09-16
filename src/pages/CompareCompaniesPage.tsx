@@ -1,39 +1,36 @@
-import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import { Seo } from "@/components/seo/Seo";
+import { interactiveMeta } from "@/lib/contentModel";
+import { breadcrumbLd } from "@/lib/seo";
 import { CompareCompaniesLesson } from "@/components/learn/CompareCompaniesLesson";
 
 export default function CompareCompaniesPage() {
   return (
     <Layout>
-      <Helmet>
-        <title>Compare Two Companies Side by Side - The Valuation Node</title>
-        <meta
-          name="description"
-          content="Use a structured framework to compare two Indian companies in the same sector, growth, margins, returns, leverage, and valuation."
-        />
-        <link rel="canonical" href="https://valuationnode.com/learn/by-doing/compare-two-companies" />
-        <meta property="og:title" content="Compare Two Companies Side by Side - The Valuation Node" />
-        <meta
-          property="og:description"
-          content="Predict the stronger company on each metric, then see the full side-by-side profile and the analyst's verdict."
-        />
-        <meta property="og:type" content="website" />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "LearningResource",
-            name: "Compare Two Companies Side by Side",
-            description:
-              "An interactive framework for comparing two companies in the same sector across growth, margins, returns, leverage, and valuation.",
-            provider: { "@type": "Organization", name: "The Valuation Node" },
-            educationalLevel: "Intermediate",
-            learningResourceType: "Interactive Tutorial",
-            teaches: ["Peer comparison", "Relative valuation", "Margins", "ROE", "Leverage", "P/E"],
-            url: "https://valuationnode.com/learn/by-doing/compare-two-companies",
-          })}
-        </script>
-      </Helmet>
+      <Seo
+        meta={interactiveMeta({ slug: "compare-two-companies", title: "Compare Two Companies Side by Side", description: "Use a structured framework to compare two Indian companies in the same sector, growth, margins, returns, leverage, and valuation.", kind: "lesson" })}
+        path="/learn/by-doing/compare-two-companies"
+        jsonLd={[
+          {
+              "@context": "https://schema.org",
+              "@type": "LearningResource",
+              name: "Compare Two Companies Side by Side",
+              description:
+                "An interactive framework for comparing two companies in the same sector across growth, margins, returns, leverage, and valuation.",
+              provider: { "@type": "Organization", name: "The Valuation Node" },
+              educationalLevel: "Intermediate",
+              learningResourceType: "Interactive Tutorial",
+              teaches: ["Peer comparison", "Relative valuation", "Margins", "ROE", "Leverage", "P/E"],
+              url: "https://valuationnode.com/learn/by-doing/compare-two-companies",
+            },
+          breadcrumbLd([
+            { name: "Learn", path: "/learn" },
+            { name: "Learn-by-Doing", path: "/learn/by-doing" },
+            { name: "Compare Two Companies Side by Side", path: "/learn/by-doing/compare-two-companies" },
+          ]),
+        ]}
+      />
 
       <nav className="border-b">
         <ol className="container max-w-5xl py-3 flex items-center gap-2 text-sm text-muted-foreground">

@@ -19,6 +19,7 @@ export default function LearnByDoingModule() {
     <Layout>
       <Helmet>
         <title>{title} - Learn-by-Doing - The Valuation Node</title>
+        <meta name="robots" content="noindex, nofollow" />
         <link rel="canonical" href={`https://valuationnode.com/learn/by-doing/${slug}`} />
       </Helmet>
 

@@ -1,6 +1,7 @@
 import { useParams, Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
+import { Seo } from "@/components/seo/Seo";
+import { guideMetaFor, staticMeta, summarise } from "@/lib/contentModel";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { FOUNDATIONS_TREE } from "./Foundations";
 import { FOUNDATIONS_CONTENT } from "@/data/foundationsContent";
@@ -20,7 +21,7 @@ import { TableOfContents } from "@/components/content/TableOfContents";
 import { ContinueReading } from "@/components/research/ContinueReading";
 import { RelatedTopics } from "@/components/learn/RelatedTopics";
 import { getGlossaryTermsForSection, ARTICLE_CATEGORY_BY_SECTION } from "@/lib/relatedContent";
-import { breadcrumbLd, metaFromMarkdown } from "@/lib/seo";
+import { breadcrumbLd } from "@/lib/seo";
 
 export default function FoundationsLeaf() {
   const { section, topic } = useParams<{ section: string; topic: string }>();
@@ -45,38 +46,45 @@ export default function FoundationsLeaf() {
   const SectionGlyph = FOUNDATIONS_SECTION_ICONS[sectionData.section];
   const keyTerms = getGlossaryTermsForSection(sectionData.section, 6);
   const isPlaceholder = !topicMeta.published || !content;
+  const pagePath = `/learn/foundations/${section}/${topic}`;
+  // Reviewed summary + tags from foundationsMeta.ts; fall back to the intuition text.
+  const pageMeta =
+    guideMetaFor(topic!, content?.readingTime) ??
+    staticMeta({
+      title: topicMeta.label,
+      slug: topic!,
+      section: "vault",
+      subsection: "guides",
+      summary: summarise(content?.intuition) || `${topicMeta.label}, explained from first principles with Indian context and worked examples.`,
+    });
 
   return (
     <Layout>
-      <Helmet>
-        <title>{topicMeta.label} - The Valuation Node</title>
-        <meta
-          name="description"
-          content={metaFromMarkdown(content?.intuition, `Learn ${topicMeta.label} from first principles, with Indian context and worked examples.`)}
-        />
-        <link
-          rel="canonical"
-          href={`https://valuationnode.com/learn/foundations/${section}/${topic}`}
-        />
-        <meta property="og:url" content={`https://valuationnode.com/learn/foundations/${section}/${topic}`} />
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "LearningResource",
-          name: topicMeta.label,
-          description: metaFromMarkdown(content?.intuition, topicMeta.label),
-          inLanguage: "en-IN",
-          learningResourceType: "Reading",
-          author: { "@type": "Person", name: "Gajji Srinath" },
-          provider: { "@type": "Organization", name: "The Valuation Node" },
-          url: `https://valuationnode.com/learn/foundations/${section}/${topic}`,
-        })}</script>
-        <script type="application/ld+json">{JSON.stringify(breadcrumbLd([
-          { name: "Learn", path: "/learn" },
-          { name: "Foundations", path: "/learn/foundations" },
-          { name: sectionData.label, path: `/learn/foundations/${section}` },
-          { name: topicMeta.label, path: `/learn/foundations/${section}/${topic}` },
-        ]))}</script>
-      </Helmet>
+      <Seo
+        meta={pageMeta}
+        path={pagePath}
+        jsonLd={[
+          {
+            "@context": "https://schema.org",
+            "@type": "LearningResource",
+            name: topicMeta.label,
+            description: pageMeta.summary,
+            inLanguage: "en-IN",
+            learningResourceType: "Reading",
+            dateModified: pageMeta.updatedDate,
+            timeRequired: pageMeta.readingTime ? `PT${pageMeta.readingTime}M` : undefined,
+            author: { "@type": "Person", name: "Gajji Srinath" },
+            provider: { "@type": "Organization", name: "The Valuation Node" },
+            url: `https://valuationnode.com${pagePath}`,
+          },
+          breadcrumbLd([
+            { name: "Learn", path: "/learn" },
+            { name: "Foundations", path: "/learn/foundations" },
+            { name: sectionData.label, path: `/learn/foundations/${section}` },
+            { name: topicMeta.label, path: pagePath },
+          ]),
+        ]}
+      />
 
       <nav aria-label="Breadcrumb" className="border-b">
         <ol className="container max-w-3xl py-3 flex items-center gap-2 text-sm text-muted-foreground">

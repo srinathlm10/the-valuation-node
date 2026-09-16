@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
+import { Seo } from "@/components/seo/Seo";
+import { staticMeta } from "@/lib/contentModel";
 import { ArrowRight } from "lucide-react";
 
 const subpages = [
@@ -24,22 +25,26 @@ const subpages = [
 export default function About() {
   return (
     <Layout>
-      <Helmet>
-        <title>About - The Valuation Node</title>
-        <meta
-          name="description"
-          content="About The Valuation Node - Indian markets research and learning by Gajji Srinath."
-        />
-        <link rel="canonical" href="https://valuationnode.com/about" />
-        <script type="application/ld+json">{JSON.stringify({
+      <Seo
+        meta={staticMeta({
+          title: "About",
+          slug: "about",
+          section: "about",
+          summary: "About The Valuation Node - Indian markets research and learning by Gajji Srinath.",
+        })}
+        path="/about"
+        titleTag="About - The Valuation Node"
+        jsonLd={[
+          {
           "@context": "https://schema.org",
           "@type": "Person",
           name: "Gajji Srinath",
           jobTitle: "Founder, The Valuation Node",
           affiliation: { "@type": "Organization", name: "NIT Rourkela" },
           url: "https://valuationnode.com/about/author",
-        })}</script>
-      </Helmet>
+        },
+        ]}
+      />
 
       <div className="container max-w-3xl py-14">
         <h1 className="text-3xl font-bold tracking-tight">About</h1>

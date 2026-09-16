@@ -1,6 +1,7 @@
 import { useParams, Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
+import { Seo } from "@/components/seo/Seo";
+import { interactiveMeta } from "@/lib/contentModel";
 import {
   FutureValueCalculator,
   SIPCalculator,
@@ -146,29 +147,31 @@ export default function ToolPage() {
   }
 
   const CalculatorComponent = slug ? TOOL_COMPONENTS[slug] : undefined;
+  const pagePath = `/tools/${slug}`;
+  const pageMeta = interactiveMeta({ slug: slug!, title: meta.label, description: meta.description, kind: "calculator" });
 
   return (
     <Layout>
-      <Helmet>
-        <title>{meta.label} - The Valuation Node</title>
-        <meta name="description" content={meta.description} />
-        <link rel="canonical" href={`https://valuationnode.com/tools/${slug}`} />
-        <meta property="og:url" content={`https://valuationnode.com/tools/${slug}`} />
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "WebApplication",
-          name: meta.label,
-          description: meta.description,
-          applicationCategory: "FinanceApplication",
-          operatingSystem: "Web",
-          offers: { "@type": "Offer", price: "0", priceCurrency: "INR" },
-          url: `https://valuationnode.com/tools/${slug}`,
-        })}</script>
-        <script type="application/ld+json">{JSON.stringify(breadcrumbLd([
-          { name: "Tools", path: "/tools" },
-          { name: meta.label, path: `/tools/${slug}` },
-        ]))}</script>
-      </Helmet>
+      <Seo
+        meta={pageMeta}
+        path={pagePath}
+        jsonLd={[
+          {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            name: meta.label,
+            description: meta.description,
+            applicationCategory: "FinanceApplication",
+            operatingSystem: "Web",
+            offers: { "@type": "Offer", price: "0", priceCurrency: "INR" },
+            url: `https://valuationnode.com${pagePath}`,
+          },
+          breadcrumbLd([
+            { name: "Tools", path: "/tools" },
+            { name: meta.label, path: pagePath },
+          ]),
+        ]}
+      />
 
       <div className="container max-w-3xl py-14">
         <Link to="/tools" className="text-sm text-muted-foreground hover:text-foreground mb-6 inline-block">

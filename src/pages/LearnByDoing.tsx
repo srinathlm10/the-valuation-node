@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
+import { Seo } from "@/components/seo/Seo";
+import { staticMeta } from "@/lib/contentModel";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { Clock } from "lucide-react";
 
@@ -50,14 +51,17 @@ const modules = [
 export default function LearnByDoing() {
   return (
     <Layout>
-      <Helmet>
-        <title>Learn-by-Doing - The Valuation Node</title>
-        <meta
-          name="description"
-          content="Interactive finance lessons through actual practice with real company data."
-        />
-        <link rel="canonical" href="https://valuationnode.com/learn/by-doing" />
-      </Helmet>
+      <Seo
+        meta={staticMeta({
+          title: "Learn-by-Doing",
+          slug: "by-doing",
+          section: "vault",
+          subsection: "interactive",
+          summary: "Interactive finance lessons through actual practice with real company data.",
+        })}
+        path="/learn/by-doing"
+        titleTag="Learn-by-Doing - The Valuation Node"
+      />
 
       <div className="container max-w-3xl py-14">
         <Link to="/learn" className="text-sm text-muted-foreground hover:text-foreground mb-6 inline-block">

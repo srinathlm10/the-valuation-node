@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import ReactMarkdown from "react-markdown";
@@ -85,6 +86,10 @@ export default function ArticleView() {
 
     return (
         <Layout>
+          <Helmet>
+            <title>Article - The Valuation Node</title>
+            <meta name="robots" content="noindex, nofollow" />
+          </Helmet>
             <article className="container max-w-3xl py-12">
                 <Button variant="ghost" size="sm" asChild className="mb-6">
                     <Link to="/learn">

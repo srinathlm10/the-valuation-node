@@ -3,6 +3,10 @@ title: How The Valuation Node Approaches Research
 slug: how-the-valuation-node-approaches-research
 excerpt: The principles behind every analysis published here, transparency of assumptions, primary sources, and an honest account of where the analysis could be wrong.
 category: Methodology
+section: "analysis"
+subsection: "op-eds"
+tags: ["valuation"]
+status: "published"
 metaTitle: How The Valuation Node Approaches Research - The Valuation Node
 metaDescription: The research method behind The Valuation Node, how assumptions are stated, how sources are chosen, and how uncertainty is disclosed in every published analysis.
 canonical: https://valuationnode.com/research/how-the-valuation-node-approaches-research

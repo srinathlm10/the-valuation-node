@@ -1,7 +1,8 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
+import { Seo } from "@/components/seo/Seo";
+import { staticMeta } from "@/lib/contentModel";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { ArrowRight, EyeOff, FileSearch } from "lucide-react";
 import { EmptyState } from "@/components/content/EmptyState";
@@ -28,8 +29,9 @@ export default function Research() {
   const visible = useMemo(() => {
     return RESEARCH_ARTICLES.filter((a) => {
       const isHidden = hidden?.has(a.slug) ?? false;
-      // Admins see everything (hidden ones get a badge); everyone else sees only visible.
-      if (isHidden && !isAdmin) return false;
+      // Admins see everything (hidden ones get a badge); everyone else sees only
+      // published, visible articles. Drafts (no honest date) never list publicly.
+      if ((isHidden || a.status === "draft") && !isAdmin) return false;
       if (category !== "All" && a.category !== category) return false;
       return true;
     });
@@ -41,15 +43,16 @@ export default function Research() {
 
   return (
     <Layout>
-      <Helmet>
-        <title>Research - The Valuation Node</title>
-        <meta
-          name="description"
-          content="Original analysis of Indian companies, sectors, and credit. All work is authored, dated, and shows its sources."
-        />
-        <meta property="og:title" content="Research - The Valuation Node" />
-        <link rel="canonical" href="https://valuationnode.com/research" />
-      </Helmet>
+      <Seo
+        meta={staticMeta({
+          title: "Research",
+          slug: "research",
+          section: "analysis",
+          summary: "Original analysis of Indian companies, sectors, and credit. All work is authored, dated, and shows its sources.",
+        })}
+        path="/research"
+        titleTag="Research - The Valuation Node"
+      />
 
       <div className="container max-w-4xl py-14">
         <h1 className="text-3xl font-bold tracking-tight">Research</h1>

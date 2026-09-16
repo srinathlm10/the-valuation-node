@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
+import { Seo } from "@/components/seo/Seo";
+import { staticMeta } from "@/lib/contentModel";
 import { ContinueReading } from "@/components/research/ContinueReading";
 import { DcfSensitivityCalculator } from "@/components/tools/DcfSensitivityCalculator";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
@@ -8,19 +9,18 @@ import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 export default function DcfSensitivityPage() {
   return (
     <Layout>
-      <Helmet>
-        <title>DCF Sensitivity Calculator - Tools - The Valuation Node</title>
-        <meta
-          name="description"
-          content="Interactive DCF model with a 5×5 sensitivity grid across WACC and terminal growth. Adjust assumptions live and download as Excel. Built for Indian markets research."
-        />
-        <link rel="canonical" href="https://valuationnode.com/tools/dcf-sensitivity" />
-        <meta property="og:title" content="DCF Sensitivity Calculator - The Valuation Node" />
-        <meta
-          property="og:description"
-          content="Two-stage DCF model with live sliders, sensitivity heatmap, and Excel export. For Indian markets research."
-        />
-      </Helmet>
+      <Seo
+        meta={staticMeta({
+          title: "DCF Sensitivity Calculator - Tools",
+          slug: "dcf-sensitivity",
+          section: "vault",
+          subsection: "interactive",
+          summary: "Two-stage DCF model with live sliders, sensitivity heatmap, and Excel export. For Indian markets research.",
+        })}
+        path="/tools/dcf-sensitivity"
+        titleTag="DCF Sensitivity Calculator - Tools - The Valuation Node"
+        description="Interactive DCF model with a 5×5 sensitivity grid across WACC and terminal growth. Adjust assumptions live and download as Excel. Built for Indian markets research."
+      />
 
       <div className="container max-w-5xl py-14">
         <Link

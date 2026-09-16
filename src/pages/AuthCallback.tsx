@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Loader2 } from "lucide-react";
@@ -33,6 +34,10 @@ export default function AuthCallback() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center gap-3 text-muted-foreground">
+      <Helmet>
+        <title>Signing you in - The Valuation Node</title>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       <Loader2 className="h-8 w-8 animate-spin text-primary" />
       <p className="text-sm">Signing you in…</p>
     </div>

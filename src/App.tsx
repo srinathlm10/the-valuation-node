@@ -132,7 +132,7 @@ export const routes: RouteRecord[] = [
         // "temporarily unavailable" when the visibility flag is set. Mirrors the
         // sitemap's build-time logic; fails open if the DB can't be reached.
         getStaticPaths: async () => {
-          const dated = RESEARCH_ARTICLES.filter((a) => a.publishedAt);
+          const dated = RESEARCH_ARTICLES.filter((a) => a.status !== "draft" && a.publishedAt);
           try {
             const { supabase } = await import("@/integrations/supabase/client");
             const { data, error } = await supabase.from("hidden_articles" as never).select("slug");
@@ -179,8 +179,8 @@ export const routes: RouteRecord[] = [
         // Prerender every glossary term (local data) so each definition ships
         // as static HTML with its DefinedTerm structured data.
         getStaticPaths: async () => {
-          const { GLOSSARY, termSlug } = await import("@/lib/glossary");
-          return GLOSSARY.map((d) => `learn/glossary/${termSlug(d.term)}`);
+          const { GLOSSARY } = await import("@/lib/glossary");
+          return GLOSSARY.map((d) => `learn/glossary/${d.slug}`);
         },
       },
 

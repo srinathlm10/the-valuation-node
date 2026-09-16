@@ -2,7 +2,11 @@
 title: "Why a Company Can Be Profitable and Still Run Out of Cash"
 slug: "profitable-but-out-of-cash"
 category: "Valuation"
-tags: ["cash flow", "working capital", "earnings quality", "financial analysis"]
+section: "analysis"
+subsection: "valuation-modeling"
+tags: ["cash-flow", "liquidity", "earnings-quality"]
+status: "draft"
+keywords: ["cash flow", "working capital", "earnings quality", "financial analysis"]
 metaTitle: "Why Profitable Companies Run Out of Cash | Valuation Node"
 metaDescription: "Profit and cash are not the same thing. Learn how a growing, profitable company can still fail to pay its bills, and the three mechanics that cause it."
 author: "Gajji Srinath"

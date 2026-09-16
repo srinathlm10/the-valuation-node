@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
+import { Seo } from "@/components/seo/Seo";
+import { staticMeta } from "@/lib/contentModel";
 import { StockScreener } from "@/components/stocks/StockScreener";
 import { useQuery } from "@tanstack/react-query";
 import { contentService } from "@/services/contentService";
@@ -19,14 +20,17 @@ export default function MarketsNifty50() {
 
   return (
     <Layout>
-      <Helmet>
-        <title>Nifty 50 - Markets - The Valuation Node</title>
-        <meta
-          name="description"
-          content="Fundamental data for Nifty 50 constituents: P/E, P/B, dividend yield, market cap. Coverage is expanding."
-        />
-        <link rel="canonical" href="https://valuationnode.com/markets/nifty50" />
-      </Helmet>
+      <Seo
+        meta={staticMeta({
+          title: "Nifty 50 - Markets",
+          slug: "nifty50",
+          section: "news",
+          subsection: "indian-economy",
+          summary: "Fundamental data for Nifty 50 constituents: P/E, P/B, dividend yield, market cap. Coverage is expanding.",
+        })}
+        path="/markets/nifty50"
+        titleTag="Nifty 50 - Markets - The Valuation Node"
+      />
 
       <div className="container py-14">
         <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-6">

@@ -1,7 +1,8 @@
 import { useParams, Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
-import { findTerm } from "@/lib/glossary";
+import { Seo } from "@/components/seo/Seo";
+import { glossaryMeta } from "@/lib/contentModel";
+import { findTerm, findByName, siblingsOf } from "@/lib/glossary";
 import { Prose } from "@/components/content/Prose";
 import { Callout } from "@/components/content/Callout";
 import { GLOSSARY_CATEGORY_ICONS, GLOSSARY_FALLBACK_ICON } from "@/lib/siteIcons";
@@ -14,16 +15,15 @@ function CategoryIcon({ category }: { category?: string }) {
   return <Icon className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />;
 }
 
-function toSlug(term: string) {
-  return term.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-}
-
 export default function GlossaryEntry() {
   const { termSlug } = useParams<{ termSlug: string }>();
 
   const def = findTerm(termSlug ?? "");
+  const meta = def ? glossaryMeta(def) : undefined;
+  const path = `/learn/glossary/${def?.slug ?? termSlug}`;
+  const siblings = def ? siblingsOf(def) : [];
 
-  if (!def) {
+  if (!def || !meta) {
     return (
       <Layout>
         <div className="container max-w-3xl py-20 text-center">
@@ -38,31 +38,26 @@ export default function GlossaryEntry() {
 
   return (
     <Layout>
-      <Helmet>
-        <title>{def.term} - Glossary - The Valuation Node</title>
-        <meta
-          name="description"
-          content={(() => {
-            const base = def.definition || `Definition of ${def.term}`;
-            const full = base.length < 90 && def.whyItMatters ? base + " " + def.whyItMatters : base;
-            return full.length > 158 ? full.slice(0, 152).replace(/\s+\S*$/, "") + "..." : full;
-          })()}
-        />
-        <link rel="canonical" href={`https://valuationnode.com/learn/glossary/${termSlug}`} />
-        <meta property="og:url" content={`https://valuationnode.com/learn/glossary/${termSlug}`} />
-        <script type="application/ld+json">{JSON.stringify(breadcrumbLd([
-          { name: "Learn", path: "/learn" },
-          { name: "Glossary", path: "/learn/glossary" },
-          { name: def.term, path: `/learn/glossary/${termSlug}` },
-        ]))}</script>
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "DefinedTerm",
-          name: def.term,
-          description: def.definition,
-          inDefinedTermSet: "https://valuationnode.com/learn/glossary",
-        })}</script>
-      </Helmet>
+      <Seo
+        meta={meta}
+        path={path}
+        titleTag={`${def.term} - Glossary - The Valuation Node`}
+        jsonLd={[
+          breadcrumbLd([
+            { name: "Learn", path: "/learn" },
+            { name: "Glossary", path: "/learn/glossary" },
+            { name: def.term, path },
+          ]),
+          {
+            "@context": "https://schema.org",
+            "@type": "DefinedTerm",
+            name: def.term,
+            description: def.definition,
+            url: `https://valuationnode.com${path}`,
+            inDefinedTermSet: "https://valuationnode.com/learn/glossary",
+          },
+        ]}
+      />
 
       <nav aria-label="Breadcrumb" className="border-b">
         <ol className="container max-w-3xl py-3 flex items-center gap-2 text-sm text-muted-foreground">
@@ -119,6 +114,24 @@ export default function GlossaryEntry() {
           </section>
         )}
 
+        {/* Same term, other context (the duplicated Basics entries) */}
+        {siblings.length > 0 && (
+          <Callout variant="note" className="mt-8">
+            <p className="text-sm">
+              {def.term} also appears in{" "}
+              {siblings.map((s, i) => (
+                <span key={s.slug}>
+                  {i > 0 && ", "}
+                  <Link to={`/learn/glossary/${s.slug}`} className="font-medium underline">
+                    {s.category ?? "another category"}
+                  </Link>
+                </span>
+              ))}
+              . The two entries explain the same idea at different depths.
+            </p>
+          </Callout>
+        )}
+
         {/* Related terms */}
         {Array.isArray(def.relatedTerms) && def.relatedTerms.length > 0 && (
           <section className="mt-8">
@@ -126,15 +139,22 @@ export default function GlossaryEntry() {
               Related terms
             </h2>
             <div className="flex flex-wrap gap-2">
-              {def.relatedTerms.map((t: string) => (
-                <Link
-                  key={t}
-                  to={`/learn/glossary/${toSlug(t)}`}
-                  className="px-3 py-1 rounded-full border text-sm text-muted-foreground hover:text-foreground hover:border-foreground transition-colors"
-                >
-                  {t}
-                </Link>
-              ))}
+              {def.relatedTerms.map((t: string) => {
+                const target = findByName(t);
+                return target ? (
+                  <Link
+                    key={t}
+                    to={`/learn/glossary/${target.slug}`}
+                    className="px-3 py-1 rounded-full border text-sm text-muted-foreground hover:text-foreground hover:border-foreground transition-colors"
+                  >
+                    {t}
+                  </Link>
+                ) : (
+                  <span key={t} className="px-3 py-1 rounded-full border border-dashed text-sm text-muted-foreground">
+                    {t}
+                  </span>
+                );
+              })}
             </div>
           </section>
         )}

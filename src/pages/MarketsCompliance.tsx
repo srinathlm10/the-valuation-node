@@ -1,20 +1,24 @@
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
+import { Seo } from "@/components/seo/Seo";
+import { staticMeta } from "@/lib/contentModel";
 import { ComplianceFeed } from "@/components/compliance/ComplianceFeed";
 import CIRCULARS from "@/data/circulars.json";
 
 export default function MarketsCompliance() {
   return (
     <Layout>
-      <Helmet>
-        <title>Compliance - Markets - The Valuation Node</title>
-        <meta
-          name="description"
-          content="SEBI, NSE, and BSE regulatory circulars summarised in plain language for Indian market participants. Updated monthly."
-        />
-        <link rel="canonical" href="https://valuationnode.com/markets/compliance" />
-      </Helmet>
+      <Seo
+        meta={staticMeta({
+          title: "Compliance - Markets",
+          slug: "compliance",
+          section: "news",
+          subsection: "policy-regulation",
+          summary: "SEBI, NSE, and BSE regulatory circulars summarised in plain language for Indian market participants. Updated monthly.",
+        })}
+        path="/markets/compliance"
+        titleTag="Compliance - Markets - The Valuation Node"
+      />
 
       <div className="container py-14">
         <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-6">

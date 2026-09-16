@@ -2,7 +2,11 @@
 title: "Why Banks Cannot Be Valued Like Normal Companies"
 slug: "why-banks-cannot-be-valued-like-normal-companies"
 category: "Sector"
-tags: ["bank valuation", "P/B ratio", "financial sector", "valuation methods"]
+section: "analysis"
+subsection: "industry-analysis"
+tags: ["banking", "valuation", "ratios"]
+status: "draft"
+keywords: ["bank valuation", "P/B ratio", "financial sector", "valuation methods"]
 metaTitle: "Why Banks Need Different Valuation Methods | Valuation Node"
 metaDescription: "Free cash flow DCF breaks down for banks. Learn why debt is raw material for a bank, why P/B and ROE drive bank valuation, and how analysts actually value lenders."
 author: "Gajji Srinath"

@@ -1,6 +1,7 @@
 [
   {
     "id": "future-value",
+    "slug": "future-value",
     "term": "Future Value",
     "fullName": "Future Value (FV)",
     "category": "Investment Planning",
@@ -16,6 +17,7 @@
   },
   {
     "id": "present-value",
+    "slug": "present-value",
     "term": "Present Value",
     "fullName": "Present Value (PV)",
     "category": "Investment Planning",
@@ -31,6 +33,7 @@
   },
   {
     "id": "sip",
+    "slug": "sip",
     "term": "SIP",
     "fullName": "Systematic Investment Plan",
     "category": "Investment Planning",
@@ -47,6 +50,7 @@
   },
   {
     "id": "cagr",
+    "slug": "cagr",
     "term": "CAGR",
     "fullName": "Compound Annual Growth Rate",
     "category": "Investment Planning",
@@ -62,6 +66,7 @@
   },
   {
     "id": "rule-of-72",
+    "slug": "rule-of-72",
     "term": "Rule of 72",
     "fullName": "Rule of 72",
     "category": "Investment Planning",
@@ -77,6 +82,7 @@
   },
   {
     "id": "emi",
+    "slug": "emi",
     "term": "EMI",
     "fullName": "Equated Monthly Installment",
     "category": "Investment Planning",
@@ -92,6 +98,7 @@
   },
   {
     "id": "real-return",
+    "slug": "real-return",
     "term": "Real Return",
     "fullName": "Inflation-Adjusted Return",
     "category": "Investment Planning",
@@ -107,6 +114,7 @@
   },
   {
     "id": "simple-interest",
+    "slug": "simple-interest",
     "term": "Simple Interest",
     "fullName": "Simple Interest",
     "category": "Investment Planning",
@@ -122,6 +130,7 @@
   },
   {
     "id": "compound-interest",
+    "slug": "compound-interest",
     "term": "Compound Interest",
     "fullName": "Compound Interest",
     "category": "Investment Planning",
@@ -137,6 +146,7 @@
   },
   {
     "id": "npv",
+    "slug": "npv",
     "term": "NPV",
     "fullName": "Net Present Value",
     "category": "Investment Planning",
@@ -152,6 +162,7 @@
   },
   {
     "id": "eps",
+    "slug": "eps",
     "term": "EPS",
     "fullName": "Earnings Per Share",
     "category": "Profitability Ratios",
@@ -167,6 +178,7 @@
   },
   {
     "id": "roe",
+    "slug": "roe",
     "term": "ROE",
     "fullName": "Return on Equity",
     "category": "Profitability Ratios",
@@ -182,6 +194,7 @@
   },
   {
     "id": "roa",
+    "slug": "roa",
     "term": "ROA",
     "fullName": "Return on Assets",
     "category": "Profitability Ratios",
@@ -197,6 +210,7 @@
   },
   {
     "id": "roce",
+    "slug": "roce",
     "term": "ROCE",
     "fullName": "Return on Capital Employed",
     "category": "Profitability Ratios",
@@ -213,6 +227,7 @@
   },
   {
     "id": "net-profit-margin",
+    "slug": "net-profit-margin",
     "term": "Net Profit Margin",
     "fullName": "Net Profit Margin",
     "category": "Profitability Ratios",
@@ -228,6 +243,7 @@
   },
   {
     "id": "ebitda-margin",
+    "slug": "ebitda-margin",
     "term": "EBITDA Margin",
     "fullName": "EBITDA Margin",
     "category": "Profitability Ratios",
@@ -243,6 +259,7 @@
   },
   {
     "id": "pe-ratio",
+    "slug": "p-e-ratio",
     "term": "P/E Ratio",
     "fullName": "Price-to-Earnings Ratio",
     "category": "Valuation Ratios",
@@ -258,6 +275,7 @@
   },
   {
     "id": "pb-ratio",
+    "slug": "p-b-ratio",
     "term": "P/B Ratio",
     "fullName": "Price-to-Book Ratio",
     "category": "Valuation Ratios",
@@ -273,6 +291,7 @@
   },
   {
     "id": "peg-ratio",
+    "slug": "peg-ratio",
     "term": "PEG Ratio",
     "fullName": "Price/Earnings-to-Growth Ratio",
     "category": "Valuation Ratios",
@@ -288,6 +307,7 @@
   },
   {
     "id": "dividend-yield",
+    "slug": "dividend-yield",
     "term": "Dividend Yield",
     "fullName": "Dividend Yield",
     "category": "Valuation Ratios",
@@ -303,6 +323,7 @@
   },
   {
     "id": "enterprise-value",
+    "slug": "enterprise-value",
     "term": "Enterprise Value",
     "fullName": "Enterprise Value (EV)",
     "category": "Valuation Ratios",
@@ -318,6 +339,7 @@
   },
   {
     "id": "ev-ebitda",
+    "slug": "ev-ebitda",
     "term": "EV/EBITDA",
     "fullName": "EV/EBITDA Ratio",
     "category": "Valuation Ratios",
@@ -333,6 +355,7 @@
   },
   {
     "id": "current-ratio",
+    "slug": "current-ratio",
     "term": "Current Ratio",
     "fullName": "Current Ratio",
     "category": "Liquidity Ratios",
@@ -348,6 +371,7 @@
   },
   {
     "id": "quick-ratio",
+    "slug": "quick-ratio",
     "term": "Quick Ratio",
     "fullName": "Quick Ratio (Acid Test)",
     "category": "Liquidity Ratios",
@@ -363,6 +387,7 @@
   },
   {
     "id": "debt-to-equity",
+    "slug": "debt-to-equity",
     "term": "Debt-to-Equity",
     "fullName": "Debt-to-Equity Ratio",
     "category": "Solvency Ratios",
@@ -378,6 +403,7 @@
   },
   {
     "id": "interest-coverage",
+    "slug": "interest-coverage",
     "term": "Interest Coverage",
     "fullName": "Interest Coverage Ratio",
     "category": "Solvency Ratios",
@@ -393,6 +419,7 @@
   },
   {
     "id": "asset-turnover",
+    "slug": "asset-turnover",
     "term": "Asset Turnover",
     "fullName": "Asset Turnover Ratio",
     "category": "Efficiency Ratios",
@@ -408,6 +435,7 @@
   },
   {
     "id": "rsi",
+    "slug": "rsi",
     "term": "RSI",
     "fullName": "Relative Strength Index",
     "category": "Technical Analysis",
@@ -424,6 +452,7 @@
   },
   {
     "id": "macd",
+    "slug": "macd",
     "term": "MACD",
     "fullName": "Moving Average Convergence Divergence",
     "category": "Technical Analysis",
@@ -440,6 +469,7 @@
   },
   {
     "id": "bollinger-bands",
+    "slug": "bollinger-bands",
     "term": "Bollinger Bands",
     "fullName": "Bollinger Bands",
     "category": "Technical Analysis",
@@ -455,6 +485,7 @@
   },
   {
     "id": "atr",
+    "slug": "atr",
     "term": "ATR",
     "fullName": "Average True Range",
     "category": "Technical Analysis",
@@ -470,6 +501,7 @@
   },
   {
     "id": "fibonacci",
+    "slug": "fibonacci-levels",
     "term": "Fibonacci Levels",
     "fullName": "Fibonacci Retracement Levels",
     "category": "Technical Analysis",
@@ -486,6 +518,7 @@
   },
   {
     "id": "obv",
+    "slug": "obv",
     "term": "OBV",
     "fullName": "On-Balance Volume",
     "category": "Technical Analysis",
@@ -501,6 +534,7 @@
   },
   {
     "id": "stochastic",
+    "slug": "stochastic",
     "term": "Stochastic",
     "fullName": "Stochastic Oscillator",
     "category": "Technical Analysis",
@@ -517,6 +551,7 @@
   },
   {
     "id": "ema",
+    "slug": "ema",
     "term": "EMA",
     "fullName": "Exponential Moving Average",
     "category": "Technical Analysis",
@@ -532,6 +567,7 @@
   },
   {
     "id": "sebi-lodr",
+    "slug": "sebi-lodr",
     "term": "SEBI LODR",
     "fullName": "Listing Obligations and Disclosure Requirements",
     "category": "Regulatory Compliance",
@@ -547,6 +583,7 @@
   },
   {
     "id": "sebi-pit",
+    "slug": "sebi-pit",
     "term": "SEBI PIT",
     "fullName": "Prohibition of Insider Trading",
     "category": "Regulatory Compliance",
@@ -562,6 +599,7 @@
   },
   {
     "id": "sebi-sast",
+    "slug": "sebi-sast",
     "term": "SEBI SAST",
     "fullName": "Substantial Acquisition of Shares and Takeovers",
     "category": "Regulatory Compliance",
@@ -577,6 +615,7 @@
   },
   {
     "id": "sebi-icdr",
+    "slug": "sebi-icdr",
     "term": "SEBI ICDR",
     "fullName": "Issue of Capital and Disclosure Requirements",
     "category": "Regulatory Compliance",
@@ -593,6 +632,7 @@
   },
   {
     "id": "account-aggregator",
+    "slug": "account-aggregator",
     "term": "Account Aggregator",
     "fullName": "Account Aggregator (AA)",
     "category": "Regulatory Compliance",
@@ -608,6 +648,7 @@
   },
   {
     "id": "demat",
+    "slug": "demat-account",
     "term": "Demat Account",
     "fullName": "Dematerialized Account",
     "category": "Regulatory Compliance",
@@ -624,6 +665,7 @@
   },
   {
     "id": "aoc-4",
+    "slug": "mca-form-aoc-4",
     "term": "MCA Form AOC-4",
     "fullName": "Annual Financial Statements Filing",
     "category": "Regulatory Compliance",
@@ -640,6 +682,7 @@
   },
   {
     "id": "mgt-7",
+    "slug": "mca-form-mgt-7",
     "term": "MCA Form MGT-7",
     "fullName": "Annual Return Filing",
     "category": "Regulatory Compliance",
@@ -656,6 +699,7 @@
   },
   {
     "id": "t1-settlement",
+    "slug": "t-1-settlement",
     "term": "T+1 Settlement",
     "fullName": "Trade Plus One Day Settlement",
     "category": "Regulatory Compliance",
@@ -672,6 +716,7 @@
   },
   {
     "id": "circuit-breakers",
+    "slug": "circuit-breakers",
     "term": "Circuit Breakers",
     "fullName": "Price Circuit Breakers",
     "category": "Regulatory Compliance",
@@ -687,6 +732,7 @@
   },
   {
     "id": "beta",
+    "slug": "beta",
     "term": "Beta",
     "fullName": "Beta Coefficient",
     "category": "Risk & Portfolio",
@@ -702,6 +748,7 @@
   },
   {
     "id": "sharpe-ratio",
+    "slug": "sharpe-ratio",
     "term": "Sharpe Ratio",
     "fullName": "Sharpe Ratio",
     "category": "Risk & Portfolio",
@@ -717,6 +764,7 @@
   },
   {
     "id": "treynor-ratio",
+    "slug": "treynor-ratio",
     "term": "Treynor Ratio",
     "fullName": "Treynor Ratio",
     "category": "Risk & Portfolio",
@@ -732,6 +780,7 @@
   },
   {
     "id": "capm",
+    "slug": "capm",
     "term": "CAPM",
     "fullName": "Capital Asset Pricing Model",
     "category": "Risk & Portfolio",
@@ -747,6 +796,7 @@
   },
   {
     "id": "wacc",
+    "slug": "wacc",
     "term": "WACC",
     "fullName": "Weighted Average Cost of Capital",
     "category": "Risk & Portfolio",
@@ -762,6 +812,7 @@
   },
   {
     "id": "standard-deviation",
+    "slug": "standard-deviation",
     "term": "Standard Deviation",
     "fullName": "Standard Deviation (σ)",
     "category": "Risk & Portfolio",
@@ -777,6 +828,7 @@
   },
   {
     "id": "alpha",
+    "slug": "alpha",
     "term": "Alpha",
     "fullName": "Jensen's Alpha",
     "category": "Risk & Portfolio",
@@ -792,6 +844,7 @@
   },
   {
     "id": "stcg",
+    "slug": "stcg",
     "term": "STCG",
     "fullName": "Short-Term Capital Gains",
     "category": "Taxation",
@@ -807,6 +860,7 @@
   },
   {
     "id": "ltcg",
+    "slug": "ltcg",
     "term": "LTCG",
     "fullName": "Long-Term Capital Gains",
     "category": "Taxation",
@@ -822,6 +876,7 @@
   },
   {
     "id": "gst",
+    "slug": "gst",
     "term": "GST",
     "fullName": "Goods and Services Tax",
     "category": "Taxation",
@@ -838,6 +893,7 @@
   },
   {
     "id": "section-80c",
+    "slug": "section-80c",
     "term": "Section 80C",
     "fullName": "Section 80C Deduction",
     "category": "Taxation",
@@ -854,6 +910,7 @@
   },
   {
     "id": "stt",
+    "slug": "stt",
     "term": "STT",
     "fullName": "Securities Transaction Tax",
     "category": "Taxation",
@@ -869,6 +926,7 @@
   },
   {
     "id": "market-cap",
+    "slug": "market-cap",
     "term": "Market Cap",
     "fullName": "Market Capitalization",
     "category": "Fundamentals",
@@ -884,6 +942,7 @@
   },
   {
     "id": "book-value",
+    "slug": "book-value",
     "term": "Book Value",
     "fullName": "Book Value Per Share",
     "category": "Fundamentals",
@@ -899,6 +958,7 @@
   },
   {
     "id": "nav",
+    "slug": "nav",
     "term": "NAV",
     "fullName": "Net Asset Value",
     "category": "Mutual Funds",
@@ -914,6 +974,7 @@
   },
   {
     "id": "expense-ratio",
+    "slug": "expense-ratio",
     "term": "Expense Ratio",
     "fullName": "Total Expense Ratio (TER)",
     "category": "Mutual Funds",
@@ -929,6 +990,7 @@
   },
   {
     "id": "free-float",
+    "slug": "free-float",
     "term": "Free Float",
     "fullName": "Free Float Market Capitalization",
     "category": "Fundamentals",
@@ -944,6 +1006,7 @@
   },
   {
     "id": "face-value",
+    "slug": "face-value",
     "term": "Face Value",
     "fullName": "Par Value / Face Value",
     "category": "Fundamentals",
@@ -959,6 +1022,7 @@
   },
   {
     "id": "nifty50",
+    "slug": "nifty-50",
     "term": "Nifty 50",
     "fullName": "National Stock Exchange Fifty",
     "category": "Indices",
@@ -974,6 +1038,7 @@
   },
   {
     "id": "ltcg-stock",
+    "slug": "ltcg-basics",
     "term": "LTCG",
     "fullName": "Long Term Capital Gain",
     "category": "Basics of Stock Market",
@@ -988,6 +1053,7 @@
   },
   {
     "id": "dividend",
+    "slug": "dividend",
     "term": "Dividend",
     "fullName": "Dividend",
     "category": "Basics of Stock Market",
@@ -1002,6 +1068,7 @@
   },
   {
     "id": "face-value-basics",
+    "slug": "face-value-basics",
     "term": "Face Value",
     "fullName": "Face Value",
     "category": "Basics of Stock Market",
@@ -1016,6 +1083,7 @@
   },
   {
     "id": "promoter",
+    "slug": "promoter",
     "term": "Promoter",
     "fullName": "Promoter",
     "category": "Basics of Stock Market",
@@ -1030,6 +1098,7 @@
   },
   {
     "id": "top-line-bottom-line",
+    "slug": "top-line-bottom-line",
     "term": "Top Line & Bottom Line",
     "fullName": "Top Line and Bottom Line",
     "category": "Basics of Stock Market",
@@ -1044,6 +1113,7 @@
   },
   {
     "id": "share-split",
+    "slug": "share-split",
     "term": "Share Split",
     "fullName": "Stock Split",
     "category": "Basics of Stock Market",
@@ -1058,6 +1128,7 @@
   },
   {
     "id": "bonus-shares",
+    "slug": "bonus-shares",
     "term": "Bonus Shares",
     "fullName": "Bonus Issue",
     "category": "Basics of Stock Market",
@@ -1072,6 +1143,7 @@
   },
   {
     "id": "who-decides-price",
+    "slug": "price-discovery",
     "term": "Price Discovery",
     "fullName": "Who decides share prices?",
     "category": "Basics of Stock Market",
@@ -1086,6 +1158,7 @@
   },
   {
     "id": "types-securities-market",
+    "slug": "securities-market-types",
     "term": "Securities Market Types",
     "fullName": "Types of Securities Market",
     "category": "Basics of Stock Market",
@@ -1100,6 +1173,7 @@
   },
   {
     "id": "demat-account",
+    "slug": "demat-account-basics",
     "term": "DEMAT Account",
     "fullName": "Dematerialized Account",
     "category": "Basics of Stock Market",
@@ -1114,6 +1188,7 @@
   },
   {
     "id": "savings-account",
+    "slug": "savings-account",
     "term": "Savings Account",
     "fullName": "Savings Bank Account",
     "category": "Basics of Stock Market",
@@ -1128,6 +1203,7 @@
   },
   {
     "id": "trading-account",
+    "slug": "trading-account",
     "term": "Trading Account",
     "fullName": "Trading Account",
     "category": "Basics of Stock Market",
@@ -1142,6 +1218,7 @@
   },
   {
     "id": "documents-demat",
+    "slug": "demat-documents",
     "term": "DEMAT Documents",
     "fullName": "Documents for Opening DEMAT",
     "category": "Basics of Stock Market",
@@ -1156,6 +1233,7 @@
   },
   {
     "id": "contract-note",
+    "slug": "contract-note",
     "term": "Contract Note",
     "fullName": "Contract Note",
     "category": "Basics of Stock Market",
@@ -1170,6 +1248,7 @@
   },
   {
     "id": "settlement-date",
+    "slug": "settlement-date",
     "term": "Settlement Date",
     "fullName": "Settlement Date",
     "category": "Basics of Stock Market",
@@ -1184,6 +1263,7 @@
   },
   {
     "id": "ltp",
+    "slug": "ltp",
     "term": "LTP",
     "fullName": "Latest Traded Price",
     "category": "Basics of Stock Market",
@@ -1198,6 +1278,7 @@
   },
   {
     "id": "pre-opening-session",
+    "slug": "pre-opening-session",
     "term": "Pre-opening Session",
     "fullName": "Pre-opening Market Session",
     "category": "Basics of Stock Market",
@@ -1212,6 +1293,7 @@
   },
   {
     "id": "amo",
+    "slug": "amo",
     "term": "AMO",
     "fullName": "After Market Orders",
     "category": "Basics of Stock Market",
@@ -1226,6 +1308,7 @@
   },
   {
     "id": "gap-up",
+    "slug": "gap-up",
     "term": "Gap Up",
     "fullName": "Gap Up Opening",
     "category": "Basics of Stock Market",
@@ -1240,6 +1323,7 @@
   },
   {
     "id": "gap-down",
+    "slug": "gap-down",
     "term": "Gap Down",
     "fullName": "Gap Down Opening",
     "category": "Basics of Stock Market",
@@ -1254,6 +1338,7 @@
   },
   {
     "id": "announcement-date",
+    "slug": "announcement-date",
     "term": "Announcement Date",
     "fullName": "Declaration Date",
     "category": "Basics of Stock Market",
@@ -1268,6 +1353,7 @@
   },
   {
     "id": "record-date",
+    "slug": "record-date",
     "term": "Record Date",
     "fullName": "Record Date",
     "category": "Basics of Stock Market",
@@ -1282,6 +1368,7 @@
   },
   {
     "id": "investor-types",
+    "slug": "investor-types",
     "term": "Investor Types",
     "fullName": "Types of Investors",
     "category": "Basics of Stock Market",
@@ -1297,6 +1384,7 @@
   },
   {
     "id": "depositories",
+    "slug": "depositories",
     "term": "Depositories",
     "fullName": "Depositories (NSDL/CDSL)",
     "category": "Basics of Stock Market",
@@ -1311,6 +1399,7 @@
   },
   {
     "id": "dp",
+    "slug": "dp",
     "term": "DP",
     "fullName": "Depository Participant",
     "category": "Basics of Stock Market",
@@ -1325,6 +1414,7 @@
   },
   {
     "id": "corporate-actions",
+    "slug": "corporate-actions",
     "term": "Corporate Actions",
     "fullName": "Corporate Actions",
     "category": "Basics of Stock Market",
@@ -1339,6 +1429,7 @@
   },
   {
     "id": "volume",
+    "slug": "volume",
     "term": "Volume",
     "fullName": "Trading Volume",
     "category": "Basics of Stock Market",
@@ -1353,6 +1444,7 @@
   },
   {
     "id": "trading-system",
+    "slug": "trading-system",
     "term": "Trading System",
     "fullName": "Screen Based Trading System",
     "category": "Basics of Stock Market",
@@ -1367,6 +1459,7 @@
   },
   {
     "id": "types-of-order",
+    "slug": "order-types",
     "term": "Order Types",
     "fullName": "Types of Orders",
     "category": "Basics of Stock Market",
@@ -1382,6 +1475,7 @@
   },
   {
     "id": "bullish-bearish",
+    "slug": "bullish-bearish",
     "term": "Bullish & Bearish",
     "fullName": "Market Sentiment",
     "category": "Basics of Stock Market",
@@ -1396,6 +1490,7 @@
   },
   {
     "id": "short-sell",
+    "slug": "short-sell",
     "term": "Short Sell",
     "fullName": "Short Selling",
     "category": "Basics of Stock Market",
@@ -1410,6 +1505,7 @@
   },
   {
     "id": "shares-auction",
+    "slug": "auction",
     "term": "Auction",
     "fullName": "Shares Auction",
     "category": "Basics of Stock Market",
@@ -1424,6 +1520,7 @@
   },
   {
     "id": "sl",
+    "slug": "stop-loss",
     "term": "Stop Loss",
     "fullName": "Stop Loss (SL)",
     "category": "Basics of Stock Market",
@@ -1438,6 +1535,7 @@
   },
   {
     "id": "circuit-filter",
+    "slug": "circuit-filter",
     "term": "Circuit Filter",
     "fullName": "Circuit Breaker / Filter",
     "category": "Basics of Stock Market",
@@ -1452,6 +1550,7 @@
   },
   {
     "id": "trend-analysis",
+    "slug": "trend-analysis",
     "term": "Trend Analysis",
     "fullName": "Trend Analysis",
     "category": "Basics of Stock Market",
@@ -1466,6 +1565,7 @@
   },
   {
     "id": "market-cap-2",
+    "slug": "market-cap-basics",
     "term": "Market Cap",
     "fullName": "Market Capitalization",
     "category": "Basics of Stock Market",
@@ -1480,6 +1580,7 @@
   },
   {
     "id": "ring-trading",
+    "slug": "ring-trading",
     "term": "Ring Trading",
     "fullName": "Ring Trading / Open Outcry",
     "category": "Basics of Stock Market",
@@ -1494,6 +1595,7 @@
   },
   {
     "id": "block-deal",
+    "slug": "block-deal",
     "term": "Block Deal",
     "fullName": "Block Deal",
     "category": "Basics of Stock Market",
@@ -1508,6 +1610,7 @@
   },
   {
     "id": "order-quantity-types",
+    "slug": "order-quantity-types",
     "term": "Order Quantity Types",
     "fullName": "Types of Orders based on quantity",
     "category": "Basics of Stock Market",
@@ -1522,6 +1625,7 @@
   },
   {
     "id": "bid-ask-spread",
+    "slug": "bid-ask-spread",
     "term": "Bid-Ask Spread",
     "fullName": "Bid-Ask Spread",
     "category": "Basics of Stock Market",
@@ -1536,6 +1640,7 @@
   },
   {
     "id": "market-indices",
+    "slug": "indices",
     "term": "Indices",
     "fullName": "Market Indices",
     "category": "Basics of Stock Market",
@@ -1550,6 +1655,7 @@
   },
   {
     "id": "sectoral-indices",
+    "slug": "sector-indices",
     "term": "Sector Indices",
     "fullName": "Sectoral Indices",
     "category": "Basics of Stock Market",
@@ -1564,6 +1670,7 @@
   },
   {
     "id": "free-float-mcap",
+    "slug": "free-float-mcap",
     "term": "Free Float Mcap",
     "fullName": "Free Float Market Cap",
     "category": "Basics of Stock Market",
@@ -1578,6 +1685,7 @@
   },
   {
     "id": "pledging-shares",
+    "slug": "pledging",
     "term": "Pledging",
     "fullName": "Promoters Pledging Shares",
     "category": "Basics of Stock Market",
@@ -1592,6 +1700,7 @@
   },
   {
     "id": "lot-size",
+    "slug": "lot-size",
     "term": "Lot Size",
     "fullName": "Lot Size",
     "category": "Basics of Stock Market",
@@ -1606,6 +1715,7 @@
   },
   {
     "id": "ipo-vs-ofs",
+    "slug": "ipo-vs-ofs",
     "term": "IPO vs OFS",
     "fullName": "IPO vs Offer For Sale",
     "category": "Basics of Stock Market",
@@ -1620,6 +1730,7 @@
   },
   {
     "id": "fpo",
+    "slug": "fpo",
     "term": "FPO",
     "fullName": "Further Public Offer",
     "category": "Basics of Stock Market",
@@ -1634,6 +1745,7 @@
   },
   {
     "id": "book-value-2",
+    "slug": "book-value-basics",
     "term": "Book Value",
     "fullName": "Book Value",
     "category": "Basics of Stock Market",
@@ -1648,6 +1760,7 @@
   },
   {
     "id": "merchant-banker",
+    "slug": "merchant-banker",
     "term": "Merchant Banker",
     "fullName": "Merchant Banker / Lead Manager",
     "category": "Basics of Stock Market",
@@ -1662,6 +1775,7 @@
   },
   {
     "id": "price-band",
+    "slug": "price-band",
     "term": "Price Band",
     "fullName": "Price Band",
     "category": "Basics of Stock Market",
@@ -1676,6 +1790,7 @@
   },
   {
     "id": "book-building",
+    "slug": "book-building",
     "term": "Book Building",
     "fullName": "Book Building Issue",
     "category": "Basics of Stock Market",
@@ -1690,6 +1805,7 @@
   },
   {
     "id": "prospectus",
+    "slug": "prospectus",
     "term": "Prospectus",
     "fullName": "Prospectus / RHP",
     "category": "Basics of Stock Market",
@@ -1704,6 +1820,7 @@
   },
   {
     "id": "primary-market-imp",
+    "slug": "primary-market",
     "term": "Primary Market",
     "fullName": "Importance of Primary Markets",
     "category": "Basics of Stock Market",
@@ -1718,6 +1835,7 @@
   },
   {
     "id": "underwriter",
+    "slug": "underwriter",
     "term": "Underwriter",
     "fullName": "Underwriter",
     "category": "Basics of Stock Market",
@@ -1732,6 +1850,7 @@
   },
   {
     "id": "listing-ipo",
+    "slug": "ipo-listing",
     "term": "IPO Listing",
     "fullName": "Listing of IPO",
     "category": "Basics of Stock Market",
@@ -1746,6 +1865,7 @@
   },
   {
     "id": "price-determination",
+    "slug": "price-determination",
     "term": "Price Determination",
     "fullName": "Price Determination",
     "category": "Basics of Stock Market",
@@ -1760,6 +1880,7 @@
   },
   {
     "id": "ev-sales",
+    "slug": "ev-sales",
     "term": "EV/Sales",
     "fullName": "Enterprise Value to Sales",
     "category": "Valuation Ratios",
@@ -1774,6 +1895,7 @@
   },
   {
     "id": "fcf-yield",
+    "slug": "fcf-yield",
     "term": "FCF Yield",
     "fullName": "Free Cash Flow Yield",
     "category": "Valuation Ratios",
@@ -1788,6 +1910,7 @@
   },
   {
     "id": "earnings-yield",
+    "slug": "earnings-yield",
     "term": "Earnings Yield",
     "fullName": "Earnings Yield",
     "category": "Valuation Ratios",
@@ -1802,6 +1925,7 @@
   },
   {
     "id": "dividend-payout-ratio",
+    "slug": "dividend-payout-ratio",
     "term": "Dividend Payout Ratio",
     "fullName": "Dividend Payout Ratio",
     "category": "Valuation Ratios",
@@ -1816,6 +1940,7 @@
   },
   {
     "id": "terminal-value",
+    "slug": "terminal-value",
     "term": "Terminal Value",
     "fullName": "Terminal Value (TV)",
     "category": "Valuation Ratios",
@@ -1830,6 +1955,7 @@
   },
   {
     "id": "margin-of-safety",
+    "slug": "margin-of-safety",
     "term": "Margin of Safety",
     "fullName": "Margin of Safety",
     "category": "Valuation Ratios",
@@ -1844,6 +1970,7 @@
   },
   {
     "id": "book-value-per-share",
+    "slug": "book-value-per-share",
     "term": "Book Value per Share",
     "fullName": "Book Value per Share (BVPS)",
     "category": "Valuation Ratios",
@@ -1858,6 +1985,7 @@
   },
   {
     "id": "roic",
+    "slug": "roic",
     "term": "ROIC",
     "fullName": "Return on Invested Capital",
     "category": "Profitability Ratios",
@@ -1873,6 +2001,7 @@
   },
   {
     "id": "nopat",
+    "slug": "nopat",
     "term": "NOPAT",
     "fullName": "Net Operating Profit After Tax",
     "category": "Profitability Ratios",
@@ -1888,6 +2017,7 @@
   },
   {
     "id": "operating-leverage",
+    "slug": "operating-leverage",
     "term": "Operating Leverage",
     "fullName": "Operating Leverage",
     "category": "Profitability Ratios",
@@ -1902,6 +2032,7 @@
   },
   {
     "id": "gross-margin",
+    "slug": "gross-margin",
     "term": "Gross Margin",
     "fullName": "Gross Profit Margin",
     "category": "Profitability Ratios",
@@ -1916,6 +2047,7 @@
   },
   {
     "id": "operating-margin",
+    "slug": "operating-margin",
     "term": "Operating Margin",
     "fullName": "Operating Profit Margin (EBIT Margin)",
     "category": "Profitability Ratios",
@@ -1930,6 +2062,7 @@
   },
   {
     "id": "yield-to-maturity",
+    "slug": "yield-to-maturity",
     "term": "Yield to Maturity",
     "fullName": "Yield to Maturity (YTM)",
     "category": "Credit & Debt",
@@ -1945,6 +2078,7 @@
   },
   {
     "id": "credit-spread",
+    "slug": "credit-spread",
     "term": "Credit Spread",
     "fullName": "Credit Spread",
     "category": "Credit & Debt",
@@ -1959,6 +2093,7 @@
   },
   {
     "id": "credit-rating",
+    "slug": "credit-rating",
     "term": "Credit Rating",
     "fullName": "Credit Rating",
     "category": "Credit & Debt",
@@ -1973,6 +2108,7 @@
   },
   {
     "id": "dscr",
+    "slug": "dscr",
     "term": "DSCR",
     "fullName": "Debt Service Coverage Ratio",
     "category": "Credit & Debt",
@@ -1987,6 +2123,7 @@
   },
   {
     "id": "coupon-rate",
+    "slug": "coupon-rate",
     "term": "Coupon Rate",
     "fullName": "Coupon Rate",
     "category": "Credit & Debt",
@@ -2001,6 +2138,7 @@
   },
   {
     "id": "duration",
+    "slug": "duration",
     "term": "Duration",
     "fullName": "Duration (Bond)",
     "category": "Credit & Debt",
@@ -2015,6 +2153,7 @@
   },
   {
     "id": "npa",
+    "slug": "npa",
     "term": "NPA",
     "fullName": "Non-Performing Asset",
     "category": "Credit & Debt",
@@ -2029,6 +2168,7 @@
   },
   {
     "id": "covenant",
+    "slug": "covenant",
     "term": "Covenant",
     "fullName": "Debt Covenant",
     "category": "Credit & Debt",
@@ -2043,6 +2183,7 @@
   },
   {
     "id": "promoter-pledge",
+    "slug": "promoter-pledge",
     "term": "Promoter Pledge",
     "fullName": "Promoter Share Pledging",
     "category": "Credit & Debt",
@@ -2057,6 +2198,7 @@
   },
   {
     "id": "working-capital-cycle",
+    "slug": "working-capital-cycle",
     "term": "Working Capital Cycle",
     "fullName": "Cash Conversion Cycle",
     "category": "Credit & Debt",
@@ -2071,6 +2213,7 @@
   },
   {
     "id": "bonus-issue",
+    "slug": "bonus-issue",
     "term": "Bonus Issue",
     "fullName": "Bonus Share Issue",
     "category": "Basics of Stock Market",
@@ -2085,6 +2228,7 @@
   },
   {
     "id": "rights-issue",
+    "slug": "rights-issue",
     "term": "Rights Issue",
     "fullName": "Rights Issue",
     "category": "Basics of Stock Market",
@@ -2099,6 +2243,7 @@
   },
   {
     "id": "buyback",
+    "slug": "buyback",
     "term": "Buyback",
     "fullName": "Share Buyback",
     "category": "Basics of Stock Market",
@@ -2113,6 +2258,7 @@
   },
   {
     "id": "stock-split",
+    "slug": "stock-split",
     "term": "Stock Split",
     "fullName": "Stock Split",
     "category": "Basics of Stock Market",
@@ -2127,6 +2273,7 @@
   },
   {
     "id": "fpi",
+    "slug": "fpi",
     "term": "FPI",
     "fullName": "Foreign Portfolio Investor",
     "category": "Basics of Stock Market",
@@ -2141,6 +2288,7 @@
   },
   {
     "id": "dii",
+    "slug": "dii",
     "term": "DII",
     "fullName": "Domestic Institutional Investor",
     "category": "Basics of Stock Market",
@@ -2155,6 +2303,7 @@
   },
   {
     "id": "repo-rate",
+    "slug": "repo-rate",
     "term": "Repo Rate",
     "fullName": "Repurchase Rate",
     "category": "Macroeconomics",
@@ -2169,6 +2318,7 @@
   },
   {
     "id": "reverse-repo-rate",
+    "slug": "reverse-repo-rate",
     "term": "Reverse Repo Rate",
     "fullName": "Reverse Repurchase Rate",
     "category": "Macroeconomics",
@@ -2183,6 +2333,7 @@
   },
   {
     "id": "cpi-inflation",
+    "slug": "cpi-inflation",
     "term": "CPI Inflation",
     "fullName": "Consumer Price Index Inflation",
     "category": "Macroeconomics",
@@ -2197,6 +2348,7 @@
   },
   {
     "id": "wpi",
+    "slug": "wpi",
     "term": "WPI",
     "fullName": "Wholesale Price Index",
     "category": "Macroeconomics",
@@ -2211,6 +2363,7 @@
   },
   {
     "id": "gdp-growth",
+    "slug": "gdp-growth",
     "term": "GDP Growth",
     "fullName": "Gross Domestic Product Growth",
     "category": "Macroeconomics",
@@ -2225,6 +2378,7 @@
   },
   {
     "id": "fiscal-deficit",
+    "slug": "fiscal-deficit",
     "term": "Fiscal Deficit",
     "fullName": "Fiscal Deficit",
     "category": "Macroeconomics",
@@ -2239,6 +2393,7 @@
   },
   {
     "id": "current-account-deficit",
+    "slug": "current-account-deficit",
     "term": "Current Account Deficit",
     "fullName": "Current Account Deficit (CAD)",
     "category": "Macroeconomics",
@@ -2253,6 +2408,7 @@
   },
   {
     "id": "crr",
+    "slug": "crr",
     "term": "CRR",
     "fullName": "Cash Reserve Ratio",
     "category": "Macroeconomics",
@@ -2267,6 +2423,7 @@
   },
   {
     "id": "slr",
+    "slug": "slr",
     "term": "SLR",
     "fullName": "Statutory Liquidity Ratio",
     "category": "Macroeconomics",
@@ -2281,6 +2438,7 @@
   },
   {
     "id": "basis-point",
+    "slug": "basis-point",
     "term": "Basis Point",
     "fullName": "Basis Point (bps)",
     "category": "Macroeconomics",
@@ -2295,6 +2453,7 @@
   },
   {
     "id": "esg-score",
+    "slug": "esg-score",
     "term": "ESG Score",
     "fullName": "ESG Score / Rating",
     "category": "ESG & Governance",
@@ -2309,6 +2468,7 @@
   },
   {
     "id": "brsr",
+    "slug": "brsr",
     "term": "BRSR",
     "fullName": "Business Responsibility and Sustainability Report",
     "category": "ESG & Governance",
@@ -2323,6 +2483,7 @@
   },
   {
     "id": "related-party-transaction",
+    "slug": "related-party-transaction",
     "term": "Related-Party Transaction",
     "fullName": "Related-Party Transaction (RPT)",
     "category": "ESG & Governance",
@@ -2337,6 +2498,7 @@
   },
   {
     "id": "independent-director",
+    "slug": "independent-director",
     "term": "Independent Director",
     "fullName": "Independent Director",
     "category": "ESG & Governance",
@@ -2351,6 +2513,7 @@
   },
   {
     "id": "promoter-holding",
+    "slug": "promoter-holding",
     "term": "Promoter Holding",
     "fullName": "Promoter Shareholding",
     "category": "ESG & Governance",
@@ -2365,6 +2528,7 @@
   },
   {
     "id": "greenwashing",
+    "slug": "greenwashing",
     "term": "Greenwashing",
     "fullName": "Greenwashing",
     "category": "ESG & Governance",
@@ -2379,6 +2543,7 @@
   },
   {
     "id": "upi",
+    "slug": "upi",
     "term": "UPI",
     "fullName": "Unified Payments Interface",
     "category": "Fintech",
@@ -2393,6 +2558,7 @@
   },
   {
     "id": "cbdc",
+    "slug": "cbdc",
     "term": "CBDC",
     "fullName": "Central Bank Digital Currency (Digital Rupee)",
     "category": "Fintech",
@@ -2407,6 +2573,7 @@
   },
   {
     "id": "p2p-lending",
+    "slug": "p2p-lending",
     "term": "P2P Lending",
     "fullName": "Peer-to-Peer Lending",
     "category": "Fintech",
@@ -2421,6 +2588,7 @@
   },
   {
     "id": "payment-aggregator",
+    "slug": "payment-aggregator",
     "term": "Payment Aggregator",
     "fullName": "Payment Aggregator (PA)",
     "category": "Fintech",
@@ -2435,6 +2603,7 @@
   },
   {
     "id": "kyc",
+    "slug": "kyc",
     "term": "KYC",
     "fullName": "Know Your Customer",
     "category": "Fintech",
@@ -2449,6 +2618,7 @@
   },
   {
     "id": "xirr",
+    "slug": "xirr",
     "term": "XIRR",
     "fullName": "Extended Internal Rate of Return",
     "category": "Investment Planning",
@@ -2463,6 +2633,7 @@
   },
   {
     "id": "asset-allocation",
+    "slug": "asset-allocation",
     "term": "Asset Allocation",
     "fullName": "Asset Allocation",
     "category": "Investment Planning",
@@ -2477,6 +2648,7 @@
   },
   {
     "id": "rebalancing",
+    "slug": "rebalancing",
     "term": "Rebalancing",
     "fullName": "Portfolio Rebalancing",
     "category": "Investment Planning",
@@ -2491,6 +2663,7 @@
   },
   {
     "id": "casa-ratio",
+    "slug": "casa-ratio",
     "term": "CASA Ratio",
     "fullName": "Current Account and Savings Account Ratio",
     "category": "Credit & Debt",
@@ -2506,6 +2679,7 @@
   },
   {
     "id": "cost-of-funds",
+    "slug": "cost-of-funds",
     "term": "Cost of Funds",
     "fullName": "Cost of Liabilities",
     "category": "Credit & Debt",
@@ -2520,6 +2694,7 @@
   },
   {
     "id": "net-interest-margin",
+    "slug": "net-interest-margin",
     "term": "Net Interest Margin",
     "fullName": "NIM",
     "category": "Credit & Debt",
@@ -2535,6 +2710,7 @@
   },
   {
     "id": "capital-adequacy-ratio",
+    "slug": "capital-adequacy-ratio",
     "term": "Capital Adequacy Ratio",
     "fullName": "CAR",
     "category": "Credit & Debt",
@@ -2549,6 +2725,7 @@
   },
   {
     "id": "provisions",
+    "slug": "provisions",
     "term": "Provisions",
     "fullName": "Loan Loss Provisions",
     "category": "Credit & Debt",
@@ -2563,6 +2740,7 @@
   },
   {
     "id": "cash-flow-from-operations",
+    "slug": "cash-flow-from-operations",
     "term": "Cash Flow from Operations",
     "fullName": "CFO, Operating Cash Flow",
     "category": "Fundamentals",

@@ -1,19 +1,22 @@
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
+import { Seo } from "@/components/seo/Seo";
+import { staticMeta } from "@/lib/contentModel";
 import { ArrowRight } from "lucide-react";
 
 export default function Markets() {
   return (
     <Layout>
-      <Helmet>
-        <title>Markets - The Valuation Node</title>
-        <meta
-          name="description"
-          content="Indian market data - Nifty 50 fundamentals and SEBI/NSE/BSE compliance circulars."
-        />
-        <link rel="canonical" href="https://valuationnode.com/markets" />
-      </Helmet>
+      <Seo
+        meta={staticMeta({
+          title: "Markets",
+          slug: "markets",
+          section: "news",
+          summary: "Indian market data - Nifty 50 fundamentals and SEBI/NSE/BSE compliance circulars.",
+        })}
+        path="/markets"
+        titleTag="Markets - The Valuation Node"
+      />
 
       <div className="container max-w-3xl py-14">
         <h1 className="text-3xl font-bold tracking-tight">Markets</h1>
