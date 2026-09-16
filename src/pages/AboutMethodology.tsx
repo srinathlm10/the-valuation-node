@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import { breadcrumbLd } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { Seo } from "@/components/seo/Seo";
 import { staticMeta } from "@/lib/contentModel";
@@ -45,6 +46,7 @@ export default function AboutMethodology() {
         })}
         path="/about/philosophy"
         titleTag="Editorial Philosophy and Methodology - The Valuation Node"
+        jsonLd={[breadcrumbLd([{ name: "About", path: "/about" }, { name: "Editorial Philosophy", path: "/about/philosophy" }])]}
       />
       <Breadcrumbs items={[{ name: "About", path: "/about" }, { name: "Editorial Philosophy", path: "/about/philosophy" }]} />
 

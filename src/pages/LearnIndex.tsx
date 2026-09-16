@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import { breadcrumbLd } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { Seo } from "@/components/seo/Seo";
 import { staticMeta } from "@/lib/contentModel";
@@ -58,6 +59,7 @@ export default function LearnIndex() {
         })}
         path="/vault"
         titleTag="The Vault: Glossary, Formulas, Guides, Tools - The Valuation Node"
+        jsonLd={[breadcrumbLd([{ name: "The Vault", path: "/vault" }])]}
       />
       <Breadcrumbs items={[{ name: "The Vault", path: "/vault" }]} />
 

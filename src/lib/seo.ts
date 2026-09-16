@@ -25,7 +25,9 @@ export function breadcrumbLd(items: Crumb[]) {
 /** Publisher object with logo, required for Article rich results. */
 export const PUBLISHER = {
   "@type": "Organization",
+  "@id": BASE + "/#organization",
   name: "The Valuation Node",
+  url: BASE,
   logo: {
     "@type": "ImageObject",
     url: BASE + "/logo.png",

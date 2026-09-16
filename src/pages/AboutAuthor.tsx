@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import { breadcrumbLd } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { Seo } from "@/components/seo/Seo";
 import { staticMeta } from "@/lib/contentModel";
@@ -24,6 +25,7 @@ export default function AboutAuthor() {
         path="/about/author"
         titleTag="Gajji Srinath - The Valuation Node"
         jsonLd={[
+          breadcrumbLd([{ name: "About", path: "/about" }, { name: "About the Author", path: "/about/author" }]),
           {
           "@context": "https://schema.org",
           "@type": "Person",

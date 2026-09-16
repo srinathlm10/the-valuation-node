@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import { breadcrumbLd } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { Seo } from "@/components/seo/Seo";
 import { staticMeta } from "@/lib/contentModel";
@@ -21,6 +22,7 @@ export default function DcfSensitivityPage() {
         path="/vault/interactive/dcf-sensitivity"
         titleTag="DCF Sensitivity Calculator - Tools - The Valuation Node"
         description="Interactive DCF model with a 5×5 sensitivity grid across WACC and terminal growth. Adjust assumptions live and download as Excel. Built for Indian markets research."
+        jsonLd={[breadcrumbLd([{ name: "The Vault", path: "/vault" }, { name: "Interactive", path: "/vault/interactive" }, { name: "DCF Sensitivity Calculator", path: "/vault/interactive/dcf-sensitivity" }])]}
       />
       <Breadcrumbs items={[{ name: "The Vault", path: "/vault" }, { name: "Interactive", path: "/vault/interactive" }, { name: "DCF Sensitivity Calculator", path: "/vault/interactive/dcf-sensitivity" }]} />
 

@@ -73,17 +73,6 @@ export default function Index() {
         path="/"
         titleTag="The Valuation Node: Indian Market Research & Learning"
         description="Research and learning on Indian markets, by Gajji Srinath. Original valuations, credit analysis, ESG, and a free reference library."
-        jsonLd={[
-          {
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            name: "The Valuation Node",
-            url: "https://valuationnode.com",
-            description: "Indian markets research and learning by Gajji Srinath.",
-            logo: { "@type": "ImageObject", url: "https://valuationnode.com/logo.png", width: 512, height: 512 },
-            sameAs: ["https://www.linkedin.com/in/gajji-srinath/"],
-          },
-        ]}
       />
 
       <h1 className="sr-only">The Valuation Node: Indian market research and learning</h1>

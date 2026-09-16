@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import { breadcrumbLd } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { Seo } from "@/components/seo/Seo";
 import { staticMeta } from "@/lib/contentModel";
@@ -26,6 +27,7 @@ export default function AboutSite() {
         })}
         path="/about/site"
         titleTag="About this site - The Valuation Node"
+        jsonLd={[breadcrumbLd([{ name: "About", path: "/about" }, { name: "About the Site", path: "/about/site" }])]}
       />
       <Breadcrumbs items={[{ name: "About", path: "/about" }, { name: "About the Site", path: "/about/site" }]} />
 

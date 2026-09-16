@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import { breadcrumbLd } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { Seo } from "@/components/seo/Seo";
 import { staticMeta } from "@/lib/contentModel";
@@ -19,6 +20,7 @@ export default function MarketsCompliance() {
         })}
         path="/news/policy-regulation/compliance-calendar"
         titleTag="SEBI, NSE, BSE Compliance Calendar - The Valuation Node"
+        jsonLd={[breadcrumbLd([{ name: "News & Trends", path: "/news" }, { name: "Policy & Regulation", path: "/news/policy-regulation" }, { name: "Compliance Calendar", path: "/news/policy-regulation/compliance-calendar" }])]}
       />
       <Breadcrumbs items={[{ name: "News & Trends", path: "/news" }, { name: "Policy & Regulation", path: "/news/policy-regulation" }, { name: "Compliance Calendar", path: "/news/policy-regulation/compliance-calendar" }]} />
 

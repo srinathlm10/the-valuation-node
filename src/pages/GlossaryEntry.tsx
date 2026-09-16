@@ -42,7 +42,7 @@ export default function GlossaryEntry() {
       <Seo
         meta={meta}
         path={path}
-        titleTag={`${def.term} - Glossary - The Valuation Node`}
+        titleTag={`${def.term}${siblings.length > 0 && def.category ? ` (${def.category})` : ""} - Glossary - The Valuation Node`}
         jsonLd={[
           breadcrumbLd([
             { name: "The Vault", path: "/vault" },

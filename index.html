@@ -37,11 +37,25 @@
   <link rel="icon" type="image/png" href="/favicon-logo.png" sizes="64x64" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
 
-  <!-- Structured data: WebSite + Person -->
+  <!-- Structured data: Organization + WebSite + Person, one linked graph on every page -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://valuationnode.com/#organization",
+        "name": "The Valuation Node",
+        "url": "https://valuationnode.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://valuationnode.com/logo.png",
+          "width": 512,
+          "height": 512
+        },
+        "founder": { "@id": "https://valuationnode.com/#person" },
+        "sameAs": ["https://www.linkedin.com/in/gajji-srinath/"]
+      },
       {
         "@type": "WebSite",
         "@id": "https://valuationnode.com/#website",
@@ -50,6 +64,7 @@
         "description": "Original valuation and credit analysis of Indian companies, plus a free learning library.",
         "inLanguage": "en-IN",
         "author": { "@id": "https://valuationnode.com/#person" },
+        "publisher": { "@id": "https://valuationnode.com/#organization" },
         "potentialAction": {
           "@type": "SearchAction",
           "target": {
@@ -64,7 +79,7 @@
         "@id": "https://valuationnode.com/#person",
         "name": "Gajji Srinath",
         "jobTitle": "Founder and Editor",
-        "worksFor": { "@id": "https://valuationnode.com/#website" },
+        "worksFor": { "@id": "https://valuationnode.com/#organization" },
         "email": "srinath@valuationnode.com",
         "sameAs": ["https://www.linkedin.com/in/gajji-srinath/"],
         "url": "https://valuationnode.com/about/author"

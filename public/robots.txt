@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-# Private / authenticated routes, no value for crawlers
+# Private, authenticated, or query routes: no value for crawlers
 Disallow: /admin
 Disallow: /admin/
 Disallow: /dashboard
@@ -14,5 +14,6 @@ Disallow: /admin-login
 Disallow: /forgot-password
 Disallow: /reset-password
 Disallow: /community
+Disallow: /search
 
 Sitemap: https://valuationnode.com/sitemap.xml
