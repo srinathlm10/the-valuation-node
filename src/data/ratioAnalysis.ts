@@ -4,7 +4,7 @@
 // author's fundamental-analysis notes; do not invent or "update" company
 // numbers here. Markdown is allowed in `reading`, `example`, and `caution`.
 //
-// Pages: /learn/ratio-analysis (hub) and /learn/ratio-analysis/:slug (entry).
+// Pages: /vault/formulas (hub) and /vault/formulas/:slug (entry).
 // The sitemap generator reads the `slug:` lines of this file directly.
 
 export type RatioGroupId =
@@ -116,8 +116,8 @@ The second use is the intuitive filter. Ask yourself: "If I had this much money,
     relatedRatios: ["enterprise-value", "pe-ratio", "price-to-book"],
     glossary: ["Market Cap", "Free Float"],
     goDeeper: [
-      { label: "Equities (Foundations)", href: "/learn/foundations/markets-and-instruments/equities" },
-      { label: "Relative valuation (Foundations)", href: "/learn/foundations/valuation/relative-valuation" },
+      { label: "Equities (Foundations)", href: "/vault/guides/equities" },
+      { label: "Relative valuation (Foundations)", href: "/vault/guides/relative-valuation" },
     ],
   },
   {
@@ -139,8 +139,8 @@ The reverse case: a company with a market cap of ₹2,800 crore, cash of ₹5,00
     relatedRatios: ["market-capitalisation", "debt-to-equity", "free-cash-flow"],
     glossary: ["Enterprise Value", "EV/Sales"],
     goDeeper: [
-      { label: "Capital structure (Foundations)", href: "/learn/foundations/corporate-finance/capital-structure" },
-      { label: "Relative valuation (Foundations)", href: "/learn/foundations/valuation/relative-valuation" },
+      { label: "Capital structure (Foundations)", href: "/vault/guides/capital-structure" },
+      { label: "Relative valuation (Foundations)", href: "/vault/guides/relative-valuation" },
     ],
   },
   {
@@ -160,8 +160,8 @@ On its own, the EPS number tells you little, because a company can have any numb
     relatedRatios: ["pe-ratio", "peg-ratio", "price-to-cash-flow", "cfo-to-pat"],
     glossary: ["EPS"],
     goDeeper: [
-      { label: "Reading an income statement (Foundations)", href: "/learn/foundations/accounting/reading-an-income-statement" },
-      { label: "Read an income statement line by line (Learn-by-Doing)", href: "/learn/by-doing/read-an-income-statement" },
+      { label: "Reading an income statement (Foundations)", href: "/vault/guides/reading-an-income-statement" },
+      { label: "Read an income statement line by line (Learn-by-Doing)", href: "/vault/interactive/read-an-income-statement" },
     ],
   },
   {
@@ -187,8 +187,8 @@ Colgate India shows the filtering logic. Current PE around 39 against a historic
     relatedRatios: ["earnings-per-share", "peg-ratio", "price-to-book", "price-to-cash-flow"],
     glossary: ["P/E Ratio"],
     goDeeper: [
-      { label: "Market ratios (Foundations)", href: "/learn/foundations/financial-statement-analysis/market-ratios" },
-      { label: "High PE: what it implies and when it is a trap (Research)", href: "/research/high-pe-what-it-implies-and-when-its-a-trap" },
+      { label: "Market ratios (Foundations)", href: "/vault/guides/market-ratios" },
+      { label: "High PE: what it implies and when it is a trap (Research)", href: "/analysis/valuation-modeling/high-pe-what-it-implies-and-when-its-a-trap" },
     ],
   },
   {
@@ -215,8 +215,8 @@ Among banks, where P/B is the right tool, HDFC Bank has traded at about 4 times 
     relatedRatios: ["pe-ratio", "return-on-equity", "return-on-assets-bank"],
     glossary: ["P/B Ratio", "Book Value per Share"],
     goDeeper: [
-      { label: "Reading a balance sheet (Foundations)", href: "/learn/foundations/accounting/reading-a-balance-sheet" },
-      { label: "Sector-specific valuation (Foundations)", href: "/learn/foundations/valuation/sector-specific-valuation" },
+      { label: "Reading a balance sheet (Foundations)", href: "/vault/guides/reading-a-balance-sheet" },
+      { label: "Sector-specific valuation (Foundations)", href: "/vault/guides/sector-specific-valuation" },
     ],
   },
   {
@@ -240,8 +240,8 @@ Bajaj Consumer: PE of 9. Profit growth of 4.5 percent over one year, 4 percent o
     relatedRatios: ["pe-ratio", "earnings-per-share"],
     glossary: ["PEG Ratio"],
     goDeeper: [
-      { label: "CAGR calculator", href: "/tools/cagr" },
-      { label: "Relative valuation (Foundations)", href: "/learn/foundations/valuation/relative-valuation" },
+      { label: "CAGR calculator", href: "/vault/interactive/cagr" },
+      { label: "Relative valuation (Foundations)", href: "/vault/guides/relative-valuation" },
     ],
   },
   {
@@ -262,7 +262,7 @@ Is 11 times cash flow acceptable? At that multiple you get Bajaj Almond Drops an
     relatedRatios: ["pe-ratio", "cfo-to-pat", "free-cash-flow"],
     glossary: ["FCF Yield"],
     goDeeper: [
-      { label: "Reading a cash flow statement (Foundations)", href: "/learn/foundations/accounting/reading-a-cash-flow-statement" },
+      { label: "Reading a cash flow statement (Foundations)", href: "/vault/guides/reading-a-cash-flow-statement" },
     ],
   },
   {
@@ -285,7 +285,7 @@ Use it in three situations: young or loss-making companies where PE is zero, cyc
     relatedRatios: ["pe-ratio", "net-profit-margin", "ev-to-sales"],
     glossary: ["Market Cap", "Net Profit Margin"],
     goDeeper: [
-      { label: "Relative valuation (Foundations)", href: "/learn/foundations/valuation/relative-valuation" },
+      { label: "Relative valuation (Foundations)", href: "/vault/guides/relative-valuation" },
     ],
   },
   {
@@ -308,8 +308,8 @@ It is the standard multiple for acquisitions, for capital-intensive sectors such
     relatedRatios: ["enterprise-value", "pe-ratio", "ev-to-sales", "free-cash-flow"],
     glossary: ["EV/EBITDA", "Enterprise Value", "EBITDA Margin"],
     goDeeper: [
-      { label: "Relative valuation (Foundations)", href: "/learn/foundations/valuation/relative-valuation" },
-      { label: "Sector-specific valuation (Foundations)", href: "/learn/foundations/valuation/sector-specific-valuation" },
+      { label: "Relative valuation (Foundations)", href: "/vault/guides/relative-valuation" },
+      { label: "Sector-specific valuation (Foundations)", href: "/vault/guides/sector-specific-valuation" },
     ],
   },
   {
@@ -358,7 +358,7 @@ That is why earnings yield is best read together with profit growth, exactly as 
     relatedRatios: ["free-cash-flow", "earnings-yield", "price-to-cash-flow"],
     glossary: ["FCF Yield"],
     goDeeper: [
-      { label: "DCF theory and mechanics (Foundations)", href: "/learn/foundations/valuation/dcf-theory-and-mechanics" },
+      { label: "DCF theory and mechanics (Foundations)", href: "/vault/guides/dcf-theory-and-mechanics" },
     ],
   },
   {
@@ -404,7 +404,7 @@ The purpose of a business is not to sell at the highest possible price. It is to
     relatedRatios: ["return-on-equity", "asset-turnover", "dupont-analysis"],
     glossary: ["Net Profit Margin", "Operating Margin", "Gross Margin"],
     goDeeper: [
-      { label: "Profitability ratios (Foundations)", href: "/learn/foundations/financial-statement-analysis/profitability-ratios" },
+      { label: "Profitability ratios (Foundations)", href: "/vault/guides/profitability-ratios" },
     ],
   },
   {
@@ -431,8 +431,8 @@ HUL's ROE is roughly 82 percent, on equity of about ₹216 crore of share capita
     relatedRatios: ["return-on-capital-employed", "dupont-analysis", "net-profit-margin", "debt-to-equity"],
     glossary: ["ROE"],
     goDeeper: [
-      { label: "Profitability ratios (Foundations)", href: "/learn/foundations/financial-statement-analysis/profitability-ratios" },
-      { label: "ROE comparison and DuPont: why higher is not better (Research)", href: "/research/roe-comparison-dupont-why-higher-isnt-better" },
+      { label: "Profitability ratios (Foundations)", href: "/vault/guides/profitability-ratios" },
+      { label: "ROE comparison and DuPont: why higher is not better (Research)", href: "/analysis/valuation-modeling/roe-comparison-dupont-why-higher-isnt-better" },
     ],
   },
   {
@@ -459,8 +459,8 @@ Cadila Healthcare raised about ₹9,000 crore as equity and about ₹3,000 crore
     relatedRatios: ["return-on-equity", "debt-to-equity", "interest-coverage"],
     glossary: ["ROCE"],
     goDeeper: [
-      { label: "Cost of capital (Foundations)", href: "/learn/foundations/corporate-finance/cost-of-capital" },
-      { label: "WACC calculator", href: "/tools/wacc" },
+      { label: "Cost of capital (Foundations)", href: "/vault/guides/cost-of-capital" },
+      { label: "WACC calculator", href: "/vault/interactive/wacc" },
     ],
   },
   {
@@ -481,7 +481,7 @@ Read the trend more than the level. A falling gross margin means input costs are
     relatedRatios: ["operating-margin", "net-profit-margin", "ebitda-margin"],
     glossary: ["Gross Margin"],
     goDeeper: [
-      { label: "Reading an income statement (Foundations)", href: "/learn/foundations/accounting/reading-an-income-statement" },
+      { label: "Reading an income statement (Foundations)", href: "/vault/guides/reading-an-income-statement" },
     ],
   },
   {
@@ -500,7 +500,7 @@ Operating profit is also the numerator in ROCE and in interest coverage, so a fa
     relatedRatios: ["gross-margin", "ebitda-margin", "net-profit-margin", "return-on-capital-employed", "interest-coverage"],
     glossary: ["Operating Margin"],
     goDeeper: [
-      { label: "Profitability ratios (Foundations)", href: "/learn/foundations/financial-statement-analysis/profitability-ratios" },
+      { label: "Profitability ratios (Foundations)", href: "/vault/guides/profitability-ratios" },
     ],
   },
   {
@@ -578,8 +578,8 @@ The reason is asymmetry. Equity holders are paid only if there is profit, and th
     relatedRatios: ["interest-coverage", "quick-ratio", "return-on-capital-employed", "enterprise-value"],
     glossary: ["Debt-to-Equity"],
     goDeeper: [
-      { label: "Solvency ratios (Foundations)", href: "/learn/foundations/financial-statement-analysis/solvency-ratios" },
-      { label: "Capital structure (Foundations)", href: "/learn/foundations/corporate-finance/capital-structure" },
+      { label: "Solvency ratios (Foundations)", href: "/vault/guides/solvency-ratios" },
+      { label: "Capital structure (Foundations)", href: "/vault/guides/capital-structure" },
     ],
   },
   {
@@ -598,8 +598,8 @@ This ratio matters even when D/E is low. A company can have a D/E below 1 and st
     relatedRatios: ["debt-to-equity", "quick-ratio"],
     glossary: ["Interest Coverage"],
     goDeeper: [
-      { label: "Solvency ratios (Foundations)", href: "/learn/foundations/financial-statement-analysis/solvency-ratios" },
-      { label: "Credit risk fundamentals (Foundations)", href: "/learn/foundations/credit-analysis/credit-risk-fundamentals" },
+      { label: "Solvency ratios (Foundations)", href: "/vault/guides/solvency-ratios" },
+      { label: "Credit risk fundamentals (Foundations)", href: "/vault/guides/credit-risk-fundamentals" },
     ],
   },
   {
@@ -620,8 +620,8 @@ A reading of 2 means liquid assets are double the short-term liabilities; the co
     relatedRatios: ["interest-coverage", "cash-conversion-cycle", "debt-to-equity"],
     glossary: ["Quick Ratio", "Current Ratio"],
     goDeeper: [
-      { label: "Liquidity ratios (Foundations)", href: "/learn/foundations/financial-statement-analysis/liquidity-ratios" },
-      { label: "Working capital (Foundations)", href: "/learn/foundations/corporate-finance/working-capital" },
+      { label: "Liquidity ratios (Foundations)", href: "/vault/guides/liquidity-ratios" },
+      { label: "Working capital (Foundations)", href: "/vault/guides/working-capital" },
     ],
   },
   {
@@ -640,7 +640,7 @@ The current ratio is generous because it counts inventory and receivables as if 
     relatedRatios: ["quick-ratio", "cash-conversion-cycle", "working-capital-days"],
     glossary: ["Current Ratio", "Quick Ratio"],
     goDeeper: [
-      { label: "Liquidity ratios (Foundations)", href: "/learn/foundations/financial-statement-analysis/liquidity-ratios" },
+      { label: "Liquidity ratios (Foundations)", href: "/vault/guides/liquidity-ratios" },
     ],
   },
   {
@@ -662,8 +662,8 @@ A reading of 1 means one year of EBITDA clears all debt. A reading of 4 means fo
     relatedRatios: ["debt-to-equity", "interest-coverage", "ebitda-margin", "enterprise-value"],
     glossary: ["Debt-to-Equity", "EV/EBITDA"],
     goDeeper: [
-      { label: "Credit risk fundamentals (Foundations)", href: "/learn/foundations/credit-analysis/credit-risk-fundamentals" },
-      { label: "Covenants and triggers (Foundations)", href: "/learn/foundations/credit-analysis/covenants-and-triggers" },
+      { label: "Credit risk fundamentals (Foundations)", href: "/vault/guides/credit-risk-fundamentals" },
+      { label: "Covenants and triggers (Foundations)", href: "/vault/guides/covenants-and-triggers" },
     ],
   },
 
@@ -685,7 +685,7 @@ When asset turnover falls, there are two possible causes and you must tell them 
     relatedRatios: ["dupont-analysis", "cash-conversion-cycle", "net-profit-margin"],
     glossary: ["Asset Turnover"],
     goDeeper: [
-      { label: "Efficiency ratios (Foundations)", href: "/learn/foundations/financial-statement-analysis/efficiency-ratios" },
+      { label: "Efficiency ratios (Foundations)", href: "/vault/guides/efficiency-ratios" },
     ],
   },
   {
@@ -707,8 +707,8 @@ At the other extreme, a penny stock whose full cycle from buying raw material to
     relatedRatios: ["asset-turnover", "quick-ratio", "cfo-to-pat"],
     glossary: ["Working Capital Cycle"],
     goDeeper: [
-      { label: "Working capital (Foundations)", href: "/learn/foundations/corporate-finance/working-capital" },
-      { label: "Efficiency ratios (Foundations)", href: "/learn/foundations/financial-statement-analysis/efficiency-ratios" },
+      { label: "Working capital (Foundations)", href: "/vault/guides/working-capital" },
+      { label: "Efficiency ratios (Foundations)", href: "/vault/guides/efficiency-ratios" },
     ],
   },
   {
@@ -730,9 +730,9 @@ The warning pattern: net margin roughly flat, asset turnover roughly flat, ROE u
     relatedRatios: ["return-on-equity", "net-profit-margin", "asset-turnover", "debt-to-equity"],
     glossary: ["ROE", "Asset Turnover"],
     goDeeper: [
-      { label: "DuPont decomposition (Foundations)", href: "/learn/foundations/financial-statement-analysis/dupont-decomposition" },
-      { label: "ROE comparison and DuPont: why higher is not better (Research)", href: "/research/roe-comparison-dupont-why-higher-isnt-better" },
-      { label: "Compute ratios from raw statements (Learn-by-Doing)", href: "/learn/by-doing/compute-ratios" },
+      { label: "DuPont decomposition (Foundations)", href: "/vault/guides/dupont-decomposition" },
+      { label: "ROE comparison and DuPont: why higher is not better (Research)", href: "/analysis/valuation-modeling/roe-comparison-dupont-why-higher-isnt-better" },
+      { label: "Compute ratios from raw statements (Learn-by-Doing)", href: "/vault/interactive/compute-ratios" },
     ],
   },
   {
@@ -756,8 +756,8 @@ Read each against the company's own history and its closest peers. A sudden jump
     relatedRatios: ["cash-conversion-cycle", "current-ratio", "cfo-to-pat"],
     glossary: ["Working Capital Cycle"],
     goDeeper: [
-      { label: "Working capital (Foundations)", href: "/learn/foundations/corporate-finance/working-capital" },
-      { label: "Spot the red flags (Learn-by-Doing)", href: "/learn/by-doing/spot-the-red-flags" },
+      { label: "Working capital (Foundations)", href: "/vault/guides/working-capital" },
+      { label: "Spot the red flags (Learn-by-Doing)", href: "/vault/interactive/spot-the-red-flags" },
     ],
   },
   {
@@ -775,7 +775,7 @@ The same two-cause rule applies as for total asset turnover. Falling fixed asset
     relatedRatios: ["asset-turnover", "dupont-analysis", "ebitda-margin"],
     glossary: ["Asset Turnover"],
     goDeeper: [
-      { label: "Efficiency ratios (Foundations)", href: "/learn/foundations/financial-statement-analysis/efficiency-ratios" },
+      { label: "Efficiency ratios (Foundations)", href: "/vault/guides/efficiency-ratios" },
     ],
   },
 
@@ -800,9 +800,9 @@ Cox & Kings reported healthy profit every year until 2018 and passed the "avoid 
     relatedRatios: ["free-cash-flow", "price-to-cash-flow", "earnings-per-share"],
     glossary: ["Cash Flow from Operations"],
     goDeeper: [
-      { label: "Quality of earnings (Foundations)", href: "/learn/foundations/accounting/quality-of-earnings" },
-      { label: "Three years of cash flow: what one year hides (Research)", href: "/research/three-years-cash-flow-what-one-year-hides" },
-      { label: "Spot the red flags (Learn-by-Doing)", href: "/learn/by-doing/spot-the-red-flags" },
+      { label: "Quality of earnings (Foundations)", href: "/vault/guides/quality-of-earnings" },
+      { label: "Three years of cash flow: what one year hides (Research)", href: "/analysis/valuation-modeling/three-years-cash-flow-what-one-year-hides" },
+      { label: "Spot the red flags (Learn-by-Doing)", href: "/vault/interactive/spot-the-red-flags" },
     ],
   },
   {
@@ -825,9 +825,9 @@ Cox & Kings, profitable on paper every year until 2018, had negative operating c
     relatedRatios: ["cfo-to-pat", "price-to-cash-flow", "enterprise-value"],
     glossary: ["FCF Yield"],
     goDeeper: [
-      { label: "DCF theory and mechanics (Foundations)", href: "/learn/foundations/valuation/dcf-theory-and-mechanics" },
-      { label: "Build a DCF step by step (Learn-by-Doing)", href: "/learn/by-doing/build-a-dcf" },
-      { label: "DCF sensitivity tool", href: "/tools/dcf-sensitivity" },
+      { label: "DCF theory and mechanics (Foundations)", href: "/vault/guides/dcf-theory-and-mechanics" },
+      { label: "Build a DCF step by step (Learn-by-Doing)", href: "/vault/interactive/build-a-dcf" },
+      { label: "DCF sensitivity tool", href: "/vault/interactive/dcf-sensitivity" },
     ],
   },
   {
@@ -870,7 +870,7 @@ There is an interest rate lifecycle. New banks pay high savings rates to attract
     relatedRatios: ["cost-of-funds", "net-interest-margin", "common-size-analysis-banks"],
     glossary: ["CASA Ratio", "Cost of Funds"],
     goDeeper: [
-      { label: "Sector-specific valuation (Foundations)", href: "/learn/foundations/valuation/sector-specific-valuation" },
+      { label: "Sector-specific valuation (Foundations)", href: "/vault/guides/sector-specific-valuation" },
     ],
   },
   {
@@ -906,7 +906,7 @@ Look specifically at net NPA, which is what remains after the bank has set aside
     relatedRatios: ["capital-adequacy-ratio", "advances-growth", "common-size-analysis-banks"],
     glossary: ["NPA", "Provisions"],
     goDeeper: [
-      { label: "Credit risk fundamentals (Foundations)", href: "/learn/foundations/credit-analysis/credit-risk-fundamentals" },
+      { label: "Credit risk fundamentals (Foundations)", href: "/vault/guides/credit-risk-fundamentals" },
     ],
   },
   {
@@ -976,7 +976,7 @@ Below 1 percent ROA there is no point running a bank. Around 2 percent is very g
     relatedRatios: ["net-interest-margin", "capital-adequacy-ratio", "return-on-equity"],
     glossary: ["ROA"],
     goDeeper: [
-      { label: "Sector-specific valuation (Foundations)", href: "/learn/foundations/valuation/sector-specific-valuation" },
+      { label: "Sector-specific valuation (Foundations)", href: "/vault/guides/sector-specific-valuation" },
     ],
   },
   {
@@ -1004,8 +1004,8 @@ IDFC First Bank, a new bank: fee income only about 10 percent, because it lacks 
     relatedRatios: ["casa-ratio", "cost-of-funds", "net-npa", "net-interest-margin"],
     glossary: ["Provisions", "CASA Ratio"],
     goDeeper: [
-      { label: "Compare two companies (Learn-by-Doing)", href: "/learn/by-doing/compare-two-companies" },
-      { label: "Reading an income statement (Foundations)", href: "/learn/foundations/accounting/reading-an-income-statement" },
+      { label: "Compare two companies (Learn-by-Doing)", href: "/vault/interactive/compare-two-companies" },
+      { label: "Reading an income statement (Foundations)", href: "/vault/guides/reading-an-income-statement" },
     ],
   },
   {
@@ -1024,7 +1024,7 @@ A bank with a high gross NPA and a low net NPA has recognised its bad loans and 
     relatedRatios: ["net-npa", "provision-coverage-ratio", "capital-adequacy-ratio"],
     glossary: ["NPA", "Provisions"],
     goDeeper: [
-      { label: "Credit risk fundamentals (Foundations)", href: "/learn/foundations/credit-analysis/credit-risk-fundamentals" },
+      { label: "Credit risk fundamentals (Foundations)", href: "/vault/guides/credit-risk-fundamentals" },
     ],
   },
   {
@@ -1098,7 +1098,7 @@ The three-window reading matters most. Growth accelerating from the five year av
     relatedRatios: ["profit-growth", "asset-turnover", "peg-ratio", "price-to-sales"],
     glossary: ["CAGR"],
     goDeeper: [
-      { label: "CAGR calculator", href: "/tools/cagr" },
+      { label: "CAGR calculator", href: "/vault/interactive/cagr" },
     ],
   },
   {
@@ -1121,8 +1121,8 @@ The three windows do the real work. Use the three or five year average as the gr
     relatedRatios: ["sales-growth", "peg-ratio", "pe-ratio", "cfo-to-pat", "earnings-per-share"],
     glossary: ["CAGR", "EPS"],
     goDeeper: [
-      { label: "CAGR calculator", href: "/tools/cagr" },
-      { label: "Quality of earnings (Foundations)", href: "/learn/foundations/accounting/quality-of-earnings" },
+      { label: "CAGR calculator", href: "/vault/interactive/cagr" },
+      { label: "Quality of earnings (Foundations)", href: "/vault/guides/quality-of-earnings" },
     ],
   },
   {
@@ -1147,8 +1147,8 @@ Domestic institutional investors (mutual funds, insurers) and foreign institutio
     relatedRatios: ["debt-to-equity", "cfo-to-pat", "dividend-yield"],
     glossary: ["Promoter Holding", "DII", "Promoter Pledge"],
     goDeeper: [
-      { label: "Equities (Foundations)", href: "/learn/foundations/markets-and-instruments/equities" },
-      { label: "Where to find Indian markets data (Foundations)", href: "/learn/foundations/data-and-tools/where-to-find-indian-markets-data" },
+      { label: "Equities (Foundations)", href: "/vault/guides/equities" },
+      { label: "Where to find Indian markets data (Foundations)", href: "/vault/guides/where-to-find-indian-markets-data" },
     ],
   },
 ];

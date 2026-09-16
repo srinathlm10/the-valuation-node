@@ -396,13 +396,13 @@ export function SpotRedFlagsLesson() {
             <div className="p-5 rounded-xl border">
               <h3 className="font-semibold mb-4">Go deeper</h3>
               <div className="space-y-3 text-sm">
-                <Link to="/learn/foundations/accounting/quality-of-earnings" className="flex items-center gap-2 text-primary hover:underline">
+                <Link to="/vault/guides/quality-of-earnings" className="flex items-center gap-2 text-primary hover:underline">
                   <ChevronRight className="h-4 w-4 shrink-0" /> Quality of Earnings, Foundations
                 </Link>
-                <Link to="/learn/foundations/credit-analysis/altman-z-score" className="flex items-center gap-2 text-primary hover:underline">
+                <Link to="/vault/guides/altman-z-score" className="flex items-center gap-2 text-primary hover:underline">
                   <ChevronRight className="h-4 w-4 shrink-0" /> Altman Z-Score and Distress Models, Foundations
                 </Link>
-                <Link to="/learn/foundations/accounting/reading-a-cash-flow-statement" className="flex items-center gap-2 text-primary hover:underline">
+                <Link to="/vault/guides/reading-a-cash-flow-statement" className="flex items-center gap-2 text-primary hover:underline">
                   <ChevronRight className="h-4 w-4 shrink-0" /> Reading a Cash Flow Statement, Foundations
                 </Link>
               </div>

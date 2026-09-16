@@ -16,7 +16,7 @@ const difficultyColors = {
 
 export function ArticleCard({ article }: ArticleCardProps) {
   return (
-    <Link to={`/article/${article.id}`}>
+    <Link to={`/archive/${article.id}`}>
       <Card className="group h-full overflow-hidden card-hover">
         <div className="aspect-video overflow-hidden">
           <img

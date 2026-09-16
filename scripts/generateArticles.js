@@ -53,7 +53,7 @@ function readArticles() {
       keywords: Array.isArray(data.keywords) ? data.keywords : undefined,
       metaTitle: data.metaTitle,
       metaDescription: data.metaDescription || data.excerpt,
-      canonical: data.canonical || `https://valuationnode.com/research/${slug}`,
+      canonical: data.canonical || `https://valuationnode.com/analysis/${data.subsection || "valuation-modeling"}/${slug}`,
       ogImage: data.ogImage || "/og-image.png",
       // Accept both naming conventions: publishedAt/updatedAt and publishDate/lastReviewed.
       publishedAt: toDateStr(data.publishedAt ?? data.publishDate),

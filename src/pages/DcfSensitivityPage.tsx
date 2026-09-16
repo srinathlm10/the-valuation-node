@@ -17,14 +17,14 @@ export default function DcfSensitivityPage() {
           subsection: "interactive",
           summary: "Two-stage DCF model with live sliders, sensitivity heatmap, and Excel export. For Indian markets research.",
         })}
-        path="/tools/dcf-sensitivity"
+        path="/vault/interactive/dcf-sensitivity"
         titleTag="DCF Sensitivity Calculator - Tools - The Valuation Node"
         description="Interactive DCF model with a 5×5 sensitivity grid across WACC and terminal growth. Adjust assumptions live and download as Excel. Built for Indian markets research."
       />
 
       <div className="container max-w-5xl py-14">
         <Link
-          to="/tools"
+          to="/vault/interactive"
           className="text-sm text-muted-foreground hover:text-foreground mb-6 inline-block"
         >
           ← Tools
@@ -96,7 +96,7 @@ export default function DcfSensitivityPage() {
           <div className="rounded-lg border p-4">
             <p className="text-sm font-semibold">Learn the concept</p>
             <Link
-              to="/learn/foundations/valuation/dcf-theory-and-mechanics"
+              to="/vault/guides/dcf-theory-and-mechanics"
               className="mt-1 text-sm text-foreground hover:underline inline-block"
             >
               DCF: Theory and Mechanics →
@@ -105,7 +105,7 @@ export default function DcfSensitivityPage() {
           <div className="rounded-lg border p-4">
             <p className="text-sm font-semibold">Common DCF mistakes</p>
             <Link
-              to="/learn/foundations/valuation/common-dcf-mistakes"
+              to="/vault/guides/common-dcf-mistakes"
               className="mt-1 text-sm text-foreground hover:underline inline-block"
             >
               Common DCF Mistakes →
@@ -114,7 +114,7 @@ export default function DcfSensitivityPage() {
           <div className="rounded-lg border p-4">
             <p className="text-sm font-semibold">Cost of capital</p>
             <Link
-              to="/learn/foundations/corporate-finance/cost-of-capital"
+              to="/vault/guides/cost-of-capital"
               className="mt-1 text-sm text-foreground hover:underline inline-block"
             >
               Cost of Capital →
@@ -123,7 +123,7 @@ export default function DcfSensitivityPage() {
           <div className="rounded-lg border p-4">
             <p className="text-sm font-semibold">Terminal value approaches</p>
             <Link
-              to="/learn/foundations/valuation/terminal-value-approaches"
+              to="/vault/guides/terminal-value-approaches"
               className="mt-1 text-sm text-foreground hover:underline inline-block"
             >
               Terminal Value Approaches →

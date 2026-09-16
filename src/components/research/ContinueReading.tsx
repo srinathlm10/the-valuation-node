@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { RESEARCH_ARTICLES } from "@/data/research.generated";
+import { researchPath } from "@/lib/routes";
 import type { ResearchArticleData } from "@/data/researchTypes";
 import { useHiddenSlugs } from "@/lib/articleVisibility";
 
@@ -80,7 +81,7 @@ export function ContinueReading({
         {picks.map((a) => (
           <Link
             key={a.slug}
-            to={`/research/${a.slug}`}
+            to={researchPath(a.slug, a.subsection)}
             onClick={() =>
               track("Related Article Clicked", { from_slug: currentSlug ?? "", to_slug: a.slug })
             }

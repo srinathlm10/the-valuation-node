@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { cn } from "@/lib/utils";
+import { rewriteLegacyPath } from "@/lib/routes";
 
 export function slugify(text: string): string {
   return text
@@ -51,7 +52,9 @@ export function Prose({ children, size = "base", serif = true, className }: Pros
         components={{
           a: ({ href, children: linkChildren }) => {
             if (href && href.startsWith("/")) {
-              return <Link to={href}>{linkChildren}</Link>;
+              // Article bodies are never edited; legacy paths inside them are
+              // mapped to the new URL scheme here instead (src/lib/routes.ts).
+              return <Link to={rewriteLegacyPath(href)}>{linkChildren}</Link>;
             }
             return (
               <a href={href} target="_blank" rel="noopener noreferrer">

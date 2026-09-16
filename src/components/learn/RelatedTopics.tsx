@@ -19,7 +19,7 @@ interface RelatedTopic {
  */
 function getRelatedTopics(sectionSlug: string, topicSlug: string, limit = 4): RelatedTopic[] {
   const out: RelatedTopic[] = [];
-  const currentHref = `/learn/foundations/${sectionSlug}/${topicSlug}`;
+  const currentHref = `/vault/guides/${topicSlug}`;
 
   for (const sec of FOUNDATIONS_TREE) {
     for (const t of sec.topics) {
@@ -77,7 +77,7 @@ export function RelatedTopics({ section, topic, className }: RelatedTopicsProps)
           return (
             <Link
               key={`${t.section}/${t.slug}`}
-              to={`/learn/foundations/${t.section}/${t.slug}`}
+              to={`/vault/guides/${t.slug}`}
               className="group flex items-start gap-3 rounded-xl border bg-card p-4 hover:border-primary/30 hover:shadow-md transition-all"
             >
               {Icon && (

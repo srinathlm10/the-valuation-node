@@ -349,13 +349,13 @@ export function ComputeRatiosLesson() {
               <div className="p-5 rounded-xl border">
                 <h3 className="font-semibold mb-4">Go deeper</h3>
                 <div className="space-y-3 text-sm">
-                  <Link to="/learn/foundations/financial-statement-analysis/profitability-ratios" className="flex items-center gap-2 text-primary hover:underline">
+                  <Link to="/vault/guides/profitability-ratios" className="flex items-center gap-2 text-primary hover:underline">
                     <ChevronRight className="h-4 w-4 shrink-0" /> Profitability Ratios, Foundations
                   </Link>
-                  <Link to="/learn/foundations/financial-statement-analysis/dupont-decomposition" className="flex items-center gap-2 text-primary hover:underline">
+                  <Link to="/vault/guides/dupont-decomposition" className="flex items-center gap-2 text-primary hover:underline">
                     <ChevronRight className="h-4 w-4 shrink-0" /> DuPont Decomposition, Foundations
                   </Link>
-                  <Link to="/learn/by-doing/compare-two-companies" className="flex items-center gap-2 text-primary hover:underline">
+                  <Link to="/vault/interactive/compare-two-companies" className="flex items-center gap-2 text-primary hover:underline">
                     <ChevronRight className="h-4 w-4 shrink-0" /> Next: Compare Two Companies Side by Side
                   </Link>
                 </div>

@@ -7,478 +7,100 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/research</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn</loc>
+    <loc>https://valuationnode.com/news</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/foundations</loc>
+    <loc>https://valuationnode.com/news/indian-economy</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/accounting/reading-an-income-statement</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/foundations/accounting/reading-a-balance-sheet</loc>
+    <loc>https://valuationnode.com/news/policy-regulation</loc>
     <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/foundations/accounting/reading-a-cash-flow-statement</loc>
+    <loc>https://valuationnode.com/news/technology-ai</loc>
     <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/foundations/accounting/linking-the-three-statements</loc>
+    <loc>https://valuationnode.com/analysis</loc>
     <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/accounting/ind-as-vs-ifrs-vs-indian-gaap</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/accounting/common-adjustments</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/accounting/quality-of-earnings</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/corporate-finance/time-value-of-money</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/corporate-finance/cost-of-capital</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/corporate-finance/capital-structure</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/corporate-finance/working-capital</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/corporate-finance/capital-budgeting</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/valuation/dcf-theory-and-mechanics</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/valuation/relative-valuation</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/valuation/sum-of-the-parts</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/valuation/sector-specific-valuation</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/valuation/terminal-value-approaches</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/valuation/common-dcf-mistakes</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/financial-statement-analysis/profitability-ratios</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/financial-statement-analysis/liquidity-ratios</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/financial-statement-analysis/solvency-ratios</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/financial-statement-analysis/efficiency-ratios</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/financial-statement-analysis/market-ratios</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/financial-statement-analysis/dupont-decomposition</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/credit-analysis/credit-risk-fundamentals</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/credit-analysis/reading-crisil-icra-moodys-reports</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/credit-analysis/altman-z-score</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/credit-analysis/bond-pricing-and-yields</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/credit-analysis/covenants-and-triggers</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/markets-and-instruments/equities</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/markets-and-instruments/debt-markets-and-yield-curves</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/markets-and-instruments/derivatives</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/markets-and-instruments/mutual-funds-etfs-aifs</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/markets-and-instruments/reits-and-invits</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/markets-and-instruments/technical-analysis-primer</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/esg-and-sustainable-finance/esg-fundamentals</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/esg-and-sustainable-finance/reporting-frameworks</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/esg-and-sustainable-finance/carbon-accounting</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/esg-and-sustainable-finance/green-bonds</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/esg-and-sustainable-finance/esg-integrated-valuation</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/esg-and-sustainable-finance/climate-risk-and-stranded-assets</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/fintech-and-digital-finance/payments-landscape</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/fintech-and-digital-finance/digital-lending-models</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/fintech-and-digital-finance/credit-scoring</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/fintech-and-digital-finance/blockchain-and-defi-primer</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/fintech-and-digital-finance/cybersecurity-in-financial-systems</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/fintech-and-digital-finance/account-aggregators</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/data-and-tools/excel-modeling-conventions</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/data-and-tools/python-for-finance</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/data-and-tools/sql-for-finance-data</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/foundations/data-and-tools/where-to-find-indian-markets-data</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/by-doing</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/by-doing/build-a-dcf</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/by-doing/read-an-income-statement</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/by-doing/compute-ratios</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/by-doing/compare-two-companies</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/by-doing/spot-the-red-flags</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis</loc>
+    <loc>https://valuationnode.com/analysis/valuation-modeling</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary</loc>
+    <loc>https://valuationnode.com/analysis/op-eds</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/tools</loc>
+    <loc>https://valuationnode.com/esg</loc>
     <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/tools/dcf-sensitivity</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/tools/sip</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/tools/future-value</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/tools/present-value</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/tools/cagr</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/tools/compound-interest</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/tools/rule-of-72</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/tools/emi</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/tools/inflation-adjusted-returns</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/tools/step-up-sip</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/tools/goal-sip</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/tools/loan-prepayment</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/tools/wacc</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/markets</loc>
+    <loc>https://valuationnode.com/esg/green-finance</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/markets/nifty50</loc>
+    <loc>https://valuationnode.com/esg/impact-investing</loc>
     <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/markets/compliance</loc>
+    <loc>https://valuationnode.com/esg/esg-ratings-frameworks</loc>
     <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/glossary</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/formulas</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/interactive</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://valuationnode.com/about</loc>
@@ -487,1407 +109,2169 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/about/author</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://valuationnode.com/about/site</loc>
     <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/about/methodology</loc>
+    <loc>https://valuationnode.com/about/author</loc>
     <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/research/high-pe-what-it-implies-and-when-its-a-trap</loc>
-    <lastmod>2026-01-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://valuationnode.com/about/philosophy</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/research/how-the-valuation-node-approaches-research</loc>
+    <loc>https://valuationnode.com/about/contact</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/about/privacy</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/about/disclaimer</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/about/terms</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/analysis/op-eds/how-the-valuation-node-approaches-research</loc>
     <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/research/roe-comparison-dupont-why-higher-isnt-better</loc>
-    <lastmod>2026-02-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://valuationnode.com/research/three-years-cash-flow-what-one-year-hides</loc>
+    <loc>https://valuationnode.com/analysis/valuation-modeling/three-years-cash-flow-what-one-year-hides</loc>
     <lastmod>2026-03-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/market-capitalisation</loc>
+    <loc>https://valuationnode.com/analysis/valuation-modeling/roe-comparison-dupont-why-higher-isnt-better</loc>
+    <lastmod>2026-02-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/analysis/valuation-modeling/high-pe-what-it-implies-and-when-its-a-trap</loc>
+    <lastmod>2026-01-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/reading-an-income-statement</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/reading-a-balance-sheet</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/reading-a-cash-flow-statement</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/linking-the-three-statements</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/ind-as-vs-ifrs-vs-indian-gaap</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/common-adjustments</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/quality-of-earnings</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/time-value-of-money</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/cost-of-capital</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/capital-structure</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/working-capital</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/capital-budgeting</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/dcf-theory-and-mechanics</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/relative-valuation</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/sum-of-the-parts</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/sector-specific-valuation</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/terminal-value-approaches</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/common-dcf-mistakes</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/profitability-ratios</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/liquidity-ratios</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/solvency-ratios</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/efficiency-ratios</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/market-ratios</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/dupont-decomposition</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/credit-risk-fundamentals</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/reading-crisil-icra-moodys-reports</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/altman-z-score</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/bond-pricing-and-yields</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/covenants-and-triggers</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/equities</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/debt-markets-and-yield-curves</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/derivatives</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/mutual-funds-etfs-aifs</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/reits-and-invits</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/technical-analysis-primer</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/esg-fundamentals</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/reporting-frameworks</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/carbon-accounting</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/green-bonds</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/esg-integrated-valuation</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/climate-risk-and-stranded-assets</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/payments-landscape</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/digital-lending-models</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/credit-scoring</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/blockchain-and-defi-primer</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/cybersecurity-in-financial-systems</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/account-aggregators</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/excel-modeling-conventions</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/python-for-finance</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/sql-for-finance-data</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/where-to-find-indian-markets-data</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/guides/fundamental-analysis-course</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/enterprise-value</loc>
+    <loc>https://valuationnode.com/vault/guides/technical-analysis-course</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/earnings-per-share</loc>
+    <loc>https://valuationnode.com/vault/guides/accounting</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/pe-ratio</loc>
+    <loc>https://valuationnode.com/vault/guides/corporate-finance</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/price-to-book</loc>
+    <loc>https://valuationnode.com/vault/guides/valuation</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/peg-ratio</loc>
+    <loc>https://valuationnode.com/vault/guides/financial-statement-analysis</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/price-to-cash-flow</loc>
+    <loc>https://valuationnode.com/vault/guides/credit-analysis</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/price-to-sales</loc>
+    <loc>https://valuationnode.com/vault/guides/markets-and-instruments</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/ev-to-ebitda</loc>
+    <loc>https://valuationnode.com/vault/guides/esg-and-sustainable-finance</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/ev-to-sales</loc>
+    <loc>https://valuationnode.com/vault/guides/fintech-and-digital-finance</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/earnings-yield</loc>
+    <loc>https://valuationnode.com/vault/guides/data-and-tools</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/fcf-yield</loc>
+    <loc>https://valuationnode.com/vault/formulas/market-capitalisation</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/dividend-yield</loc>
+    <loc>https://valuationnode.com/vault/formulas/enterprise-value</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/net-profit-margin</loc>
+    <loc>https://valuationnode.com/vault/formulas/earnings-per-share</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/return-on-equity</loc>
+    <loc>https://valuationnode.com/vault/formulas/pe-ratio</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/return-on-capital-employed</loc>
+    <loc>https://valuationnode.com/vault/formulas/price-to-book</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/gross-margin</loc>
+    <loc>https://valuationnode.com/vault/formulas/peg-ratio</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/operating-margin</loc>
+    <loc>https://valuationnode.com/vault/formulas/price-to-cash-flow</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/ebitda-margin</loc>
+    <loc>https://valuationnode.com/vault/formulas/price-to-sales</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/return-on-assets</loc>
+    <loc>https://valuationnode.com/vault/formulas/ev-to-ebitda</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/dividend-payout-ratio</loc>
+    <loc>https://valuationnode.com/vault/formulas/ev-to-sales</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/debt-to-equity</loc>
+    <loc>https://valuationnode.com/vault/formulas/earnings-yield</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/interest-coverage</loc>
+    <loc>https://valuationnode.com/vault/formulas/fcf-yield</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/quick-ratio</loc>
+    <loc>https://valuationnode.com/vault/formulas/dividend-yield</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/current-ratio</loc>
+    <loc>https://valuationnode.com/vault/formulas/net-profit-margin</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/net-debt-to-ebitda</loc>
+    <loc>https://valuationnode.com/vault/formulas/return-on-equity</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/asset-turnover</loc>
+    <loc>https://valuationnode.com/vault/formulas/return-on-capital-employed</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/cash-conversion-cycle</loc>
+    <loc>https://valuationnode.com/vault/formulas/gross-margin</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/dupont-analysis</loc>
+    <loc>https://valuationnode.com/vault/formulas/operating-margin</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/working-capital-days</loc>
+    <loc>https://valuationnode.com/vault/formulas/ebitda-margin</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/fixed-asset-turnover</loc>
+    <loc>https://valuationnode.com/vault/formulas/return-on-assets</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/cfo-to-pat</loc>
+    <loc>https://valuationnode.com/vault/formulas/dividend-payout-ratio</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/free-cash-flow</loc>
+    <loc>https://valuationnode.com/vault/formulas/debt-to-equity</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/cash-flow-per-share</loc>
+    <loc>https://valuationnode.com/vault/formulas/interest-coverage</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/casa-ratio</loc>
+    <loc>https://valuationnode.com/vault/formulas/quick-ratio</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/cost-of-funds</loc>
+    <loc>https://valuationnode.com/vault/formulas/current-ratio</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/net-npa</loc>
+    <loc>https://valuationnode.com/vault/formulas/net-debt-to-ebitda</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/advances-growth</loc>
+    <loc>https://valuationnode.com/vault/formulas/asset-turnover</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/capital-adequacy-ratio</loc>
+    <loc>https://valuationnode.com/vault/formulas/cash-conversion-cycle</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/net-interest-margin</loc>
+    <loc>https://valuationnode.com/vault/formulas/dupont-analysis</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/return-on-assets-bank</loc>
+    <loc>https://valuationnode.com/vault/formulas/working-capital-days</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/common-size-analysis-banks</loc>
+    <loc>https://valuationnode.com/vault/formulas/fixed-asset-turnover</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/gross-npa</loc>
+    <loc>https://valuationnode.com/vault/formulas/cfo-to-pat</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/provision-coverage-ratio</loc>
+    <loc>https://valuationnode.com/vault/formulas/free-cash-flow</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/cost-to-income-ratio</loc>
+    <loc>https://valuationnode.com/vault/formulas/cash-flow-per-share</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/credit-deposit-ratio</loc>
+    <loc>https://valuationnode.com/vault/formulas/casa-ratio</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/sales-growth</loc>
+    <loc>https://valuationnode.com/vault/formulas/cost-of-funds</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/profit-growth</loc>
+    <loc>https://valuationnode.com/vault/formulas/net-npa</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/ratio-analysis/promoter-holding</loc>
+    <loc>https://valuationnode.com/vault/formulas/advances-growth</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/future-value</loc>
+    <loc>https://valuationnode.com/vault/formulas/capital-adequacy-ratio</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/formulas/net-interest-margin</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/formulas/return-on-assets-bank</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/formulas/common-size-analysis-banks</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/formulas/gross-npa</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/formulas/provision-coverage-ratio</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/formulas/cost-to-income-ratio</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/formulas/credit-deposit-ratio</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/formulas/sales-growth</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/formulas/profit-growth</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/formulas/promoter-holding</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/glossary/future-value</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/present-value</loc>
+    <loc>https://valuationnode.com/vault/glossary/present-value</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/sip</loc>
+    <loc>https://valuationnode.com/vault/glossary/sip</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/cagr</loc>
+    <loc>https://valuationnode.com/vault/glossary/cagr</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/rule-of-72</loc>
+    <loc>https://valuationnode.com/vault/glossary/rule-of-72</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/emi</loc>
+    <loc>https://valuationnode.com/vault/glossary/emi</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/real-return</loc>
+    <loc>https://valuationnode.com/vault/glossary/real-return</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/simple-interest</loc>
+    <loc>https://valuationnode.com/vault/glossary/simple-interest</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/compound-interest</loc>
+    <loc>https://valuationnode.com/vault/glossary/compound-interest</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/npv</loc>
+    <loc>https://valuationnode.com/vault/glossary/npv</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/eps</loc>
+    <loc>https://valuationnode.com/vault/glossary/eps</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/roe</loc>
+    <loc>https://valuationnode.com/vault/glossary/roe</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/roa</loc>
+    <loc>https://valuationnode.com/vault/glossary/roa</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/roce</loc>
+    <loc>https://valuationnode.com/vault/glossary/roce</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/net-profit-margin</loc>
+    <loc>https://valuationnode.com/vault/glossary/net-profit-margin</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/ebitda-margin</loc>
+    <loc>https://valuationnode.com/vault/glossary/ebitda-margin</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/p-e-ratio</loc>
+    <loc>https://valuationnode.com/vault/glossary/p-e-ratio</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/p-b-ratio</loc>
+    <loc>https://valuationnode.com/vault/glossary/p-b-ratio</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/peg-ratio</loc>
+    <loc>https://valuationnode.com/vault/glossary/peg-ratio</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/dividend-yield</loc>
+    <loc>https://valuationnode.com/vault/glossary/dividend-yield</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/enterprise-value</loc>
+    <loc>https://valuationnode.com/vault/glossary/enterprise-value</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/ev-ebitda</loc>
+    <loc>https://valuationnode.com/vault/glossary/ev-ebitda</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/current-ratio</loc>
+    <loc>https://valuationnode.com/vault/glossary/current-ratio</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/quick-ratio</loc>
+    <loc>https://valuationnode.com/vault/glossary/quick-ratio</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/debt-to-equity</loc>
+    <loc>https://valuationnode.com/vault/glossary/debt-to-equity</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/interest-coverage</loc>
+    <loc>https://valuationnode.com/vault/glossary/interest-coverage</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/asset-turnover</loc>
+    <loc>https://valuationnode.com/vault/glossary/asset-turnover</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/rsi</loc>
+    <loc>https://valuationnode.com/vault/glossary/rsi</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/macd</loc>
+    <loc>https://valuationnode.com/vault/glossary/macd</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/bollinger-bands</loc>
+    <loc>https://valuationnode.com/vault/glossary/bollinger-bands</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/atr</loc>
+    <loc>https://valuationnode.com/vault/glossary/atr</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/fibonacci-levels</loc>
+    <loc>https://valuationnode.com/vault/glossary/fibonacci-levels</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/obv</loc>
+    <loc>https://valuationnode.com/vault/glossary/obv</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/stochastic</loc>
+    <loc>https://valuationnode.com/vault/glossary/stochastic</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/ema</loc>
+    <loc>https://valuationnode.com/vault/glossary/ema</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/sebi-lodr</loc>
+    <loc>https://valuationnode.com/vault/glossary/sebi-lodr</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/sebi-pit</loc>
+    <loc>https://valuationnode.com/vault/glossary/sebi-pit</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/sebi-sast</loc>
+    <loc>https://valuationnode.com/vault/glossary/sebi-sast</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/sebi-icdr</loc>
+    <loc>https://valuationnode.com/vault/glossary/sebi-icdr</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/account-aggregator</loc>
+    <loc>https://valuationnode.com/vault/glossary/account-aggregator</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/demat-account</loc>
+    <loc>https://valuationnode.com/vault/glossary/demat-account</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/mca-form-aoc-4</loc>
+    <loc>https://valuationnode.com/vault/glossary/mca-form-aoc-4</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/mca-form-mgt-7</loc>
+    <loc>https://valuationnode.com/vault/glossary/mca-form-mgt-7</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/t-1-settlement</loc>
+    <loc>https://valuationnode.com/vault/glossary/t-1-settlement</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/circuit-breakers</loc>
+    <loc>https://valuationnode.com/vault/glossary/circuit-breakers</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/beta</loc>
+    <loc>https://valuationnode.com/vault/glossary/beta</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/sharpe-ratio</loc>
+    <loc>https://valuationnode.com/vault/glossary/sharpe-ratio</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/treynor-ratio</loc>
+    <loc>https://valuationnode.com/vault/glossary/treynor-ratio</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/capm</loc>
+    <loc>https://valuationnode.com/vault/glossary/capm</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/wacc</loc>
+    <loc>https://valuationnode.com/vault/glossary/wacc</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/standard-deviation</loc>
+    <loc>https://valuationnode.com/vault/glossary/standard-deviation</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/alpha</loc>
+    <loc>https://valuationnode.com/vault/glossary/alpha</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/stcg</loc>
+    <loc>https://valuationnode.com/vault/glossary/stcg</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/ltcg</loc>
+    <loc>https://valuationnode.com/vault/glossary/ltcg</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/gst</loc>
+    <loc>https://valuationnode.com/vault/glossary/gst</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/section-80c</loc>
+    <loc>https://valuationnode.com/vault/glossary/section-80c</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/stt</loc>
+    <loc>https://valuationnode.com/vault/glossary/stt</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/market-cap</loc>
+    <loc>https://valuationnode.com/vault/glossary/market-cap</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/book-value</loc>
+    <loc>https://valuationnode.com/vault/glossary/book-value</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/nav</loc>
+    <loc>https://valuationnode.com/vault/glossary/nav</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/expense-ratio</loc>
+    <loc>https://valuationnode.com/vault/glossary/expense-ratio</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/free-float</loc>
+    <loc>https://valuationnode.com/vault/glossary/free-float</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/face-value</loc>
+    <loc>https://valuationnode.com/vault/glossary/face-value</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/nifty-50</loc>
+    <loc>https://valuationnode.com/vault/glossary/nifty-50</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/ltcg-basics</loc>
+    <loc>https://valuationnode.com/vault/glossary/ltcg-basics</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/dividend</loc>
+    <loc>https://valuationnode.com/vault/glossary/dividend</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/face-value-basics</loc>
+    <loc>https://valuationnode.com/vault/glossary/face-value-basics</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/promoter</loc>
+    <loc>https://valuationnode.com/vault/glossary/promoter</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/top-line-bottom-line</loc>
+    <loc>https://valuationnode.com/vault/glossary/top-line-bottom-line</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/share-split</loc>
+    <loc>https://valuationnode.com/vault/glossary/share-split</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/bonus-shares</loc>
+    <loc>https://valuationnode.com/vault/glossary/bonus-shares</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/price-discovery</loc>
+    <loc>https://valuationnode.com/vault/glossary/price-discovery</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/securities-market-types</loc>
+    <loc>https://valuationnode.com/vault/glossary/securities-market-types</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/demat-account-basics</loc>
+    <loc>https://valuationnode.com/vault/glossary/demat-account-basics</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/savings-account</loc>
+    <loc>https://valuationnode.com/vault/glossary/savings-account</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/trading-account</loc>
+    <loc>https://valuationnode.com/vault/glossary/trading-account</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/demat-documents</loc>
+    <loc>https://valuationnode.com/vault/glossary/demat-documents</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/contract-note</loc>
+    <loc>https://valuationnode.com/vault/glossary/contract-note</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/settlement-date</loc>
+    <loc>https://valuationnode.com/vault/glossary/settlement-date</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/ltp</loc>
+    <loc>https://valuationnode.com/vault/glossary/ltp</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/pre-opening-session</loc>
+    <loc>https://valuationnode.com/vault/glossary/pre-opening-session</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/amo</loc>
+    <loc>https://valuationnode.com/vault/glossary/amo</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/gap-up</loc>
+    <loc>https://valuationnode.com/vault/glossary/gap-up</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/gap-down</loc>
+    <loc>https://valuationnode.com/vault/glossary/gap-down</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/announcement-date</loc>
+    <loc>https://valuationnode.com/vault/glossary/announcement-date</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/record-date</loc>
+    <loc>https://valuationnode.com/vault/glossary/record-date</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/investor-types</loc>
+    <loc>https://valuationnode.com/vault/glossary/investor-types</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/depositories</loc>
+    <loc>https://valuationnode.com/vault/glossary/depositories</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/dp</loc>
+    <loc>https://valuationnode.com/vault/glossary/dp</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/corporate-actions</loc>
+    <loc>https://valuationnode.com/vault/glossary/corporate-actions</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/volume</loc>
+    <loc>https://valuationnode.com/vault/glossary/volume</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/trading-system</loc>
+    <loc>https://valuationnode.com/vault/glossary/trading-system</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/order-types</loc>
+    <loc>https://valuationnode.com/vault/glossary/order-types</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/bullish-bearish</loc>
+    <loc>https://valuationnode.com/vault/glossary/bullish-bearish</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/short-sell</loc>
+    <loc>https://valuationnode.com/vault/glossary/short-sell</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/auction</loc>
+    <loc>https://valuationnode.com/vault/glossary/auction</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/stop-loss</loc>
+    <loc>https://valuationnode.com/vault/glossary/stop-loss</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/circuit-filter</loc>
+    <loc>https://valuationnode.com/vault/glossary/circuit-filter</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/trend-analysis</loc>
+    <loc>https://valuationnode.com/vault/glossary/trend-analysis</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/market-cap-basics</loc>
+    <loc>https://valuationnode.com/vault/glossary/market-cap-basics</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/ring-trading</loc>
+    <loc>https://valuationnode.com/vault/glossary/ring-trading</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/block-deal</loc>
+    <loc>https://valuationnode.com/vault/glossary/block-deal</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/order-quantity-types</loc>
+    <loc>https://valuationnode.com/vault/glossary/order-quantity-types</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/bid-ask-spread</loc>
+    <loc>https://valuationnode.com/vault/glossary/bid-ask-spread</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/indices</loc>
+    <loc>https://valuationnode.com/vault/glossary/indices</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/sector-indices</loc>
+    <loc>https://valuationnode.com/vault/glossary/sector-indices</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/free-float-mcap</loc>
+    <loc>https://valuationnode.com/vault/glossary/free-float-mcap</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/pledging</loc>
+    <loc>https://valuationnode.com/vault/glossary/pledging</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/lot-size</loc>
+    <loc>https://valuationnode.com/vault/glossary/lot-size</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/ipo-vs-ofs</loc>
+    <loc>https://valuationnode.com/vault/glossary/ipo-vs-ofs</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/fpo</loc>
+    <loc>https://valuationnode.com/vault/glossary/fpo</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/book-value-basics</loc>
+    <loc>https://valuationnode.com/vault/glossary/book-value-basics</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/merchant-banker</loc>
+    <loc>https://valuationnode.com/vault/glossary/merchant-banker</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/price-band</loc>
+    <loc>https://valuationnode.com/vault/glossary/price-band</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/book-building</loc>
+    <loc>https://valuationnode.com/vault/glossary/book-building</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/prospectus</loc>
+    <loc>https://valuationnode.com/vault/glossary/prospectus</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/primary-market</loc>
+    <loc>https://valuationnode.com/vault/glossary/primary-market</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/underwriter</loc>
+    <loc>https://valuationnode.com/vault/glossary/underwriter</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/ipo-listing</loc>
+    <loc>https://valuationnode.com/vault/glossary/ipo-listing</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/price-determination</loc>
+    <loc>https://valuationnode.com/vault/glossary/price-determination</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/ev-sales</loc>
+    <loc>https://valuationnode.com/vault/glossary/ev-sales</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/fcf-yield</loc>
+    <loc>https://valuationnode.com/vault/glossary/fcf-yield</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/earnings-yield</loc>
+    <loc>https://valuationnode.com/vault/glossary/earnings-yield</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/dividend-payout-ratio</loc>
+    <loc>https://valuationnode.com/vault/glossary/dividend-payout-ratio</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/terminal-value</loc>
+    <loc>https://valuationnode.com/vault/glossary/terminal-value</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/margin-of-safety</loc>
+    <loc>https://valuationnode.com/vault/glossary/margin-of-safety</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/book-value-per-share</loc>
+    <loc>https://valuationnode.com/vault/glossary/book-value-per-share</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/roic</loc>
+    <loc>https://valuationnode.com/vault/glossary/roic</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/nopat</loc>
+    <loc>https://valuationnode.com/vault/glossary/nopat</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/operating-leverage</loc>
+    <loc>https://valuationnode.com/vault/glossary/operating-leverage</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/gross-margin</loc>
+    <loc>https://valuationnode.com/vault/glossary/gross-margin</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/operating-margin</loc>
+    <loc>https://valuationnode.com/vault/glossary/operating-margin</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/yield-to-maturity</loc>
+    <loc>https://valuationnode.com/vault/glossary/yield-to-maturity</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/credit-spread</loc>
+    <loc>https://valuationnode.com/vault/glossary/credit-spread</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/credit-rating</loc>
+    <loc>https://valuationnode.com/vault/glossary/credit-rating</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/dscr</loc>
+    <loc>https://valuationnode.com/vault/glossary/dscr</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/coupon-rate</loc>
+    <loc>https://valuationnode.com/vault/glossary/coupon-rate</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/duration</loc>
+    <loc>https://valuationnode.com/vault/glossary/duration</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/npa</loc>
+    <loc>https://valuationnode.com/vault/glossary/npa</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/covenant</loc>
+    <loc>https://valuationnode.com/vault/glossary/covenant</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/promoter-pledge</loc>
+    <loc>https://valuationnode.com/vault/glossary/promoter-pledge</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/working-capital-cycle</loc>
+    <loc>https://valuationnode.com/vault/glossary/working-capital-cycle</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/bonus-issue</loc>
+    <loc>https://valuationnode.com/vault/glossary/bonus-issue</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/rights-issue</loc>
+    <loc>https://valuationnode.com/vault/glossary/rights-issue</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/buyback</loc>
+    <loc>https://valuationnode.com/vault/glossary/buyback</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/stock-split</loc>
+    <loc>https://valuationnode.com/vault/glossary/stock-split</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/fpi</loc>
+    <loc>https://valuationnode.com/vault/glossary/fpi</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/dii</loc>
+    <loc>https://valuationnode.com/vault/glossary/dii</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/repo-rate</loc>
+    <loc>https://valuationnode.com/vault/glossary/repo-rate</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/reverse-repo-rate</loc>
+    <loc>https://valuationnode.com/vault/glossary/reverse-repo-rate</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/cpi-inflation</loc>
+    <loc>https://valuationnode.com/vault/glossary/cpi-inflation</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/wpi</loc>
+    <loc>https://valuationnode.com/vault/glossary/wpi</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/gdp-growth</loc>
+    <loc>https://valuationnode.com/vault/glossary/gdp-growth</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/fiscal-deficit</loc>
+    <loc>https://valuationnode.com/vault/glossary/fiscal-deficit</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/current-account-deficit</loc>
+    <loc>https://valuationnode.com/vault/glossary/current-account-deficit</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/crr</loc>
+    <loc>https://valuationnode.com/vault/glossary/crr</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/slr</loc>
+    <loc>https://valuationnode.com/vault/glossary/slr</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/basis-point</loc>
+    <loc>https://valuationnode.com/vault/glossary/basis-point</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/esg-score</loc>
+    <loc>https://valuationnode.com/vault/glossary/esg-score</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/brsr</loc>
+    <loc>https://valuationnode.com/vault/glossary/brsr</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/related-party-transaction</loc>
+    <loc>https://valuationnode.com/vault/glossary/related-party-transaction</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/independent-director</loc>
+    <loc>https://valuationnode.com/vault/glossary/independent-director</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/promoter-holding</loc>
+    <loc>https://valuationnode.com/vault/glossary/promoter-holding</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/greenwashing</loc>
+    <loc>https://valuationnode.com/vault/glossary/greenwashing</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/upi</loc>
+    <loc>https://valuationnode.com/vault/glossary/upi</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/cbdc</loc>
+    <loc>https://valuationnode.com/vault/glossary/cbdc</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/p2p-lending</loc>
+    <loc>https://valuationnode.com/vault/glossary/p2p-lending</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/payment-aggregator</loc>
+    <loc>https://valuationnode.com/vault/glossary/payment-aggregator</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/kyc</loc>
+    <loc>https://valuationnode.com/vault/glossary/kyc</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/xirr</loc>
+    <loc>https://valuationnode.com/vault/glossary/xirr</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/asset-allocation</loc>
+    <loc>https://valuationnode.com/vault/glossary/asset-allocation</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/rebalancing</loc>
+    <loc>https://valuationnode.com/vault/glossary/rebalancing</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/casa-ratio</loc>
+    <loc>https://valuationnode.com/vault/glossary/casa-ratio</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/cost-of-funds</loc>
+    <loc>https://valuationnode.com/vault/glossary/cost-of-funds</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/net-interest-margin</loc>
+    <loc>https://valuationnode.com/vault/glossary/net-interest-margin</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/capital-adequacy-ratio</loc>
+    <loc>https://valuationnode.com/vault/glossary/capital-adequacy-ratio</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/provisions</loc>
+    <loc>https://valuationnode.com/vault/glossary/provisions</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valuationnode.com/learn/glossary/cash-flow-from-operations</loc>
+    <loc>https://valuationnode.com/vault/glossary/cash-flow-from-operations</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/interactive/sip</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/interactive/future-value</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/interactive/present-value</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/interactive/cagr</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/interactive/compound-interest</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/interactive/rule-of-72</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/interactive/emi</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/interactive/inflation-adjusted-returns</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/interactive/step-up-sip</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/interactive/goal-sip</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/interactive/loan-prepayment</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/interactive/wacc</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/interactive/dcf-sensitivity</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/interactive/build-a-dcf</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/interactive/read-an-income-statement</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/interactive/compute-ratios</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/interactive/compare-two-companies</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/vault/interactive/spot-the-red-flags</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/news/indian-economy/nifty-50</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/news/policy-regulation/compliance-calendar</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/tags</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/tags/ratios</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/tags/equities</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/tags/indian-markets</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/tags/valuation</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/tags/personal-finance</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/tags/profitability</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/tags/credit-risk</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/tags/bonds</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/tags/relative-valuation</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/tags/financial-statements</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/tags/banking</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/tags/macroeconomics</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/tags/regulation</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/tags/esg</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/tags/fintech</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/tags/leverage</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/tags/dcf</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/tags/technical-analysis</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/tags/liquidity</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/tags/cash-flow</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/tags/earnings-quality</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/tags/efficiency</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/tags/funds-and-etfs</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/tags/corporate-governance</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/tags/red-flags</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/tags/taxation</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/tags/cost-of-capital</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/tags/data-and-tools</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/tags/growth</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/tags/digital-lending</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/tags/esg-reporting</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/tags/climate-risk</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/tags/payments</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/tags/derivatives</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/tags/green-finance</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/tags/blockchain</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/tags/cybersecurity</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/tags/excel</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/tags/python</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://valuationnode.com/tags/sql</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
   </url>
 </urlset>

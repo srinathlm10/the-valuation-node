@@ -16,14 +16,10 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
+import { SECTIONS } from "@/lib/taxonomy";
 
-const navItems = [
-  { label: "Research", href: "/research" },
-  { label: "Learn", href: "/learn" },
-  { label: "Tools", href: "/tools" },
-  { label: "Markets", href: "/markets" },
-  { label: "About", href: "/about" },
-];
+// Primary navigation: the sections flagged inNav in the taxonomy, in order.
+const navItems = SECTIONS.filter((s) => s.inNav).map((s) => ({ label: s.label, href: s.path }));
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);

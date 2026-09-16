@@ -10,7 +10,7 @@ export default function ReadIncomeStatementPage() {
     <Layout>
       <Seo
         meta={interactiveMeta({ slug: "read-an-income-statement", title: "Read an Income Statement, Line by Line", description: "Walk through a real Indian company's P&L one line at a time. Understand what each number means and how revenue becomes net profit.", kind: "lesson" })}
-        path="/learn/by-doing/read-an-income-statement"
+        path="/vault/interactive/read-an-income-statement"
         jsonLd={[
           {
               "@context": "https://schema.org",
@@ -22,21 +22,21 @@ export default function ReadIncomeStatementPage() {
               educationalLevel: "Beginner",
               learningResourceType: "Interactive Tutorial",
               teaches: ["Income statement", "P&L", "Gross profit", "EBITDA", "Net profit", "Margins"],
-              url: "https://valuationnode.com/learn/by-doing/read-an-income-statement",
+              url: "https://valuationnode.com/vault/interactive/read-an-income-statement",
             },
           breadcrumbLd([
-            { name: "Learn", path: "/learn" },
-            { name: "Learn-by-Doing", path: "/learn/by-doing" },
-            { name: "Read an Income Statement, Line by Line", path: "/learn/by-doing/read-an-income-statement" },
+            { name: "The Vault", path: "/vault" },
+            { name: "Interactive", path: "/vault/interactive" },
+            { name: "Read an Income Statement, Line by Line", path: "/vault/interactive/read-an-income-statement" },
           ]),
         ]}
       />
 
       <nav className="border-b">
         <ol className="container max-w-5xl py-3 flex items-center gap-2 text-sm text-muted-foreground">
-          <li><Link to="/learn" className="hover:text-foreground">Learn</Link></li>
+          <li><Link to="/vault" className="hover:text-foreground">Learn</Link></li>
           <li>/</li>
-          <li><Link to="/learn/by-doing" className="hover:text-foreground">Learn-by-Doing</Link></li>
+          <li><Link to="/vault/interactive" className="hover:text-foreground">Learn-by-Doing</Link></li>
           <li>/</li>
           <li className="text-foreground font-medium">Read an Income Statement</li>
         </ol>

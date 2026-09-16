@@ -1,8 +1,10 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, Navigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
 import { Seo } from "@/components/seo/Seo";
 import { researchMeta } from "@/lib/contentModel";
+import { paths, researchPath } from "@/lib/routes";
+import { getSubsection } from "@/lib/taxonomy";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { useState, useMemo } from "react";
 import { Copy, Check, ArrowLeft, Download, Github, Eye, EyeOff, Loader2 } from "lucide-react";
@@ -29,7 +31,7 @@ function CitationBlock({ article }: { article: ResearchArticleData }) {
   const [copied, setCopied] = useState(false);
   const citation =
     article.citationFormat ||
-    `Gajji, S. (${article.publishedAt ? new Date(article.publishedAt).getFullYear() : new Date().getFullYear()}). "${article.title}." The Valuation Node. https://valuationnode.com/research/${article.slug}`;
+    `Gajji, S. (${article.publishedAt ? new Date(article.publishedAt).getFullYear() : new Date().getFullYear()}). "${article.title}." The Valuation Node. https://valuationnode.com${researchPath(article.slug, article.subsection)}`;
 
   const copy = () => {
     navigator.clipboard.writeText(citation);
@@ -74,8 +76,13 @@ function AdminBar({ article, isHidden }: { article: ResearchArticleData; isHidde
 }
 
 export default function ResearchArticle() {
-  const { slug } = useParams<{ slug: string }>();
+  const { slug, sub } = useParams<{ slug: string; sub?: string }>();
   const article = useMemo(() => RESEARCH_ARTICLES.find((a) => a.slug === slug), [slug]);
+  // One canonical URL per article: a wrong sub-section in the URL redirects.
+  const canonicalPath = article ? researchPath(article.slug, article.subsection) : undefined;
+  if (article && sub && canonicalPath && canonicalPath !== paths.article(sub, article.slug)) {
+    return <Navigate to={canonicalPath} replace />;
+  }
   const isAdmin = useIsAdmin();
   const { data: hidden } = useHiddenSlugs();
   const isHidden = hidden?.has(slug ?? "") ?? false;
@@ -85,8 +92,8 @@ export default function ResearchArticle() {
       <Layout>
         <div className="container max-w-3xl py-20 text-center">
           <p className="text-muted-foreground">Article not found.</p>
-          <Link to="/research" className="mt-4 inline-flex items-center gap-1 text-sm font-medium hover:underline">
-            <ArrowLeft className="h-3.5 w-3.5" /> Back to Research
+          <Link to={paths.analysis()} className="mt-4 inline-flex items-center gap-1 text-sm font-medium hover:underline">
+            <ArrowLeft className="h-3.5 w-3.5" /> Back to Insights & Analysis
           </Link>
         </div>
       </Layout>
@@ -102,7 +109,7 @@ export default function ResearchArticle() {
         <Helmet>
           <title>Temporarily unavailable - The Valuation Node</title>
           <meta name="robots" content="noindex" />
-          <link rel="canonical" href={`https://valuationnode.com/research/${article.slug}`} />
+          <link rel="canonical" href={`https://valuationnode.com${canonicalPath}`} />
         </Helmet>
         <div className="container max-w-2xl py-24 text-center">
           <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
@@ -112,8 +119,8 @@ export default function ResearchArticle() {
           <p className="mt-3 text-muted-foreground">
             It may be under revision. Please check back shortly, or browse other research in the meantime.
           </p>
-          <Link to="/research" className="mt-6 inline-flex items-center gap-1 text-sm font-medium hover:underline">
-            <ArrowLeft className="h-3.5 w-3.5" /> Back to Research
+          <Link to={paths.analysis()} className="mt-6 inline-flex items-center gap-1 text-sm font-medium hover:underline">
+            <ArrowLeft className="h-3.5 w-3.5" /> Back to Insights & Analysis
           </Link>
           <div className="mt-10">
             <NewsletterSignup />
@@ -137,7 +144,7 @@ export default function ResearchArticle() {
     <Layout>
       <Seo
         meta={{ ...meta, featuredImage: ogImageAbs }}
-        path={`/research/${article.slug}`}
+        path={canonicalPath!}
         type="article"
         titleTag={article.metaTitle || `${article.title} - The Valuation Node`}
         description={article.metaDescription || article.excerpt}
@@ -154,11 +161,12 @@ export default function ResearchArticle() {
             image: ogImageAbs,
             author: { "@type": "Person", name: article.author || "Gajji Srinath", url: "https://valuationnode.com/about/author" },
             publisher: PUBLISHER,
-            mainEntityOfPage: article.canonical || `https://valuationnode.com/research/${article.slug}`,
+            mainEntityOfPage: article.canonical || `https://valuationnode.com${canonicalPath}`,
           },
           breadcrumbLd([
-            { name: "Research", path: "/research" },
-            { name: article.title, path: `/research/${article.slug}` },
+            { name: "Insights & Analysis", path: paths.analysis() },
+            ...(article.subsection ? [{ name: getSubsection("analysis", article.subsection)?.label ?? article.subsection, path: paths.analysisSub(article.subsection) }] : []),
+            { name: article.title, path: canonicalPath! },
           ]),
         ]}
       />
@@ -169,8 +177,8 @@ export default function ResearchArticle() {
       <article className="min-w-0 w-full max-w-3xl mx-auto xl:mx-0">
         {/* Back link: block-level (flex, not inline-flex) so the category
             badge below never shares its line. */}
-        <Link to="/research" className="flex w-fit items-center gap-1 text-sm text-muted-foreground hover:text-foreground mb-8">
-          <ArrowLeft className="h-3.5 w-3.5" /> Research
+        <Link to={paths.analysis()} className="flex w-fit items-center gap-1 text-sm text-muted-foreground hover:text-foreground mb-8">
+          <ArrowLeft className="h-3.5 w-3.5" /> Insights & Analysis
         </Link>
 
         {isAdmin && <AdminBar article={article} isHidden={isHidden} />}

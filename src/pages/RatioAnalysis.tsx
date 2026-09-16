@@ -12,7 +12,7 @@ import { RATIO_GROUPS, RATIOS, type RatioEntry } from "@/data/ratioAnalysis";
 import { RATIO_GROUP_ICONS } from "@/lib/siteIcons";
 import { breadcrumbLd } from "@/lib/seo";
 
-const CANONICAL = "https://valuationnode.com/learn/ratio-analysis";
+const CANONICAL = "https://valuationnode.com/vault/formulas";
 
 function GroupIcon({ id, className }: { id: string; className?: string }) {
   const Icon = RATIO_GROUP_ICONS[id];
@@ -23,7 +23,7 @@ function GroupIcon({ id, className }: { id: string; className?: string }) {
 function RatioCard({ r }: { r: RatioEntry }) {
   return (
     <Link
-      to={`/learn/ratio-analysis/${r.slug}`}
+      to={`/vault/formulas/${r.slug}`}
       className="group flex flex-col rounded-xl border bg-muted/20 p-5 transition-colors hover:bg-muted/40"
     >
       <h3 className="font-semibold leading-snug group-hover:underline">
@@ -81,11 +81,11 @@ export default function RatioAnalysis() {
           subsection: "formulas",
           summary: description,
         })}
-        path="/learn/ratio-analysis"
+        path="/vault/formulas"
         jsonLd={[
           breadcrumbLd([
-            { name: "Learn", path: "/learn" },
-            { name: "Ratio Analysis", path: "/learn/ratio-analysis" },
+            { name: "The Vault", path: "/vault" },
+            { name: "Key Formulas & Ratios", path: "/vault/formulas" },
           ]),
           {
             "@context": "https://schema.org",
@@ -104,9 +104,9 @@ export default function RatioAnalysis() {
 
       <nav aria-label="Breadcrumb" className="border-b">
         <ol className="container flex max-w-5xl items-center gap-2 py-3 text-sm text-muted-foreground">
-          <li><Link to="/learn" className="hover:text-foreground">Learn</Link></li>
+          <li><Link to="/vault" className="hover:text-foreground">The Vault</Link></li>
           <li>/</li>
-          <li className="font-medium text-foreground">Ratio Analysis</li>
+          <li className="font-medium text-foreground">Key Formulas & Ratios</li>
         </ol>
       </nav>
 
@@ -208,16 +208,16 @@ export default function RatioAnalysis() {
             raw statements, use the Learn-by-Doing module.
           </p>
           <div className="mt-4 flex flex-wrap gap-2">
-            <Link to="/learn/foundations/financial-statement-analysis/profitability-ratios" className="rounded-full border px-3 py-1 text-sm text-muted-foreground transition-colors hover:border-foreground hover:text-foreground">
+            <Link to="/vault/guides/profitability-ratios" className="rounded-full border px-3 py-1 text-sm text-muted-foreground transition-colors hover:border-foreground hover:text-foreground">
               Profitability ratios (Foundations)
             </Link>
-            <Link to="/learn/foundations/financial-statement-analysis/dupont-decomposition" className="rounded-full border px-3 py-1 text-sm text-muted-foreground transition-colors hover:border-foreground hover:text-foreground">
+            <Link to="/vault/guides/dupont-decomposition" className="rounded-full border px-3 py-1 text-sm text-muted-foreground transition-colors hover:border-foreground hover:text-foreground">
               DuPont decomposition (Foundations)
             </Link>
-            <Link to="/learn/by-doing/compute-ratios" className="rounded-full border px-3 py-1 text-sm text-muted-foreground transition-colors hover:border-foreground hover:text-foreground">
+            <Link to="/vault/interactive/compute-ratios" className="rounded-full border px-3 py-1 text-sm text-muted-foreground transition-colors hover:border-foreground hover:text-foreground">
               Compute ratios from raw statements
             </Link>
-            <Link to="/learn/glossary" className="rounded-full border px-3 py-1 text-sm text-muted-foreground transition-colors hover:border-foreground hover:text-foreground">
+            <Link to="/vault/glossary" className="rounded-full border px-3 py-1 text-sm text-muted-foreground transition-colors hover:border-foreground hover:text-foreground">
               Glossary
             </Link>
           </div>

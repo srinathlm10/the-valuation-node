@@ -7,6 +7,7 @@ import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { RESEARCH_ARTICLES } from "@/data/research.generated";
+import { researchPath } from "@/lib/routes";
 import { useHiddenSlugs } from "@/lib/articleVisibility";
 import { Reveal } from "@/components/content/Reveal";
 
@@ -20,7 +21,7 @@ export default function Index() {
   const featured = researchArticles[0];
   const recent = researchArticles.slice(1, 4);
 
-  const latestResearchHref = featured ? `/research/${featured.slug}` : "/research";
+  const latestResearchHref = featured ? researchPath(featured.slug, featured.subsection) : "/analysis";
 
   return (
     <Layout>
@@ -97,7 +98,7 @@ export default function Index() {
               </Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="rounded-full px-8">
-              <Link to="/learn">Learning library</Link>
+              <Link to="/vault">Learning library</Link>
             </Button>
           </div>
         </div>
@@ -131,7 +132,7 @@ export default function Index() {
                   </span>
                 )}
                 <h2 className="mt-3 text-2xl font-bold leading-snug">
-                  <Link to={`/research/${featured.slug}`} className="hover:underline">
+                  <Link to={researchPath(featured.slug, featured.subsection)} className="hover:underline">
                     {featured.title}
                   </Link>
                 </h2>
@@ -157,7 +158,7 @@ export default function Index() {
                     )}
                   </div>
                   <Link
-                    to={`/research/${featured.slug}`}
+                    to={researchPath(featured.slug, featured.subsection)}
                     className="text-sm font-medium text-foreground hover:underline inline-flex items-center gap-1.5"
                   >
                     Read article <ArrowRight className="h-3.5 w-3.5" />
@@ -183,7 +184,7 @@ export default function Index() {
                 Recent research
               </h2>
               <Link
-                to="/research"
+                to="/analysis"
                 className="text-sm text-muted-foreground hover:text-foreground inline-flex items-center gap-1"
               >
                 All research <ArrowRight className="h-3.5 w-3.5" />
@@ -194,7 +195,7 @@ export default function Index() {
               {recent.map((article) => (
                 <Link
                   key={article.slug}
-                  to={`/research/${article.slug}`}
+                  to={researchPath(article.slug, article.subsection)}
                   className="group block rounded-xl border bg-card p-5 hover:shadow-md hover:border-primary/30 transition-all"
                 >
                   {article.category && (
@@ -235,7 +236,7 @@ export default function Index() {
               From the learning library
             </h2>
             <Link
-              to="/learn"
+              to="/vault"
               className="text-sm text-muted-foreground hover:text-foreground inline-flex items-center gap-1"
             >
               Explore the library <ArrowRight className="h-3.5 w-3.5" />
@@ -249,7 +250,7 @@ export default function Index() {
               </span>
               <h3 className="mt-3 text-xl font-bold leading-snug">
                 <Link
-                  to="/learn/foundations/valuation/dcf-theory-and-mechanics"
+                  to="/vault/guides/dcf-theory-and-mechanics"
                   className="hover:underline"
                 >
                   DCF: Theory and Mechanics
@@ -263,9 +264,9 @@ export default function Index() {
             {/* Small cards */}
             <div className="flex flex-col gap-4">
               {[
-                { label: "Accounting", title: "Reading an Income Statement", href: "/learn/foundations/accounting/reading-an-income-statement" },
-                { label: "Credit Analysis", title: "Credit Risk Fundamentals", href: "/learn/foundations/credit-analysis/credit-risk-fundamentals" },
-                { label: "Learn-by-Doing", title: "Build a DCF, Step by Step", href: "/learn/by-doing/build-a-dcf" },
+                { label: "Accounting", title: "Reading an Income Statement", href: "/vault/guides/reading-an-income-statement" },
+                { label: "Credit Analysis", title: "Credit Risk Fundamentals", href: "/vault/guides/credit-risk-fundamentals" },
+                { label: "Learn-by-Doing", title: "Build a DCF, Step by Step", href: "/vault/interactive/build-a-dcf" },
               ].map((item) => (
                 <Link
                   key={item.href}

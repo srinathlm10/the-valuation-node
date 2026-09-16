@@ -25,7 +25,7 @@ export function CategoryCard({ category, articleCount }: CategoryCardProps) {
   const Icon = iconMap[category.icon] || TrendingUp;
 
   return (
-    <Link to={`/categories/${category.id}`}>
+    <Link to={`/archive`}>
       <Card className="group h-full card-hover">
         <CardContent className="flex flex-col items-center p-6 text-center">
           <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 transition-colors group-hover:bg-primary">

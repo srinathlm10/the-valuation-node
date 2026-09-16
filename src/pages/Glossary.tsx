@@ -5,6 +5,7 @@ import { Seo } from "@/components/seo/Seo";
 import { staticMeta } from "@/lib/contentModel";
 import { Input } from "@/components/ui/input";
 import { GLOSSARY } from "@/lib/glossary";
+import { breadcrumbLd } from "@/lib/seo";
 import { Search, SearchX } from "lucide-react";
 import { EmptyState } from "@/components/content/EmptyState";
 import { GLOSSARY_CATEGORY_ICONS, GLOSSARY_FALLBACK_ICON } from "@/lib/siteIcons";
@@ -48,21 +49,22 @@ export default function Glossary() {
     <Layout>
       <Seo
         meta={staticMeta({
-          title: "Glossary",
+          title: "Financial Glossary",
           slug: "glossary",
           section: "vault",
           subsection: "glossary",
-          summary: "170+ finance definitions, each with a formula, a real Indian example, and links to Foundations pages.",
+          summary: `${GLOSSARY.length} finance definitions, each with a formula where one exists, why it matters, a real Indian example, and a link to the guide that teaches it.`,
         })}
-        path="/learn/glossary"
-        titleTag="Glossary - The Valuation Node"
+        path="/vault/glossary"
+        titleTag="Financial Glossary - The Valuation Node"
+        jsonLd={[breadcrumbLd([{ name: "The Vault", path: "/vault" }, { name: "Financial Glossary", path: "/vault/glossary" }])]}
       />
 
       <div className="container max-w-4xl py-14">
-        <Link to="/learn" className="text-sm text-muted-foreground hover:text-foreground mb-6 inline-block">
-          ← Learn
+        <Link to="/vault" className="text-sm text-muted-foreground hover:text-foreground mb-6 inline-block">
+          ← The Vault
         </Link>
-        <h1 className="text-3xl font-bold tracking-tight">Glossary</h1>
+        <h1 className="text-3xl font-bold tracking-tight">Financial Glossary</h1>
         <p className="mt-3 text-muted-foreground">
           Finance terms, defined. Each entry includes a formula where applicable and a real Indian
           example.
@@ -120,7 +122,7 @@ export default function Glossary() {
             filtered.map((def: any) => (
               <div key={def.id} className="py-4">
                 <Link
-                  to={`/learn/glossary/${def.slug}`}
+                  to={`/vault/glossary/${def.slug}`}
                   className="group flex items-start gap-2.5 font-medium"
                 >
                   <CategoryIcon category={def.category} />

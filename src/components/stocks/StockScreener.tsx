@@ -17,10 +17,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Bot, ArrowUpDown, Search, TrendingUp, TrendingDown } from "lucide-react";
+import { ArrowUpDown, Search, TrendingUp, TrendingDown, ScanSearch } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-interface Stock {
+export interface Stock {
   id: string;
   name: string;
   sector: string;
@@ -221,8 +221,8 @@ export function StockScreener({ stocks, onBotAnalysis, onViewProfile }: StockScr
                       onBotAnalysis(stock);
                     }}
                   >
-                    <Bot className="h-3 w-3" />
-                    Analyze
+                    <ScanSearch className="h-3 w-3" />
+                    Details
                   </Button>
                 </TableCell>
               </TableRow>

@@ -36,14 +36,14 @@ export default function AboutMethodology() {
     <Layout>
       <Seo
         meta={staticMeta({
-          title: "Methodology",
+          title: "Editorial Philosophy",
           slug: "methodology",
           section: "about",
           subsection: "philosophy",
           summary: "How Gajji Srinath approaches financial analysis - DCF, WACC, data sources, and more.",
         })}
-        path="/about/methodology"
-        titleTag="Methodology - The Valuation Node"
+        path="/about/philosophy"
+        titleTag="Editorial Philosophy and Methodology - The Valuation Node"
       />
 
       <nav className="border-b">

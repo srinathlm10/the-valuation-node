@@ -3,7 +3,9 @@ import { Layout } from "@/components/layout/Layout";
 import { Seo } from "@/components/seo/Seo";
 import { guideMetaFor, staticMeta, summarise } from "@/lib/contentModel";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
-import { FOUNDATIONS_TREE } from "./Foundations";
+import { findTopic } from "@/data/foundationsTree";
+import { paths } from "@/lib/routes";
+import { getTrack } from "@/lib/taxonomy";
 import { FOUNDATIONS_CONTENT } from "@/data/foundationsContent";
 import { FOUNDATIONS_SECTION_ICONS } from "@/lib/siteIcons";
 
@@ -24,18 +26,21 @@ import { getGlossaryTermsForSection, ARTICLE_CATEGORY_BY_SECTION } from "@/lib/r
 import { breadcrumbLd } from "@/lib/seo";
 
 export default function FoundationsLeaf() {
-  const { section, topic } = useParams<{ section: string; topic: string }>();
-
-  const sectionData = FOUNDATIONS_TREE.find((g) => g.section === section);
-  const topicMeta = sectionData?.topics.find((t) => t.slug === topic);
+  const { slug } = useParams<{ slug: string }>();
+  const found = findTopic(slug ?? "");
+  const sectionData = found?.section;
+  const topicMeta = found?.topic;
+  const section = sectionData?.section;
+  const topic = topicMeta?.slug;
+  const trackLabel = section ? getTrack(section)?.label ?? sectionData.label : "";
 
   if (!sectionData || !topicMeta) {
     return (
       <Layout>
         <div className="container max-w-3xl py-20 text-center text-muted-foreground text-sm">
           Page not found.{" "}
-          <Link to="/learn/foundations" className="underline hover:text-foreground">
-            Back to Foundations
+          <Link to="/vault/guides" className="underline hover:text-foreground">
+            Back to Concept Guides
           </Link>
         </div>
       </Layout>
@@ -46,7 +51,7 @@ export default function FoundationsLeaf() {
   const SectionGlyph = FOUNDATIONS_SECTION_ICONS[sectionData.section];
   const keyTerms = getGlossaryTermsForSection(sectionData.section, 6);
   const isPlaceholder = !topicMeta.published || !content;
-  const pagePath = `/learn/foundations/${section}/${topic}`;
+  const pagePath = paths.guide(topic!);
   // Reviewed summary + tags from foundationsMeta.ts; fall back to the intuition text.
   const pageMeta =
     guideMetaFor(topic!, content?.readingTime) ??
@@ -78,9 +83,9 @@ export default function FoundationsLeaf() {
             url: `https://valuationnode.com${pagePath}`,
           },
           breadcrumbLd([
-            { name: "Learn", path: "/learn" },
-            { name: "Foundations", path: "/learn/foundations" },
-            { name: sectionData.label, path: `/learn/foundations/${section}` },
+            { name: "The Vault", path: paths.vault() },
+            { name: "Concept Guides", path: paths.guides() },
+            { name: trackLabel, path: paths.track(section!) },
             { name: topicMeta.label, path: pagePath },
           ]),
         ]}
@@ -88,11 +93,11 @@ export default function FoundationsLeaf() {
 
       <nav aria-label="Breadcrumb" className="border-b">
         <ol className="container max-w-3xl py-3 flex items-center gap-2 text-sm text-muted-foreground">
-          <li><Link to="/learn" className="hover:text-foreground">Learn</Link></li>
+          <li><Link to={paths.vault()} className="hover:text-foreground">The Vault</Link></li>
           <li>/</li>
-          <li><Link to="/learn/foundations" className="hover:text-foreground">Foundations</Link></li>
+          <li><Link to={paths.guides()} className="hover:text-foreground">Concept Guides</Link></li>
           <li>/</li>
-          <li><Link to={`/learn/foundations/${section}`} className="hover:text-foreground">{sectionData.label}</Link></li>
+          <li><Link to={paths.track(section!)} className="hover:text-foreground">{trackLabel}</Link></li>
           <li>/</li>
           <li className="text-foreground font-medium">{topicMeta.label}</li>
         </ol>
@@ -104,7 +109,7 @@ export default function FoundationsLeaf() {
       <article className="min-w-0 w-full max-w-3xl mx-auto xl:mx-0">
         <span className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-muted-foreground">
           {SectionGlyph && <SectionGlyph className="h-3.5 w-3.5 text-primary" aria-hidden="true" />}
-          Foundations · {sectionData.label}
+          Concept Guide · {trackLabel}
         </span>
         <h1 className="mt-2 text-3xl font-bold tracking-tight">{topicMeta.label}</h1>
 
@@ -209,7 +214,7 @@ export default function FoundationsLeaf() {
                   {keyTerms.map((t) => (
                     <Link
                       key={t.slug}
-                      to={`/learn/glossary/${t.slug}`}
+                      to={`/vault/glossary/${t.slug}`}
                       className="px-3 py-1 rounded-full border text-sm text-muted-foreground hover:text-foreground hover:border-primary/50 transition-colors"
                     >
                       {t.term}

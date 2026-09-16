@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Seo } from "@/components/seo/Seo";
 import { staticMeta } from "@/lib/contentModel";
@@ -11,8 +11,10 @@ import { cn } from "@/lib/utils";
 import { RESEARCH_ARTICLES } from "@/data/research.generated";
 import { useHiddenSlugs } from "@/lib/articleVisibility";
 import { useIsAdmin } from "@/contexts/AuthContext";
+import { getSection, getSubsection } from "@/lib/taxonomy";
+import { paths, researchPath } from "@/lib/routes";
+import { breadcrumbLd } from "@/lib/seo";
 
-const CATEGORIES = ["All", "Valuation", "Credit", "Sector", "ESG", "Fintech", "Methodology"] as const;
 const PAGE_SIZE = 10;
 
 function fmtDate(d?: string) {
@@ -21,7 +23,9 @@ function fmtDate(d?: string) {
 }
 
 export default function Research() {
-  const [category, setCategory] = useState<string>("All");
+  const { sub } = useParams<{ sub?: string }>();
+  const section = getSection("analysis");
+  const subsection = sub ? getSubsection("analysis", sub) : undefined;
   const [page, setPage] = useState(0);
   const isAdmin = useIsAdmin();
   const { data: hidden } = useHiddenSlugs();
@@ -32,10 +36,17 @@ export default function Research() {
       // Admins see everything (hidden ones get a badge); everyone else sees only
       // published, visible articles. Drafts (no honest date) never list publicly.
       if ((isHidden || a.status === "draft") && !isAdmin) return false;
-      if (category !== "All" && a.category !== category) return false;
+      if (sub && a.subsection !== sub) return false;
       return true;
     });
-  }, [category, hidden, isAdmin]);
+  }, [sub, hidden, isAdmin]);
+
+  // Sub-sections that have at least one visible article (hidden entries hide their pill too).
+  const liveSubs = useMemo(
+    () => section.subsections.filter((s) => RESEARCH_ARTICLES.some((a) => a.subsection === s.id && a.status !== "draft" && !(hidden?.has(a.slug) ?? false))),
+    [section, hidden]
+  );
+  const path = sub ? paths.analysisSub(sub) : paths.analysis();
 
   const total = visible.length;
   const totalPages = Math.ceil(total / PAGE_SIZE);
@@ -45,37 +56,62 @@ export default function Research() {
     <Layout>
       <Seo
         meta={staticMeta({
-          title: "Research",
-          slug: "research",
+          title: subsection ? subsection.label : section.label,
+          slug: sub ?? "analysis",
           section: "analysis",
-          summary: "Original analysis of Indian companies, sectors, and credit. All work is authored, dated, and shows its sources.",
+          subsection: sub,
+          summary: subsection
+            ? subsection.description
+            : "Original analysis of Indian companies, sectors, and valuation questions. All work is authored, dated, and shows its sources.",
         })}
-        path="/research"
-        titleTag="Research - The Valuation Node"
+        path={path}
+        titleTag={subsection ? `${subsection.label} - Insights & Analysis - The Valuation Node` : "Insights & Analysis - The Valuation Node"}
+        noindex={!!sub && !liveSubs.some((s) => s.id === sub)}
+        jsonLd={[
+          breadcrumbLd(
+            subsection
+              ? [{ name: section.label, path: section.path }, { name: subsection.label, path }]
+              : [{ name: section.label, path: section.path }]
+          ),
+        ]}
       />
 
       <div className="container max-w-4xl py-14">
-        <h1 className="text-3xl font-bold tracking-tight">Research</h1>
+        <h1 className="text-3xl font-bold tracking-tight">{subsection ? subsection.label : "Insights & Analysis"}</h1>
         <p className="mt-3 text-muted-foreground max-w-xl leading-relaxed">
-          Original analysis of Indian companies, sectors, and credit. All work is authored, dated,
-          and shows its sources.
+          {subsection
+            ? subsection.description
+            : "Original analysis of Indian companies, sectors, and valuation questions. All work is authored, dated, and shows its sources."}
         </p>
 
-        {/* Category filter */}
+        {/* Sub-section filter (only sub-sections with published work) */}
         <div className="mt-8 flex flex-wrap gap-2">
-          {CATEGORIES.map((c) => (
-            <button
-              key={c}
-              onClick={() => { setCategory(c); setPage(0); }}
+          <Link
+            to={paths.analysis()}
+            onClick={() => setPage(0)}
+            className={cn(
+              "px-4 py-1.5 rounded-full text-sm font-medium transition-colors border",
+              !sub
+                ? "bg-foreground text-background border-foreground"
+                : "border-border text-muted-foreground hover:text-foreground hover:border-foreground/40 hover:bg-muted/50"
+            )}
+          >
+            All
+          </Link>
+          {liveSubs.map((s) => (
+            <Link
+              key={s.id}
+              to={paths.analysisSub(s.id)}
+              onClick={() => setPage(0)}
               className={cn(
                 "px-4 py-1.5 rounded-full text-sm font-medium transition-colors border",
-                category === c
+                sub === s.id
                   ? "bg-foreground text-background border-foreground"
                   : "border-border text-muted-foreground hover:text-foreground hover:border-foreground/40 hover:bg-muted/50"
               )}
             >
-              {c}
-            </button>
+              {s.label}
+            </Link>
           ))}
         </div>
 
@@ -85,7 +121,7 @@ export default function Research() {
             <div className="py-10 space-y-8">
               <EmptyState
                 icon={FileSearch}
-                title="No articles in this category yet"
+                title="No articles in this sub-section yet"
                 description="New research is added steadily. Subscribe below to hear when the next piece lands."
               />
               <NewsletterSignup />
@@ -98,11 +134,9 @@ export default function Research() {
                   <div className="flex items-start justify-between gap-6">
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2">
-                        {article.category && (
-                          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold uppercase tracking-wide bg-primary/10 text-primary">
-                            {article.category}
-                          </span>
-                        )}
+                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold uppercase tracking-wide bg-primary/10 text-primary">
+                          {getSubsection("analysis", article.subsection ?? "")?.label ?? article.category}
+                        </span>
                         {isAdmin && isHidden && (
                           <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-amber-100 dark:bg-amber-950/50 text-amber-700 dark:text-amber-300">
                             <EyeOff className="h-3 w-3" /> Hidden
@@ -110,7 +144,7 @@ export default function Research() {
                         )}
                       </div>
                       <h2 className="mt-2 text-lg font-semibold leading-snug">
-                        <Link to={`/research/${article.slug}`} className="group-hover:underline">
+                        <Link to={researchPath(article.slug, article.subsection)} className="group-hover:underline">
                           {article.title}
                         </Link>
                       </h2>
@@ -132,7 +166,7 @@ export default function Research() {
                       </div>
                     </div>
                     <Link
-                      to={`/research/${article.slug}`}
+                      to={researchPath(article.slug, article.subsection)}
                       className="shrink-0 mt-1 text-sm font-medium text-foreground hover:underline inline-flex items-center gap-1.5 opacity-70 group-hover:opacity-100 transition-opacity"
                     >
                       Read <ArrowRight className="h-3.5 w-3.5" />

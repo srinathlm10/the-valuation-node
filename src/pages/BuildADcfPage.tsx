@@ -10,7 +10,7 @@ export default function BuildADcfPage() {
     <Layout>
       <Seo
         meta={interactiveMeta({ slug: "build-a-dcf", title: "Build a DCF, Step by Step", description: "Build a complete discounted cash flow model for a real Indian company, one step at a time. Learn what each assumption means and how it affects the final valuation.", kind: "lesson" })}
-        path="/learn/by-doing/build-a-dcf"
+        path="/vault/interactive/build-a-dcf"
         jsonLd={[
           {
               "@context": "https://schema.org",
@@ -22,21 +22,21 @@ export default function BuildADcfPage() {
               educationalLevel: "Beginner to Intermediate",
               learningResourceType: "Interactive Tutorial",
               teaches: ["DCF valuation", "WACC", "Terminal value", "NOPAT", "Free cash flow"],
-              url: "https://valuationnode.com/learn/by-doing/build-a-dcf",
+              url: "https://valuationnode.com/vault/interactive/build-a-dcf",
             },
           breadcrumbLd([
-            { name: "Learn", path: "/learn" },
-            { name: "Learn-by-Doing", path: "/learn/by-doing" },
-            { name: "Build a DCF, Step by Step", path: "/learn/by-doing/build-a-dcf" },
+            { name: "The Vault", path: "/vault" },
+            { name: "Interactive", path: "/vault/interactive" },
+            { name: "Build a DCF, Step by Step", path: "/vault/interactive/build-a-dcf" },
           ]),
         ]}
       />
 
       <nav className="border-b">
         <ol className="container max-w-5xl py-3 flex items-center gap-2 text-sm text-muted-foreground">
-          <li><Link to="/learn" className="hover:text-foreground">Learn</Link></li>
+          <li><Link to="/vault" className="hover:text-foreground">Learn</Link></li>
           <li>/</li>
-          <li><Link to="/learn/by-doing" className="hover:text-foreground">Learn-by-Doing</Link></li>
+          <li><Link to="/vault/interactive" className="hover:text-foreground">Learn-by-Doing</Link></li>
           <li>/</li>
           <li className="text-foreground font-medium">Build a DCF</li>
         </ol>

@@ -20,7 +20,7 @@ export default function GlossaryEntry() {
 
   const def = findTerm(termSlug ?? "");
   const meta = def ? glossaryMeta(def) : undefined;
-  const path = `/learn/glossary/${def?.slug ?? termSlug}`;
+  const path = `/vault/glossary/${def?.slug ?? termSlug}`;
   const siblings = def ? siblingsOf(def) : [];
 
   if (!def || !meta) {
@@ -28,7 +28,7 @@ export default function GlossaryEntry() {
       <Layout>
         <div className="container max-w-3xl py-20 text-center">
           <p className="text-muted-foreground">Term not found.</p>
-          <Link to="/learn/glossary" className="mt-4 inline-block text-sm hover:underline">
+          <Link to="/vault/glossary" className="mt-4 inline-block text-sm hover:underline">
             ← Back to Glossary
           </Link>
         </div>
@@ -44,8 +44,8 @@ export default function GlossaryEntry() {
         titleTag={`${def.term} - Glossary - The Valuation Node`}
         jsonLd={[
           breadcrumbLd([
-            { name: "Learn", path: "/learn" },
-            { name: "Glossary", path: "/learn/glossary" },
+            { name: "The Vault", path: "/vault" },
+            { name: "Glossary", path: "/vault/glossary" },
             { name: def.term, path },
           ]),
           {
@@ -54,16 +54,16 @@ export default function GlossaryEntry() {
             name: def.term,
             description: def.definition,
             url: `https://valuationnode.com${path}`,
-            inDefinedTermSet: "https://valuationnode.com/learn/glossary",
+            inDefinedTermSet: "https://valuationnode.com/vault/glossary",
           },
         ]}
       />
 
       <nav aria-label="Breadcrumb" className="border-b">
         <ol className="container max-w-3xl py-3 flex items-center gap-2 text-sm text-muted-foreground">
-          <li><Link to="/learn" className="hover:text-foreground">Learn</Link></li>
+          <li><Link to="/vault" className="hover:text-foreground">The Vault</Link></li>
           <li>/</li>
-          <li><Link to="/learn/glossary" className="hover:text-foreground">Glossary</Link></li>
+          <li><Link to="/vault/glossary" className="hover:text-foreground">Glossary</Link></li>
           <li>/</li>
           <li className="text-foreground font-medium">{def.term}</li>
         </ol>
@@ -122,7 +122,7 @@ export default function GlossaryEntry() {
               {siblings.map((s, i) => (
                 <span key={s.slug}>
                   {i > 0 && ", "}
-                  <Link to={`/learn/glossary/${s.slug}`} className="font-medium underline">
+                  <Link to={`/vault/glossary/${s.slug}`} className="font-medium underline">
                     {s.category ?? "another category"}
                   </Link>
                 </span>
@@ -144,7 +144,7 @@ export default function GlossaryEntry() {
                 return target ? (
                   <Link
                     key={t}
-                    to={`/learn/glossary/${target.slug}`}
+                    to={`/vault/glossary/${target.slug}`}
                     className="px-3 py-1 rounded-full border text-sm text-muted-foreground hover:text-foreground hover:border-foreground transition-colors"
                   >
                     {t}

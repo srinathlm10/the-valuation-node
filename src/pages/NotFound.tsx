@@ -28,10 +28,10 @@ export default function NotFound() {
 
         <div className="flex flex-wrap justify-center gap-3 text-sm">
           <Link to="/" className="text-muted-foreground hover:text-foreground underline">Home</Link>
-          <Link to="/research" className="text-muted-foreground hover:text-foreground underline">Research</Link>
-          <Link to="/learn" className="text-muted-foreground hover:text-foreground underline">Learn</Link>
-          <Link to="/tools" className="text-muted-foreground hover:text-foreground underline">Tools</Link>
-          <Link to="/markets" className="text-muted-foreground hover:text-foreground underline">Markets</Link>
+          <Link to="/analysis" className="text-muted-foreground hover:text-foreground underline">Research</Link>
+          <Link to="/vault" className="text-muted-foreground hover:text-foreground underline">Learn</Link>
+          <Link to="/vault/interactive" className="text-muted-foreground hover:text-foreground underline">Tools</Link>
+          <Link to="/news" className="text-muted-foreground hover:text-foreground underline">Markets</Link>
           <Link to="/about" className="text-muted-foreground hover:text-foreground underline">About</Link>
         </div>
       </div>

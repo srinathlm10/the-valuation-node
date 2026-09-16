@@ -12,7 +12,7 @@ import { RATIO_GROUP_ICONS } from "@/lib/siteIcons";
 import { findByName } from "@/lib/glossary";
 import { breadcrumbLd } from "@/lib/seo";
 
-const BASE = "https://valuationnode.com/learn/ratio-analysis";
+const BASE = "https://valuationnode.com/vault/formulas";
 
 export default function RatioAnalysisEntry() {
   const { slug } = useParams<{ slug: string }>();
@@ -27,8 +27,8 @@ export default function RatioAnalysisEntry() {
             title="Ratio not found"
             description="This ratio is not in the reference yet, or the link has changed."
             action={
-              <Link to="/learn/ratio-analysis" className="text-sm font-medium hover:underline">
-                Back to Ratio Analysis
+              <Link to="/vault/formulas" className="text-sm font-medium hover:underline">
+                Back to Key Formulas & Ratios
               </Link>
             }
           />
@@ -47,7 +47,7 @@ export default function RatioAnalysisEntry() {
     .map((s) => RATIOS.find((r) => r.slug === s))
     .filter((r): r is NonNullable<typeof r> => !!r);
 
-  const path = `/learn/ratio-analysis/${ratio.slug}`;
+  const path = `/vault/formulas/${ratio.slug}`;
   const url = `${BASE}/${ratio.slug}`;
   const meta = ratioMeta(ratio);
 
@@ -59,8 +59,8 @@ export default function RatioAnalysisEntry() {
         titleTag={`${ratio.name}: Formula and Definition - The Valuation Node`}
         jsonLd={[
           breadcrumbLd([
-            { name: "Learn", path: "/learn" },
-            { name: "Ratio Analysis", path: "/learn/ratio-analysis" },
+            { name: "The Vault", path: "/vault" },
+            { name: "Key Formulas & Ratios", path: "/vault/formulas" },
             { name: ratio.name, path },
           ]),
           {
@@ -77,9 +77,9 @@ export default function RatioAnalysisEntry() {
 
       <nav aria-label="Breadcrumb" className="border-b">
         <ol className="container flex max-w-3xl flex-wrap items-center gap-2 py-3 text-sm text-muted-foreground">
-          <li><Link to="/learn" className="hover:text-foreground">Learn</Link></li>
+          <li><Link to="/vault" className="hover:text-foreground">The Vault</Link></li>
           <li>/</li>
-          <li><Link to="/learn/ratio-analysis" className="hover:text-foreground">Ratio Analysis</Link></li>
+          <li><Link to="/vault/formulas" className="hover:text-foreground">Key Formulas & Ratios</Link></li>
           <li>/</li>
           <li className="font-medium text-foreground">{ratio.name}</li>
         </ol>
@@ -87,7 +87,7 @@ export default function RatioAnalysisEntry() {
 
       <article className="container max-w-3xl py-12">
         <Link
-          to={`/learn/ratio-analysis#${group.id}`}
+          to={`/vault/formulas#${group.id}`}
           className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-2.5 py-1 text-xs font-medium uppercase tracking-wider text-primary"
         >
           {GroupIcon && <GroupIcon className="h-3.5 w-3.5" aria-hidden="true" />}
@@ -152,7 +152,7 @@ export default function RatioAnalysisEntry() {
               {related.map((r) => (
                 <Link
                   key={r.slug}
-                  to={`/learn/ratio-analysis/${r.slug}`}
+                  to={`/vault/formulas/${r.slug}`}
                   className="rounded-full border px-3 py-1 text-sm text-muted-foreground transition-colors hover:border-foreground hover:text-foreground"
                 >
                   {r.name}
@@ -174,7 +174,7 @@ export default function RatioAnalysisEntry() {
                     if (!target) return null;
                     return (
                       <li key={t}>
-                        <Link to={`/learn/glossary/${target.slug}`} className="text-sm text-foreground hover:underline">
+                        <Link to={`/vault/glossary/${target.slug}`} className="text-sm text-foreground hover:underline">
                           {t} →
                         </Link>
                       </li>
@@ -203,7 +203,7 @@ export default function RatioAnalysisEntry() {
         {/* Prev / next within the group */}
         <nav aria-label="Ratios in this group" className="mt-12 grid gap-3 border-t pt-6 sm:grid-cols-2">
           {prev ? (
-            <Link to={`/learn/ratio-analysis/${prev.slug}`} className="group rounded-lg border p-4 transition-colors hover:bg-muted/40">
+            <Link to={`/vault/formulas/${prev.slug}`} className="group rounded-lg border p-4 transition-colors hover:bg-muted/40">
               <span className="inline-flex items-center gap-1 text-xs uppercase tracking-wider text-muted-foreground">
                 <ArrowLeft className="h-3 w-3" /> Previous
               </span>
@@ -213,7 +213,7 @@ export default function RatioAnalysisEntry() {
             <span />
           )}
           {next && (
-            <Link to={`/learn/ratio-analysis/${next.slug}`} className="group rounded-lg border p-4 text-right transition-colors hover:bg-muted/40">
+            <Link to={`/vault/formulas/${next.slug}`} className="group rounded-lg border p-4 text-right transition-colors hover:bg-muted/40">
               <span className="inline-flex items-center gap-1 text-xs uppercase tracking-wider text-muted-foreground">
                 Next <ArrowRight className="h-3 w-3" />
               </span>

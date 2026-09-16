@@ -16,9 +16,24 @@ const subpages = [
     description: "The mission, editorial principles, and disclosure.",
   },
   {
-    href: "/about/methodology",
-    title: "Methodology",
+    href: "/about/philosophy",
+    title: "Editorial philosophy",
     description: "How valuation and credit analysis work on this site, DCF approach, WACC, data sources.",
+  },
+  {
+    href: "/about/contact",
+    title: "Contact",
+    description: "Email and LinkedIn, what to write about, and what not to expect.",
+  },
+  {
+    href: "/about/privacy",
+    title: "Privacy",
+    description: "What the site collects when you read, subscribe, or sign in.",
+  },
+  {
+    href: "/about/disclaimer",
+    title: "Disclaimer",
+    description: "Educational analysis, not investment advice, and what that means in practice.",
   },
 ];
 

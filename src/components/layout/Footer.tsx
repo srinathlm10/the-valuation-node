@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
+import { SECTIONS } from "@/lib/taxonomy";
 
 const navLinks = [
-  { label: "Research", href: "/research" },
-  { label: "Learn", href: "/learn" },
-  { label: "Tools", href: "/tools" },
-  { label: "Markets", href: "/markets" },
-  { label: "About", href: "/about" },
+  ...SECTIONS.filter((s) => s.inNav).map((s) => ({ label: s.label, href: s.path })),
+  { label: "Archive", href: "/archive" },
+  { label: "Topics", href: "/tags" },
 ];
 
 const externalLinks = [
@@ -79,11 +78,17 @@ export function Footer() {
             Not investment advice. Opinions are personal. No paid promotions.
           </p>
           <div className="flex items-center gap-5">
-            <Link to="/disclaimer" className="hover:text-foreground transition-colors">
+            <Link to="/about/disclaimer" className="hover:text-foreground transition-colors">
               Disclaimer
             </Link>
-            <Link to="/privacy" className="hover:text-foreground transition-colors">
+            <Link to="/about/privacy" className="hover:text-foreground transition-colors">
               Privacy Policy
+            </Link>
+            <Link to="/about/terms" className="hover:text-foreground transition-colors">
+              Terms
+            </Link>
+            <Link to="/about/contact" className="hover:text-foreground transition-colors">
+              Contact
             </Link>
           </div>
         </div>

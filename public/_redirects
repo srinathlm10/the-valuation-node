@@ -1,2 +1,55 @@
-/zohoverify/verifyforzoho.html /zohoverify/verifyforzoho.html 200!
-/* /index.html 200
+# Netlify redirects. Processed top to bottom; the first match wins, and this
+# file is processed BEFORE netlify.toml, which is why the 301s live here and
+# not in the toml (a catch-all in this file would otherwise shadow them).
+# Mirror of src/lib/routes.ts (client-side) and RESTRUCTURE-PLAN.md section 10.
+
+# ── Research -> Insights & Analysis ───────────────────────────────────────
+/research                                                   /analysis                                                                    301
+/research/how-the-valuation-node-approaches-research        /analysis/op-eds/how-the-valuation-node-approaches-research                  301
+/research/three-years-cash-flow-what-one-year-hides         /analysis/valuation-modeling/three-years-cash-flow-what-one-year-hides       301
+/research/roe-comparison-dupont-why-higher-isnt-better      /analysis/valuation-modeling/roe-comparison-dupont-why-higher-isnt-better    301
+/research/high-pe-what-it-implies-and-when-its-a-trap       /analysis/valuation-modeling/high-pe-what-it-implies-and-when-its-a-trap     301
+/research/five-red-flags-financial-statements               /analysis/valuation-modeling/five-red-flags-financial-statements             301
+/research/profitable-but-out-of-cash                        /analysis/valuation-modeling/profitable-but-out-of-cash                      301
+/research/terminal-value-dominates-valuations               /analysis/valuation-modeling/terminal-value-dominates-valuations             301
+/research/what-credit-ratings-measure-and-miss              /analysis/op-eds/what-credit-ratings-measure-and-miss                        301
+/research/why-banks-cannot-be-valued-like-normal-companies  /analysis/industry-analysis/why-banks-cannot-be-valued-like-normal-companies 301
+/research/*                                                 /analysis/valuation-modeling/:splat                                          301
+
+# ── Markets -> News & Trends ──────────────────────────────────────────────
+/markets                 /news                                              301
+/markets/nifty50         /news/indian-economy/nifty-50                      301
+/markets/compliance      /news/policy-regulation/compliance-calendar        301
+/stocks                  /news/indian-economy/nifty-50                      301
+/compliance              /news/policy-regulation/compliance-calendar        301
+
+# ── Learn -> The Vault ────────────────────────────────────────────────────
+/learn/glossary          /vault/glossary                                    301
+/learn/glossary/*        /vault/glossary/:splat                             301
+/learn/wiki              /vault/glossary                                    301
+/learn/ratio-analysis    /vault/formulas                                    301
+/learn/ratio-analysis/*  /vault/formulas/:splat                             301
+/learn/foundations                    /vault/guides                         301
+/learn/foundations/:section/:topic    /vault/guides/:topic                  301
+/learn/foundations/:section           /vault/guides/:section                301
+/learn/basics                         /vault/guides                         301
+/learn/fundamental-analysis           /vault/guides/fundamental-analysis-course   301
+/learn/technical-analysis             /vault/guides/technical-analysis-course     301
+/tools                   /vault/interactive                                 301
+/tools/*                 /vault/interactive/:splat                          301
+/learn/by-doing          /vault/interactive                                 301
+/learn/by-doing/*        /vault/interactive/:splat                          301
+/calculators             /vault/interactive                                 301
+/learn                   /vault                                             301
+# Anything else under /learn/ was a legacy article id
+/learn/*                 /archive/:splat                                    301
+
+# ── About ─────────────────────────────────────────────────────────────────
+/about/methodology       /about/philosophy                                  301
+/privacy                 /about/privacy                                     301
+/disclaimer              /about/disclaimer                                  301
+/terms                   /about/terms                                       301
+
+# ── Domain verification, then the SPA fallback (must stay last) ───────────
+/zohoverify/verifyforzoho.html  /zohoverify/verifyforzoho.html  200!
+/*                       /index.html                                        200

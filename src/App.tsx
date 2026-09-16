@@ -2,15 +2,15 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Navigate, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { ScrollToTop } from "@/components/layout/ScrollToTop";
 import { lazy, Suspense } from "react";
 import { ThemeProvider } from "next-themes";
 import type { RouteRecord } from "vite-react-ssg";
-import { RESEARCH_ARTICLES } from "@/data/research.generated";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { ProtectedRoute } from "@/components/auth/ProtectedRoute";
 import { AdminRoute } from "./components/auth/AdminRoute";
+import { LegacyRedirect } from "./components/routing/LegacyRedirect";
 import AdminLayout from "./components/admin/AdminLayout";
 import ContentManager from "./components/admin/ContentManager";
 import EmbeddingManager from "./components/admin/EmbeddingManager";
@@ -28,33 +28,23 @@ const ResetPassword = lazy(() => import("./pages/ResetPassword"));
 // Main pages
 const Index = lazy(() => import("./pages/Index"));
 const Research = lazy(() => import("./pages/Research"));
-// ResearchArticle and FoundationsLeaf load via route-level lazy in the routes below.
+const SectionLanding = lazy(() => import("./pages/SectionLanding"));
 
-// Learn section
+// The Vault
 const LearnIndex = lazy(() => import("./pages/LearnIndex"));
 const Foundations = lazy(() => import("./pages/Foundations"));
-const LearnByDoing = lazy(() => import("./pages/LearnByDoing"));
-const LearnByDoingModule = lazy(() => import("./pages/LearnByDoingModule"));
 const Glossary = lazy(() => import("./pages/Glossary"));
+// GlossaryEntry, RatioAnalysisEntry, GuideRouter, InteractiveRouter load via route-level lazy below.
 const RatioAnalysis = lazy(() => import("./pages/RatioAnalysis"));
-// RatioAnalysisEntry loads via route-level lazy in the routes below.
-// GlossaryEntry loads via route-level lazy in the routes below.
+const TagsIndex = lazy(() => import("./pages/TagPages").then((m) => ({ default: m.TagsIndex })));
+const ArchiveIndex = lazy(() => import("./pages/ArchivePage").then((m) => ({ default: m.ArchiveIndex })));
 
-// Legacy learn routes (kept for backward-compat; redirected below)
-const ArticleView = lazy(() => import("./pages/ArticleView"));
 
 // Tools
 const Tools = lazy(() => import("./pages/Tools"));
 // ToolPage loads via route-level lazy in the routes below.
-const DcfSensitivityPage = lazy(() => import("./pages/DcfSensitivityPage"));
-const BuildADcfPage = lazy(() => import("./pages/BuildADcfPage"));
-const ReadIncomeStatementPage = lazy(() => import("./pages/ReadIncomeStatementPage"));
-const ComputeRatiosPage = lazy(() => import("./pages/ComputeRatiosPage"));
-const CompareCompaniesPage = lazy(() => import("./pages/CompareCompaniesPage"));
-const SpotRedFlagsPage = lazy(() => import("./pages/SpotRedFlagsPage"));
 
 // Markets
-const Markets = lazy(() => import("./pages/Markets"));
 const MarketsNifty50 = lazy(() => import("./pages/MarketsNifty50"));
 const MarketsCompliance = lazy(() => import("./pages/MarketsCompliance"));
 
@@ -106,10 +96,28 @@ function RootLayout() {
   );
 }
 
-// react-router data routes (RouteObject[] + vite-react-ssg extras). Only
-// /research/:slug declares getStaticPaths, so it is the one dynamic route that
-// gets prerendered per-article; every concrete path is prerendered by default
-// (filtered in vite.config.ts via ssgOptions.includedRoutes).
+// react-router data routes (RouteObject[] + vite-react-ssg extras).
+// Public content routes follow RESTRUCTURE-PLAN.md. Every dynamic public route
+// declares getStaticPaths from src/lib/siteRoutes.ts so the prerender and the
+// sitemap agree. Legacy paths are mounted on <LegacyRedirect/> (client) and
+// 301-redirected in public/_redirects (server); they are excluded from the
+// prerender in vite.config.ts.
+// Route-level lazy for the section landings (they take a prop, so wrap once).
+const sectionLandingLazy = (section: "news" | "esg") => async () => {
+  const M = (await import("./pages/SectionLanding")).default;
+  const Component = () => <M section={section} />;
+  return { Component };
+};
+
+const staticPathsFor = async (prefix: string, depth?: number) => {
+  const { siteRoutes } = await import("@/lib/siteRoutes");
+  return siteRoutes()
+    .map((r) => r.path)
+    .filter((p) => p.startsWith(prefix + "/"))
+    .filter((p) => (depth ? p.split("/").length - 1 === depth : true))
+    .map((p) => p.slice(1));
+};
+
 export const routes: RouteRecord[] = [
   {
     path: "/",
@@ -118,129 +126,123 @@ export const routes: RouteRecord[] = [
       // Home
       { index: true, Component: Index },
 
-      // Research
-      { path: "research", Component: Research },
+      // ── News & Trends ─────────────────────────────────────────────────
+      { path: "news", element: <SectionLanding section="news" /> },
+      { path: "news/indian-economy/nifty-50", Component: MarketsNifty50 },
+      { path: "news/policy-regulation/compliance-calendar", Component: MarketsCompliance },
       {
-        path: "research/:slug",
-        // Route-level lazy (not React.lazy): required for dynamic routes that
-        // prerender many paths; vite-react-ssg's asset collector cannot handle
-        // an already-initialised React.lazy component.
+        path: "news/:sub",
+        lazy: sectionLandingLazy("news"),
+        getStaticPaths: () => staticPathsFor("/news", 2),
+      },
+
+      // ── Insights & Analysis ───────────────────────────────────────────
+      { path: "analysis", Component: Research },
+      {
+        path: "analysis/:sub",
+        lazy: async () => ({ Component: (await import("./pages/Research")).default }),
+        getStaticPaths: () => staticPathsFor("/analysis", 2),
+      },
+      {
+        path: "analysis/:sub/:slug",
         lazy: async () => ({ Component: (await import("./pages/ResearchArticle")).default }),
-        // Prerender an article only if it has a real publish date AND is not
-        // hidden at build time. Drafts (no date) and hidden articles produce no
-        // static HTML, so nothing leaks; they still resolve client-side and show
-        // "temporarily unavailable" when the visibility flag is set. Mirrors the
-        // sitemap's build-time logic; fails open if the DB can't be reached.
+        // Published articles only (drafts never prerender); hidden_articles is
+        // honoured at build time and fails open if the DB is unreachable.
         getStaticPaths: async () => {
-          const dated = RESEARCH_ARTICLES.filter((a) => a.status !== "draft" && a.publishedAt);
+          const all = await staticPathsFor("/analysis", 3);
           try {
             const { supabase } = await import("@/integrations/supabase/client");
             const { data, error } = await supabase.from("hidden_articles" as never).select("slug");
             if (error) throw error;
             const hidden = new Set((data ?? []).map((r: { slug: string }) => r.slug));
-            return dated.filter((a) => !hidden.has(a.slug)).map((a) => `research/${a.slug}`);
+            return all.filter((p) => !hidden.has(p.split("/").pop() ?? ""));
           } catch {
-            return dated.map((a) => `research/${a.slug}`);
+            return all;
           }
         },
       },
 
-      // Learn
-      { path: "learn", Component: LearnIndex },
-      { path: "learn/foundations", Component: Foundations },
-      { path: "learn/foundations/:section", Component: Foundations },
+      // ── ESG & Sustainability ──────────────────────────────────────────
+      { path: "esg", element: <SectionLanding section="esg" /> },
       {
-        path: "learn/foundations/:section/:topic",
-        // Route-level lazy for the same reason as research/:slug above.
-        lazy: async () => ({ Component: (await import("./pages/FoundationsLeaf")).default }),
-        // Prerender every published Foundations topic so the full content and
-        // meta tags are in the static HTML for crawlers. Dynamic import keeps
-        // the Foundations chunk lazy on the client (this only runs at build).
-        getStaticPaths: async () => {
-          const { FOUNDATIONS_TREE } = await import("./pages/Foundations");
-          return FOUNDATIONS_TREE.flatMap((section) =>
-            section.topics
-              .filter((t) => t.published)
-              .map((t) => `learn/foundations/${section.section}/${t.slug}`)
-          );
-        },
+        path: "esg/:sub",
+        lazy: sectionLandingLazy("esg"),
+        getStaticPaths: () => staticPathsFor("/esg", 2),
       },
-      { path: "learn/by-doing", Component: LearnByDoing },
-      { path: "learn/by-doing/build-a-dcf", Component: BuildADcfPage },
-      { path: "learn/by-doing/read-an-income-statement", Component: ReadIncomeStatementPage },
-      { path: "learn/by-doing/compute-ratios", Component: ComputeRatiosPage },
-      { path: "learn/by-doing/compare-two-companies", Component: CompareCompaniesPage },
-      { path: "learn/by-doing/spot-the-red-flags", Component: SpotRedFlagsPage },
-      { path: "learn/by-doing/:slug", Component: LearnByDoingModule },
-      { path: "learn/glossary", Component: Glossary },
+
+      // ── The Vault ─────────────────────────────────────────────────────
+      { path: "vault", Component: LearnIndex },
+      { path: "vault/glossary", Component: Glossary },
       {
-        path: "learn/glossary/:termSlug",
+        path: "vault/glossary/:termSlug",
         lazy: async () => ({ Component: (await import("./pages/GlossaryEntry")).default }),
-        // Prerender every glossary term (local data) so each definition ships
-        // as static HTML with its DefinedTerm structured data.
-        getStaticPaths: async () => {
-          const { GLOSSARY } = await import("@/lib/glossary");
-          return GLOSSARY.map((d) => `learn/glossary/${d.slug}`);
-        },
+        getStaticPaths: () => staticPathsFor("/vault/glossary", 3),
       },
-
-      // Ratio Analysis reference (hub + one page per ratio, all prerendered)
-      { path: "learn/ratio-analysis", Component: RatioAnalysis },
+      { path: "vault/formulas", Component: RatioAnalysis },
       {
-        path: "learn/ratio-analysis/:slug",
+        path: "vault/formulas/:slug",
         lazy: async () => ({ Component: (await import("./pages/RatioAnalysisEntry")).default }),
-        getStaticPaths: async () => {
-          const { RATIOS } = await import("@/data/ratioAnalysis");
-          return RATIOS.map((r) => `learn/ratio-analysis/${r.slug}`);
-        },
+        getStaticPaths: () => staticPathsFor("/vault/formulas", 3),
       },
-
-      // Legacy learn redirects
-      { path: "learn/wiki", element: <Navigate to="/learn/glossary" replace /> },
-      { path: "learn/basics", element: <Navigate to="/learn/foundations" replace /> },
-      { path: "learn/fundamental-analysis", element: <Navigate to="/learn/foundations/valuation" replace /> },
-      { path: "learn/technical-analysis", element: <Navigate to="/learn/foundations/markets-and-instruments/technical-analysis-primer" replace /> },
-      { path: "learn/:slug", Component: ArticleView },
-
-      // Tools
-      { path: "tools", Component: Tools },
-      { path: "tools/dcf-sensitivity", Component: DcfSensitivityPage },
+      { path: "vault/guides", Component: Foundations },
       {
-        path: "tools/:slug",
-        // Route-level lazy (same collectAssets constraint as research/foundations)
-        // + prerender all 8 calculator pages with their meta and calculator UI.
-        lazy: async () => ({ Component: (await import("./pages/ToolPage")).default }),
-        getStaticPaths: () => [
-          "tools/sip",
-          "tools/future-value",
-          "tools/present-value",
-          "tools/cagr",
-          "tools/compound-interest",
-          "tools/rule-of-72",
-          "tools/emi",
-          "tools/inflation-adjusted-returns",
-          "tools/step-up-sip",
-          "tools/goal-sip",
-          "tools/loan-prepayment",
-          "tools/wacc",
-        ],
+        path: "vault/guides/:slug",
+        // Tracks, the two restored courses, and the 51 topic guides share this namespace.
+        lazy: async () => ({ Component: (await import("./pages/GuideRouter")).default }),
+        getStaticPaths: () => staticPathsFor("/vault/guides", 3),
       },
-      { path: "calculators", element: <Navigate to="/tools" replace /> },
+      { path: "vault/interactive", Component: Tools },
+      {
+        path: "vault/interactive/:slug",
+        lazy: async () => ({ Component: (await import("./pages/InteractiveRouter")).default }),
+        getStaticPaths: () => staticPathsFor("/vault/interactive", 3),
+      },
 
-      // Markets
-      { path: "markets", Component: Markets },
-      { path: "markets/nifty50", Component: MarketsNifty50 },
-      { path: "markets/compliance", Component: MarketsCompliance },
-      { path: "stocks", element: <Navigate to="/markets/nifty50" replace /> },
-      { path: "compliance", element: <Navigate to="/markets/compliance" replace /> },
+      // ── Topics (tags) ─────────────────────────────────────────────────
+      { path: "tags", Component: TagsIndex },
+      {
+        path: "tags/:tag",
+        lazy: async () => ({ Component: (await import("./pages/TagPages")).TagPage }),
+        getStaticPaths: () => staticPathsFor("/tags", 2),
+      },
 
-      // About
+      // ── About ─────────────────────────────────────────────────────────
       { path: "about", Component: About },
       { path: "about/author", Component: AboutAuthor },
       { path: "about/site", Component: AboutSite },
-      { path: "about/methodology", Component: AboutMethodology },
+      { path: "about/philosophy", Component: AboutMethodology },
+      {
+        path: "about/:page",
+        lazy: async () => ({ Component: (await import("./pages/AboutLegal")).default }),
+        getStaticPaths: () => ["about/contact", "about/privacy", "about/disclaimer", "about/terms"],
+      },
 
-      // Auth
+      // ── Archive (legacy personal-finance articles; noindex) ───────────
+      { path: "archive", Component: ArchiveIndex },
+      {
+        path: "archive/:slug",
+        lazy: async () => ({ Component: (await import("./pages/ArchivePage")).ArchiveArticle }),
+        getStaticPaths: () => staticPathsFor("/archive", 2),
+      },
+
+      // ── Legacy paths: client-side redirects (server 301s in _redirects) ──
+      { path: "research", element: <LegacyRedirect /> },
+      { path: "research/:slug", element: <LegacyRedirect /> },
+      { path: "learn", element: <LegacyRedirect /> },
+      { path: "learn/*", element: <LegacyRedirect /> },
+      { path: "tools", element: <LegacyRedirect /> },
+      { path: "tools/:slug", element: <LegacyRedirect /> },
+      { path: "markets", element: <LegacyRedirect /> },
+      { path: "markets/*", element: <LegacyRedirect /> },
+      { path: "calculators", element: <LegacyRedirect /> },
+      { path: "stocks", element: <LegacyRedirect /> },
+      { path: "compliance", element: <LegacyRedirect /> },
+      { path: "about/methodology", element: <LegacyRedirect /> },
+      { path: "privacy", element: <LegacyRedirect /> },
+      { path: "disclaimer", element: <LegacyRedirect /> },
+      { path: "terms", element: <LegacyRedirect /> },
+
+      // ── Auth ──────────────────────────────────────────────────────────
       { path: "login", Component: Login },
       { path: "signup", Component: Signup },
       { path: "admin-login", Component: AdminLogin },
@@ -248,7 +250,7 @@ export const routes: RouteRecord[] = [
       { path: "forgot-password", Component: ForgotPassword },
       { path: "reset-password", Component: ResetPassword },
 
-      // Authenticated
+      // ── Authenticated ─────────────────────────────────────────────────
       {
         path: "dashboard",
         element: (
@@ -266,7 +268,7 @@ export const routes: RouteRecord[] = [
         ),
       },
 
-      // Admin
+      // ── Admin ─────────────────────────────────────────────────────────
       {
         path: "admin",
         element: (
@@ -282,11 +284,20 @@ export const routes: RouteRecord[] = [
         ],
       },
 
-      // Hidden routes (not in public nav)
+      // ── Hidden routes (not in public nav) ─────────────────────────────
       { path: "community", Component: Community },
       { path: "community/post/:id", element: <PostDetail /> },
-      { path: "migration", Component: Migration },
+      // Data migration tool: admin only (audit item 8.11).
+      {
+        path: "migration",
+        element: (
+          <AdminRoute>
+            <Migration />
+          </AdminRoute>
+        ),
+      },
 
+      { path: "404", Component: NotFound },
       { path: "*", Component: NotFound },
     ],
   },

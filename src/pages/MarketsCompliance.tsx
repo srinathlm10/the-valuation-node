@@ -10,25 +10,27 @@ export default function MarketsCompliance() {
     <Layout>
       <Seo
         meta={staticMeta({
-          title: "Compliance - Markets",
-          slug: "compliance",
+          title: "Compliance Calendar",
+          slug: "compliance-calendar",
           section: "news",
           subsection: "policy-regulation",
           summary: "SEBI, NSE, and BSE regulatory circulars summarised in plain language for Indian market participants. Updated monthly.",
         })}
-        path="/markets/compliance"
-        titleTag="Compliance - Markets - The Valuation Node"
+        path="/news/policy-regulation/compliance-calendar"
+        titleTag="SEBI, NSE, BSE Compliance Calendar - The Valuation Node"
       />
 
       <div className="container py-14">
         <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
-          <Link to="/markets" className="hover:text-foreground">Markets</Link>
+          <Link to="/news" className="hover:text-foreground">News & Trends</Link>
           <span>/</span>
-          <span className="text-foreground font-medium">Compliance</span>
+          <Link to="/news/policy-regulation" className="hover:text-foreground">Policy & Regulation</Link>
+          <span>/</span>
+          <span className="text-foreground font-medium">Compliance Calendar</span>
         </nav>
 
         <div className="mb-6">
-          <h1 className="text-3xl font-bold tracking-tight">Compliance</h1>
+          <h1 className="text-3xl font-bold tracking-tight">Compliance Calendar</h1>
           <p className="mt-2 text-sm text-muted-foreground">
             Updated monthly. For real-time updates, see{" "}
             <a

@@ -6,47 +6,50 @@ alongside a structured free learning library covering accounting, corporate fina
 credit analysis, ESG, fintech, and markets. All content cites sources and shows its methodology.
 No investment advice is given. No paid promotions.
 
-## Research
-Original analysis of Indian companies, sectors, and credit instruments.
-URL: https://valuationnode.com/research
+## Insights & Analysis
+Original analysis of Indian companies, sectors, and valuation questions, in six sub-sections:
+company analysis, industry analysis, valuation and financial modeling, business strategy,
+case studies, and op-eds.
+URL: https://valuationnode.com/analysis
 
-## Learning Library
-Free structured curriculum for Indian market analysis:
-- Accounting (income statement, balance sheet, cash flows, ratios)
-- Corporate Finance (WACC, capital structure, DCF)
-- Valuation (DCF, relative valuation, sector-specific multiples)
-- Credit Analysis (CRISIL/ICRA rating frameworks, Altman Z-score, bond pricing)
-- Markets & Instruments (equities, bonds, derivatives, REITs, ETFs)
-- ESG & Sustainable Finance (ESG scores, green bonds, carbon accounting)
-- Fintech & Digital Finance (payments, digital lending, account aggregators)
-URL: https://valuationnode.com/learn
+## News & Trends
+Indian economy (Nifty 50 fundamentals), policy and regulation (SEBI, NSE, BSE compliance
+calendar), global markets, corporate updates, technology and AI.
+URL: https://valuationnode.com/news
+
+## ESG & Sustainability
+Green finance, corporate governance, impact investing, ESG ratings and frameworks.
+URL: https://valuationnode.com/esg
+
+## The Vault (reference library)
+Financial Glossary (178 terms), Key Formulas & Ratios (49), Concept Guides (51 guides in
+nine tracks: accounting, corporate finance, valuation, financial statement analysis, credit
+analysis, markets and instruments, ESG, fintech, data and tools), and Model Templates &
+Interactive (13 calculators, 5 lessons).
+URL: https://valuationnode.com/vault
 
 ## Tools
 13 free financial calculators for Indian investors: SIP, step-up SIP, goal SIP, DCF sensitivity,
 WACC, CAGR, future and present value, compound interest, rule of 72, EMI, loan prepayment,
 and inflation-adjusted returns.
-URL: https://valuationnode.com/tools
+URL: https://valuationnode.com/vault/interactive
 
 ## Ratio Analysis
 Reference of 49 financial ratios for Indian markets, each with a definition, its formula,
 benchmarks, a worked example, and where the ratio misleads. Covers valuation multiples,
 profitability and returns, leverage and liquidity, efficiency, cash flow checks, banking
 ratios (CASA, NIM, NPA, CAR, PCR, cost to income), growth, and shareholding pattern.
-URL: https://valuationnode.com/learn/ratio-analysis
+URL: https://valuationnode.com/vault/formulas
 
 ## Glossary
-Searchable glossary of 170+ Indian market and finance terms, each with a definition, formula
+Searchable glossary of 178 Indian market and finance terms, each with a definition, formula
 where applicable, why it matters, and an example.
-URL: https://valuationnode.com/learn/glossary
+URL: https://valuationnode.com/vault/glossary
 
 ## Learn-by-Doing
 Five interactive modules: build a DCF step by step, read an income statement line by line,
 compute ratios from raw statements, compare two companies, and spot financial red flags.
-URL: https://valuationnode.com/learn/by-doing
-
-## Markets
-Nifty 50 company reference data and SEBI compliance calendar.
-URL: https://valuationnode.com/markets
+URL: https://valuationnode.com/vault/interactive
 
 ## Author
 Gajji Srinath, Founder and Editor, MBA Candidate at NIT Rourkela.

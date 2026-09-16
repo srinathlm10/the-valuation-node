@@ -556,7 +556,7 @@ export function FundamentalAnalysisContent({ onAskAI }: { onAskAI: (context: str
         <p className="text-muted-foreground mb-4">Explore our Stock Archive to analyze Nifty 50 companies with these fundamentals.</p>
         <div className="flex justify-center gap-4">
           <Button asChild>
-            <a href="/stocks">
+            <a href="/news/indian-economy/nifty-50">
               <BarChart3 className="h-4 w-4 mr-2" />
               Explore Stocks
             </a>

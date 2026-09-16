@@ -339,13 +339,13 @@ export function ReadIncomeStatementLesson() {
               <div className="p-5 rounded-xl border">
                 <h3 className="font-semibold mb-4">Go deeper</h3>
                 <div className="space-y-3 text-sm">
-                  <Link to="/learn/foundations/accounting/reading-an-income-statement" className="flex items-center gap-2 text-primary hover:underline">
+                  <Link to="/vault/guides/reading-an-income-statement" className="flex items-center gap-2 text-primary hover:underline">
                     <ChevronRight className="h-4 w-4 shrink-0" /> Reading an Income Statement, Foundations
                   </Link>
-                  <Link to="/learn/foundations/accounting/quality-of-earnings" className="flex items-center gap-2 text-primary hover:underline">
+                  <Link to="/vault/guides/quality-of-earnings" className="flex items-center gap-2 text-primary hover:underline">
                     <ChevronRight className="h-4 w-4 shrink-0" /> Quality of Earnings, Foundations
                   </Link>
-                  <Link to="/learn/by-doing/compute-ratios" className="flex items-center gap-2 text-primary hover:underline">
+                  <Link to="/vault/interactive/compute-ratios" className="flex items-center gap-2 text-primary hover:underline">
                     <ChevronRight className="h-4 w-4 shrink-0" /> Next: Compute Ratios from Raw Statements
                   </Link>
                 </div>

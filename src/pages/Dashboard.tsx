@@ -100,7 +100,7 @@ export default function Dashboard() {
               <BookOpen className="mx-auto h-8 w-8 text-muted-foreground mb-3" />
               <p className="text-muted-foreground text-sm">No bookmarks yet.</p>
               <Button asChild variant="outline" size="sm" className="mt-4">
-                <Link to="/research">Browse research <ArrowRight className="ml-2 h-3.5 w-3.5" /></Link>
+                <Link to="/analysis">Browse research <ArrowRight className="ml-2 h-3.5 w-3.5" /></Link>
               </Button>
             </div>
           )}

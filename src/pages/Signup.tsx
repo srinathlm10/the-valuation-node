@@ -234,9 +234,9 @@ export default function Signup() {
             />
             <Label htmlFor="terms" className="text-sm font-normal leading-snug cursor-pointer">
               I agree to the{" "}
-              <Link to="/terms" className="underline hover:text-foreground">Terms of Service</Link>{" "}
+              <Link to="/about/terms" className="underline hover:text-foreground">Terms of Service</Link>{" "}
               and{" "}
-              <Link to="/privacy" className="underline hover:text-foreground">Privacy Policy</Link>
+              <Link to="/about/privacy" className="underline hover:text-foreground">Privacy Policy</Link>
             </Label>
           </div>
 

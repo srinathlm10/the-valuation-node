@@ -9,13 +9,15 @@ import { componentTagger } from "lovable-tagger";
 // per-article pages via getStaticPaths), learn, tools, markets, about, is
 // prerendered to static HTML with baked meta tags.
 const NO_PRERENDER_EXACT = new Set([
+  // Legacy paths (301 in public/_redirects, <LegacyRedirect/> on the client)
   "/calculators",
   "/stocks",
   "/compliance",
-  "/learn/wiki",
-  "/learn/basics",
-  "/learn/fundamental-analysis",
-  "/learn/technical-analysis",
+  "/privacy",
+  "/disclaimer",
+  "/terms",
+  "/about/methodology",
+  // Auth and account pages
   "/login",
   "/signup",
   "/admin-login",
@@ -25,8 +27,10 @@ const NO_PRERENDER_EXACT = new Set([
   "/dashboard",
   "/settings",
   "/migration",
+  "/404",
 ]);
-const NO_PRERENDER_PREFIX = ["/admin", "/community"];
+// Whole legacy families plus admin and community.
+const NO_PRERENDER_PREFIX = ["/admin", "/community", "/research", "/learn", "/tools", "/markets"];
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode, isSsrBuild }) => ({

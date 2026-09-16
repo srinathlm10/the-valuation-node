@@ -74,10 +74,10 @@ export const TOOL_ICONS: Record<string, LucideIcon> = {
 
 /** One icon per Learn section card. */
 export const LEARN_SECTION_ICONS: Record<string, LucideIcon> = {
-  "/learn/foundations": BookOpen,
-  "/learn/by-doing": MousePointerClick,
-  "/learn/glossary": Library,
-  "/learn/ratio-analysis": Percent,
+  "/vault/guides": BookOpen,
+  "/vault/interactive": MousePointerClick,
+  "/vault/glossary": Library,
+  "/vault/formulas": Percent,
 };
 
 /** One icon per Ratio Analysis group (keys = group ids in ratioAnalysis.ts). */

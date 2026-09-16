@@ -10,7 +10,7 @@ export default function CompareCompaniesPage() {
     <Layout>
       <Seo
         meta={interactiveMeta({ slug: "compare-two-companies", title: "Compare Two Companies Side by Side", description: "Use a structured framework to compare two Indian companies in the same sector, growth, margins, returns, leverage, and valuation.", kind: "lesson" })}
-        path="/learn/by-doing/compare-two-companies"
+        path="/vault/interactive/compare-two-companies"
         jsonLd={[
           {
               "@context": "https://schema.org",
@@ -22,21 +22,21 @@ export default function CompareCompaniesPage() {
               educationalLevel: "Intermediate",
               learningResourceType: "Interactive Tutorial",
               teaches: ["Peer comparison", "Relative valuation", "Margins", "ROE", "Leverage", "P/E"],
-              url: "https://valuationnode.com/learn/by-doing/compare-two-companies",
+              url: "https://valuationnode.com/vault/interactive/compare-two-companies",
             },
           breadcrumbLd([
-            { name: "Learn", path: "/learn" },
-            { name: "Learn-by-Doing", path: "/learn/by-doing" },
-            { name: "Compare Two Companies Side by Side", path: "/learn/by-doing/compare-two-companies" },
+            { name: "The Vault", path: "/vault" },
+            { name: "Interactive", path: "/vault/interactive" },
+            { name: "Compare Two Companies Side by Side", path: "/vault/interactive/compare-two-companies" },
           ]),
         ]}
       />
 
       <nav className="border-b">
         <ol className="container max-w-5xl py-3 flex items-center gap-2 text-sm text-muted-foreground">
-          <li><Link to="/learn" className="hover:text-foreground">Learn</Link></li>
+          <li><Link to="/vault" className="hover:text-foreground">Learn</Link></li>
           <li>/</li>
-          <li><Link to="/learn/by-doing" className="hover:text-foreground">Learn-by-Doing</Link></li>
+          <li><Link to="/vault/interactive" className="hover:text-foreground">Learn-by-Doing</Link></li>
           <li>/</li>
           <li className="text-foreground font-medium">Compare Two Companies</li>
         </ol>

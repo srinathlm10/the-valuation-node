@@ -10,7 +10,7 @@ export default function ComputeRatiosPage() {
     <Layout>
       <Seo
         meta={interactiveMeta({ slug: "compute-ratios", title: "Compute Ratios from Raw Statements", description: "Pull numbers from real financial statements and compute the ratios analysts use every day. Type your answers and get instant feedback.", kind: "lesson" })}
-        path="/learn/by-doing/compute-ratios"
+        path="/vault/interactive/compute-ratios"
         jsonLd={[
           {
               "@context": "https://schema.org",
@@ -22,21 +22,21 @@ export default function ComputeRatiosPage() {
               educationalLevel: "Beginner to Intermediate",
               learningResourceType: "Interactive Exercise",
               teaches: ["Financial ratios", "Net margin", "ROE", "Current ratio", "Debt-to-equity", "Interest coverage"],
-              url: "https://valuationnode.com/learn/by-doing/compute-ratios",
+              url: "https://valuationnode.com/vault/interactive/compute-ratios",
             },
           breadcrumbLd([
-            { name: "Learn", path: "/learn" },
-            { name: "Learn-by-Doing", path: "/learn/by-doing" },
-            { name: "Compute Ratios from Raw Statements", path: "/learn/by-doing/compute-ratios" },
+            { name: "The Vault", path: "/vault" },
+            { name: "Interactive", path: "/vault/interactive" },
+            { name: "Compute Ratios from Raw Statements", path: "/vault/interactive/compute-ratios" },
           ]),
         ]}
       />
 
       <nav className="border-b">
         <ol className="container max-w-5xl py-3 flex items-center gap-2 text-sm text-muted-foreground">
-          <li><Link to="/learn" className="hover:text-foreground">Learn</Link></li>
+          <li><Link to="/vault" className="hover:text-foreground">Learn</Link></li>
           <li>/</li>
-          <li><Link to="/learn/by-doing" className="hover:text-foreground">Learn-by-Doing</Link></li>
+          <li><Link to="/vault/interactive" className="hover:text-foreground">Learn-by-Doing</Link></li>
           <li>/</li>
           <li className="text-foreground font-medium">Compute Ratios</li>
         </ol>

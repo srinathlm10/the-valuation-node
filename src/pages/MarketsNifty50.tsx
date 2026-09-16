@@ -1,60 +1,124 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 import { Layout } from "@/components/layout/Layout";
 import { Seo } from "@/components/seo/Seo";
 import { staticMeta } from "@/lib/contentModel";
-import { StockScreener } from "@/components/stocks/StockScreener";
-import { useQuery } from "@tanstack/react-query";
+import { StockScreener, type Stock } from "@/components/stocks/StockScreener";
 import { contentService } from "@/services/contentService";
-import { Loader2 } from "lucide-react";
+import localStocks from "@/data/stocks.json";
+import { paths } from "@/lib/routes";
+import { breadcrumbLd } from "@/lib/seo";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+
+// Serves /news/indian-economy/nifty-50. The screener needs `stocks` plus two
+// handlers; the old page rendered it with no props and crashed as soon as the
+// query resolved (audit item 8.1). Local stocks.json is rendered immediately
+// (so the static HTML carries the table) and swapped for the Supabase rows
+// once they arrive.
+
+const FALLBACK = localStocks as Stock[];
+
+function fmtCr(v: number) {
+  return v >= 100000 ? `₹${(v / 100000).toFixed(2)} L Cr` : `₹${v.toLocaleString("en-IN")} Cr`;
+}
+
+function StockProfile({ stock, onClose }: { stock: Stock | null; onClose: () => void }) {
+  return (
+    <Dialog open={!!stock} onOpenChange={(open) => !open && onClose()}>
+      <DialogContent className="max-w-lg">
+        {stock && (
+          <>
+            <DialogHeader>
+              <DialogTitle>
+                {stock.name} <span className="text-muted-foreground font-normal">({stock.id})</span>
+              </DialogTitle>
+              <DialogDescription>{stock.sector}</DialogDescription>
+            </DialogHeader>
+            <dl className="mt-2 grid grid-cols-2 gap-x-6 gap-y-3 text-sm">
+              <div><dt className="text-muted-foreground">Market cap</dt><dd className="font-mono">{fmtCr(stock.marketCap)}</dd></div>
+              <div><dt className="text-muted-foreground">Price</dt><dd className="font-mono">₹{stock.currentPrice?.toLocaleString("en-IN")}</dd></div>
+              <div><dt className="text-muted-foreground">P/E</dt><dd className="font-mono">{stock.pe?.toFixed(1)}</dd></div>
+              <div><dt className="text-muted-foreground">P/B</dt><dd className="font-mono">{stock.pb?.toFixed(2)}</dd></div>
+              <div><dt className="text-muted-foreground">ROE</dt><dd className="font-mono">{stock.roe?.toFixed(1)}%</dd></div>
+              <div><dt className="text-muted-foreground">Debt to equity</dt><dd className="font-mono">{stock.debtToEquity?.toFixed(2)}</dd></div>
+              <div><dt className="text-muted-foreground">Dividend yield</dt><dd className="font-mono">{stock.dividendYield?.toFixed(2)}%</dd></div>
+              <div><dt className="text-muted-foreground">EPS</dt><dd className="font-mono">₹{stock.eps?.toFixed(2)}</dd></div>
+              <div><dt className="text-muted-foreground">Revenue growth (5y)</dt><dd className="font-mono">{stock.revenueGrowth5Y?.toFixed(1)}%</dd></div>
+              <div><dt className="text-muted-foreground">Profit growth (5y)</dt><dd className="font-mono">{stock.profitGrowth5Y?.toFixed(1)}%</dd></div>
+              <div><dt className="text-muted-foreground">52-week high</dt><dd className="font-mono">₹{stock.weekHigh52?.toLocaleString("en-IN")}</dd></div>
+              <div><dt className="text-muted-foreground">52-week low</dt><dd className="font-mono">₹{stock.weekLow52?.toLocaleString("en-IN")}</dd></div>
+            </dl>
+            <p className="mt-4 text-xs text-muted-foreground">
+              Read these numbers with the{" "}
+              <Link to={paths.formulas()} className="underline">Key Formulas & Ratios</Link> reference. Snapshot data, not
+              live quotes; not investment advice.
+            </p>
+          </>
+        )}
+      </DialogContent>
+    </Dialog>
+  );
+}
 
 export default function MarketsNifty50() {
-  const { data: stocks, isLoading } = useQuery({
+  const { data } = useQuery({
     queryKey: ["stocks"],
     queryFn: contentService.getStocks,
   });
-
-  const lastUpdated = stocks && (stocks as any[]).length > 0
-    ? (stocks as any[])[0]?.last_updated || "-"
-    : "-";
+  const remote = (data as Stock[] | undefined) ?? [];
+  const stocks = remote.length > 0 ? remote : FALLBACK;
+  const [selected, setSelected] = useState<Stock | null>(null);
+  const path = paths.nifty50();
 
   return (
     <Layout>
       <Seo
         meta={staticMeta({
-          title: "Nifty 50 - Markets",
-          slug: "nifty50",
+          title: "Nifty 50 Fundamentals",
+          slug: "nifty-50",
           section: "news",
           subsection: "indian-economy",
-          summary: "Fundamental data for Nifty 50 constituents: P/E, P/B, dividend yield, market cap. Coverage is expanding.",
+          summary:
+            "Fundamental snapshot of Nifty 50 constituents: market cap, P/E, P/B, ROE, debt to equity, and dividend yield, sortable and filterable by sector.",
         })}
-        path="/markets/nifty50"
-        titleTag="Nifty 50 - Markets - The Valuation Node"
+        path={path}
+        titleTag="Nifty 50 Fundamentals: P/E, P/B, ROE, Dividend Yield - The Valuation Node"
+        jsonLd={[
+          breadcrumbLd([
+            { name: "News & Trends", path: paths.news() },
+            { name: "Indian Economy", path: paths.newsSub("indian-economy") },
+            { name: "Nifty 50 Fundamentals", path },
+          ]),
+        ]}
       />
 
       <div className="container py-14">
-        <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
-          <Link to="/markets" className="hover:text-foreground">Markets</Link>
+        <nav aria-label="Breadcrumb" className="mb-6 flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
+          <Link to={paths.news()} className="hover:text-foreground">News & Trends</Link>
           <span>/</span>
-          <span className="text-foreground font-medium">Nifty 50</span>
+          <Link to={paths.newsSub("indian-economy")} className="hover:text-foreground">Indian Economy</Link>
+          <span>/</span>
+          <span className="font-medium text-foreground">Nifty 50</span>
         </nav>
 
-        <div className="flex items-start justify-between flex-wrap gap-4 mb-6">
+        <div className="mb-6 flex flex-wrap items-start justify-between gap-4">
           <div>
-            <h1 className="text-3xl font-bold tracking-tight">Nifty 50</h1>
+            <h1 className="text-3xl font-bold tracking-tight">Nifty 50 Fundamentals</h1>
             <p className="mt-2 text-sm text-muted-foreground">
-              Snapshot as of {lastUpdated}. Updated monthly.
+              Snapshot fundamentals for {stocks.length} constituents. Coverage is expanding; figures are periodic snapshots, not live quotes.
             </p>
           </div>
         </div>
 
-        {isLoading ? (
-          <div className="flex items-center justify-center py-20">
-            <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
-          </div>
-        ) : (
-          <StockScreener />
-        )}
+        <StockScreener stocks={stocks} onViewProfile={setSelected} onBotAnalysis={setSelected} />
+        <StockProfile stock={selected} onClose={() => setSelected(null)} />
       </div>
     </Layout>
   );

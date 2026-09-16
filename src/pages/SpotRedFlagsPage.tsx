@@ -10,7 +10,7 @@ export default function SpotRedFlagsPage() {
     <Layout>
       <Seo
         meta={interactiveMeta({ slug: "spot-the-red-flags", title: "Spot the Red Flags", description: "Work through realistic case studies and identify the warning signs of financial distress and poor earnings quality, before they blow up.", kind: "lesson" })}
-        path="/learn/by-doing/spot-the-red-flags"
+        path="/vault/interactive/spot-the-red-flags"
         jsonLd={[
           {
               "@context": "https://schema.org",
@@ -22,21 +22,21 @@ export default function SpotRedFlagsPage() {
               educationalLevel: "Intermediate",
               learningResourceType: "Interactive Exercise",
               teaches: ["Earnings quality", "Financial distress", "Red flags", "Forensic accounting", "Governance"],
-              url: "https://valuationnode.com/learn/by-doing/spot-the-red-flags",
+              url: "https://valuationnode.com/vault/interactive/spot-the-red-flags",
             },
           breadcrumbLd([
-            { name: "Learn", path: "/learn" },
-            { name: "Learn-by-Doing", path: "/learn/by-doing" },
-            { name: "Spot the Red Flags", path: "/learn/by-doing/spot-the-red-flags" },
+            { name: "The Vault", path: "/vault" },
+            { name: "Interactive", path: "/vault/interactive" },
+            { name: "Spot the Red Flags", path: "/vault/interactive/spot-the-red-flags" },
           ]),
         ]}
       />
 
       <nav className="border-b">
         <ol className="container max-w-5xl py-3 flex items-center gap-2 text-sm text-muted-foreground">
-          <li><Link to="/learn" className="hover:text-foreground">Learn</Link></li>
+          <li><Link to="/vault" className="hover:text-foreground">Learn</Link></li>
           <li>/</li>
-          <li><Link to="/learn/by-doing" className="hover:text-foreground">Learn-by-Doing</Link></li>
+          <li><Link to="/vault/interactive" className="hover:text-foreground">Learn-by-Doing</Link></li>
           <li>/</li>
           <li className="text-foreground font-medium">Spot the Red Flags</li>
         </ol>

@@ -975,28 +975,28 @@ export function BuildADcfLesson() {
                   <h3 className="font-semibold mb-4">Go deeper</h3>
                   <div className="space-y-3 text-sm">
                     <Link
-                      to="/learn/foundations/valuation/dcf-theory-and-mechanics"
+                      to="/vault/guides/dcf-theory-and-mechanics"
                       className="flex items-center gap-2 text-primary hover:underline"
                     >
                       <ChevronRight className="h-4 w-4 shrink-0" />
                       DCF Theory and Mechanics - Foundations
                     </Link>
                     <Link
-                      to="/learn/foundations/valuation/common-dcf-mistakes"
+                      to="/vault/guides/common-dcf-mistakes"
                       className="flex items-center gap-2 text-primary hover:underline"
                     >
                       <ChevronRight className="h-4 w-4 shrink-0" />
                       Common DCF Mistakes - Foundations
                     </Link>
                     <Link
-                      to="/tools/dcf-sensitivity"
+                      to="/vault/interactive/dcf-sensitivity"
                       className="flex items-center gap-2 text-primary hover:underline"
                     >
                       <ChevronRight className="h-4 w-4 shrink-0" />
                       DCF Sensitivity Calculator - run scenarios across WACC and TGR
                     </Link>
                     <Link
-                      to="/research"
+                      to="/analysis"
                       className="flex items-center gap-2 text-primary hover:underline"
                     >
                       <ChevronRight className="h-4 w-4 shrink-0" />

@@ -29,7 +29,7 @@ const part1: Record<string, FoundationContent> = {
     readingTime: "9 min read",
     lastReviewed: "July 2025",
     prerequisites: [
-      { label: "Reading an Income Statement", href: "/learn/foundations/accounting/reading-an-income-statement" },
+      { label: "Reading an Income Statement", href: "/vault/guides/reading-an-income-statement" },
     ],
     intuition: `The balance sheet is a photograph taken at a single point in time, the last day of a quarter or financial year. It answers: what does the company own, what does it owe, and what is left for shareholders?\n\nThe fundamental equation is **Assets = Liabilities + Equity**. Every rupee that flows into a business comes from either lenders (liabilities) or owners (equity). Those funds are then deployed into assets, factories, inventory, cash, receivables. This equation must always balance.\n\nUnlike the P&L which shows flows over time, the balance sheet reflects accumulated history. Retained profits from previous years build up shareholders' equity. Old debt gradually gets repaid. Capital expenditure shows up as fixed assets that then depreciate over time.`,
     mechanics: `**Structure under Ind AS:**\n\n**Sources of Funds (Equity & Liabilities)**\n- *Shareholders' Equity:* Share capital + Other equity (retained earnings, securities premium, reserves)\n- *Non-Current Liabilities:* Long-term borrowings, deferred tax liability, lease liabilities (Ind AS 116)\n- *Current Liabilities:* Short-term borrowings, trade payables, other current liabilities, provisions\n\n**Application of Funds (Assets)**\n- *Non-Current Assets:* Property, plant & equipment (PP&E), intangibles (goodwill, patents), investments, deferred tax asset\n- *Current Assets:* Inventories, trade receivables, cash & equivalents, other current assets\n\n**Key metrics derived:**\n- Book Value per Share = Total Equity ÷ Shares Outstanding\n- Net Debt = Total Borrowings − Cash & Liquid Investments\n- Net Worth = Share Capital + Reserves & Surplus\n- Working Capital = Current Assets − Current Liabilities`,
@@ -45,8 +45,8 @@ const part1: Record<string, FoundationContent> = {
     readingTime: "8 min read",
     lastReviewed: "July 2025",
     prerequisites: [
-      { label: "Reading an Income Statement", href: "/learn/foundations/accounting/reading-an-income-statement" },
-      { label: "Reading a Balance Sheet", href: "/learn/foundations/accounting/reading-a-balance-sheet" },
+      { label: "Reading an Income Statement", href: "/vault/guides/reading-an-income-statement" },
+      { label: "Reading a Balance Sheet", href: "/vault/guides/reading-a-balance-sheet" },
     ],
     intuition: `Profit can be manipulated; cash is harder to fake. The cash flow statement tracks the actual movement of money in and out of the business during a period. A company can show healthy profits on the P&L while simultaneously running out of cash, this disconnect is one of the most important early-warning signals in fundamental analysis.\n\nThe statement is divided into three sections that answer three questions: How much cash did operations generate? How much did the company spend on growing or maintaining its asset base? How did it fund itself, through debt, equity, or by returning cash to shareholders?\n\nIn practice, the operating cash flow section is the most scrutinised. A consistently profitable company that generates weak or negative operating cash flow deserves deeper investigation.`,
     mechanics: `**Three sections under Ind AS 7 (indirect method for CFO):**\n\n**1. Operating Cash Flow (CFO)**\nStarts with PAT, then adds back non-cash charges and adjusts for working capital changes:\n- Add: D&A, impairment, finance costs (re-added since classified separately)\n- Adjust: Increase in receivables → negative; Decrease in inventory → positive; Increase in payables → positive\n- Less: Taxes paid\n\n**2. Investing Cash Flow (CFI)**\n- Capital expenditure (purchase of PP&E), usually negative\n- Proceeds from asset sales\n- Investments in subsidiaries, acquisitions\n\n**3. Financing Cash Flow (CFF)**\n- Proceeds from / repayment of borrowings\n- Dividends paid\n- Equity raised (rights issue, QIP)\n\n**Free Cash Flow (FCF) = CFO − Maintenance Capex**\nThis is the cash available to all capital providers after sustaining the business. Analysts often use FCF yield (FCF ÷ Market Cap) as a valuation metric.`,
@@ -56,16 +56,16 @@ const part1: Record<string, FoundationContent> = {
       "Ignoring the sign of working capital changes. Rising receivables consume cash (negative CFO impact) even though they appear as an asset on the balance sheet. This is a common source of confusion.",
       "Using reported FCF without checking the capex split. Companies that classify maintenance spending as 'growth capex' to make FCF look better than it is, always cross-check D&A vs total capex over a cycle.",
     ],
-    tryItHref: "/tools/future-value",
+    tryItHref: "/vault/interactive/future-value",
   },
 
   "linking-the-three-statements": {
     readingTime: "10 min read",
     lastReviewed: "July 2025",
     prerequisites: [
-      { label: "Reading an Income Statement", href: "/learn/foundations/accounting/reading-an-income-statement" },
-      { label: "Reading a Balance Sheet", href: "/learn/foundations/accounting/reading-a-balance-sheet" },
-      { label: "Reading a Cash Flow Statement", href: "/learn/foundations/accounting/reading-a-cash-flow-statement" },
+      { label: "Reading an Income Statement", href: "/vault/guides/reading-an-income-statement" },
+      { label: "Reading a Balance Sheet", href: "/vault/guides/reading-a-balance-sheet" },
+      { label: "Reading a Cash Flow Statement", href: "/vault/guides/reading-a-cash-flow-statement" },
     ],
     intuition: `The three financial statements are not independent documents, they are three views of the same underlying reality. Changes in one always ripple through the others. Understanding these linkages is the foundation of financial modelling and analysis.\n\nWhen a company earns a profit, that profit flows into retained earnings on the balance sheet (via shareholders' equity). When it spends on assets, those appear on the balance sheet and the purchase is shown in investing cash flows. When it depreciates those assets, a non-cash charge reduces the P&L profit but gets added back in operating cash flows.\n\nBuilding a linked 3-statement model, even a simple one, is the fastest way to internalise these connections. Breaking a link in the model shows you exactly how the statements depend on each other.`,
     mechanics: `**Key linkages:**\n\n**P&L → Balance Sheet**\n- PAT flows into Retained Earnings (part of Equity). Dividends paid reduce Retained Earnings.\n- D&A on the P&L reduces the net book value of PP&E on the balance sheet.\n- Tax expense on P&L creates current tax payable (liability) and deferred tax (asset or liability).\n\n**Balance Sheet → Cash Flow Statement**\n- Working capital changes on the balance sheet drive CFO adjustments. If trade receivables increased by ₹50 Cr, CFO is reduced by ₹50 Cr.\n- Capex (purchase of PP&E) increases assets on the balance sheet and appears as an outflow in CFI.\n- New borrowings increase liabilities and appear as inflows in CFF; repayments reduce liabilities and are outflows in CFF.\n\n**Cash Flow Statement → Balance Sheet**\n- The net change in cash (CFO + CFI + CFF) reconciles the opening and closing cash balances on the balance sheet.\n\n**The closing cash balance on the balance sheet must equal the cash per the cash flow statement, always. This is the key check in any model.**`,
@@ -81,8 +81,8 @@ const part1: Record<string, FoundationContent> = {
     readingTime: "7 min read",
     lastReviewed: "July 2025",
     prerequisites: [
-      { label: "Reading an Income Statement", href: "/learn/foundations/accounting/reading-an-income-statement" },
-      { label: "Reading a Balance Sheet", href: "/learn/foundations/accounting/reading-a-balance-sheet" },
+      { label: "Reading an Income Statement", href: "/vault/guides/reading-an-income-statement" },
+      { label: "Reading a Balance Sheet", href: "/vault/guides/reading-a-balance-sheet" },
     ],
     intuition: `Accounting standards are the rulebook companies follow when preparing financial statements. The rules dictate when revenue is recognised, how assets are valued, and how liabilities are disclosed. Different rulebooks can produce materially different profit and balance sheet numbers from identical underlying transactions.\n\nIndia has gone through three regimes: old **Indian GAAP** (pre-2016), **Ind AS** (Indian Accounting Standards, effective for large listed companies from FY17), and the continued use of old GAAP by smaller companies. Ind AS is substantially converged with **IFRS** (International Financial Reporting Standards) but with specific carve-outs tailored to the Indian context.\n\nFor an analyst, this matters because comparing a company's FY2015 financials (Indian GAAP) with FY2020 financials (Ind AS) requires adjustment. Some ratios, especially leverage and profit, can shift significantly upon transition.`,
     mechanics: `**Key differences: Ind AS vs Old Indian GAAP**\n\n| Area | Old Indian GAAP | Ind AS |\n|---|---|---|\n| Leases | Only finance leases on balance sheet | All leases ≥ 12 months capitalised (Ind AS 116) |\n| Revenue | Completed contract / % completion | Five-step model (Ind AS 115) |\n| Financial instruments | Cost or lower of cost and NRV | Fair value through P&L or OCI (Ind AS 109) |\n| Goodwill | Amortised over useful life | No amortisation; annual impairment test |\n| ESOPs | Not always expensed | Mandatory fair value expensing (Ind AS 102) |\n| Deferred tax | Timing differences only | Temporary differences (broader) |\n\n**Ind AS vs IFRS Carve-outs:**\n- Ind AS allows deferral of foreign exchange fluctuations on long-term liabilities to be capitalised into asset cost in certain cases (carve-out from IAS 21)\n- Some IFRS standards have been issued but Ind AS equivalents not yet notified (e.g., IFRS 17 on insurance contracts has a pending Ind AS equivalent)`,
@@ -98,8 +98,8 @@ const part1: Record<string, FoundationContent> = {
     readingTime: "9 min read",
     lastReviewed: "July 2025",
     prerequisites: [
-      { label: "Reading an Income Statement", href: "/learn/foundations/accounting/reading-an-income-statement" },
-      { label: "Ind AS vs IFRS vs Indian GAAP", href: "/learn/foundations/accounting/ind-as-vs-ifrs-vs-indian-gaap" },
+      { label: "Reading an Income Statement", href: "/vault/guides/reading-an-income-statement" },
+      { label: "Ind AS vs IFRS vs Indian GAAP", href: "/vault/guides/ind-as-vs-ifrs-vs-indian-gaap" },
     ],
     intuition: `Reported financial numbers are a starting point, not the end point. Analysts adjust reported figures to make them more comparable across time and across companies. These adjustments strip out noise, one-time items, accounting quirks, and financing choices that obscure the true operating performance of the business.\n\nThink of adjustments as removing distortions so you're left with the economic reality. A company that sells a factory at a large gain looks more profitable that year, but next year that gain is gone. Stripping it out gives a cleaner picture of recurring earnings power.\n\nIn India, common adjustments include operating lease treatment (for aviation, retail, hospitals), ESOP charges, forex gains/losses, and exceptional items. The goal is always the same: arrive at normalised, recurring, comparable numbers.`,
     mechanics: `**Common adjustments and their rationale:**\n\n**1. Exceptional Items**\nInd AS requires exceptional items to be disclosed separately. Add back losses, subtract gains, when calculating normalised EBITDA or PAT.\n\n**2. ESOP (Stock Compensation) Expense**\nUnder Ind AS 102, ESOPs are expensed at fair value over the vesting period. This is a real cost but non-cash. Some analysts add it back to get "cash EBITDA", but be careful: it is a dilutive cost even if not a cash outflow.\n\n**3. Operating Lease Adjustments (EBITDAR)**\nFor airlines (IndiGo), hotels, and retail chains, lease rentals are a major operating cost. Analysts often compute **EBITDAR** (adding back rent) and use EV/EBITDAR for peer comparison since different companies own vs lease their assets.\n\n**4. Forex Gains / Losses**\nFor exporters (IT companies) or importers (oil refiners), unrealised forex P&L can be large and volatile. Analysts strip these from operating profit.\n\n**5. One-off Provisions / Write-offs**\nLarge inventory write-downs, bad debt provisions, or deferred tax asset reversals in a single year should be treated as non-recurring.\n\n**6. Minority Interest**\nFor consolidated statements, PAT attributable to minority shareholders must be subtracted to get profit for equity holders.`,
@@ -115,9 +115,9 @@ const part1: Record<string, FoundationContent> = {
     readingTime: "10 min read",
     lastReviewed: "July 2025",
     prerequisites: [
-      { label: "Reading an Income Statement", href: "/learn/foundations/accounting/reading-an-income-statement" },
-      { label: "Reading a Cash Flow Statement", href: "/learn/foundations/accounting/reading-a-cash-flow-statement" },
-      { label: "Common Adjustments", href: "/learn/foundations/accounting/common-adjustments" },
+      { label: "Reading an Income Statement", href: "/vault/guides/reading-an-income-statement" },
+      { label: "Reading a Cash Flow Statement", href: "/vault/guides/reading-a-cash-flow-statement" },
+      { label: "Common Adjustments", href: "/vault/guides/common-adjustments" },
     ],
     intuition: `Not all profits are equal. A company can report ₹100 Cr of PAT that is backed by ₹120 Cr of operating cash flow, high quality earnings. Or it can report the same ₹100 Cr that translates to ₹20 Cr of operating cash flow, with the rest sitting in receivables, inventory, or arising from aggressive accounting choices. Same number, very different quality.\n\nQuality of earnings analysis asks: how sustainable, repeatable, and cash-backed are the reported profits? High quality earnings come from core operations, are supported by actual cash collection, and don't depend on aggressive accounting assumptions. Low quality earnings rely heavily on accruals, one-off gains, or revenue recognition choices that pull future profits forward.\n\nThis is one of the most useful lenses for spotting potential accounting problems before they become visible in headlines.`,
     mechanics: `**Key quality-of-earnings metrics:**\n\n**1. CFO / PAT Ratio**\nCompare operating cash flow to net profit over 3–5 years. Consistently below 0.8× is a red flag. Above 1.0× indicates earnings are well-backed by cash.\n\n**2. Accrual Ratio**\nAccruals = Net Income − Operating Cash Flow. High accruals relative to assets mean a large portion of profit is accrual-based, not cash-based. Sloan (1996) found high-accrual firms subsequently underperform.\n\n*Balance sheet accruals ratio = (Net Operating Assets[t] − Net Operating Assets[t-1]) ÷ Average Net Operating Assets*\n\n**3. Receivables Growth vs Revenue Growth**\nIf receivables grow significantly faster than revenue, the company may be offering loose credit terms to inflate sales (channel stuffing). This is particularly relevant in FMCG, pharmaceuticals, and auto components.\n\n**4. Days Sales Outstanding (DSO) Trend**\nRising DSO over several years in an industry where peers are stable = warning sign.\n\n**5. Deferred Revenue and Advance Payments**\nFor software and subscription businesses (SaaS), deferred revenue is a quality indicator, cash received before revenue is recognised is conservative. Declining deferred revenue while revenue is flat suggests revenue is being pulled forward.\n\n**6. Revenue Recognition Choices**\nFor long-duration contracts (construction, project EPC), % completion method allows management discretion. Examine the assumptions and compare to physical progress.`,
@@ -143,16 +143,16 @@ const part1: Record<string, FoundationContent> = {
       "Using a single discount rate for projects with different risk profiles. A stable infrastructure project should use a lower discount rate than a speculative biotech venture, even within the same company.",
       "Ignoring compounding frequency. A credit card at '3% per month' is actually 42.6% per annum (EAR), not 36%. Comparing rates without normalising compounding frequency produces wrong answers.",
     ],
-    tryItHref: "/tools/future-value",
+    tryItHref: "/vault/interactive/future-value",
   },
 
   "cost-of-capital": {
-    tryItHref: "/tools/wacc",
+    tryItHref: "/vault/interactive/wacc",
     readingTime: "11 min read",
     lastReviewed: "July 2025",
     prerequisites: [
-      { label: "Time Value of Money", href: "/learn/foundations/corporate-finance/time-value-of-money" },
-      { label: "Reading a Balance Sheet", href: "/learn/foundations/accounting/reading-a-balance-sheet" },
+      { label: "Time Value of Money", href: "/vault/guides/time-value-of-money" },
+      { label: "Reading a Balance Sheet", href: "/vault/guides/reading-a-balance-sheet" },
     ],
     intuition: `Every business needs capital, the money to buy assets and run operations. That capital comes from two sources: debt (banks, bondholders) and equity (shareholders). Both have a cost. Lenders want interest; shareholders want returns. The blended cost of all these funds is the **Weighted Average Cost of Capital (WACC)**.\n\nWACC is the minimum return a company must earn on its investments to satisfy all capital providers. If a company earns exactly its WACC, it is creating zero economic value, just enough to keep investors from leaving. To create value, it must earn above WACC.\n\nFor an analyst, WACC is the discount rate in a DCF model. Small changes in WACC have large effects on estimated value, which is why debates about the right WACC are a regular feature of equity research.`,
     mechanics: `**WACC formula:**\n\n\`WACC = (E/V) × Ke + (D/V) × Kd × (1 − t)\`\n\nWhere: E = market value of equity, D = market value of debt, V = E + D, Ke = cost of equity, Kd = cost of debt (pre-tax), t = corporate tax rate.\n\n**Cost of Equity (Ke), CAPM:**\n\`Ke = Rf + β × (Rm − Rf)\`\n- **Rf (Risk-free rate):** Typically the 10-year Indian G-sec yield\n- **β (Beta):** A measure of the stock's sensitivity to market movements. Beta of 1.2 means the stock moves 1.2% for every 1% move in Nifty\n- **Rm − Rf (Equity Risk Premium):** The additional return investors demand for holding equities over G-secs. For India, this is typically estimated at 5–7%\n\n**Cost of Debt (Kd):**\nUse the company's marginal borrowing rate, the rate on new debt, not historical average. For rated companies, derive from the spread over G-sec for that credit rating. After-tax cost = Kd × (1 − t) because interest is tax-deductible.\n\n**Example:** Rf = 7%, β = 1.1, ERP = 6% → Ke = 7% + 1.1 × 6% = 13.6%. Pre-tax Kd = 10%, t = 25% → After-tax Kd = 7.5%. Capital structure: 70% equity, 30% debt. WACC = 0.7 × 13.6% + 0.3 × 7.5% = 9.52% + 2.25% = **11.77%**.`,
@@ -165,12 +165,12 @@ const part1: Record<string, FoundationContent> = {
   },
 
   "capital-structure": {
-    tryItHref: "/tools/wacc",
+    tryItHref: "/vault/interactive/wacc",
     readingTime: "9 min read",
     lastReviewed: "July 2025",
     prerequisites: [
-      { label: "Cost of Capital", href: "/learn/foundations/corporate-finance/cost-of-capital" },
-      { label: "Reading a Balance Sheet", href: "/learn/foundations/accounting/reading-a-balance-sheet" },
+      { label: "Cost of Capital", href: "/vault/guides/cost-of-capital" },
+      { label: "Reading a Balance Sheet", href: "/vault/guides/reading-a-balance-sheet" },
     ],
     intuition: `A company can fund itself entirely with equity, entirely with debt, or with some mix of both. Capital structure is about finding the right mix. Debt is cheaper (interest is tax-deductible; lenders take lower risk than equity holders), but too much debt creates financial distress risk that can destroy value.\n\nThe optimal capital structure is the mix that minimises WACC and therefore maximises firm value. In theory (Modigliani-Miller, 1958), in a perfect market with no taxes, capital structure is irrelevant, firm value doesn't change with leverage. Once you introduce taxes and bankruptcy costs, an interior optimum exists.\n\nIn practice, Indian companies tend to be less leveraged than their global peers. Sectors like telecom and infrastructure that require large upfront investment are heavily debt-funded. Consumer companies and IT firms often carry minimal debt.`,
     mechanics: `**Theoretical frameworks:**\n\n**Modigliani-Miller Proposition I (no taxes):** V_levered = V_unlevered. Capital structure is irrelevant.\n\n**MM with taxes:** V_levered = V_unlevered + PV(Tax Shield). Debt is valuable because interest is tax-deductible. In an all-debt world, firm value is maximised. But that ignores bankruptcy costs.\n\n**Trade-off Theory:** Optimal capital structure balances the PV of tax shields against the PV of financial distress costs. The optimal leverage varies by industry:\n- Stable cash flows (utilities, consumer staples): can support more debt\n- Cyclical / volatile (steel, chemicals, airlines): should carry less debt\n\n**Pecking Order Theory (Myers-Majluf):** Firms prefer internal funding first, then debt, then equity, because information asymmetry makes equity issuance a signal of overvaluation.\n\n**Key leverage metrics:**\n- Net Debt / EBITDA: How many years of operating earnings to repay net debt. < 3× is generally comfortable for industrial companies.\n- Interest Coverage (EBIT / Interest): Should comfortably exceed 2× for investment-grade rating.\n- Debt / Equity (D/E): Varies widely by sector.`,
@@ -186,8 +186,8 @@ const part1: Record<string, FoundationContent> = {
     readingTime: "8 min read",
     lastReviewed: "July 2025",
     prerequisites: [
-      { label: "Reading a Balance Sheet", href: "/learn/foundations/accounting/reading-a-balance-sheet" },
-      { label: "Reading a Cash Flow Statement", href: "/learn/foundations/accounting/reading-a-cash-flow-statement" },
+      { label: "Reading a Balance Sheet", href: "/vault/guides/reading-a-balance-sheet" },
+      { label: "Reading a Cash Flow Statement", href: "/vault/guides/reading-a-cash-flow-statement" },
     ],
     intuition: `Working capital is the cash tied up in the day-to-day running of a business. A manufacturer buys raw materials, processes them into finished goods, sells them on credit, and eventually collects the cash. During this entire cycle, cash is locked up in inventory and receivables. This is working capital, and managing it efficiently is the difference between a business that self-funds its growth and one that constantly needs external capital.\n\nSome businesses have negative working capital by design. Retailers (think DMart) collect cash from customers immediately, pay suppliers on 30–60 day terms, and turn inventory quickly. They get to use their suppliers' money for free. This is a massive competitive advantage that most capital-intensive manufacturers don't have.\n\nWorking capital management is often undervalued by students who focus on growth metrics. Yet a company that grows revenues 20% while letting its cash conversion cycle lengthen may actually consume more cash than it generates.`,
     mechanics: `**Operating Working Capital (OWC):**\n\`OWC = Inventories + Trade Receivables − Trade Payables\`\n(Exclude cash and short-term debt, which are financing items, not operating.)\n\n**Cash Conversion Cycle (CCC):**\n\`CCC = Days Inventory Outstanding + Days Sales Outstanding − Days Payable Outstanding\`\n\n- **DIO = (Inventory ÷ COGS) × 365**: How many days of inventory is held\n- **DSO = (Trade Receivables ÷ Revenue) × 365**: How long to collect from customers\n- **DPO = (Trade Payables ÷ COGS) × 365**: How long before suppliers are paid\n\nA shorter CCC is better, cash cycles back faster.\n\n**Example:** DIO = 45 days, DSO = 60 days, DPO = 30 days → CCC = 45 + 60 − 30 = **75 days**.\nIf revenue is ₹1,000 Cr, each day of CCC ties up ~₹2.7 Cr. Reducing CCC by 10 days frees ₹27 Cr of cash.\n\n**Working Capital Intensity = OWC ÷ Revenue.** Trending upward is a warning sign.`,
@@ -203,8 +203,8 @@ const part1: Record<string, FoundationContent> = {
     readingTime: "9 min read",
     lastReviewed: "July 2025",
     prerequisites: [
-      { label: "Time Value of Money", href: "/learn/foundations/corporate-finance/time-value-of-money" },
-      { label: "Cost of Capital", href: "/learn/foundations/corporate-finance/cost-of-capital" },
+      { label: "Time Value of Money", href: "/vault/guides/time-value-of-money" },
+      { label: "Cost of Capital", href: "/vault/guides/cost-of-capital" },
     ],
     intuition: `Capital budgeting is the process of deciding which long-term investments a company should make. Should we build a new plant? Acquire a competitor? Launch a new product line? These decisions commit large sums of capital for years, and getting them wrong is expensive and hard to reverse.\n\nThe right framework asks: does this investment earn more than its cost of capital? If yes, it creates value for shareholders. If no, it destroys value, even if it shows an accounting profit, because the returns don't compensate for the risk taken.\n\nIn India, capital allocation decisions are especially important because promoter-controlled companies sometimes pursue empire-building projects or related-party acquisitions that serve the promoter's interests rather than minority shareholders'. Good capital budgeting discipline is a governance signal.`,
     mechanics: `**Three main techniques:**\n\n**1. Net Present Value (NPV)**\n\`NPV = Σ [FCFt ÷ (1 + WACC)^t] − Initial Investment\`\nIf NPV > 0: accept. If NPV < 0: reject. NPV gives an absolute rupee value created.\n\n**2. Internal Rate of Return (IRR)**\nThe discount rate at which NPV = 0. Accept if IRR > WACC (hurdle rate).\nProblem: IRR assumes interim cash flows are reinvested at IRR itself, which is often unrealistic.\n\n**3. Payback Period**\nHow many years to recover the initial investment. Simple but ignores time value and cash flows beyond payback.\n*Discounted Payback Period* corrects for time value.\n\n**Using incremental cash flows (always):**\n- Include: incremental revenue, cost savings, tax effects, changes in working capital, salvage value\n- Exclude: sunk costs (already spent, irrelevant), allocated overheads (not incremental)\n\n**Example:** ₹100 Cr investment, FCF of ₹25 Cr/year for 6 years, WACC 12%.\nNPV = 25 × [1−(1.12)^-6]/0.12 − 100 = 25 × 4.111 − 100 = ₹2.8 Cr → Marginally positive; proceed but low margin of safety.`,
@@ -214,7 +214,7 @@ const part1: Record<string, FoundationContent> = {
       "Using IRR to rank mutually exclusive projects. A small project with 25% IRR is not always better than a large project with 18% IRR, the larger project may create more absolute NPV. Always use NPV for ranking among mutually exclusive choices.",
       "Ignoring working capital in project cash flows. A new manufacturing plant requires inventory and receivables from day one. Not including this WC build-up understates capital outflows and overstates early-year project cash flows.",
     ],
-    tryItHref: "/tools/present-value",
+    tryItHref: "/vault/interactive/present-value",
   },
 };
 
