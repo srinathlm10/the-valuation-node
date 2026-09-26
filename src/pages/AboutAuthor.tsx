@@ -77,7 +77,7 @@ export default function AboutAuthor() {
           </p>
           <p>
             Nothing on this site is investment advice. If you spot an error, I want to know
-            about it; the fastest way to reach me is by email below.
+            about it; the fastest way to reach me is by email below or drop a message through LinkedIn.
           </p>
         </div>
 
@@ -104,7 +104,7 @@ export default function AboutAuthor() {
           <h2 className="font-semibold">Currently working on</h2>
           <ul className="mt-3 text-sm text-muted-foreground list-disc list-inside space-y-1">
             <li>Expanding the research library with verified real-company case studies</li>
-            <li>Deepening Foundations topics with more worked Indian examples</li>
+            <li>Deepening Foundations topics with more worked Indian and Global examples</li>
             <li>Growing the glossary and cross-linking it through every page</li>
           </ul>
         </section>
