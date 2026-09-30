@@ -92,13 +92,13 @@ export function SearchOverlay({ variant = "bar" }: { variant?: "icon" | "bar" } 
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className="search-btn h-10 w-10 rounded-full transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+          className="search-btn h-9 w-9 sm:h-10 sm:w-10 shrink-0 rounded-full transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
           title="Search"
           aria-label="Search the site"
           aria-haspopup="dialog"
           aria-expanded={open}
         >
-          <Search className="h-[18px] w-[18px]" />
+          <Search className="h-4 w-4 sm:h-[18px] sm:w-[18px]" />
         </button>
       ) : (
       <button

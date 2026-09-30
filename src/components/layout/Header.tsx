@@ -31,15 +31,23 @@ import { cn } from "@/lib/utils";
  * Differences from the prototype, all deliberate: the logo slot holds the
  * site's real mark + wordmark instead of the "NITR Capital" text; the search
  * button opens the existing SearchOverlay; the theme toggle and account menu
- * sit in .nav-actions because the site has them; below 900px the .nav-links
- * are hidden (prototype) and a hamburger sheet takes over. Elements keep
- * their tour anchor ids.
+ * sit in .nav-actions because the site has them; below 1200px the .nav-links
+ * are hidden (prototype.css, widened from 900px, see the comment there) and
+ * a hamburger sheet takes over. Elements keep their tour anchor ids.
+ *
+ * The hamburger and the About/Sign-in link switch at the same point, the
+ * custom `nav:` Tailwind breakpoint (1200px, tailwind.config.ts). They used
+ * to switch at the default `lg` (1024px) while the CSS switched at 900px, so
+ * the full link row and the hamburger showed at once between 901 and
+ * 1023px. Below the `sm` breakpoint (640px), the wordmark drops, the icon
+ * buttons shrink a step, and the container padding and .nav-actions gap
+ * tighten, so the bar does not crowd on phone-width screens.
  */
 
 const CONTENT_SECTIONS = SECTIONS.filter((s) => s.inNav && s.id !== "about");
 const ABOUT = SECTIONS.find((s) => s.id === "about")!;
 
-const iconBtn = "search-btn h-10 w-10 rounded-full transition-colors hover:bg-white/10";
+const iconBtn = "search-btn h-9 w-9 sm:h-10 sm:w-10 rounded-full transition-colors hover:bg-white/10 shrink-0";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -58,14 +66,23 @@ export function Header() {
 
   const logoInner = (
     <>
-      <img src="/logo-circle.png" alt="" width={36} height={36} className="h-9 w-9 object-contain" aria-hidden="true" />
-      <img src="/logo-wordmark-dark.png" alt="The Valuation Node" width={173} height={26} className="h-[26px] w-auto" />
+      <img src="/logo-circle.png" alt="" width={36} height={36} className="h-8 w-8 shrink-0 object-contain sm:h-9 sm:w-9" aria-hidden="true" />
+      {/* The wordmark is dropped below 640px: on phone-width screens, showing
+          it alongside the search/theme/menu icons left too little room and
+          the two crowded together. */}
+      <img
+        src="/logo-wordmark-dark.png"
+        alt="The Valuation Node"
+        width={173}
+        height={26}
+        className="hidden h-[22px] w-auto sm:inline-block sm:h-[26px]"
+      />
     </>
   );
 
   return (
     <nav className="site-nav" aria-label="Primary">
-      <div className="nav-container">
+      <div className="nav-container px-4 py-3 sm:px-8 sm:py-4">
         {isHome ? (
           <span id="tour-logo" className="logo" aria-current="page">
             {logoInner}
@@ -86,8 +103,8 @@ export function Header() {
           ))}
         </ul>
 
-        <div className="nav-actions">
-          <Link to={ABOUT.path} className="nav-about hidden lg:inline" aria-current={isActive(ABOUT.path) ? "page" : undefined}>
+        <div className="nav-actions gap-2 sm:gap-6">
+          <Link to={ABOUT.path} className="nav-about hidden nav:inline" aria-current={isActive(ABOUT.path) ? "page" : undefined}>
             {ABOUT.label}
           </Link>
 
@@ -117,19 +134,19 @@ export function Header() {
               </DropdownMenuContent>
             </DropdownMenu>
           ) : (
-            <Link to="/login" className="nav-about hidden lg:inline">
+            <Link to="/login" className="nav-about hidden nav:inline">
               Sign in
             </Link>
           )}
 
-          {/* Below 900px the prototype hides .nav-links; this sheet replaces them. */}
+          {/* Below 1200px the prototype hides .nav-links; this sheet replaces them. */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
-              <button id="tour-menu" type="button" className={cn(iconBtn, "lg:hidden")} aria-label="Open menu">
+              <button id="tour-menu" type="button" className={cn(iconBtn, "nav:hidden")} aria-label="Open menu">
                 <Menu className="h-5 w-5" />
               </button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] overflow-y-auto bg-[var(--primary-dark)] p-6 text-white [&>button]:text-white">
+            <SheetContent side="right" className="w-[85vw] max-w-[300px] overflow-y-auto bg-[var(--primary-dark)] p-6 text-white [&>button]:text-white">
               <SheetTitle className="mb-6 flex items-center gap-2 text-left">
                 <img src="/logo-circle.png" alt="" width={32} height={32} className="h-8 w-8 object-contain" aria-hidden="true" />
                 <img src="/logo-wordmark-dark.png" alt="The Valuation Node" width={147} height={22} className="h-[22px] w-auto" />

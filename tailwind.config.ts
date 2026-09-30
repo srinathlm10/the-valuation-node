@@ -14,6 +14,19 @@ export default {
       },
     },
     extend: {
+      // Width at which the nav switches from the hamburger sheet to the full
+      // link row (src/styles/prototype.css hides .nav-links below this).
+      // The prototype itself used 900px, sized for its own short, fictional
+      // category names; this site's real labels ("Insights & Analysis",
+      // "ESG & Sustainability") plus the logo and account icons need more
+      // room, so both the CSS and this breakpoint were moved to 1200px, the
+      // site's own max content width. Previously the CSS (900px) and
+      // Tailwind's default `lg` (1024px) disagreed, so the hamburger and the
+      // full link row both showed at once between 901 and 1023px. Use `nav:`
+      // for anything that must flip in step with .nav-links.
+      screens: {
+        nav: "1200px",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

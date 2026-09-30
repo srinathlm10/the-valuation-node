@@ -8,6 +8,7 @@
      nav         ->  .site-nav         (a bare `nav` rule would restyle the
                                         breadcrumb and footer navs too)
      white       ->  var(--surface)    (so the dark theme can swap surfaces)
+     .nav-links breakpoint 900px -> 1199px (see the rule itself, below)
 
    Variables are the prototype's own names. The dark-theme block at the end
    derives values for the site's existing dark-mode toggle. */
@@ -103,6 +104,20 @@
   align-items: center;
   justify-content: center;
   padding: 0;
+}
+
+/* Deviation from the prototype (900px): this site's real section labels,
+   plus the logo and account icons, need more width than the prototype's
+   short, fictional categories did. Widened to 1200px, the site's own max
+   content width, and kept in step with the `nav:` Tailwind breakpoint
+   (tailwind.config.ts) that switches the About/Sign-in link and the
+   hamburger toggle in Header.tsx. The two used to disagree (900px vs
+   Tailwind's default `lg`, 1024px), so the full link row and the hamburger
+   both showed at once between 901 and 1023px. */
+@media (max-width: 1199px) {
+  .nav-links {
+    display: none;
+  }
 }
 
 /* --- Main Layout --- */
@@ -406,9 +421,6 @@
 @media (max-width: 900px) {
   .home-container {
     grid-template-columns: 1fr;
-  }
-  .nav-links {
-    display: none; /* replaced by the hamburger sheet in Header.tsx */
   }
   .news-grid {
     grid-template-columns: 1fr;
