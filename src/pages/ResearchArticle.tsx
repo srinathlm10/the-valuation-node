@@ -298,6 +298,9 @@ export default function ResearchArticle() {
           <CitationBlock article={article} />
         </div>
 
+        {/* Comments: on published articles only, never on drafts/hidden previews. */}
+        {article.status === "published" && <ArticleCommentSection articleSlug={article.slug} />}
+
         <p className="mt-8 border-t pt-4 text-xs text-muted-foreground">
           Educational analysis, not investment advice. The author may hold positions in securities discussed; where relevant, this is stated above. See the{" "}
           <Link to={paths.aboutPage("disclaimer")} className="underline">disclaimer</Link>.
@@ -353,9 +356,6 @@ export default function ResearchArticle() {
           category={article.category}
           tags={[...(article.tags ?? []), ...(article.keywords ?? [])]}
         />
-
-        {/* Comments: on published articles only, never on drafts/hidden previews. */}
-        {article.status === "published" && <ArticleCommentSection articleSlug={article.slug} />}
       </article>
 
       {showToc && (
