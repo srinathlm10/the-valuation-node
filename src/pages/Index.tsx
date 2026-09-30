@@ -107,6 +107,11 @@ export default function Index() {
               <CardImage item={hero} hero />
               <div className="hero-content">
                 <span className={isEsg(hero) ? "tag esg" : "tag"}>{sectionLabel(hero)}</span>
+                {/* The hero is always the most recently published article
+                    (sorted above), so a "New" marker here never goes stale. */}
+                <span className="ml-2 inline-block rounded-full bg-brand-green px-3 py-1 text-xs font-bold uppercase tracking-wide text-brand-green-foreground">
+                  New
+                </span>
                 <h1 className="hero-title">{hero.meta.title}</h1>
                 <p className="hero-desc">{hero.meta.summary}</p>
                 <span className="read-more">Read Full Analysis</span>

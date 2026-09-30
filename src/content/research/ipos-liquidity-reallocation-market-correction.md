@@ -5,13 +5,13 @@ category: "Markets"
 section: "analysis"
 subsection: "market-analysis"
 tags: ["indian-markets", "equities", "valuation"]
-status: "draft"
+status: "published"
 keywords: ["IPO", "market liquidity", "bull market", "market correction", "fund flows"]
 metaTitle: "IPOs Do Not Create Money, They Only Move It | Valuation Node"
 metaDescription: "A rising IPO count in a bull market is not a sign of growth. It is a signal about liquidity. Here is the arithmetic behind why heavy IPO years often end in a correction."
 author: "Gajji Srinath"
-publishDate: "INSERT_HONEST_DATE"
-lastReviewed: "INSERT_HONEST_DATE"
+publishDate: "2026-09-18"
+lastReviewed: "2026-09-18"
 readingTime: 6
 isResearch: true
 excerpt: >-
