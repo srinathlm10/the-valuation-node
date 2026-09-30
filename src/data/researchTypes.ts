@@ -28,6 +28,8 @@ export interface ResearchArticleData {
   metaDescription?: string;
   canonical?: string;
   ogImage?: string;
+  /** Plain description of what the ogImage shows, not the article title. Falls back to the title when absent. */
+  imageAlt?: string;
 
   // Dates & meta
   publishedAt?: string; // ISO date

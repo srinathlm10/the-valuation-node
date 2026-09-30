@@ -14,6 +14,8 @@ publishDate: "2026-09-18"
 lastReviewed: "2026-09-18"
 readingTime: 6
 isResearch: true
+ogImage: /images/research/ipos-liquidity-reallocation-market-correction.jpg
+imageAlt: "Illustration of a person looking uncertain in front of a building labelled IPO, with a rising candlestick chart, a bull silhouette, coins, and a small crowd of investors"
 excerpt: >-
   IPOs do not add new money to the market, they move it. The arithmetic
   behind why a heavy IPO year quietly pulls value out of everything already

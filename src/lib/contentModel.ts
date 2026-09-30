@@ -80,7 +80,9 @@ export function researchMeta(a: ResearchArticleData): PageMeta {
     publishDate: a.publishedAt,
     updatedDate: a.updatedAt ?? a.publishedAt,
     featuredImage: a.ogImage,
-    imageAlt: a.ogImage && a.ogImage !== "/og-image.png" ? a.title : undefined,
+    // Prefer an explicit, plain description of the image; fall back to the
+    // title only for older entries that set a custom image before imageAlt existed.
+    imageAlt: a.imageAlt ?? (a.ogImage && a.ogImage !== "/og-image.png" ? a.title : undefined),
     readingTime: a.readingTime,
     author: a.author ?? DEFAULT_AUTHOR,
     status: a.status ?? (a.publishedAt ? "published" : "draft"),

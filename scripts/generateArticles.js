@@ -55,6 +55,7 @@ function readArticles() {
       metaDescription: data.metaDescription || data.excerpt,
       canonical: data.canonical || `https://valuationnode.com/analysis/${data.subsection || "financial-analysis"}/${slug}`,
       ogImage: data.ogImage || "/og-image.png",
+      imageAlt: data.imageAlt || undefined,
       // Accept both naming conventions: publishedAt/updatedAt and publishDate/lastReviewed.
       publishedAt: toDateStr(data.publishedAt ?? data.publishDate),
       updatedAt: toDateStr(data.updatedAt ?? data.lastReviewed),
