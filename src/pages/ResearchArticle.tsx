@@ -298,6 +298,16 @@ export default function ResearchArticle() {
           <CitationBlock article={article} />
         </div>
 
+        {/* Continue reading */}
+        <ContinueReading
+          className="mt-14"
+          heading="Related"
+          limit={3}
+          currentSlug={article.slug}
+          category={article.category}
+          tags={[...(article.tags ?? []), ...(article.keywords ?? [])]}
+        />
+
         {/* Comments: on published articles only, never on drafts/hidden previews. */}
         {article.status === "published" && <ArticleCommentSection articleSlug={article.slug} />}
 
@@ -347,15 +357,6 @@ export default function ResearchArticle() {
           </div>
         </div>
 
-        {/* Continue reading */}
-        <ContinueReading
-          className="mt-14"
-          heading="Related"
-          limit={3}
-          currentSlug={article.slug}
-          category={article.category}
-          tags={[...(article.tags ?? []), ...(article.keywords ?? [])]}
-        />
       </article>
 
       {showToc && (
