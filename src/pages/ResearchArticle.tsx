@@ -22,6 +22,8 @@ import { ReadingProgress } from "@/components/content/ReadingProgress";
 import { TableOfContents, tocFromMarkdown } from "@/components/content/TableOfContents";
 import { slugify } from "@/components/content/Prose";
 import { breadcrumbLd, PUBLISHER } from "@/lib/seo";
+import { ArticleCommentCount } from "@/components/article-comments/ArticleCommentCount";
+import { ArticleCommentSection } from "@/components/article-comments/ArticleCommentSection";
 
 function fmtDate(d?: string) {
   if (!d) return null;
@@ -215,6 +217,7 @@ export default function ResearchArticle() {
               {publishedDate && <span>Published <time dateTime={article.publishedAt}>{publishedDate}</time></span>}
               {updatedDate && <span>Updated <time dateTime={article.updatedAt}>{updatedDate}</time></span>}
               {article.readingTime && <span>{article.readingTime} min read</span>}
+              {article.status === "published" && <ArticleCommentCount articleSlug={article.slug} />}
             </div>
           </div>
         </div>
@@ -350,6 +353,9 @@ export default function ResearchArticle() {
           category={article.category}
           tags={[...(article.tags ?? []), ...(article.keywords ?? [])]}
         />
+
+        {/* Comments: on published articles only, never on drafts/hidden previews. */}
+        {article.status === "published" && <ArticleCommentSection articleSlug={article.slug} />}
       </article>
 
       {showToc && (

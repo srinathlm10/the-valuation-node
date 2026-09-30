@@ -8,10 +8,16 @@ import { Textarea } from "@/components/ui/textarea";
 import {
     Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
 } from "@/components/ui/select";
-import { communityService } from "@/services/communityService";
 import { useToast } from "@/hooks/use-toast";
 
-const REASONS = [
+/**
+ * Shared by the community forum (reports go to communityService.reportComment,
+ * reason "abuse") and article comments (articleCommentService.reportComment,
+ * reason "harassment"): the two backends check different reason values, so
+ * the caller supplies both the reason list and the submit function rather
+ * than this dialog hardcoding one service.
+ */
+const DEFAULT_REASONS = [
     { value: "spam", label: "Spam" },
     { value: "abuse", label: "Harassment or abuse" },
     { value: "off_topic", label: "Off-topic" },
@@ -24,9 +30,13 @@ interface Props {
     contentSlug: string;
     open: boolean;
     onOpenChange: (open: boolean) => void;
+    /** Defaults to the community forum's reason list and wording. */
+    reasons?: ReadonlyArray<{ value: string; label: string }>;
+    /** Defaults to communityService.reportComment. */
+    onSubmit?: (reason: string, details?: string) => Promise<void>;
 }
 
-export function ReportCommentDialog({ commentId, contentSlug, open, onOpenChange }: Props) {
+export function ReportCommentDialog({ commentId, contentSlug, open, onOpenChange, reasons = DEFAULT_REASONS, onSubmit }: Props) {
     const [reason, setReason] = useState("");
     const [details, setDetails] = useState("");
     const [loading, setLoading] = useState(false);
@@ -42,14 +52,19 @@ export function ReportCommentDialog({ commentId, contentSlug, open, onOpenChange
         if (!reason) return;
         setLoading(true);
         try {
-            await communityService.reportComment(commentId, reason, details || undefined);
+            if (onSubmit) {
+                await onSubmit(reason, details || undefined);
+            } else {
+                const { communityService } = await import("@/services/communityService");
+                await communityService.reportComment(commentId, reason, details || undefined);
+            }
             if (typeof (window as any).umami !== "undefined") {
                 (window as any).umami.track("Comment Reported", { content_slug: contentSlug, reason });
             }
             toast({ title: "Report submitted", description: "Thank you. We will review this comment." });
             handleClose();
         } catch (err: any) {
-            const isDuplicate = err?.code === "23505";
+            const isDuplicate = err?.code === "23505" || /already reported/i.test(err?.message ?? "");
             toast({
                 title: isDuplicate ? "Already reported" : "Failed to submit report",
                 description: isDuplicate
@@ -76,7 +91,7 @@ export function ReportCommentDialog({ commentId, contentSlug, open, onOpenChange
                                 <SelectValue placeholder="Select a reason" />
                             </SelectTrigger>
                             <SelectContent>
-                                {REASONS.map(r => (
+                                {reasons.map(r => (
                                     <SelectItem key={r.value} value={r.value}>{r.label}</SelectItem>
                                 ))}
                             </SelectContent>
