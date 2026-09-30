@@ -14,6 +14,8 @@ publishDate: "2026-02-11"
 lastReviewed: "2026-02-11"
 readingTime: 6
 isResearch: true
+ogImage: /images/research/roe-comparison-dupont-why-higher-isnt-better.webp
+imageAlt: "Illustration of two gauge dials, a magnifying glass revealing hidden gears behind the higher reading"
 excerpt: >-
   Return on equity is one number, but it is built from three. Until you split
   it apart, a high ROE and a fragile ROE look exactly the same.

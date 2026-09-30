@@ -13,6 +13,8 @@ author: "Gajji Srinath"
 publishDate: "2026-03-19"
 lastReviewed: "2026-03-19"
 readingTime: 6
+ogImage: /images/research/three-years-cash-flow-what-one-year-hides.webp
+imageAlt: "Illustration of a jagged, volatile line settling into a smooth upward trend"
 isResearch: true
 excerpt: >-
   Profit is an opinion, cash is a fact, and one year of cash flow is a

@@ -14,6 +14,8 @@ publishDate: "2026-01-14"
 lastReviewed: "2026-01-14"
 readingTime: 6
 isResearch: true
+ogImage: /images/research/high-pe-what-it-implies-and-when-its-a-trap.webp
+imageAlt: "Illustration of a rising stock price line leading into a trap at the top of a cliff"
 excerpt: >-
   A high P/E is not a verdict of "expensive." It is a sentence the market is
   speaking about the future, and learning to read that sentence is where
